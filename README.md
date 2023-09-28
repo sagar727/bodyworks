@@ -6,3 +6,4 @@ Group 6
 
 1. Sagar Modi
 2. [@Dhruv Patel](https://www.github.com/UnfortunetlyHuman)
+3. Ishit Chauhan
