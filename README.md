@@ -27,3 +27,8 @@ Welcome to Bodyworks, the all-in-one fitness app designed to elevate your health
 10. Language Change
 11. Select Timer Music
 12. Set Notification For Reminder
+13. Nutritional Values Information
+14. Workout History
+15. Change Unit Of Measurement
+16. Sleep Tracker
+17. Sleep Reminder
