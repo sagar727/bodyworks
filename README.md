@@ -19,3 +19,7 @@ Welcome to Bodyworks, the all-in-one fitness app designed to elevate your health
 2. Weight Tracker
 3. Water Reminder
 4. Calories Tracker
+5. Daily Workout Planner
+6. Diet Meal Plan
+7. Theme Color Change
+8. Set Workout Timer
