@@ -23,3 +23,7 @@ Welcome to Bodyworks, the all-in-one fitness app designed to elevate your health
 6. Diet Meal Plan
 7. Theme Color Change
 8. Set Workout Timer
+9. Dark Mode
+10. Language Change
+11. Select Timer Music
+12. Set Notification For Reminder
