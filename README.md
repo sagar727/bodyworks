@@ -20,19 +20,18 @@ Android Studio
 ## App Features:
 
 1. BMI Calculator
-2. Weight Tracker
-3. Water Reminder
-4. Calories Tracker
-5. Daily Workout Planner
-6. Diet Meal Plan
-7. Theme Color Change
-8. Set Workout Timer
-9. Dark Mode
-10. Language Change
-11. Select Timer Music
-12. Set Notification For Reminder
-13. Nutritional Values Information
-14. Workout History
-15. Change Unit Of Measurement
-16. Sleep Tracker
-17. Sleep Reminder
+2. Daily Workout Planner
+3. Set Workout Timer
+4. Workout Categories
+5. Weight Tracker
+6. Water Reminder
+7. Calories Tracker
+8. Language Change
+9. Diet Meal Plan
+10. Set Notification For Workout Reminder
+11. Change Unit Of Measurement
+12. Sleep Reminder
+13. Theme Color Change
+14. Dark Mode
+15. Select Timer Music
+16. Nutritional Values Information
