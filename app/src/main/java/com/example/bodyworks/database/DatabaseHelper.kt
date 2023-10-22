@@ -9,42 +9,102 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.EditText
 import android.widget.Toast
+import com.example.bodyworks.model.User
 import java.util.Calendar
 
-val DATABASE_NAME = "UserDob.db"
+val DATABASE_NAME = "Bodyworks.db"
 val DATABASE_VERSION = 1
-val TABLE_NAME = "Users"
-val COL_ID = "id"
-val COL_NAME = "name"
-val COL_DOB = "dob"
+
+val ACTIVITY_TABLE = "activity"
+val ACTIVITY_ID = "actid"
+val ACTIVITY_NAME = "actname"
+
+val WORKOUT_TABLE = "workout"
+val WORKOUT_ID = "workoutid"
+val WORKOUT_NAME = "workoutname"
+val ACT_ID = "actid"
+val WORKOUT_VIDEO = "workoutvideo"
+
+val USER_TABLE = "user"
+val USER_ID = "userid"
+val USER_HT = "userht"
+val USER_WT = "userwt"
+val USER_BMI = "userbmi"
+
+val PLANNER_TABLE = "planner"
+val DAY_ID = "dayid"
+val DAY_NAME = "dayname"
+val ACTIVITY1 = "activity1"
+val ACTIVITY2 = "activity2"
 
 
 class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,null,
     DATABASE_VERSION){
     override fun onCreate(db: SQLiteDatabase?) {
-        val createTable =
-            "CREATE TABLE $TABLE_NAME($COL_ID INTEGER PRIMARY KEY AUTOINCREMENT,$COL_NAME TEXT,$COL_DOB TEXT)"
-        db?.execSQL(createTable)
+        val createActivityTable =
+            "CREATE TABLE $ACTIVITY_TABLE(" +
+                    "$ACTIVITY_ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "$ACTIVITY_NAME TEXT NOT NULL" +
+                    ")"
+        db?.execSQL(createActivityTable)
+
+        val createWorkoutTable =
+            "CREATE TABLE $WORKOUT_TABLE(" +
+                    "$WORKOUT_ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "$WORKOUT_NAME TEXT NOT NULL, " +
+                    "$WORKOUT_VIDEO TEXT NOT NULL, " +
+                    "$ACT_ID INTEGER NOT NULL, " +
+                    "FOREIGN KEY($ACT_ID) REFERENCES $ACTIVITY_TABLE($ACTIVITY_ID)" +
+                    ")"
+        db?.execSQL(createWorkoutTable)
+
+        val createUserTable =
+            "CREATE TABLE $USER_TABLE(" +
+                    "$USER_ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "$USER_HT TEXT," +
+                    "$USER_WT TEXT," +
+                    "$USER_BMI TEXT" +
+                    ")"
+        db?.execSQL(createUserTable)
+
+        val createPlannerTable =
+            "CREATE TABLE $PLANNER_TABLE(" +
+                    "$DAY_ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "$DAY_NAME TEXT," +
+                    "$ACTIVITY1 TEXT," +
+                    "$ACTIVITY2 TEXT" +
+                    ")"
+        db?.execSQL(createPlannerTable)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        val deleteTable = "DROP TABLE IF EXISTS $TABLE_NAME"
-        db?.execSQL(deleteTable)
+        val deleteActivityTable = "DROP TABLE IF EXISTS $ACTIVITY_TABLE"
+        db?.execSQL(deleteActivityTable)
+
+        val deleteWorkoutTable = "DROP TABLE IF EXISTS $WORKOUT_TABLE"
+        db?.execSQL(deleteWorkoutTable)
+
+        val deleteUserTable = "DROP TABLE IF EXISTS $USER_TABLE"
+        db?.execSQL(deleteUserTable)
+
+        val deletePlannerTable = "DROP TABLE IF EXISTS $PLANNER_TABLE"
+        db?.execSQL(deletePlannerTable)
     }
 
-//    fun addData(user:User){
-//        val db = this.writableDatabase
-//        val content = ContentValues()
-//        content.put(COL_NAME,user.name)
-//        content.put(COL_DOB,user.dob)
-//        val result = db.insert(TABLE_NAME,null,content)
-//        if(result == (-1).toLong()){
-//            Toast.makeText(context,"Could not add data!!",Toast.LENGTH_LONG).show()
-//        }else{
-//            Toast.makeText(context,"Data added successfully!!", Toast.LENGTH_LONG).show()
-//        }
-//        db.close()
-//    }
+    fun addUserData(user: User){
+        val db = this.writableDatabase
+        val content = ContentValues()
+        content.put(USER_HT,user.ht)
+        content.put(USER_WT,user.wt)
+        content.put(USER_BMI,user.bmi)
+        val result = db.insert(USER_TABLE,null,content)
+        if(result == (-1).toLong()){
+            Toast.makeText(context,"Could not add data!!",Toast.LENGTH_LONG).show()
+        }else{
+            Toast.makeText(context,"Data added successfully!!", Toast.LENGTH_LONG).show()
+        }
+        db.close()
+    }
 //
 //    fun deleteAll(){
 //        val db = this.writableDatabase
@@ -56,21 +116,22 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
 //        }
 //        db.close()
 //    }
-//
-//    fun updateData(user:User){
-//        val db = this.writableDatabase
-//        val content = ContentValues()
-//        content.put(COL_NAME,user.name)
-//        content.put(COL_DOB,user.dob)
-//        val result = db.update(TABLE_NAME,content, "$COL_ID ="+user.id,null)
-//        if(result == 0){
-//            Toast.makeText(context,"Could not update data!!",Toast.LENGTH_LONG).show()
-//        }else{
-//            Toast.makeText(context,"Data updated successfully!!", Toast.LENGTH_LONG).show()
-//        }
-//        db.close()
-//    }
-//
+
+    fun updateUserData(user:User){
+        val db = this.writableDatabase
+        val content = ContentValues()
+        content.put(USER_HT,user.ht)
+        content.put(USER_WT,user.wt)
+        content.put(USER_BMI,user.bmi)
+        val result = db.update(USER_TABLE,content, null,null)
+        if(result == 0){
+            Toast.makeText(context,"Could not update data!!",Toast.LENGTH_LONG).show()
+        }else{
+            Toast.makeText(context,"Data updated successfully!!", Toast.LENGTH_LONG).show()
+        }
+        db.close()
+    }
+
 //    fun deleteData(id:Int){
 //        val db = this.writableDatabase
 //        val result = db.delete(TABLE_NAME, "$COL_ID =$id",null)
@@ -105,18 +166,5 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
 //            }
 //        }
 //        return userData
-//    }
-//
-//    fun dateDialog(date :EditText) {
-//        val cal = Calendar.getInstance()
-//
-//        val year = cal.get(Calendar.YEAR)
-//        val month = cal.get(Calendar.MONTH)
-//        val day = cal.get(Calendar.DAY_OF_MONTH)
-//
-//        val datePicker = DatePickerDialog(context,DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-//                date.setText("" + dayOfMonth + "-" + (monthOfYear + 1) + "-" + year)
-//            },year, month, day)
-//        datePicker.show()
 //    }
 }
