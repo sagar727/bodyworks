@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/workouts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="@string/workouts"
+        android:icon="@drawable/baseline_fitness_center_24"
+        />
+    <item
+        android:id="@+id/fitnessHub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="@string/fitness_hub"
+        android:icon="@drawable/baseline_bar_chart_24"
+        />
+</menu>
