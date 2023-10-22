@@ -3,7 +3,6 @@ package com.example.bodyworks.viewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import kotlin.math.roundToInt
-import kotlin.math.roundToLong
 
 class BodyWorksViewModel: ViewModel() {
     var bmi = MutableLiveData<String>()
@@ -25,3 +24,4 @@ class BodyWorksViewModel: ViewModel() {
         bmi.value = result.toString()
     }
 }
+

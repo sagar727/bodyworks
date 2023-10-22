@@ -4,4 +4,13 @@
     <string name="fitness_hub">Fitness Hub</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="set_timer">Set timer</string>
+    <string name="set">Set</string>
+    <string name="zero">0</string>
+    <string name="setBtn">Set</string>
+    <string name="startBtn">Start</string>
+    <string name="resetBtn">Reset</string>
+    <string name="pause">Pause</string>
+    <string name="resume">Resume</string>
+    <string name="start">Start</string>
 </resources>

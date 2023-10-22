@@ -1,5 +1,6 @@
 package com.example.bodyworks
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -23,9 +24,13 @@ class MainActivity : AppCompatActivity() {
 
                 }
             }
-
             true
         }
+        binding.button.setOnClickListener{
+            val intent = Intent(this, TimerActivity :: class.java)
+            startActivity(intent)
+        }
+
     }
 
     private fun replaceFragment(fragment: Fragment){
@@ -34,4 +39,5 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.replace(R.id.frameLayout, fragment)
         fragmentTransaction.commit()
     }
+
 }
