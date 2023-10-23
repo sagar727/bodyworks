@@ -43,13 +43,13 @@ class BmiActivity : AppCompatActivity() {
             val inch = binding.inchET.text.toString().trim()
             if (binding.metricRadioBtn.isChecked) {
                 if(wt != "" && ht != ""){
-                    bmiVM.calculateBmiInMetric(wt.toDouble(),ht.toDouble())
+                    bmiVM.calculateBmiInMetric(this,wt.toDouble(),ht.toDouble())
                 }else{
                     Toast.makeText(this,"Please add all details!!",Toast.LENGTH_LONG).show()
                 }
             } else if (binding.imperialRadioBtn.isChecked) {
                 if(wt != "" && ft != "" && inch != ""){
-                    bmiVM.calculateBmiInImperial(wt.toDouble(),ft.toInt(),inch.toInt())
+                    bmiVM.calculateBmiInImperial(this,wt.toDouble(),ft.toInt(),inch.toInt())
                 }else{
                     Toast.makeText(this,"Please add all details!!",Toast.LENGTH_LONG).show()
                 }

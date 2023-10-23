@@ -1,16 +1,13 @@
 package com.example.bodyworks.database
 
-import android.annotation.SuppressLint
-import android.app.DatePickerDialog
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
+import android.database.DatabaseUtils
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import android.widget.EditText
 import android.widget.Toast
 import com.example.bodyworks.model.User
-import java.util.Calendar
 
 val DATABASE_NAME = "Bodyworks.db"
 val DATABASE_VERSION = 1
@@ -24,10 +21,11 @@ val WORKOUT_ID = "workoutid"
 val WORKOUT_NAME = "workoutname"
 val ACT_ID = "actid"
 val WORKOUT_VIDEO = "workoutvideo"
+val WORKOUT_MUSCLES = "workoutmuscles"
+val WORKOUT_THUMBNAIL = "workoutthumbnail"
 
 val USER_TABLE = "user"
 val USER_ID = "userid"
-val USER_HT = "userht"
 val USER_WT = "userwt"
 val USER_BMI = "userbmi"
 
@@ -53,6 +51,8 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
                     "$WORKOUT_ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                     "$WORKOUT_NAME TEXT NOT NULL, " +
                     "$WORKOUT_VIDEO TEXT NOT NULL, " +
+                    "$WORKOUT_THUMBNAIL TEXT NOT NULL," +
+                    "$WORKOUT_MUSCLES TEXT NOT NULL," +
                     "$ACT_ID INTEGER NOT NULL, " +
                     "FOREIGN KEY($ACT_ID) REFERENCES $ACTIVITY_TABLE($ACTIVITY_ID)" +
                     ")"
@@ -61,7 +61,6 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
         val createUserTable =
             "CREATE TABLE $USER_TABLE(" +
                     "$USER_ID INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    "$USER_HT TEXT," +
                     "$USER_WT TEXT," +
                     "$USER_BMI TEXT" +
                     ")"
@@ -91,10 +90,28 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
         db?.execSQL(deletePlannerTable)
     }
 
+    fun addActivityData(activityData: Array<String>){
+        val db = this.writableDatabase
+        val content = ContentValues()
+        for(activity in activityData){
+            content.put(ACTIVITY_NAME,activity)
+            val result = db.insert(ACTIVITY_TABLE,null,content)
+            if(result == (-1).toLong()){
+                Toast.makeText(context,"Could not add data!!",Toast.LENGTH_LONG).show()
+            }
+        }
+        db.close()
+    }
+
+    fun addWorkoutData(){
+        val db = this.writableDatabase
+        val content = ContentValues()
+        db.close()
+    }
+
     fun addUserData(user: User){
         val db = this.writableDatabase
         val content = ContentValues()
-        content.put(USER_HT,user.ht)
         content.put(USER_WT,user.wt)
         content.put(USER_BMI,user.bmi)
         val result = db.insert(USER_TABLE,null,content)
@@ -104,6 +121,13 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
             Toast.makeText(context,"Data added successfully!!", Toast.LENGTH_LONG).show()
         }
         db.close()
+    }
+
+    fun countUser():Int{
+        val db = this.readableDatabase
+        val count = DatabaseUtils.queryNumEntries(db, USER_TABLE)
+        db.close()
+        return count.toInt()
     }
 //
 //    fun deleteAll(){
@@ -120,7 +144,6 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
     fun updateUserData(user:User){
         val db = this.writableDatabase
         val content = ContentValues()
-        content.put(USER_HT,user.ht)
         content.put(USER_WT,user.wt)
         content.put(USER_BMI,user.bmi)
         val result = db.update(USER_TABLE,content, null,null)
