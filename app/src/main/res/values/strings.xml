@@ -14,7 +14,7 @@
     <string name="resume">Resume</string>
     <string name="start">Start</string>
 
-<!--    Abdomen-->
+<!--    Abdomen strings-->
 
     <string name="plank">Transversus Abdominis, Rectus Abdominis, Internal Oblique, External Oblique Muscles</string>
     <string name="leg_raise">Rectus Abdominis, The Internal and External Oblique Muscles</string>
@@ -24,7 +24,7 @@
     <string name="crunches">rectus abdominus,</string>
     <string name="hanging_leg_raise">Iliopsoas, Rectus Abdominis, Obliques</string>
 
-<!--    Biceps & Forearm-->
+    <!--    Biceps & Forearm-->
 
     <string name="dumbbell_curl">biceps, the brachialis, brachioradialis</string>
     <string name="incline_dumbbell_curl">biceps, the brachialis, brachioradialis</string>
@@ -35,14 +35,14 @@
     <string name="palms_up_wrist_curl">the forearms,</string>
     <string name="palms_down_wrist_curl">the forearms,</string>
 
-<!--    Cardio-->
+    <!--    Cardio-->
     <string name="treadmill">Run on the treadmill</string>
     <string name="elliptical">Pedal away on an elliptical</string>
     <string name="stepper">Claim steps on a stair machine</string>
     <string name="burpee">Burpee</string>
     <string name="jumping_jacks">Jumping jacks</string>
 
-<!--    Leg-->
+    <!--    Leg-->
     <string name="squats">Gluteus Maximus-Minimus-Medius (buttocks), Quadriceps (front of the thigh), Hamstrings (back of the thigh), Adductor (groin), Hip flexors, Calves</string>
     <string name="leg_press">Quadriceps, Quads</string>
     <string name="hack_squats">Glutes, Hamstrings, Quads, Calves</string>
@@ -50,7 +50,7 @@
     <string name="leg_curl">Hamstrings, Gluteals</string>
     <string name="lunges">Gluteals, Quadriceps, Hamstrings</string>
 
-<!--    Shoulder-->
+    <!--    Shoulder-->
     <string name="dumbbell_front_raise">Anterior Deltoid,</string>
     <string name="dumbbell_lateral_raise">Trapezius, Lateral Deltoid, Front Deltoids</string>
     <string name="seated_military_press">Deltoid, Triceps</string>
@@ -58,13 +58,13 @@
     <string name="overhead_press">Pectorals (chest), Deltoids (shoulders), Triceps (arms), Trapezius (upper back)</string>
     <string name="face_pull">Rear Deltoids, Rhomboids, Middle Trapezius</string>
 
-<!--    Triceps-->
+    <!--    Triceps-->
     <string name="skull_crusher">Triceps,</string>
     <string name="dip">Triceps, Chest, Shoulders</string>
     <string name="standing_overhead_cable_triceps_extension">Core, Gluteals, Lower Back Muscles</string>
     <string name="cable_rope_tricep_pushdown">Triceps,</string>
 
-<!--    Back-->
+    <!--    Back-->
     <string name="deadlift">Trapezius, Deltoids, Rhomboids, Erectors, Latissimus Dorsi, Gluteals, Hamstrings, Calves, Biceps, Core</string>
     <string name="single_arm_dumbbell_row">Latissimus Dorsi, Biceps, Trapezius, Deltoids, Core</string>
     <string name="incline_rows">Latissimus Dorsi, Erectors, Serratus, Rhomboids</string>
@@ -72,7 +72,7 @@
     <string name="seated_cable_row">Latissimus Dorsi, Rhomboids, Trapezius, Biceps</string>
     <string name="lat_pull_downs">Latissimus Dorsi, Biceps, Rear Deltoids, Rhomboids, Trapezius</string>
 
-<!--    Chest-->
+    <!--    Chest-->
     <string name="dumbbell_bench_press">Pectorals, Triceps, Deltoids</string>
     <string name="incline_bench_press">Pectorals, Triceps, Deltoids</string>
     <string name="machine_chest_press">Pectorals, Triceps, Deltoids</string>
@@ -101,4 +101,12 @@
         <item>Shoulder</item>
         <item>Triceps</item>
     </string-array>
+
+    <!--  DailyWorkout Activity Strings  -->
+    <string name="daily_workout_planner">Daily Workout Planner</string>
+    <string name="daily_workout_planner_help">Floating Button To Get Help About How To Use Daily Workout Planner Feature of App</string>
+    <string name="workout_selected_tab_text">Workout Planned</string>
+    <string name="plan_workouts_tab_text">Plan Workouts</string>
+    <string name="today_s_exercise_label">Today\'s Exercise</string>
+    <string name="reset_button_text">Reset</string>
 </resources>
