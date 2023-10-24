@@ -23,12 +23,14 @@ class BmiActivity : AppCompatActivity() {
 
         bmiVM = ViewModelProvider(this).get(BodyWorksViewModel::class.java)
 
-        val toolbar = binding.toolbar
+        val toolbar = binding.materialToolbar
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
+
+        bmiVM.getBMI(this)
 
         radioChecked()
 

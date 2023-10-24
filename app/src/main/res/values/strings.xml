@@ -14,7 +14,7 @@
     <string name="resume">Resume</string>
     <string name="start">Start</string>
 
-<!--    Abdomen strings-->
+<!--    Abdomen-->
 
     <string name="plank">Transversus Abdominis, Rectus Abdominis, Internal Oblique, External Oblique Muscles</string>
     <string name="leg_raise">Rectus Abdominis, The Internal and External Oblique Muscles</string>
@@ -80,14 +80,24 @@
     <string name="dip2">Chest, Shoulders, Triceps</string>
     <string name="chest_fly">Pectorals, Deltoids, Triceps, Biceps</string>
     <string name="machine_fly">Lower Chest, Upper Chest, Front Shoulder</string>
+    <string name="metric">Metric</string>
+    <string name="imperial">Imperial</string>
+    <string name="your_current_bmi">Your Current BMI:</string>
+    <string name="_0">0</string>
+    <string name="kilogram">Kilogram</string>
+    <string name="centimeters">Centimeters</string>
+    <string name="feet">Feet</string>
+    <string name="inch">Inch</string>
+    <string name="calculate">Calculate</string>
 
-<!--    Activity Array-->
+    <!--    Activity Array-->
     <string-array name="activity_array">
         <item>Abdomen</item>
         <item>Back</item>
         <item>Biceps and Forearm</item>
         <item>Cardio</item>
         <item>Chest</item>
+        <item>Leg</item>
         <item>Shoulder</item>
         <item>Triceps</item>
     </string-array>

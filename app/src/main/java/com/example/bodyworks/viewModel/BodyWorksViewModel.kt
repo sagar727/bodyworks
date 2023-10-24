@@ -20,12 +20,17 @@ class BodyWorksViewModel: ViewModel() {
         bmi.value = result.toString()
         val user = User(wt.toString(),result.toString())
         val db = DatabaseHelper(context)
-        val count = db.countUser()
+        val count = db.countTableRow("user")
         if(count > 0){
             db.updateUserData(user)
         }else{
             db.addUserData(user)
         }
+    }
+
+    fun getBMI(context: Context){
+        val db = DatabaseHelper(context)
+        bmi.value = db.getBMI()
     }
 
     fun calculateBmiInImperial(context: Context,wt: Double, ft: Int, inch: Int){
@@ -36,7 +41,7 @@ class BodyWorksViewModel: ViewModel() {
         val lbToKg = (wt / 2.2046).roundToInt() / 100.0
         val user = User(lbToKg.toString(),result.toString())
         val db = DatabaseHelper(context)
-        val count = db.countUser()
+        val count = db.countTableRow("user")
         if(count > 0){
             db.updateUserData(user)
         }else{
@@ -46,7 +51,10 @@ class BodyWorksViewModel: ViewModel() {
 
     fun addActivityData(context: Context, activityData: Array<String>){
         val db = DatabaseHelper(context)
-        db.addActivityData(activityData)
+        val count = db.countTableRow("activity")
+        if(count == 0){
+            db.addActivityData(activityData)
+        }
     }
 }
 
