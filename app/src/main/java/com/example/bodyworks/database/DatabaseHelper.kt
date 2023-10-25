@@ -244,8 +244,8 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
         val db = this.writableDatabase
         val content = ContentValues()
         content.put("name" ,workout.name)
-        content.put("muscles",workout.muscle)
         content.put("video",workout.video)
+        content.put("muscles",workout.muscle)
         content.put("thumbnail",workout.thumbnail)
         val result = db.insert(
             tableName,null,content)
@@ -295,17 +295,6 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
         db.close()
         return count.toInt()
     }
-//
-//    fun deleteAll(){
-//        val db = this.writableDatabase
-//        val result = db.delete(TABLE_NAME, null,null)
-//        if(result == 0){
-//            Toast.makeText(context,"Could not delete data!!",Toast.LENGTH_LONG).show()
-//        }else{
-//            Toast.makeText(context,"Reset done successfully!!", Toast.LENGTH_LONG).show()
-//        }
-//        db.close()
-//    }
 
     fun updateUserData(user:User){
         val db = this.writableDatabase
@@ -321,17 +310,7 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
         db.close()
     }
 
-//    fun deleteData(id:Int){
-//        val db = this.writableDatabase
-//        val result = db.delete(TABLE_NAME, "$COL_ID =$id",null)
-//        if(result == 0){
-//            Toast.makeText(context,"Could not delete data!!",Toast.LENGTH_LONG).show()
-//        }else{
-//            Toast.makeText(context,"Data deleted successfully!!", Toast.LENGTH_LONG).show()
-//        }
-//        db.close()
-//    }
-//
+
     @SuppressLint("Range")
     fun displayAll(tableName: String):ArrayList<WorkoutDataModel>{
         val workOutData = ArrayList<WorkoutDataModel>()
@@ -359,5 +338,33 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
             }
         }
         return workOutData
+    }
+
+    @SuppressLint("Range")
+    fun getWorkoutDetail(workoutName:String, tableName: String): WorkoutDataModel? {
+        val selectQuery = "SELECT * FROM $tableName WHERE name = ?"
+        val db = this.readableDatabase
+        var cursor: Cursor? = null
+        cursor = db.rawQuery(selectQuery, arrayOf(workoutName))
+        var id:Int
+        var workoutName:String
+        var video:String
+        var muscle:String
+        var thumbnail:String
+        var workData: WorkoutDataModel? = null
+        if (cursor != null) {
+            if(cursor.moveToFirst()){
+                do{
+                    id = cursor.getInt(cursor.getColumnIndex("id"))
+                    workoutName = cursor.getString(cursor.getColumnIndex("name"))
+                    video = cursor.getString(cursor.getColumnIndex("video"))
+                    muscle = cursor.getString(cursor.getColumnIndex("muscles"))
+                    thumbnail = cursor.getString(cursor.getColumnIndex("thumbnail"))
+                    workData = WorkoutDataModel(workoutName,video,thumbnail,muscle)
+                    workData.id = id
+                }while (cursor.moveToNext())
+            }
+        }
+        return workData
     }
 }

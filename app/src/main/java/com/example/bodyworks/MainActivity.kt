@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
 
         insertWorkoutData()
 
-
         //Setting Workout page as home page
         replaceFragment(WorkoutFragment())
         //Changing fragment as per selection
