@@ -6,15 +6,15 @@
 
     <EditText
         android:id="@+id/getTime"
-        android:layout_width="342dp"
+        android:layout_width="200dp"
         android:layout_height="43dp"
         android:layout_margin="10dp"
         android:layout_marginTop="16dp"
         android:hint="@string/set_timer"
         android:autofillHints="time"
         android:inputType="numberDecimal"
-        android:textColor="@color/max_blue"
-        android:textColorHint="@color/min_blue"
+        android:textColor="@color/primary"
+        android:textColorHint="@color/gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"

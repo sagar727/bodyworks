@@ -35,10 +35,6 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-        binding.button.setOnClickListener{
-            val intent = Intent(this, TimerActivity :: class.java)
-            startActivity(intent)
-        }
 
         binding.button2.setOnClickListener{
             val intent = Intent(this, WorkoutActivity :: class.java)
