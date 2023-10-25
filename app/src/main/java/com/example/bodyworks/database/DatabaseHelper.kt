@@ -235,7 +235,7 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
             content.put(ACTIVITY_NAME,activity)
             val result = db.insert(ACTIVITY_TABLE,null,content)
             if(result == (-1).toLong()){
-                Toast.makeText(context,"Could not add data!!",Toast.LENGTH_LONG).show()
+                Log.d("Database:", "Could not add data!!")
             }
         }
         db.close()
@@ -251,9 +251,9 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
         val result = db.insert(
             tableName,null,content)
         if(result == (-1).toLong()){
-            Toast.makeText(context,"Could not add data!!",Toast.LENGTH_LONG).show()
+            Log.d("Database:", "Could not add data!!")
         }else{
-            Toast.makeText(context,"Data added successfully!!", Toast.LENGTH_LONG).show()
+            Log.d("Database:", "Data added successfully!!")
         }
         db.close()
     }
@@ -266,9 +266,9 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
         content.put(USER_BMI,user.bmi)
         val result = db.insert(USER_TABLE,null,content)
         if(result == (-1).toLong()){
-            Toast.makeText(context,"Could not add data!!",Toast.LENGTH_LONG).show()
+            Log.d("Database:", "Could not add data!!")
         }else{
-            Toast.makeText(context,"Data added successfully!!", Toast.LENGTH_LONG).show()
+            Log.d("Database:", "Data added successfully!!")
         }
         db.close()
     }
@@ -304,9 +304,9 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
         content.put(USER_BMI,user.bmi)
         val result = db.update(USER_TABLE,content, null,null)
         if(result == 0){
-            Toast.makeText(context,"Could not update data!!",Toast.LENGTH_LONG).show()
+            Log.d("Database:", "Could not add data!!")
         }else{
-            Toast.makeText(context,"Data updated successfully!!", Toast.LENGTH_LONG).show()
+            Log.d("Database:", "Data added successfully!!")
         }
         db.close()
     }
@@ -481,6 +481,5 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
         }
         return exercise
     }
-
     /** Code Ends Here For Daily Workout Planner */
 }
