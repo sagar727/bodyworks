@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bodyworks.R
 import com.example.bodyworks.dailyWorkoutPlanner.planWorkouts.EachDayViewAdapter
+import com.example.bodyworks.database.DatabaseHelper
 import com.example.bodyworks.databinding.FragmentPlanDailyWorkoutsBinding
 import com.example.bodyworks.databinding.FragmentSelectedWorkoutsBinding
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
@@ -54,15 +55,8 @@ class SelectedWorkoutsFragment : Fragment() {
         txtViewDay = binding.txtViewDay
         txtViewExercise = binding.txtViewExercise
         rcViewSelectedExercises = binding.rcViewSelectedExercises
-        floatingActionButton = binding.floatingActionButton
-
-        floatingActionButton.setOnClickListener{
-            Toast.makeText(context, "Show Help", Toast.LENGTH_SHORT).show()
-            // TODO: Implement Reset Functionality Here
-        }
-
         // This will set today's day of week to the text view
-        // TODO: Setting Today's Day Here
+        val db = DatabaseHelper(requireContext())
         val dayOfWeekText = when (Calendar.getInstance().get(Calendar.DAY_OF_WEEK)) {
             Calendar.MONDAY -> "Monday"
             Calendar.TUESDAY -> "Tuesday"
@@ -73,36 +67,50 @@ class SelectedWorkoutsFragment : Fragment() {
             Calendar.SUNDAY -> "Sunday"
             else -> "ERROR"
         }
+        val todaysExercise = db.getExerciseSelectedList(dayOfWeekText)
         txtViewDay.text = dayOfWeekText
+        txtViewExercise.text = todaysExercise
 
         // RecyclerView Code
-        // TODO: Set selected exercises here and pass it to recyclerview
-        rcViewSelectedExercises.adapter = ExerciseDayDataAdapter(listOf(
-            DayExerciseModel("Monday:",
-                listOf("Exercise1","Exercise2")
-            ),
-            DayExerciseModel("Tuesday:",
-                listOf("Exercise1","Exercise2")
-            ),
-            DayExerciseModel("Wednesday:",
-                listOf("Exercise1","Exercise2")
-            ),
-            DayExerciseModel("Thursday:",
-                listOf("Exercise1","Exercise2")
-            ),
-            DayExerciseModel("Friday:",
-                listOf("Exercise1","Exercise2")
-            ),
-            DayExerciseModel("Saturday:",
-                listOf("Exercise1","Exercise2")
-            ),
-            DayExerciseModel("Sunday:",
-                listOf("Exercise1","Exercise2")
-            )
-        ))
+        val weekDays = arrayOf("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+        val exerciseListFetched = mutableListOf<DayExerciseModel>()
+        weekDays.forEach {
+            val allExercisesThatWasSelected = db.getExerciseSelectedList(it)
+            exerciseListFetched.add(DayExerciseModel("$it:",allExercisesThatWasSelected.split(",")))
+        }
+
+        rcViewSelectedExercises.adapter = ExerciseDayDataAdapter(exerciseListFetched)
         rcViewSelectedExercises.layoutManager = LinearLayoutManager(context)
 
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val db = DatabaseHelper(requireContext())
+        val dayOfWeekText = when (Calendar.getInstance().get(Calendar.DAY_OF_WEEK)) {
+            Calendar.MONDAY -> "Monday"
+            Calendar.TUESDAY -> "Tuesday"
+            Calendar.WEDNESDAY -> "Wednesday"
+            Calendar.THURSDAY -> "Thursday"
+            Calendar.FRIDAY -> "Friday"
+            Calendar.SATURDAY -> "Saturday"
+            Calendar.SUNDAY -> "Sunday"
+            else -> "ERROR"
+        }
+        val todaysExercise = db.getExerciseSelectedList(dayOfWeekText)
+        txtViewDay.text = dayOfWeekText
+        txtViewExercise.text = todaysExercise
+
+        val weekDays = arrayOf("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+        val exerciseListFetched = mutableListOf<DayExerciseModel>()
+        weekDays.forEach {
+            val allExercisesThatWasSelected = db.getExerciseSelectedList(it)
+            exerciseListFetched.add(DayExerciseModel("$it:",allExercisesThatWasSelected.split(",")))
+        }
+
+        rcViewSelectedExercises.adapter = ExerciseDayDataAdapter(exerciseListFetched)
+        rcViewSelectedExercises.adapter?.notifyDataSetChanged()
     }
 
     companion object {

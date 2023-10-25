@@ -38,6 +38,7 @@
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,44 +47,31 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="Monday"
                     android:textColor="#000000"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/txtViewDay3"
-                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txtViewTodayExercise" />
-
-                <TextView
-                    android:id="@+id/txtViewDay3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=":"
-                    android:textColor="@color/primary"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/txtViewDay"
-                    app:layout_constraintEnd_toStartOf="@+id/txtViewExercise"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/txtViewDay"
-                    app:layout_constraintTop_toTopOf="@+id/txtViewDay" />
 
                 <TextView
                     android:id="@+id/txtViewExercise"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Chest"
+                    android:layout_marginTop="8dp"
                     android:textColor="#000000"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/txtViewDay"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/txtViewDay3"
-                    app:layout_constraintTop_toTopOf="@+id/txtViewDay" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtViewDay"
+                    app:layout_constraintVertical_bias="0.0"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textAlignment="center"
+                    />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -101,32 +89,13 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcViewSelectedExercises"
-            android:layout_width="409dp"
-            android:layout_height="543dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginTop="24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/materialDivider" />
-
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/floatingActionButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:clickable="true"
-            android:contentDescription="@string/daily_workout_planner_help"
-            android:text="@string/reset_button_text"
-            app:icon="@drawable/baseline_refresh_24"
-            app:iconTint="@color/white"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:focusable="true"
-            android:backgroundTint="@color/primary"
-            android:elevation="2dp"
-            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

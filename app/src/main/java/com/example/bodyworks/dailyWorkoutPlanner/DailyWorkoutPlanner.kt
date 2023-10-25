@@ -2,8 +2,6 @@ package com.example.bodyworks.dailyWorkoutPlanner
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
@@ -53,6 +51,7 @@ class DailyWorkoutPlanner : AppCompatActivity() {
             }
 
             override fun onTabReselected(tab: TabLayout.Tab?) {
+
             }
         })
         viewPagerWorkoutPlanner.registerOnPageChangeCallback(object : OnPageChangeCallback(){
