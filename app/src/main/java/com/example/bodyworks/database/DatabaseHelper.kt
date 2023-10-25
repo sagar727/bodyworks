@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
 import com.example.bodyworks.model.User
+import com.example.bodyworks.model.WorkoutDataModel
 
 val DATABASE_NAME = "Bodyworks.db"
 val DATABASE_VERSION = 1
@@ -239,9 +240,20 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
         db.close()
     }
 
-    fun addWorkoutData(){
+    fun addWorkoutData(workout:WorkoutDataModel, tableName: String){
+        val columnName = tableName.uppercase()
         val db = this.writableDatabase
         val content = ContentValues()
+        content.put(ABDOMEN_NAME,workout.name)
+        content.put(ABDOMEN_MUSCLES,workout.muscle)
+        content.put(ABDOMEN_VIDEO,workout.video)
+        content.put(ABDOMEN_THUMBNAIL,workout.thumbnail)
+        val result = db.insert(WORKOUT_ABDOMEN,null,content)
+        if(result == (-1).toLong()){
+            Toast.makeText(context,"Could not add data!!",Toast.LENGTH_LONG).show()
+        }else{
+            Toast.makeText(context,"Data added successfully!!", Toast.LENGTH_LONG).show()
+        }
         db.close()
     }
 

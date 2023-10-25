@@ -375,4 +375,13 @@
         <item>Shoulder</item>
         <item>Triceps</item>
     </string-array>
+
+    <!--  DailyWorkout Activity Strings  -->
+    <string name="daily_workout_planner">Daily Workout Planner</string>
+    <string name="daily_workout_planner_help">Floating Button To Get Help About How To Use Daily Workout Planner Feature of App</string>
+    <string name="workout_selected_tab_text">Workout Planned</string>
+    <string name="plan_workouts_tab_text">Plan Workouts</string>
+    <string name="today_s_exercise_label">Today\'s Exercise</string>
+    <string name="reset_button_text">Reset</string>
+
 </resources>

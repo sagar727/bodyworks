@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.bodyworks.database.DatabaseHelper
 import com.example.bodyworks.model.User
+import com.example.bodyworks.model.WorkoutDataModel
 import kotlin.math.roundToInt
 
 class BodyWorksViewModel: ViewModel() {
@@ -54,6 +55,14 @@ class BodyWorksViewModel: ViewModel() {
         val count = db.countTableRow("activity")
         if(count == 0){
             db.addActivityData(activityData)
+        }
+    }
+
+    fun addWorkoutData(context: Context,workoutData: WorkoutDataModel){
+        val db = DatabaseHelper(context)
+        val count = db.countTableRow("abdomen")
+        if(count == 0){
+          //  db.addWorkoutData(workoutData)
         }
     }
 }
