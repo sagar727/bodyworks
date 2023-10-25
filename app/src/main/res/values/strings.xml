@@ -13,73 +13,6 @@
     <string name="pause">Pause</string>
     <string name="resume">Resume</string>
     <string name="start">Start</string>
-
-<!--    Abdomen strings-->
-
-    <string name="plank">Transversus Abdominis, Rectus Abdominis, Internal Oblique, External Oblique Muscles</string>
-    <string name="leg_raise">Rectus Abdominis, The Internal and External Oblique Muscles</string>
-    <string name="bicycle_crunch">Rectus Abdominis (your six-pack), External Obliques (your sides), The Hips</string>
-    <string name="mountain_climber">Shoulders, Hamstrings, Core, Triceps, Quads</string>
-    <string name="russian_twists">Obliques, Rectus Abdominis, Transverse Abdominis, Hip Flexors, Erector Spinae, Scapular Muscles, Latissimus Dorsi</string>
-    <string name="crunches">rectus abdominus,</string>
-    <string name="hanging_leg_raise">Iliopsoas, Rectus Abdominis, Obliques</string>
-
-    <!--    Biceps & Forearm-->
-
-    <string name="dumbbell_curl">biceps, the brachialis, brachioradialis</string>
-    <string name="incline_dumbbell_curl">biceps, the brachialis, brachioradialis</string>
-    <string name="hammer_curl">biceps, the brachialis, brachioradialis</string>
-    <string name="cable_curl">biceps brachii,</string>
-    <string name="barbell_curl">biceps brachii, brachialis</string>
-    <string name="concentration_curl">triceps, brachialis, brachioradialis</string>
-    <string name="palms_up_wrist_curl">the forearms,</string>
-    <string name="palms_down_wrist_curl">the forearms,</string>
-
-    <!--    Cardio-->
-    <string name="treadmill">Run on the treadmill</string>
-    <string name="elliptical">Pedal away on an elliptical</string>
-    <string name="stepper">Claim steps on a stair machine</string>
-    <string name="burpee">Burpee</string>
-    <string name="jumping_jacks">Jumping jacks</string>
-
-    <!--    Leg-->
-    <string name="squats">Gluteus Maximus-Minimus-Medius (buttocks), Quadriceps (front of the thigh), Hamstrings (back of the thigh), Adductor (groin), Hip flexors, Calves</string>
-    <string name="leg_press">Quadriceps, Quads</string>
-    <string name="hack_squats">Glutes, Hamstrings, Quads, Calves</string>
-    <string name="leg_extension">The Quadriceps, The Rectus Femoris, The Vastus</string>
-    <string name="leg_curl">Hamstrings, Gluteals</string>
-    <string name="lunges">Gluteals, Quadriceps, Hamstrings</string>
-
-    <!--    Shoulder-->
-    <string name="dumbbell_front_raise">Anterior Deltoid,</string>
-    <string name="dumbbell_lateral_raise">Trapezius, Lateral Deltoid, Front Deltoids</string>
-    <string name="seated_military_press">Deltoid, Triceps</string>
-    <string name="cable_lateral_raise">Side Deltoid, Anterior Deltoid</string>
-    <string name="overhead_press">Pectorals (chest), Deltoids (shoulders), Triceps (arms), Trapezius (upper back)</string>
-    <string name="face_pull">Rear Deltoids, Rhomboids, Middle Trapezius</string>
-
-    <!--    Triceps-->
-    <string name="skull_crusher">Triceps,</string>
-    <string name="dip">Triceps, Chest, Shoulders</string>
-    <string name="standing_overhead_cable_triceps_extension">Core, Gluteals, Lower Back Muscles</string>
-    <string name="cable_rope_tricep_pushdown">Triceps,</string>
-
-    <!--    Back-->
-    <string name="deadlift">Trapezius, Deltoids, Rhomboids, Erectors, Latissimus Dorsi, Gluteals, Hamstrings, Calves, Biceps, Core</string>
-    <string name="single_arm_dumbbell_row">Latissimus Dorsi, Biceps, Trapezius, Deltoids, Core</string>
-    <string name="incline_rows">Latissimus Dorsi, Erectors, Serratus, Rhomboids</string>
-    <string name="pull_ups">Latissimus Dorsi, Biceps, Rhomboids, Deltoids, Trapezius, Pectoralis Major, Serratus, Teres Major</string>
-    <string name="seated_cable_row">Latissimus Dorsi, Rhomboids, Trapezius, Biceps</string>
-    <string name="lat_pull_downs">Latissimus Dorsi, Biceps, Rear Deltoids, Rhomboids, Trapezius</string>
-
-    <!--    Chest-->
-    <string name="dumbbell_bench_press">Pectorals, Triceps, Deltoids</string>
-    <string name="incline_bench_press">Pectorals, Triceps, Deltoids</string>
-    <string name="machine_chest_press">Pectorals, Triceps, Deltoids</string>
-    <string name="push_ups">Triceps, Pectoral Muscles, Shoulders</string>
-    <string name="dip2">Chest, Shoulders, Triceps</string>
-    <string name="chest_fly">Pectorals, Deltoids, Triceps, Biceps</string>
-    <string name="machine_fly">Lower Chest, Upper Chest, Front Shoulder</string>
     <string name="metric">Metric</string>
     <string name="imperial">Imperial</string>
     <string name="your_current_bmi">Your Current BMI:</string>
@@ -89,6 +22,347 @@
     <string name="feet">Feet</string>
     <string name="inch">Inch</string>
     <string name="calculate">Calculate</string>
+
+    <!--    Abdomen-->
+
+    <!--    Muscle Array-->
+
+    <string-array name="abdomen_Muscle">
+        <item>Transversus Abdominis, Rectus Abdominis, Internal Oblique, External Oblique Muscles</item>
+        <item>Rectus Abdominis, The Internal and External Oblique Muscles</item>
+        <item>Rectus Abdominis (your six-pack), External Obliques (your sides), The Hips</item>
+        <item>Shoulders, Hamstrings, Core, Triceps, Quads</item>
+        <item>Obliques, Rectus Abdominis, Transverse Abdominis, Hip Flexors, Erector Spinae, Scapular Muscles, Latissimus Dorsi</item>
+        <item>rectus abdominus,</item>
+        <item>Iliopsoas, Rectus Abdominis, Obliques</item>
+    </string-array>
+
+    <!--    Workout Name Array-->
+
+    <string-array name="abdomen_workout_name">
+        <item>Plank</item>
+        <item>Leg Raise</item>
+        <item>Bicycle Crunch</item>
+        <item>Mountain Climber</item>
+        <item>Russian Twists</item>
+        <item>Crunches</item>
+        <item>Hanging Leg Raise</item>
+    </string-array>
+
+    <!--    Video String Array-->
+    <string-array name="abdomen_video">
+        <item>R.raw.plank</item>
+        <item>R.raw.lying_leg_raise_workout</item>
+        <item>R.raw.bicycle_twisting_workout</item>
+        <item>R.raw.mountain_climbers_workout</item>
+        <item>R.raw.dumbbell_russian_twist_workout</item>
+        <item>R.raw.crunches</item>
+        <item>R.raw.hanging_leg_raise</item>
+    </string-array>
+
+    <!--    Thumbnail String Array-->
+    <string-array name="abdomen_thumbnail">
+        <item>R.drawable.plank</item>
+        <item>R.drawable.legraise</item>
+        <item>R.drawable.bicyclecrunch</item>
+        <item>R.drawable.mountainclimber</item>
+        <item>R.drawable.russiantwist</item>
+        <item>R.drawable.crunches</item>
+        <item>R.drawable.hanginglegraise</item>
+
+
+    </string-array>
+
+    <!--    Biceps & Forearm-->
+
+    <!--    Muscle Array-->
+    <string-array name="bicep_muscle">
+        <item>Biceps, The Brachialis, Brachioradialis</item>
+        <item>Biceps, The Brachialis, Brachioradialis</item>
+        <item>Biceps, The Brachialis, Brachioradialis</item>
+        <item>Biceps, Brachii</item>
+        <item>Biceps, Brachii, Brachialis</item>
+        <item>Triceps, Brachialis, Brachioradialis</item>
+        <item>The Forearms,</item>
+        <item>The Forearms,</item>
+    </string-array>
+
+    <!--    Workout Name Array-->
+    <string-array name="bicep_workout_name">
+        <item>Dumbbell Curl</item>
+        <item>Incline Dumbbell Curl</item>
+        <item>Hammer Curl</item>
+        <item>Cabel Curl</item>
+        <item>Barbell Curl</item>
+        <item>Concentration Curl</item>
+        <item>Palms-up Wrist Curl</item>
+        <item>Palms-down Wrist Curl</item>
+    </string-array>
+
+    <!--    Video String Array    -->
+    <string-array name="bicep_video">
+        <item>R.raw.biceps_curls_with_dumbbells</item>
+        <item>R.raw.alternate_incline_dumbbell_curl_workout</item>
+        <item>R.raw.dumbbell_crossbody_hammer_curl_workout</item>
+        <item>R.raw.cable_biceps_curl_workout</item>
+        <item>R.raw.standing_barbell_curl_workout</item>
+        <item>R.raw.dumbbell_concentration_curl_workout</item>
+        <item>R.raw.dumbbell_reverse_wrist_curl_workout</item>
+        <item>R.raw.dumbbell_overbench_wrist_curl_workout</item>
+    </string-array>
+
+    <!--    Thumbnail String Array-->
+    <string-array name="bicep_thumbnail">
+        <item>R.drawable.dumbellcurls</item>
+        <item>R.drawable.inclinedumbbellcurls</item>
+        <item>R.drawable.hammercurls</item>
+        <item>R.drawable.cabelcurls</item>
+        <item>R.drawable.barbellcurls</item>
+        <item>R.drawable.concentrationcurls</item>
+        <item>R.drawable.palmsupwristcurls</item>
+        <item>R.drawable.palmsdownwristcurls</item>
+    </string-array>
+
+
+    <!--    Cardio-->
+    <!--    Muscle Array-->
+    <string-array name="cardio_muscle">
+        <item>Quadriceps, Hamstrings, The calves, The glutes</item>
+        <item>Glutes, Hamstrings, Quads, Chest, Back, Biceps, Triceps, Core</item>
+        <item>Glutes, Hamstrings, Quadriceps, Abs, Calves</item>
+        <item>Legs, Hips, Buttocks, Abdomen, Arms, Chest, Shoulders</item>
+        <item>Calves, Quadriceps, Shoulders</item>
+    </string-array>
+
+    <!--    Workout Name Array-->
+    <string-array name="cardio_workout_name">
+        <item>Run on the treadmill</item>
+        <item>Pedal away on an elliptical</item>
+        <item>Climb steps on a stair machine</item>
+        <item>Burpee</item>
+        <item>Jumping Jacks</item>
+    </string-array>
+
+    <!--    Video String Array-->
+    <string-array name="cardio_video">
+        <item>R.raw.treadmill</item>
+        <item>R.raw.elliptical</item>
+        <item>R.raw.stepper</item>
+        <item>R.raw.burpee_workout</item>
+        <item>R.raw.jumping_jack_workout</item>
+    </string-array>
+
+    <!--    Thumbnail String Array-->
+    <string-array name="cardio_thumbnail">
+        <item>R.drawable.runontreadmill</item>
+        <item>R.drawable.pedalawayonanelliptical</item>
+        <item>R.drawable.climbstepsonastairmachine</item>
+        <item>R.drawable.burpee</item>
+        <item>R.drawable.jumpingjacks</item>
+    </string-array>
+
+    <!--    Leg-->
+    <!--    Muscle Array-->
+    <string-array name="leg_muscle">
+        <item>Gluteus Maximus-Minimus-Medius (buttocks), Quadriceps (front of the thigh), Hamstrings (back of the thigh), Adductor (groin), Hip flexors, Calves</item>
+        <item>Quadriceps, Quads</item>
+        <item>Glutes, Hamstrings, Quads, Calves</item>
+        <item>The Quadriceps, The Rectus Femoris, The Vastus</item>
+        <item>Hamstrings, Gluteals</item>
+        <item>Gluteals, Quadriceps, Hamstrings</item>
+    </string-array>
+
+    <!--    Workout Name Array-->
+    <string-array name="leg_workout_name">
+        <item>Squats</item>
+        <item>Leg Press</item>
+        <item>Hack Squats</item>
+        <item>Leg Extension</item>
+        <item>Leg Curl</item>
+        <item>Lunges</item>
+    </string-array>
+
+    <!--    Video String Array-->
+    <string-array name="leg_video">
+        <item>R.raw.barbell_full_squat_workout</item>
+        <item>R.raw.leg_press_machine_workout</item>
+        <item>R.raw.squats</item>
+        <item>R.raw.lever_leg_extension</item>
+        <item>R.raw.lying_leg_curl_machine_workout</item>
+        <item>R.raw.alternate_front_lunges_dumbbell</item>
+    </string-array>
+
+    <!--    Thumbnail String Array-->
+    <string-array name="leg_thumbnail">
+        <item>R.drawable.squats</item>
+        <item>R.drawable.legpress</item>
+        <item>R.drawable.hacksquat</item>
+        <item>R.drawable.legextension</item>
+        <item>R.drawable.legcurls</item>
+        <item>R.drawable.lunges</item>
+    </string-array>
+
+    <!--    Shoulder-->
+    <!--    Muscle Array-->
+    <string-array name="shoulder_muscle">
+        <item>Anterior Deltoid,</item>
+        <item>Trapezius, Lateral Deltoid, Front Deltoids</item>
+        <item>Deltoid, Triceps</item>
+        <item>Side Deltoid, Anterior Deltoid</item>
+        <item>Pectorals (chest), Deltoids (shoulders), Triceps (arms), Trapezius (upper back)</item>
+        <item>Rear Deltoids, Rhomboids, Middle Trapezius</item>
+    </string-array>
+
+    <!--    Workout Name Array-->
+    <string-array name="shoulder_workout_name">
+        <item>Dumbell Front Raise</item>
+        <item>Dumbbell lateral Raise</item>
+        <item>Seated Military Press</item>
+        <item>Cabel Lateral raise</item>
+        <item>Overhead Press</item>
+        <item>Face Pull</item>
+    </string-array>
+
+    <!--    Video String Array-->
+    <string-array name="shoulder_video">
+        <item>R.raw.standing_front_raise_dumbbell_workout</item>
+        <item>R.raw.lateral_raises_dumbbell_workout</item>
+        <item>R.raw.seated_dumbbell_shoulder_press_workout</item>
+        <item>R.raw.lateral_raises_on_cable_workout</item>
+        <item>R.raw.barbell_seated_overhead_press_workout</item>
+        <item>R.raw.resistance_band_face_pull_workout</item>
+    </string-array>
+
+    <!--    Thumbnail String Array-->
+    <string-array name="shoulder_thumbnail">
+        <item>R.drawable.dumbbellfrontraise</item>
+        <item>R.drawable.dumbbelllateralraise</item>
+        <item>R.drawable.seatedmilitaryPress</item>
+        <item>R.drawable.cabellateralraise</item>
+        <item>R.drawable.overheadpress</item>
+        <item>R.drawable.facepull</item>
+    </string-array>
+
+    <!--    Triceps-->
+    <!--    Muscle Array-->
+    <string-array name="triceps_muscle">
+        <item>Triceps,</item>
+        <item>Triceps, Chest, Shoulders</item>
+        <item>Core, Gluteals, Lower Back Muscles</item>
+        <item>Triceps,</item>
+    </string-array>
+
+    <!--    Workout Name Array-->
+    <string-array name="triceps_workout_name">
+        <item>Skull Crusher</item>
+        <item>Dip</item>
+        <item>Standing Overhead Cabel Triceps Extension</item>
+        <item>Cabel Rope Tricep Pushdown</item>
+    </string-array>
+
+    <!--    Video String Array-->
+    <string-array name="triceps_video">
+        <item>R.raw.dumbbell_incline_triceps_extension_workout</item>
+        <item>R.raw.bench_triceps_dip_straight_legs_workout</item>
+        <item>R.raw.cable_overhead_extension_rope_workout</item>
+        <item>R.raw.cable_reverse_grip_pushdown_workout</item>
+    </string-array>
+
+    <!--    Thumbnail String Array-->
+    <string-array name="triceps_thumbnail">
+        <item>R.drawable.skullcrusher</item>
+        <item>R.drawable.dip</item>
+        <item>R.drawable.standingoverheadcabeltricepsextension</item>
+        <item>R.drawable.cabelropetriceppushdown</item>
+    </string-array>
+
+    <!--    Back-->
+    <!--    Muscle Array-->
+    <string-array name="back_muscle">
+        <item>Trapezius, Deltoids, Rhomboids, Erectors, Latissimus Dorsi, Gluteals, Hamitems, Calves, Biceps, Core</item>
+        <item>Latissimus Dorsi, Biceps, Trapezius, Deltoids, Core</item>
+        <item>Latissimus Dorsi, Erectors, Serratus, Rhomboids</item>
+        <item>Latissimus Dorsi, Biceps, Rhomboids, Deltoids, Trapezius, Pectoralis Major, Serratus, Teres Major</item>
+        <item>Latissimus Dorsi, Rhomboids, Trapezius, Biceps</item>
+        <item>Latissimus Dorsi, Biceps, Rear Deltoids, Rhomboids, Trapezius</item>
+    </string-array>
+
+    <!--    Workout Name Array-->
+    <string-array name="back_workout_name">
+        <item>Deadlift</item>
+        <item>Single-Arm Dumbbell Row</item>
+        <item>Incline Rows</item>
+        <item>Pull-ups</item>
+        <item>Seated Cabel Row</item>
+        <item>Lat Pull-Downs</item>
+    </string-array>
+
+    <!--    Video String Array-->
+    <string-array name="back_video">
+        <item>R.raw.barbell_snatch_deadlift_close_grip_powerlifting__workout</item>
+        <item>R.raw.dumbbells_single_arm_workout</item>
+        <item>R.raw.dumbbell_hammer_grip_incline_bench_workout</item>
+        <item>R.raw.pull_up_normal_grip_workout</item>
+        <item>R.raw.seated_cable_row_v_bar_machine_workout</item>
+        <item>R.raw.lat_pull_down_close_grip_workout</item>
+    </string-array>
+
+    <!--    Thumbnail String Array-->
+    <string-array name="back_thumbnail">
+        <item>R.drawable.deadlift</item>
+        <item>R.drawable.singlearmdumbbellrow</item>
+        <item>R.drawable.inclinedmbbellrow</item>
+        <item>R.drawable.pullups</item>
+        <item>R.drawable.seatedcabelrow</item>
+        <item>R.drawable.latpulldown</item>
+    </string-array>
+
+    <!--    Chest-->
+    <!--    Muscle Array-->
+    <string-array name="chest_muscle">
+        <item>Pectorals, Triceps, Deltoids</item>
+        <item>Pectorals, Triceps, Deltoids</item>
+        <item>Pectorals, Triceps, Deltoids</item>
+        <item>Triceps, Pectoral Muscles, Shoulders</item>
+        <item>Chest, Shoulders, Triceps</item>
+        <item>Pectorals, Deltoids, Triceps, Biceps</item>
+        <item>Lower Chest, Upper Chest, Front Shoulder</item>
+    </string-array>
+
+    <!--    Workout Name Array-->
+    <string-array name="chest_workout_name">
+        <item>Dumbbell Bench Press</item>
+        <item>Incline Bench Press</item>
+        <item>Machine Chest Press</item>
+        <item>Push-up</item>
+        <item>Dip</item>
+        <item>Chest Fly</item>
+        <item>Machine Fy</item>
+    </string-array>
+
+    <!--    Video String Array-->
+    <string-array name="chest_video">
+        <item>R.raw.incline_dumbbell</item>
+        <item>R.raw.barbell_bench_press_incline_workout</item>
+        <item>R.raw.machine_chest_press_incline_workout</item>
+        <item>R.raw.side_to_side_push_up_workout</item>
+        <item>R.raw.chest_dip_weighted_workout</item>
+        <item>R.raw.dumbbell_fly_flat_bench_workout</item>
+        <item>R.raw.machine_fly_workout</item>
+    </string-array>
+
+    <!--    Thumbnail String Array-->
+    <string-array name="chest_thumbnail">
+        <item>R.drawable.dumbbellbenchpress</item>
+        <item>R.drawable.inclinebenchpress</item>
+        <item>R.drawable.machinechestpress</item>
+        <item>R.drawable.pushups</item>
+        <item>R.drawable.dip</item>
+        <item>R.drawable.chestfly</item>
+        <item>R.drawable.machinefly</item>
+    </string-array>
+
+    <!--    Muscle String End-->
 
     <!--    Activity Array-->
     <string-array name="activity_array">
@@ -101,12 +375,4 @@
         <item>Shoulder</item>
         <item>Triceps</item>
     </string-array>
-
-    <!--  DailyWorkout Activity Strings  -->
-    <string name="daily_workout_planner">Daily Workout Planner</string>
-    <string name="daily_workout_planner_help">Floating Button To Get Help About How To Use Daily Workout Planner Feature of App</string>
-    <string name="workout_selected_tab_text">Workout Planned</string>
-    <string name="plan_workouts_tab_text">Plan Workouts</string>
-    <string name="today_s_exercise_label">Today\'s Exercise</string>
-    <string name="reset_button_text">Reset</string>
 </resources>
