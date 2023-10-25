@@ -1,5 +1,6 @@
 package com.example.bodyworks.dailyWorkoutPlanner.planWorkouts
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bodyworks.R
 
-class PlanDailyWorkoutAdapter(private val days: List<EachDayModel>):
+class PlanDailyWorkoutAdapter(val context: Context, private val days: List<EachDayModel>):
     RecyclerView.Adapter<PlanDailyWorkoutAdapter.PlanDailyWorkoutViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlanDailyWorkoutViewHolder {
         return PlanDailyWorkoutViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.each_day_list_view,parent, false))
@@ -25,7 +26,8 @@ class PlanDailyWorkoutAdapter(private val days: List<EachDayModel>):
         holder.rcViewChildItem.setHasFixedSize(true)
         holder.rcViewChildItem.layoutManager = GridLayoutManager(holder.itemView.context, 2)
 
-        val adapter = EachDayViewAdapter(days[position].exerciseList)
+        //Passing data to child recycler view for exercises
+        val adapter = EachDayViewAdapter(context ,days[position].day,days[position].exerciseList)
         holder.rcViewChildItem.adapter = adapter
 
         //Expandable functionality

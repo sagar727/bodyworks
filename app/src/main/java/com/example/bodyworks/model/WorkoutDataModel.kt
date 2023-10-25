@@ -5,4 +5,6 @@ data class WorkoutDataModel(
     val video: String,
     val thumbnail: String,
     val muscle:String
-    )
+    ){
+    var id:Int = 0
+}

@@ -58,7 +58,7 @@ class BodyWorksViewModel: ViewModel() {
         }
     }
 
-    fun addAbdomenWorkoutData(context: Context,workoutData: WorkoutDataModel,tableName: String){
+    fun addAbdomenWorkoutData(context: Context, workoutData: WorkoutDataModel, tableName: String){
         val db = DatabaseHelper(context)
         val count = db.countTableRow(tableName)
         if(count == 0){

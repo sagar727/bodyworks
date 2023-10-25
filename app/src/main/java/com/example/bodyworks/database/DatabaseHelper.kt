@@ -85,8 +85,10 @@ val DAY_NAME = "dayname"
 val ACTIVITY = "activity"
 
 
-class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,null,
-    DATABASE_VERSION){
+class DatabaseHelper(var context: Context) : SQLiteOpenHelper(
+    context, DATABASE_NAME, null,
+    DATABASE_VERSION
+) {
     override fun onCreate(db: SQLiteDatabase?) {
         val createActivityTable =
             "CREATE TABLE $ACTIVITY_TABLE(" +
@@ -227,14 +229,14 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
         db?.execSQL(deletePlannerTable)
     }
 
-    fun addActivityData(activityData: Array<String>){
+    fun addActivityData(activityData: Array<String>) {
         val db = this.writableDatabase
         val content = ContentValues()
-        for(activity in activityData){
-            content.put(ACTIVITY_NAME,activity)
-            val result = db.insert(ACTIVITY_TABLE,null,content)
-            if(result == (-1).toLong()){
-                Toast.makeText(context,"Could not add data!!",Toast.LENGTH_LONG).show()
+        for (activity in activityData) {
+            content.put(ACTIVITY_NAME, activity)
+            val result = db.insert(ACTIVITY_TABLE, null, content)
+            if (result == (-1).toLong()) {
+                Toast.makeText(context, "Could not add data!!", Toast.LENGTH_LONG).show()
             }
         }
         db.close()
@@ -274,7 +276,7 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
         db.close()
     }
 
-    fun addBicepWorkoutData(workout:WorkoutDataModel){
+    fun addBicepWorkoutData(workout: WorkoutDataModel){
         val db = this.writableDatabase
         val content = ContentValues()
         content.put(BICEPS_NAME ,workout.name)
@@ -376,38 +378,143 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
         db.close()
     }
 
-    fun addUserData(user: User){
+    fun addUserData(user: User) {
         val db = this.writableDatabase
         val content = ContentValues()
-        content.put(USER_WT,user.wt)
-        content.put(USER_BMI,user.bmi)
-        val result = db.insert(USER_TABLE,null,content)
-        if(result == (-1).toLong()){
-            Toast.makeText(context,"Could not add data!!",Toast.LENGTH_LONG).show()
-        }else{
-            Toast.makeText(context,"Data added successfully!!", Toast.LENGTH_LONG).show()
+        content.put(USER_WT, user.wt)
+        content.put(USER_BMI, user.bmi)
+        val result = db.insert(USER_TABLE, null, content)
+        if (result == (-1).toLong()) {
+            Toast.makeText(context, "Could not add data!!", Toast.LENGTH_LONG).show()
+        } else {
+            Toast.makeText(context, "Data added successfully!!", Toast.LENGTH_LONG).show()
         }
         db.close()
     }
 
+    // TODO: Work Here For DB Insert And Update
     @SuppressLint("Range")
-    fun getBMI(): String{
+    fun addSelectedExercisesToDB(day: String, exercise: String) {
+        var allExercises: String = ""
+        val selectQuery = "SELECT * FROM $PLANNER_TABLE WHERE $DAY_NAME = ?"
+        val dbRead = this.readableDatabase
+        var cursor: Cursor? = null
+        var databaseExercise: String = "0"
+        cursor = dbRead.rawQuery(selectQuery, arrayOf(day))
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                databaseExercise = cursor.getString(cursor.getColumnIndex(ACTIVITY))
+                allExercises = databaseExercise
+            }
+        }
+        dbRead.close()
+
+        if (allExercises == "") {
+            allExercises += exercise
+            val dbWrite = this.writableDatabase
+            val content = ContentValues()
+            content.put(DAY_NAME, day)
+            content.put(ACTIVITY, allExercises)
+            val result = dbWrite.insert(PLANNER_TABLE, null, content)
+            if (result == (-1).toLong()) {
+                Toast.makeText(context, "Could not add data!!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(context, "Data added successfully!!", Toast.LENGTH_SHORT).show()
+            }
+            dbWrite.close()
+        } else {
+            allExercises = "$allExercises,$exercise"
+            val db = this.writableDatabase
+            val content = ContentValues()
+            content.put(DAY_NAME, day)
+            content.put(ACTIVITY, allExercises)
+            val result = db.update(PLANNER_TABLE, content, "$DAY_NAME = ?", arrayOf(day))
+            if (result == 0) {
+                Toast.makeText(context, "Could not update data!!", Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(context, "Data updated successfully!!", Toast.LENGTH_LONG).show()
+            }
+            db.close()
+        }
+    }
+
+    @SuppressLint("Range")
+    fun updateExerciseFromDB(day: String, exercise: String) {
+        var allExercises: String = ""
+        val selectQuery = "SELECT * FROM $PLANNER_TABLE WHERE $DAY_NAME = ?"
+        val dbRead = this.readableDatabase
+        var cursor: Cursor? = null
+        var databaseExercise: String = "0"
+        cursor = dbRead.rawQuery(selectQuery, arrayOf(day))
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                databaseExercise = cursor.getString(cursor.getColumnIndex(ACTIVITY))
+                allExercises = databaseExercise
+            }
+        }
+        dbRead.close()
+
+        if (allExercises != "") {
+            var exercisesArray: Array<String> = allExercises.split(",").toTypedArray()
+            var finalExerciseList: String = ""
+            exercisesArray.forEach {
+                if(exercise != it){
+                    if(finalExerciseList == ""){
+                        finalExerciseList = "$it"
+                    } else {
+                        finalExerciseList = "$finalExerciseList,$it"
+                    }
+                }
+            }
+
+            val db = this.writableDatabase
+            val content = ContentValues()
+            content.put(DAY_NAME, day)
+            content.put(ACTIVITY, finalExerciseList)
+            val result = db.update(PLANNER_TABLE, content, "$DAY_NAME = ?", arrayOf(day))
+            if (result == 0) {
+                Toast.makeText(context, "Could not update data!!", Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(context, "Data updated successfully!!", Toast.LENGTH_LONG).show()
+            }
+            db.close()
+        }
+    }
+    @SuppressLint("Range")
+    fun getExerciseSelectedList(day: String): String {
+        val selectQuery = "SELECT * FROM $PLANNER_TABLE WHERE $DAY_NAME = ?"
+        val db = this.readableDatabase
+        var cursor: Cursor? = null
+        var exercise: String = ""
+        cursor = db.rawQuery(selectQuery, arrayOf(day))
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    exercise = cursor.getString(cursor.getColumnIndex(ACTIVITY))
+                } while (cursor.moveToNext())
+            }
+        }
+        return exercise
+    }
+
+    @SuppressLint("Range")
+    fun getBMI(): String {
         val selectQuery = "SELECT * FROM $USER_TABLE"
         val db = this.readableDatabase
         var cursor: Cursor? = null
         var bmi: String = "0"
-        cursor = db.rawQuery(selectQuery,null)
+        cursor = db.rawQuery(selectQuery, null)
         if (cursor != null) {
-            if(cursor.moveToFirst()){
-                do{
+            if (cursor.moveToFirst()) {
+                do {
                     bmi = cursor.getString(cursor.getColumnIndex(USER_BMI))
-                }while (cursor.moveToNext())
+                } while (cursor.moveToNext())
             }
         }
         return bmi
     }
 
-    fun countTableRow(tableName: String):Int{
+    fun countTableRow(tableName: String): Int {
         val db = this.readableDatabase
         val count = DatabaseUtils.queryNumEntries(db, tableName)
         db.close()
@@ -425,16 +532,16 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
 //        db.close()
 //    }
 
-    fun updateUserData(user:User){
+    fun updateUserData(user: User) {
         val db = this.writableDatabase
         val content = ContentValues()
-        content.put(USER_WT,user.wt)
-        content.put(USER_BMI,user.bmi)
-        val result = db.update(USER_TABLE,content, null,null)
-        if(result == 0){
-            Toast.makeText(context,"Could not update data!!",Toast.LENGTH_LONG).show()
-        }else{
-            Toast.makeText(context,"Data updated successfully!!", Toast.LENGTH_LONG).show()
+        content.put(USER_WT, user.wt)
+        content.put(USER_BMI, user.bmi)
+        val result = db.update(USER_TABLE, content, null, null)
+        if (result == 0) {
+            Toast.makeText(context, "Could not update data!!", Toast.LENGTH_LONG).show()
+        } else {
+            Toast.makeText(context, "Data updated successfully!!", Toast.LENGTH_LONG).show()
         }
         db.close()
     }

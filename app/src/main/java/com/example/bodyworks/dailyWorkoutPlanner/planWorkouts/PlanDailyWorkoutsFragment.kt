@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.bodyworks.R
+import com.example.bodyworks.dailyWorkoutPlanner.selectedWorkout.DayExerciseModel
+import com.example.bodyworks.database.DatabaseHelper
 import com.example.bodyworks.databinding.FragmentFitnessHubBinding
 import com.example.bodyworks.databinding.FragmentPlanDailyWorkoutsBinding
 
@@ -41,7 +44,8 @@ class PlanDailyWorkoutsFragment : Fragment() {
     ): View {
         binding = FragmentPlanDailyWorkoutsBinding.inflate(inflater, container, false)
         rcViewPlanNew = binding.rcViewPlanNew
-        val exerciseList = listOf("Abdomen", "Back Exercise", "Biceps & Forearm", "Cardio", "Chest", "Leg", "Shoulder", "Triceps")
+        
+        val exerciseList = resources.getStringArray(R.array.activity_array)
         val days = listOf(EachDayModel("Monday", false, exerciseList),
             EachDayModel("Tuesday", false, exerciseList),
             EachDayModel("Wednesday", false, exerciseList),
@@ -49,7 +53,7 @@ class PlanDailyWorkoutsFragment : Fragment() {
             EachDayModel("Friday", false, exerciseList),
             EachDayModel("Saturday", false, exerciseList),
             EachDayModel("Sunday", false, exerciseList))
-        rcViewPlanNew.adapter = PlanDailyWorkoutAdapter(days)
+        rcViewPlanNew.adapter = PlanDailyWorkoutAdapter(requireContext(), days)
         rcViewPlanNew.layoutManager = LinearLayoutManager(context)
         return binding.root
     }
