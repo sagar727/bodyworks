@@ -142,11 +142,6 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-
-        binding.button2.setOnClickListener{
-            val intent = Intent(this, WorkoutActivity :: class.java)
-            startActivity(intent)
-        }
     }
 
     private fun replaceFragment(fragment: Fragment){

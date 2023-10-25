@@ -60,6 +60,12 @@ class WorkoutActivity : AppCompatActivity() {
         resetBtn.setOnClickListener {
             resetTimer()
         }
+
+        //Database Code
+        // Getting data from the intent
+        val categoryTitle = intent.getStringExtra("categoryTitle")
+        val imgSrc = intent.getStringExtra("imgSrc")
+        val workoutName = intent.getStringExtra("workoutName")
     }
 
     private fun splitText(txt: String){

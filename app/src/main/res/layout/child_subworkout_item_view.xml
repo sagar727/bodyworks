@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/subWorkoutCard"
+        style="?attr/materialCardViewElevatedStyle"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:clickable="true"
+        android:elevation="2dp"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:focusable="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/carousel_image_view"
+                android:layout_width="120dp"
+                android:layout_height="80dp"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="ImageView"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/ic_launcher_foreground" />
+
+
+            <TextView
+                android:id="@+id/child_subworkout_item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="monospace"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

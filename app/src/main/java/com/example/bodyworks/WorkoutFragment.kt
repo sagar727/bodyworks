@@ -5,28 +5,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.example.bodyworks.adapter.ParentWorkoutAdapter
+import com.example.bodyworks.databinding.ActivityMainBinding
+import com.example.bodyworks.model.ChildSubWorkoutModel
+import com.example.bodyworks.model.ParentWorkoutModel
+import java.util.Calendar
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [WorkoutFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class WorkoutFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var layoutBind: ActivityMainBinding;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
@@ -37,23 +28,147 @@ class WorkoutFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_workout, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment WorkoutFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            WorkoutFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val parentWorkoutRecyclerView = view.findViewById<RecyclerView>(R.id.parentRecyclerview)
+        val parentItemAdapter = ParentWorkoutAdapter(parentItemList())
+        parentWorkoutRecyclerView.adapter = parentItemAdapter
+
+        //code for greeting text
+        val greetingsTextView = view.findViewById<TextView>(R.id.greetingsTxt);
+        greetingsTextView.text = myGreetingMessage();
+    }
+
+    //Change greeting message according to hour
+    fun myGreetingMessage(): String {
+        val cal = Calendar.getInstance();
+        val timeofDay = cal.get(Calendar.HOUR_OF_DAY);
+
+        return when (timeofDay) {
+            in 0..11 -> "Good Morning!"
+            in 12..15 -> "Good Afternoon!"
+            in 16..24 -> "Good Evening!"
+            else -> "Hello, How are you today?"
+        }
+    }
+    private fun parentItemList(): MutableList<ParentWorkoutModel> {
+        val itemList : MutableList<ParentWorkoutModel> = ArrayList<ParentWorkoutModel>()
+
+        itemList.add(ParentWorkoutModel("Abdomen", abdomenItemList()))
+        itemList.add(ParentWorkoutModel("Back Exercise", backExItemList()))
+        itemList.add(ParentWorkoutModel("Biceps & Forearm", bicepsForearmItemList()))
+        itemList.add(ParentWorkoutModel("Cardio", cardioItemList()))
+        itemList.add(ParentWorkoutModel("Chest", chestItemList()))
+        itemList.add(ParentWorkoutModel("Leg", legItemList()))
+        itemList.add(ParentWorkoutModel("Shoulder", shoulderItemList()))
+        itemList.add(ParentWorkoutModel("Triceps", tricepsItemList()))
+
+        return itemList
+    }
+
+    private fun tricepsItemList(): MutableList<ChildSubWorkoutModel> {
+        val childItemList: MutableList<ChildSubWorkoutModel> = ArrayList<ChildSubWorkoutModel>()
+
+        childItemList.add(ChildSubWorkoutModel(R.drawable.skullcrusher, "Skull Crusher"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.dip, "Dip"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.standingoverheadcabeltricepsextension, "Standing Overhead Cabel Triceps Extension"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.cabelropetriceppushdown, "Cabel Rope Tricep Pushdown"))
+
+        return childItemList;
+    }
+
+    private fun shoulderItemList(): MutableList<ChildSubWorkoutModel> {
+        val childItemList: MutableList<ChildSubWorkoutModel> = ArrayList<ChildSubWorkoutModel>()
+
+        childItemList.add(ChildSubWorkoutModel(R.drawable.dumbbellfrontraise, "Dumbell Front Raise"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.dumbbelllateralraise, "Dumbbell lateral Raise"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.seatedmilitarypress, "Seated Military Press"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.cabellateralraise, "Cabel Lateral raise"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.overheadpress, "Overhead Press"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.facepull, "Face Pull"))
+
+        return childItemList;
+    }
+
+    private fun legItemList(): MutableList<ChildSubWorkoutModel> {
+        val childItemList: MutableList<ChildSubWorkoutModel> = ArrayList<ChildSubWorkoutModel>()
+
+        childItemList.add(ChildSubWorkoutModel(R.drawable.squats, "Squats"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.legpress, "Leg Press"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.hacksquat, "Hack Squats"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.legextension, "Leg Extension"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.legcurl, "Leg Curl"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.lunges, "Lunges"))
+
+        return childItemList;
+    }
+
+    private fun chestItemList(): MutableList<ChildSubWorkoutModel> {
+        val childItemList: MutableList<ChildSubWorkoutModel> = ArrayList<ChildSubWorkoutModel>()
+
+        childItemList.add(ChildSubWorkoutModel(R.drawable.dumbbellbenchpress, "Dumbbell Bench Press"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.inclinebenchpress, "Incline Bench Press"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.machinechestpress, "Machine Chest Press"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.pushups, "Push-up"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.dip, "Dip"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.chestfly, "Chest Fly"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.machinefly, "Machine Fy"))
+
+        return childItemList;
+    }
+
+    private fun cardioItemList(): MutableList<ChildSubWorkoutModel> {
+        val childItemList: MutableList<ChildSubWorkoutModel> = ArrayList<ChildSubWorkoutModel>()
+
+        childItemList.add(ChildSubWorkoutModel(R.drawable.runontreadmill, "Run on the treadmill"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.pedalawayonanelliptical, "Pedal away on an elliptical"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.climbstepsonastairmachine, "Clim steps on a stair machine"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.burpee, "Burpee"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.jumpingjacks, "Jumping Jacks"))
+
+        return childItemList;
+    }
+
+    private fun bicepsForearmItemList(): MutableList<ChildSubWorkoutModel> {
+        val childItemList: MutableList<ChildSubWorkoutModel> = ArrayList<ChildSubWorkoutModel>()
+
+        childItemList.add(ChildSubWorkoutModel(R.drawable.dumbellcurls, "Dumbbell Curl"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.inclinedumbellcurls, "Incline Dumbbell Curl"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.hammercurls, "Hammer Curl"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.cabelcurls, "Cabel Curl"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.barbellcurls, "Barbell Curl"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.concentrationcurls, "Concentration Curl"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.palmsupwristcurls, "Palms-up Wrist Curl"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.palmdownwristcurls, "Palms-down Wrist Curl"))
+
+        return childItemList;
+    }
+
+    private fun backExItemList(): MutableList<ChildSubWorkoutModel> {
+        val childItemList: MutableList<ChildSubWorkoutModel> = ArrayList<ChildSubWorkoutModel>()
+
+        childItemList.add(ChildSubWorkoutModel(R.drawable.deadlift, "Deadlift"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.singlearmdumbbellrow, "Single-Arm Dumbbell Row"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.inclinedumbbellrow, "Incline Rows"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.pullups, "Pull-ups"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.seatedcabelrow, "Seated Cabel Row"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.latpulldown, "Lat Pull-Downs"))
+
+        return childItemList;
+    }
+
+    // Method to pass the arguments for the elements of child RecyclerView
+    private fun abdomenItemList(): MutableList<ChildSubWorkoutModel> {
+        val childItemList: MutableList<ChildSubWorkoutModel> = ArrayList<ChildSubWorkoutModel>()
+
+        childItemList.add(ChildSubWorkoutModel(R.drawable.plank, "Plank"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.legraise, "Leg Raise"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.bicyclecrunch, "Bicycle Crunch"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.mountainclimber, "Mountain Climber"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.russiantwist, "Russian Twists"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.crunches, "Crunches"))
+        childItemList.add(ChildSubWorkoutModel(R.drawable.hanginglegraise, "Hanging Leg Raise"))
+
+        return childItemList;
     }
 }
