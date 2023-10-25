@@ -240,15 +240,134 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
         db.close()
     }
 
-    fun addWorkoutData(workout:WorkoutDataModel, tableName: String){
-        val columnName = tableName.uppercase()
+    fun addAbdomenWorkoutData(workout:WorkoutDataModel){
         val db = this.writableDatabase
         val content = ContentValues()
-        content.put(ABDOMEN_NAME,workout.name)
+        content.put(ABDOMEN_NAME ,workout.name)
         content.put(ABDOMEN_MUSCLES,workout.muscle)
         content.put(ABDOMEN_VIDEO,workout.video)
         content.put(ABDOMEN_THUMBNAIL,workout.thumbnail)
-        val result = db.insert(WORKOUT_ABDOMEN,null,content)
+        val result = db.insert(
+            WORKOUT_ABDOMEN,null,content)
+        if(result == (-1).toLong()){
+            Toast.makeText(context,"Could not add data!!",Toast.LENGTH_LONG).show()
+        }else{
+            Toast.makeText(context,"Data added successfully!!", Toast.LENGTH_LONG).show()
+        }
+        db.close()
+    }
+
+    fun addBackWorkoutData(workout:WorkoutDataModel){
+        val db = this.writableDatabase
+        val content = ContentValues()
+        content.put(BACK_NAME ,workout.name)
+        content.put(BACK_MUSCLES,workout.muscle)
+        content.put(BACK_VIDEO,workout.video)
+        content.put(BACK_THUMBNAIL,workout.thumbnail)
+        val result = db.insert(
+            WORKOUT_BACK,null,content)
+        if(result == (-1).toLong()){
+            Toast.makeText(context,"Could not add data!!",Toast.LENGTH_LONG).show()
+        }else{
+            Toast.makeText(context,"Data added successfully!!", Toast.LENGTH_LONG).show()
+        }
+        db.close()
+    }
+
+    fun addBicepWorkoutData(workout:WorkoutDataModel){
+        val db = this.writableDatabase
+        val content = ContentValues()
+        content.put(BICEPS_NAME ,workout.name)
+        content.put(BICEPS_MUSCLES,workout.muscle)
+        content.put(BICEPS_VIDEO,workout.video)
+        content.put(BICEPS_THUMBNAIL,workout.thumbnail)
+        val result = db.insert(
+            WORKOUT_BICEPS,null,content)
+        if(result == (-1).toLong()){
+            Toast.makeText(context,"Could not add data!!",Toast.LENGTH_LONG).show()
+        }else{
+            Toast.makeText(context,"Data added successfully!!", Toast.LENGTH_LONG).show()
+        }
+        db.close()
+    }
+
+    fun addCardioWorkoutData(workout:WorkoutDataModel){
+        val db = this.writableDatabase
+        val content = ContentValues()
+        content.put(CARDIO_NAME ,workout.name)
+        content.put(CARDIO_MUSCLES,workout.muscle)
+        content.put(CARDIO_VIDEO,workout.video)
+        content.put(CARDIO_THUMBNAIL,workout.thumbnail)
+        val result = db.insert(
+            WORKOUT_CARDIO,null,content)
+        if(result == (-1).toLong()){
+            Toast.makeText(context,"Could not add data!!",Toast.LENGTH_LONG).show()
+        }else{
+            Toast.makeText(context,"Data added successfully!!", Toast.LENGTH_LONG).show()
+        }
+        db.close()
+    }
+
+    fun addChestWorkoutData(workout:WorkoutDataModel){
+        val db = this.writableDatabase
+        val content = ContentValues()
+        content.put(CHEST_NAME ,workout.name)
+        content.put(CHEST_MUSCLES,workout.muscle)
+        content.put(CHEST_VIDEO,workout.video)
+        content.put(CHEST_THUMBNAIL,workout.thumbnail)
+        val result = db.insert(
+            WORKOUT_CHEST,null,content)
+        if(result == (-1).toLong()){
+            Toast.makeText(context,"Could not add data!!",Toast.LENGTH_LONG).show()
+        }else{
+            Toast.makeText(context,"Data added successfully!!", Toast.LENGTH_LONG).show()
+        }
+        db.close()
+    }
+
+    fun addLegWorkoutData(workout:WorkoutDataModel){
+        val db = this.writableDatabase
+        val content = ContentValues()
+        content.put(LEG_NAME ,workout.name)
+        content.put(LEG_MUSCLES,workout.muscle)
+        content.put(LEG_VIDEO,workout.video)
+        content.put(LEG_THUMBNAIL,workout.thumbnail)
+        val result = db.insert(
+            WORKOUT_LEG,null,content)
+        if(result == (-1).toLong()){
+            Toast.makeText(context,"Could not add data!!",Toast.LENGTH_LONG).show()
+        }else{
+            Toast.makeText(context,"Data added successfully!!", Toast.LENGTH_LONG).show()
+        }
+        db.close()
+    }
+
+    fun addShoulderWorkoutData(workout:WorkoutDataModel){
+        val db = this.writableDatabase
+        val content = ContentValues()
+        content.put(SHOULDER_NAME ,workout.name)
+        content.put(SHOULDER_MUSCLES,workout.muscle)
+        content.put(SHOULDER_VIDEO,workout.video)
+        content.put(SHOULDER_THUMBNAIL,workout.thumbnail)
+        val result = db.insert(
+            WORKOUT_SHOULDER,null,content)
+        if(result == (-1).toLong()){
+            Toast.makeText(context,"Could not add data!!",Toast.LENGTH_LONG).show()
+        }else{
+            Toast.makeText(context,"Data added successfully!!", Toast.LENGTH_LONG).show()
+        }
+        db.close()
+    }
+
+    fun addTricepWorkoutData(workout:WorkoutDataModel){
+        val db = this.writableDatabase
+        val content = ContentValues()
+        content.put(TRICEPS_NAME ,workout.name)
+        content.put(TRICEPS_MUSCLES,workout.muscle)
+        content.put(TRICEPS_VIDEO,workout.video)
+        content.put(TRICEPS_THUMBNAIL,workout.thumbnail)
+        val result = db.insert(
+            WORKOUT_TRICEPS,null,content)
         if(result == (-1).toLong()){
             Toast.makeText(context,"Could not add data!!",Toast.LENGTH_LONG).show()
         }else{
