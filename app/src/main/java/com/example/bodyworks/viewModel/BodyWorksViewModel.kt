@@ -1,6 +1,7 @@
 package com.example.bodyworks.viewModel
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.bodyworks.database.DatabaseHelper
@@ -58,67 +59,21 @@ class BodyWorksViewModel: ViewModel() {
         }
     }
 
-    fun addAbdomenWorkoutData(context: Context,workoutData: WorkoutDataModel,tableName: String){
+    fun addWorkoutData(context: Context,workoutData: WorkoutDataModel,tableName: String,totalCount:Int){
         val db = DatabaseHelper(context)
         val count = db.countTableRow(tableName)
-        if(count == 0){
-            db.addAbdomenWorkoutData(workoutData)
+        if(totalCount !== count){
+            db.addWorkoutData(workoutData,tableName)
+            val data = db.displayAll(tableName)
         }
     }
 
-    fun addBackWorkoutData(context: Context,workoutData: WorkoutDataModel,tableName: String){
+    fun getWorkOutData(context: Context, tableName: String){
         val db = DatabaseHelper(context)
         val count = db.countTableRow(tableName)
-        if(count == 0){
-            db.addBackWorkoutData(workoutData)
-        }
-    }
-
-    fun addBicepWorkoutData(context: Context,workoutData: WorkoutDataModel,tableName: String){
-        val db = DatabaseHelper(context)
-        val count = db.countTableRow(tableName)
-        if(count == 0){
-            db.addBicepWorkoutData(workoutData)
-        }
-    }
-
-    fun addCardioWorkoutData(context: Context,workoutData: WorkoutDataModel,tableName: String){
-        val db = DatabaseHelper(context)
-        val count = db.countTableRow(tableName)
-        if(count == 0){
-            db.addCardioWorkoutData(workoutData)
-        }
-    }
-
-    fun addChestWorkoutData(context: Context,workoutData: WorkoutDataModel,tableName: String){
-        val db = DatabaseHelper(context)
-        val count = db.countTableRow(tableName)
-        if(count == 0){
-            db.addChestWorkoutData(workoutData)
-        }
-    }
-
-    fun addLegWorkoutData(context: Context,workoutData: WorkoutDataModel,tableName: String){
-        val db = DatabaseHelper(context)
-        val count = db.countTableRow(tableName)
-        if(count == 0){
-            db.addLegWorkoutData(workoutData)
-        }
-    }
-
-    fun addShoulderWorkoutData(context: Context,workoutData: WorkoutDataModel,tableName: String){
-        val db = DatabaseHelper(context)
-        val count = db.countTableRow(tableName)
-        if(count == 0){
-            db.addShoulderWorkoutData(workoutData)
-        }
-    }
-
-    fun addTricepWorkoutData(context: Context,workoutData: WorkoutDataModel,tableName: String){
-        val db = DatabaseHelper(context)
-        val count = db.countTableRow(tableName)
-        if(count == 0){
-            db.addTricepWorkoutData(workoutData)
+        if(count > 0){
+            val data = db.displayAll(tableName)
+            Log.i("workdata",data.toString())
         }
     }
 }

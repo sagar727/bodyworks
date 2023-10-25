@@ -25,6 +25,16 @@ class MainActivity : AppCompatActivity() {
         val activityList: Array<String> = resources.getStringArray(R.array.activity_array)
         bodyworksVM.addActivityData(this, activityList)
 
+        bodyworksVM.getWorkOutData(this,"abdomen")
+        bodyworksVM.getWorkOutData(this,"back")
+        bodyworksVM.getWorkOutData(this,"cardio")
+        bodyworksVM.getWorkOutData(this,"chest")
+        bodyworksVM.getWorkOutData(this,"leg")
+        bodyworksVM.getWorkOutData(this,"biceps")
+        bodyworksVM.getWorkOutData(this,"shoulder")
+        bodyworksVM.getWorkOutData(this,"triceps")
+
+
         val abdomenWorkOutName: Array<String> = resources.getStringArray(R.array.abdomen_workout_name)
         val abdomenMuscle: Array<String> = resources.getStringArray(R.array.abdomen_Muscle)
         val abdomenVideo: Array<String> = resources.getStringArray(R.array.abdomen_video)
@@ -34,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         var i = 0;
         while(i < iteration){
             val workoutDataModel = WorkoutDataModel(abdomenWorkOutName[i],abdomenVideo[i],abdomenThumbnail[i],abdomenMuscle[i])
-            bodyworksVM.addAbdomenWorkoutData(this, workoutDataModel,"abdomen")
+            bodyworksVM.addWorkoutData(this, workoutDataModel,"abdomen",iteration)
             i++
         }
 
@@ -47,7 +57,7 @@ class MainActivity : AppCompatActivity() {
         var j = 0;
         while(j < iteration1){
             val workoutDataModel = WorkoutDataModel(backWorkOutName[j],backVideo[j],backThumbnail[j],backMuscle[j])
-            bodyworksVM.addBackWorkoutData(this, workoutDataModel,"back")
+            bodyworksVM.addWorkoutData(this, workoutDataModel,"back",iteration1)
             j++
         }
 
@@ -60,7 +70,7 @@ class MainActivity : AppCompatActivity() {
         var k = 0;
         while(k < iteration2){
             val workoutDataModel = WorkoutDataModel(bicepWorkOutName[k],bicepVideo[k],bicepThumbnail[k],bicepMuscle[k])
-            bodyworksVM.addBicepWorkoutData(this, workoutDataModel,"biceps")
+            bodyworksVM.addWorkoutData(this, workoutDataModel,"biceps",iteration2)
             k++
         }
 
@@ -73,7 +83,7 @@ class MainActivity : AppCompatActivity() {
         var l = 0;
         while(l < iteration3){
             val workoutDataModel = WorkoutDataModel(cardioWorkOutName[l],cardioVideo[l],cardioThumbnail[l],cardioMuscle[l])
-            bodyworksVM.addCardioWorkoutData(this, workoutDataModel,"cardio")
+            bodyworksVM.addWorkoutData(this, workoutDataModel,"cardio",iteration3)
             l++
         }
 
@@ -86,7 +96,7 @@ class MainActivity : AppCompatActivity() {
         var m = 0;
         while(m < iteration4){
             val workoutDataModel = WorkoutDataModel(chestWorkOutName[m],chestVideo[m],chestThumbnail[m],chestMuscle[m])
-            bodyworksVM.addChestWorkoutData(this, workoutDataModel,"chest")
+            bodyworksVM.addWorkoutData(this, workoutDataModel,"chest",iteration4)
             m++
         }
 
@@ -99,7 +109,7 @@ class MainActivity : AppCompatActivity() {
         var n = 0;
         while(n < iteration5){
             val workoutDataModel = WorkoutDataModel(legWorkOutName[n],legVideo[n],legThumbnail[n],legMuscle[n])
-            bodyworksVM.addLegWorkoutData(this, workoutDataModel,"leg")
+            bodyworksVM.addWorkoutData(this, workoutDataModel,"leg",iteration5)
             n++
         }
 
@@ -112,7 +122,7 @@ class MainActivity : AppCompatActivity() {
         var o = 0;
         while(o < iteration6){
             val workoutDataModel = WorkoutDataModel(shoulderWorkOutName[o],shoulderVideo[o],shoulderThumbnail[o],shoulderMuscle[o])
-            bodyworksVM.addShoulderWorkoutData(this, workoutDataModel,"shoulder")
+            bodyworksVM.addWorkoutData(this, workoutDataModel,"shoulder", iteration6)
             o++
         }
 
@@ -125,7 +135,7 @@ class MainActivity : AppCompatActivity() {
         var p = 0;
         while(p < iteration7){
             val workoutDataModel = WorkoutDataModel(tricepWorkOutName[p],tricepVideo[p],tricepThumbnail[p],tricepMuscle[p])
-            bodyworksVM.addTricepWorkoutData(this, workoutDataModel,"triceps")
+            bodyworksVM.addWorkoutData(this, workoutDataModel,"triceps",iteration7)
             p++
         }
 
