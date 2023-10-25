@@ -56,7 +56,7 @@ class WorkoutFragment : Fragment() {
 
         itemList.add(ParentWorkoutModel("Abdomen", abdomenItemList()))
         itemList.add(ParentWorkoutModel("Back Exercise", backExItemList()))
-        itemList.add(ParentWorkoutModel("Biceps & Forearm", bicepsForearmItemList()))
+        itemList.add(ParentWorkoutModel("Biceps", bicepsForearmItemList()))
         itemList.add(ParentWorkoutModel("Cardio", cardioItemList()))
         itemList.add(ParentWorkoutModel("Chest", chestItemList()))
         itemList.add(ParentWorkoutModel("Leg", legItemList()))

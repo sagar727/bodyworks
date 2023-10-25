@@ -12,6 +12,8 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.bodyworks.database.DatabaseHelper
 import com.example.bodyworks.databinding.ActivityWorkoutBinding
+import com.example.bodyworks.model.WorkoutDataModel
+import java.util.Locale
 
 class WorkoutActivity : AppCompatActivity() {
 
@@ -40,14 +42,34 @@ class WorkoutActivity : AppCompatActivity() {
             onBackPressed()
         }
 
-        binding.videoView.setVideoURI(Uri.parse("android.resource://" + packageName + "/" + R.raw.burpee_workout))
-        binding.videoView.requestFocus()
-        binding.videoView.start()
+        // Getting data from the intent
+        val categoryTitle = intent.getStringExtra("categoryTitle")?.lowercase()?.trim()
+        val imgSrc = intent.getStringExtra("imgSrc")
+        val workoutName = intent.getStringExtra("workoutName")
 
-        binding.videoView.setOnCompletionListener {
-            binding.videoView.start()
+        //Database Code
+        var workOut: WorkoutDataModel = WorkoutDataModel("Empty", "Empty", "Empty", "Empty")
+        val db = DatabaseHelper(applicationContext)
+        val workOutData = categoryTitle?.let { db.displayAll(it) }
+        workOutData?.forEach {
+            if(it.name == workoutName)
+                workOut = it
         }
-        splitText(text)
+
+        if(workOut.video != "Empty" && workOut.name != "Empty" && workOut.thumbnail != "Empty" && workOut.muscle != "Empty"){
+            val tempArray = workOut.video.split("\\.".toRegex())
+            val resourceId = resources.getIdentifier(tempArray[2], "raw", packageName)
+            binding.videoView.setVideoURI(Uri.parse("android.resource://$packageName/$resourceId"))
+            binding.videoView.requestFocus()
+            binding.videoView.start()
+
+            binding.videoView.setOnCompletionListener {
+                binding.videoView.start()
+            }
+            splitText(workOut.muscle)
+        }else{
+            Toast.makeText(this, "Incorrect Data Recieved From Database", Toast.LENGTH_SHORT).show()
+        }
 
         val setBtn: Button = findViewById(R.id.setTime)
         setBtn.setOnClickListener{
@@ -63,19 +85,13 @@ class WorkoutActivity : AppCompatActivity() {
         resetBtn.setOnClickListener {
             resetTimer()
         }
-
-        //Database Code
-        // Getting data from the intent
-        val categoryTitle = intent.getStringExtra("categoryTitle")
-        val imgSrc = intent.getStringExtra("imgSrc")
-        val workoutName = intent.getStringExtra("workoutName")
     }
 
     private fun splitText(txt: String){
         val str = txt.split(",").toTypedArray()
         var newStr = "Muscles worked: "
         for(teststr in str){
-            newStr = "$newStr\n\n*$teststr"
+            newStr = "$newStr\n*$teststr"
         }
         binding.textView2.text = newStr
     }
