@@ -2,6 +2,7 @@ package com.example.bodyworks.viewModel
 
 import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.bodyworks.database.DatabaseHelper
@@ -59,22 +60,51 @@ class BodyWorksViewModel: ViewModel() {
         }
     }
 
-    fun addWorkoutData(context: Context,workoutData: WorkoutDataModel,tableName: String,totalCount:Int){
+//    fun addWorkoutData(context: Context,workoutData: WorkoutDataModel,tableName: String,totalCount:Int): ArrayList<WorkoutDataModel>? {
+//        val db = DatabaseHelper(context)
+//        val count = db.countTableRow(tableName)
+//        var data: ArrayList<WorkoutDataModel>? = null
+//        if(totalCount != count){
+//            db.addWorkoutData(workoutData,tableName)
+//            data = db.displayAll(tableName)
+//        }
+//        return data
+//    }
+
+    fun addWorkoutData(context: Context,workoutName: Array<String>,muscle: Array<String>, video: Array<String>, thumbnail: Array<String>,tableName: String): ArrayList<WorkoutDataModel>? {
+        val iteration = workoutName.size
         val db = DatabaseHelper(context)
         val count = db.countTableRow(tableName)
-        if(totalCount !== count){
-            db.addWorkoutData(workoutData,tableName)
-            val data = db.displayAll(tableName)
+        var data: ArrayList<WorkoutDataModel>? = null
+        if(count != iteration){
+            var i = 0;
+            var workoutData: WorkoutDataModel? = null
+            while(i < iteration){
+                workoutData = WorkoutDataModel(workoutName[i],video[i],thumbnail[i],muscle[i])
+                i++
+                if (workoutData != null) {
+                    db.addWorkoutData(workoutData,tableName)
+                }
+            }
+            data = db.displayAll(tableName)
+        }else{
+            data = db.displayAll(tableName)
         }
+        return data
     }
 
-    fun getWorkOutData(context: Context, tableName: String){
-        val db = DatabaseHelper(context)
-        val count = db.countTableRow(tableName)
-        if(count > 0){
-            val data = db.displayAll(tableName)
-            Log.i("workdata",data.toString())
-        }
-    }
+//    fun getWorkOutData(context: Context, tableName: String): ArrayList<WorkoutDataModel>? {
+//        val db = DatabaseHelper(context)
+//        val count = db.countTableRow(tableName)
+//        var data: ArrayList<WorkoutDataModel>? = null
+//        if(count > 0){
+//            data = db.displayAll(tableName)
+//            Log.i("workdata",data.toString())
+//
+//        }else{
+//            Toast.makeText(context,"Data not available", Toast.LENGTH_LONG).show()
+//        }
+//        return data
+//    }
 }
 
