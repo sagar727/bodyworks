@@ -55,21 +55,10 @@ class BodyWorksViewModel: ViewModel() {
     fun addActivityData(context: Context, activityData: Array<String>){
         val db = DatabaseHelper(context)
         val count = db.countTableRow("activity")
-        if(count == 0){
+        if(count.equals(0)){
             db.addActivityData(activityData)
         }
     }
-
-//    fun addWorkoutData(context: Context,workoutData: WorkoutDataModel,tableName: String,totalCount:Int): ArrayList<WorkoutDataModel>? {
-//        val db = DatabaseHelper(context)
-//        val count = db.countTableRow(tableName)
-//        var data: ArrayList<WorkoutDataModel>? = null
-//        if(totalCount != count){
-//            db.addWorkoutData(workoutData,tableName)
-//            data = db.displayAll(tableName)
-//        }
-//        return data
-//    }
 
     fun addWorkoutData(context: Context,workoutName: Array<String>,muscle: Array<String>, video: Array<String>, thumbnail: Array<String>,tableName: String): ArrayList<WorkoutDataModel>? {
         val iteration = workoutName.size
@@ -82,9 +71,7 @@ class BodyWorksViewModel: ViewModel() {
             while(i < iteration){
                 workoutData = WorkoutDataModel(workoutName[i],video[i],thumbnail[i],muscle[i])
                 i++
-                if (workoutData != null) {
-                    db.addWorkoutData(workoutData,tableName)
-                }
+                db.addWorkoutData(workoutData,tableName)
             }
             data = db.displayAll(tableName)
         }else{
@@ -92,19 +79,5 @@ class BodyWorksViewModel: ViewModel() {
         }
         return data
     }
-
-//    fun getWorkOutData(context: Context, tableName: String): ArrayList<WorkoutDataModel>? {
-//        val db = DatabaseHelper(context)
-//        val count = db.countTableRow(tableName)
-//        var data: ArrayList<WorkoutDataModel>? = null
-//        if(count > 0){
-//            data = db.displayAll(tableName)
-//            Log.i("workdata",data.toString())
-//
-//        }else{
-//            Toast.makeText(context,"Data not available", Toast.LENGTH_LONG).show()
-//        }
-//        return data
-//    }
 }
 
