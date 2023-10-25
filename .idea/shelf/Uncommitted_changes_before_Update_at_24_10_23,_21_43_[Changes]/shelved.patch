@@ -1,0 +1,601 @@
+Index: app/src/main/res/layout/activity_timer.xml
+===================================================================
+diff --git a/app/src/main/res/layout/activity_timer.xml b/app/src/main/res/layout/activity_timer.xml
+deleted file mode 100644
+--- a/app/src/main/res/layout/activity_timer.xml	(revision bc8b5dec561062b13c413c391a6da5c71aa37a4d)
++++ /dev/null	(revision bc8b5dec561062b13c413c391a6da5c71aa37a4d)
+@@ -1,85 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:app="http://schemas.android.com/apk/res-auto"
+-    android:layout_width="match_parent"
+-    android:layout_height="match_parent">
+-
+-    <FrameLayout
+-        android:id="@+id/frameLayout"
+-        android:layout_width="200dp"
+-        android:layout_height="200dp"
+-        app:layout_constraintBottom_toBottomOf="parent"
+-        app:layout_constraintEnd_toEndOf="parent"
+-        app:layout_constraintHorizontal_bias="0.497"
+-        app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintTop_toTopOf="parent"
+-        app:layout_constraintVertical_bias="0.499">
+-
+-        <android.widget.ProgressBar
+-            android:id="@+id/progressBar"
+-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+-            android:layout_width="match_parent"
+-            android:layout_height="match_parent"
+-            android:layout_gravity="center"
+-            android:background="@drawable/background_progressbar"
+-            android:max="10"
+-            android:progress="10"
+-            android:progressDrawable="@drawable/blue_progressbar"
+-            android:rotation="90" />
+-
+-        <LinearLayout
+-            android:id="@+id/linear"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:gravity="center"
+-            android:orientation="horizontal">
+-
+-        </LinearLayout>
+-
+-        <TextView
+-            android:id="@+id/displayTime"
+-            android:layout_width="match_parent"
+-            android:layout_height="match_parent"
+-            android:gravity="center"
+-            android:text="@string/zero"
+-            android:textColor="@color/max_blue"
+-            android:textSize="40sp"
+-            android:textStyle="bold">
+-
+-        </TextView>
+-    </FrameLayout>
+-
+-    <Button
+-        android:id="@+id/setTime"
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"
+-        android:text="@string/setBtn"
+-        app:layout_constraintBottom_toBottomOf="parent"
+-        app:layout_constraintEnd_toEndOf="parent"
+-        app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+-        app:layout_constraintVertical_bias="0.165" />
+-
+-    <Button
+-        android:id="@+id/startBtn"
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"
+-        android:layout_marginEnd="104dp"
+-        android:layout_marginBottom="80dp"
+-        android:text="@string/startBtn"
+-        app:layout_constraintBottom_toBottomOf="parent"
+-        app:layout_constraintEnd_toStartOf="@+id/resetBtn"
+-        app:layout_constraintHorizontal_bias="1.0"
+-        app:layout_constraintStart_toStartOf="parent" />
+-
+-    <Button
+-        android:id="@+id/resetBtn"
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"
+-        android:layout_marginEnd="60dp"
+-        android:layout_marginBottom="80dp"
+-        android:text="@string/resetBtn"
+-        app:layout_constraintBottom_toBottomOf="parent"
+-        app:layout_constraintEnd_toEndOf="parent" />
+-</androidx.constraintlayout.widget.ConstraintLayout>
+-
+Index: app/src/main/java/com/example/bodyworks/TimerActivity.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/bodyworks/TimerActivity.kt b/app/src/main/java/com/example/bodyworks/TimerActivity.kt
+deleted file mode 100644
+--- a/app/src/main/java/com/example/bodyworks/TimerActivity.kt	(revision bc8b5dec561062b13c413c391a6da5c71aa37a4d)
++++ /dev/null	(revision bc8b5dec561062b13c413c391a6da5c71aa37a4d)
+@@ -1,132 +0,0 @@
+-package com.example.bodyworks
+-
+-import android.app.Dialog
+-import android.os.Bundle
+-import android.os.CountDownTimer
+-import android.widget.Button
+-import android.widget.EditText
+-import android.widget.ProgressBar
+-import android.widget.TextView
+-import android.widget.Toast
+-import androidx.appcompat.app.AppCompatActivity
+-
+-class TimerActivity : AppCompatActivity() {
+-
+-    private var timeSelected : Int = 0
+-    private var timeCountdown : CountDownTimer? = null
+-    private var timeProgress = 0
+-    private var timeOffSet : Long = 0
+-    private var isStart = true
+-
+-    override fun onCreate(savedInstanceState: Bundle?) {
+-        super.onCreate(savedInstanceState)
+-        setContentView(R.layout.activity_timer)
+-
+-        val setBtn: Button = findViewById(R.id.setTime)
+-        setBtn.setOnClickListener{
+-            setTime()
+-        }
+-
+-        val startBtn : Button = findViewById(R.id.startBtn)
+-        startBtn.setOnClickListener {
+-            setUp()
+-        }
+-
+-        val resetBtn : Button = findViewById(R.id.resetBtn)
+-        resetBtn.setOnClickListener {
+-            resetTimer()
+-        }
+-    }
+-
+-    private fun setUp(){
+-        val startBtn : Button = findViewById(R.id.startBtn)
+-        if(timeSelected > timeProgress){
+-            if(isStart){
+-                startBtn.text = getString(R.string.pause)
+-                startTimer(timeOffSet)
+-                isStart = false
+-            }else {
+-                isStart = true
+-                startBtn.text = getString(R.string.resume)
+-                pauseTimer()
+-            }
+-        }
+-    }
+-
+-    private fun startTimer(pauseTimeL : Long){
+-        val progressBar = findViewById<ProgressBar>(R.id.progressBar)
+-        timeCountdown = object : CountDownTimer(
+-            (timeSelected * 1000).toLong() - pauseTimeL * 1000, 1000){
+-            override fun onTick(p0: Long) {
+-                timeProgress++
+-                timeOffSet = timeSelected.toLong() - p0/1000
+-                progressBar.progress = timeSelected - timeProgress
+-
+-                val displayTime : TextView = findViewById(R.id.displayTime)
+-                displayTime.text = (timeSelected - timeProgress).toString()
+-            }
+-
+-            override fun onFinish() {
+-                resetTimer()
+-                Toast.makeText(this@TimerActivity, "Times Up!!", Toast.LENGTH_SHORT).show()
+-            }
+-
+-        }.start()
+-    }
+-
+-    private fun pauseTimer(){
+-        if(timeCountdown != null){
+-            timeCountdown!!.cancel()
+-        }
+-    }
+-
+-
+-    private fun resetTimer(){
+-        if(timeCountdown != null){
+-            timeCountdown!!.cancel()
+-            timeProgress = 0
+-            timeSelected = 0
+-            timeOffSet = 0
+-            timeCountdown = null
+-
+-            val startBtn : Button = findViewById(R.id.startBtn)
+-            startBtn.text = getString(R.string.start)
+-            isStart = true
+-
+-            val progressBar = findViewById<ProgressBar>(R.id.progressBar)
+-            progressBar.progress = 0
+-
+-            val displayTime : TextView = findViewById(R.id.displayTime)
+-            displayTime.text = "0"
+-        }
+-    }
+-
+-    private fun  setTime(){
+-        val timeDialogue = Dialog(this)
+-        timeDialogue.setContentView(R.layout.add_dialogue)
+-        val timeSet = timeDialogue.findViewById<EditText>(R.id.getTime)
+-        val displayTime : TextView = findViewById(R.id.displayTime)
+-        val startBtn : Button = findViewById(R.id.startBtn)
+-        val progressBar = findViewById<ProgressBar>(R.id.progressBar)
+-        timeDialogue.findViewById<Button>(R.id.setBtn).setOnClickListener {
+-            if(timeSet.text.isEmpty()){
+-                Toast.makeText(this, "Set Time", Toast.LENGTH_SHORT).show()
+-            }else {
+-                displayTime.text = timeSet.text
+-                startBtn.text = getString(R.string.start)
+-                timeSelected = timeSet.text.toString().toInt()
+-                progressBar.max = timeSelected
+-            }
+-            timeDialogue.dismiss()
+-        }
+-        timeDialogue.show()
+-    }
+-
+-    override fun onDestroy(){
+-        super.onDestroy()
+-        if(timeCountdown != null){
+-            timeCountdown?.cancel()
+-            timeProgress = 0
+-        }
+-    }
+-}
+Index: app/src/main/res/layout/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    tools:context=\".MainActivity\">\n\n    <FrameLayout\n        android:id=\"@+id/frameLayout\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"match_parent\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toTopOf=\"parent\">\n\n        <LinearLayout\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"match_parent\"\n            android:orientation=\"vertical\">\n\n            <Button\n                android:id=\"@+id/button\"\n                android:layout_width=\"wrap_content\"\n                android:layout_height=\"wrap_content\"\n                android:text=\"Button\" />\n\n            <Button\n                android:id=\"@+id/button2\"\n                android:layout_width=\"wrap_content\"\n                android:layout_height=\"wrap_content\"\n\n                android:text=\"Button\" />\n        </LinearLayout>\n\n    </FrameLayout>\n\n    <com.google.android.material.bottomnavigation.BottomNavigationView\n        android:id=\"@+id/bottomNavigationView\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        app:layout_constraintBottom_toBottomOf=\"parent\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:menu=\"@menu/bottom_nav\"\n        android:background=\"@color/primary\"\n        app:itemIconTint=\"@color/white\"\n        app:itemTextColor=\"@color/white\"\n        app:itemActiveIndicatorStyle=\"@style/App.Custom.Indicator\"/>\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_main.xml b/app/src/main/res/layout/activity_main.xml
+--- a/app/src/main/res/layout/activity_main.xml	(revision bc8b5dec561062b13c413c391a6da5c71aa37a4d)
++++ b/app/src/main/res/layout/activity_main.xml	(date 1698197496001)
+@@ -19,18 +19,12 @@
+             android:layout_height="match_parent"
+             android:orientation="vertical">
+ 
+-            <Button
+-                android:id="@+id/button"
+-                android:layout_width="wrap_content"
+-                android:layout_height="wrap_content"
+-                android:text="Button" />
+-
+             <Button
+                 android:id="@+id/button2"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+ 
+-                android:text="Button" />
++                android:text="workout" />
+         </LinearLayout>
+ 
+     </FrameLayout>
+Index: app/src/main/res/layout/add_dialogue.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"wrap_content\">\n\n    <EditText\n        android:id=\"@+id/getTime\"\n        android:layout_width=\"342dp\"\n        android:layout_height=\"43dp\"\n        android:layout_margin=\"10dp\"\n        android:layout_marginTop=\"16dp\"\n        android:hint=\"@string/set_timer\"\n        android:autofillHints=\"time\"\n        android:inputType=\"numberDecimal\"\n        android:textColor=\"@color/max_blue\"\n        android:textColorHint=\"@color/min_blue\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintHorizontal_bias=\"0.497\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toTopOf=\"parent\" />\n\n    <Button\n        android:id=\"@+id/setBtn\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:layout_marginTop=\"20dp\"\n        android:text=\"@string/set\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintHorizontal_bias=\"0.498\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toBottomOf=\"@+id/getTime\" />\n\n\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/add_dialogue.xml b/app/src/main/res/layout/add_dialogue.xml
+--- a/app/src/main/res/layout/add_dialogue.xml	(revision bc8b5dec561062b13c413c391a6da5c71aa37a4d)
++++ b/app/src/main/res/layout/add_dialogue.xml	(date 1698197496004)
+@@ -6,15 +6,15 @@
+ 
+     <EditText
+         android:id="@+id/getTime"
+-        android:layout_width="342dp"
++        android:layout_width="200dp"
+         android:layout_height="43dp"
+         android:layout_margin="10dp"
+         android:layout_marginTop="16dp"
+         android:hint="@string/set_timer"
+         android:autofillHints="time"
+         android:inputType="numberDecimal"
+-        android:textColor="@color/max_blue"
+-        android:textColorHint="@color/min_blue"
++        android:textColor="@color/primary"
++        android:textColorHint="@color/gray"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintHorizontal_bias="0.497"
+         app:layout_constraintStart_toStartOf="parent"
+Index: app/src/main/java/com/example/bodyworks/WorkoutActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.bodyworks\n\nimport android.net.Uri\nimport androidx.appcompat.app.AppCompatActivity\nimport android.os.Bundle\nimport com.example.bodyworks.databinding.ActivityWorkoutBinding\n\nclass WorkoutActivity : AppCompatActivity() {\n\n    lateinit var binding: ActivityWorkoutBinding\n    val text = \"Transversus abdominis, Rectus abdominis, Internal oblique, External oblique muscles\"\n\n    override fun onCreate(savedInstanceState: Bundle?) {\n        super.onCreate(savedInstanceState)\n        setContentView(R.layout.activity_workout)\n\n        binding = ActivityWorkoutBinding.inflate(layoutInflater)\n        setContentView(binding.root)\n\n        val toolbar = binding.toolbar2\n        setSupportActionBar(toolbar)\n        supportActionBar?.setDisplayHomeAsUpEnabled(true)\n        toolbar.setNavigationOnClickListener {\n            onBackPressed()\n        }\n\n        binding.videoView.setVideoURI(Uri.parse(\"android.resource://\" + packageName + \"/\" + R.raw.burpee_workout))\n        binding.videoView.requestFocus()\n        binding.videoView.start()\n\n        binding.videoView.setOnCompletionListener {\n            binding.videoView.start()\n        }\n        splitText(text)\n    }\n\n    private fun splitText(txt: String){\n        val str = txt.split(\",\").toTypedArray()\n        var newStr = \"Muscles worked: \"\n        for(teststr in str){\n            newStr = \"$newStr\\n\\n*$teststr\"\n        }\n        binding.textView2.text = newStr\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/bodyworks/WorkoutActivity.kt b/app/src/main/java/com/example/bodyworks/WorkoutActivity.kt
+--- a/app/src/main/java/com/example/bodyworks/WorkoutActivity.kt	(revision bc8b5dec561062b13c413c391a6da5c71aa37a4d)
++++ b/app/src/main/java/com/example/bodyworks/WorkoutActivity.kt	(date 1698197496007)
+@@ -1,12 +1,25 @@
+ package com.example.bodyworks
+ 
++import android.app.Dialog
+ import android.net.Uri
+ import androidx.appcompat.app.AppCompatActivity
+ import android.os.Bundle
++import android.os.CountDownTimer
++import android.widget.Button
++import android.widget.EditText
++import android.widget.ProgressBar
++import android.widget.TextView
++import android.widget.Toast
+ import com.example.bodyworks.databinding.ActivityWorkoutBinding
+ 
+ class WorkoutActivity : AppCompatActivity() {
+ 
++    private var timeSelected : Int = 0
++    private var timeCountdown : CountDownTimer? = null
++    private var timeProgress = 0
++    private var timeOffSet : Long = 0
++    private var isStart = true
++
+     lateinit var binding: ActivityWorkoutBinding
+     val text = "Transversus abdominis, Rectus abdominis, Internal oblique, External oblique muscles"
+ 
+@@ -32,6 +45,21 @@
+             binding.videoView.start()
+         }
+         splitText(text)
++
++        val setBtn: Button = findViewById(R.id.setTime)
++        setBtn.setOnClickListener{
++            setTime()
++        }
++
++        val startBtn : Button = findViewById(R.id.startBtn)
++        startBtn.setOnClickListener {
++            setUp()
++        }
++
++        val resetBtn : Button = findViewById(R.id.resetBtn)
++        resetBtn.setOnClickListener {
++            resetTimer()
++        }
+     }
+ 
+     private fun splitText(txt: String){
+@@ -42,4 +70,97 @@
+         }
+         binding.textView2.text = newStr
+     }
++
++    private fun setUp(){
++        val startBtn : Button = findViewById(R.id.startBtn)
++        if(timeSelected > timeProgress){
++            if(isStart){
++                startBtn.text = getString(R.string.pause)
++                startTimer(timeOffSet)
++                isStart = false
++            }else {
++                isStart = true
++                startBtn.text = getString(R.string.resume)
++                pauseTimer()
++            }
++        }
++    }
++
++    private fun startTimer(pauseTimeL : Long){
++        val progressBar = findViewById<ProgressBar>(R.id.progressBar)
++        timeCountdown = object : CountDownTimer(
++            (timeSelected * 1000).toLong() - pauseTimeL * 1000, 1000){
++            override fun onTick(p0: Long) {
++                timeProgress++
++                timeOffSet = timeSelected.toLong() - p0/1000
++                progressBar.progress = timeSelected - timeProgress
++
++                val displayTime : TextView = findViewById(R.id.displayTime)
++                displayTime.text = (timeSelected - timeProgress).toString()
++            }
++
++            override fun onFinish() {
++                resetTimer()
++                Toast.makeText(this@WorkoutActivity, "Times Up!!", Toast.LENGTH_SHORT).show()
++            }
++
++        }.start()
++    }
++
++    private fun pauseTimer(){
++        if(timeCountdown != null){
++            timeCountdown!!.cancel()
++        }
++    }
++
++
++    private fun resetTimer(){
++        if(timeCountdown != null){
++            timeCountdown!!.cancel()
++            timeProgress = 0
++            timeSelected = 0
++            timeOffSet = 0
++            timeCountdown = null
++
++            val startBtn : Button = findViewById(R.id.startBtn)
++            startBtn.text = getString(R.string.start)
++            isStart = true
++
++            val progressBar = findViewById<ProgressBar>(R.id.progressBar)
++            progressBar.progress = 0
++
++            val displayTime : TextView = findViewById(R.id.displayTime)
++            displayTime.text = "0"
++        }
++    }
++
++    private fun  setTime(){
++        val timeDialogue = Dialog(this)
++        timeDialogue.setContentView(R.layout.add_dialogue)
++        val timeSet = timeDialogue.findViewById<EditText>(R.id.getTime)
++        val displayTime : TextView = findViewById(R.id.displayTime)
++        val startBtn : Button = findViewById(R.id.startBtn)
++        val progressBar = findViewById<ProgressBar>(R.id.progressBar)
++        timeDialogue.findViewById<Button>(R.id.setBtn).setOnClickListener {
++            if(timeSet.text.isEmpty()){
++                Toast.makeText(this, "Set Time", Toast.LENGTH_SHORT).show()
++            }else {
++                displayTime.text = timeSet.text
++                startBtn.text = getString(R.string.start)
++                timeSelected = timeSet.text.toString().toInt()
++                progressBar.max = timeSelected
++            }
++            timeDialogue.dismiss()
++        }
++        timeDialogue.show()
++    }
++
++    override fun onDestroy(){
++        super.onDestroy()
++        if(timeCountdown != null){
++            timeCountdown?.cancel()
++            timeProgress = 0
++        }
++    }
++
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/example/bodyworks/MainActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.bodyworks\n\nimport android.content.Intent\nimport androidx.appcompat.app.AppCompatActivity\nimport android.os.Bundle\nimport androidx.fragment.app.Fragment\nimport androidx.lifecycle.ViewModelProvider\nimport com.example.bodyworks.databinding.ActivityMainBinding\nimport com.example.bodyworks.viewModel.BodyWorksViewModel\n\nclass MainActivity : AppCompatActivity() {\n    private lateinit var binding: ActivityMainBinding\n    private lateinit var bodyworksVM: BodyWorksViewModel\n\n    override fun onCreate(savedInstanceState: Bundle?) {\n        super.onCreate(savedInstanceState)\n        binding = ActivityMainBinding.inflate(layoutInflater)\n        setContentView(binding.root)\n\n        bodyworksVM = ViewModelProvider(this).get(BodyWorksViewModel::class.java)\n\n        val activityList: Array<String> = resources.getStringArray(R.array.activity_array)\n        bodyworksVM.addActivityData(this, activityList)\n\n        //Setting Workout page as home page\n        replaceFragment(WorkoutFragment())\n        //Changing fragment as per selection\n        binding.bottomNavigationView.setOnItemSelectedListener {\n            when(it.itemId){\n                R.id.workouts -> replaceFragment(WorkoutFragment())\n                R.id.fitnessHub -> replaceFragment(FitnessHubFragment())\n                else -> {\n\n                }\n            }\n            true\n        }\n        binding.button.setOnClickListener{\n            val intent = Intent(this, TimerActivity :: class.java)\n            startActivity(intent)\n        }\n\n        binding.button2.setOnClickListener{\n            val intent = Intent(this, WorkoutActivity :: class.java)\n            startActivity(intent)\n        }\n    }\n\n    private fun replaceFragment(fragment: Fragment){\n        val fragmentManager = supportFragmentManager\n        val fragmentTransaction = fragmentManager.beginTransaction()\n        fragmentTransaction.replace(R.id.frameLayout, fragment)\n        fragmentTransaction.commit()\n    }\n\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/bodyworks/MainActivity.kt b/app/src/main/java/com/example/bodyworks/MainActivity.kt
+--- a/app/src/main/java/com/example/bodyworks/MainActivity.kt	(revision bc8b5dec561062b13c413c391a6da5c71aa37a4d)
++++ b/app/src/main/java/com/example/bodyworks/MainActivity.kt	(date 1698197496011)
+@@ -35,10 +35,6 @@
+             }
+             true
+         }
+-        binding.button.setOnClickListener{
+-            val intent = Intent(this, TimerActivity :: class.java)
+-            startActivity(intent)
+-        }
+ 
+         binding.button2.setOnClickListener{
+             val intent = Intent(this, WorkoutActivity :: class.java)
+Index: app/src/main/res/layout/activity_workout.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    android:orientation=\"vertical\"\n    tools:context=\".WorkoutActivity\">\n\n    <androidx.appcompat.widget.Toolbar\n        android:id=\"@+id/toolbar2\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:background=\"?attr/colorPrimary\"\n        android:minHeight=\"?attr/actionBarSize\"\n        android:theme=\"?attr/actionBarTheme\"\n        app:navigationIcon=\"@drawable/baseline_arrow_back_24\"\n        app:title=\"Workout\"\n        app:titleTextColor=\"@color/white\" />\n\n    <LinearLayout\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:orientation=\"vertical\">\n\n        <VideoView\n            android:id=\"@+id/videoView\"\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"200dp\" />\n\n        <TextView\n            android:id=\"@+id/textView2\"\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"wrap_content\"\n            android:text=\"TextView\" />\n    </LinearLayout>\n\n</LinearLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_workout.xml b/app/src/main/res/layout/activity_workout.xml
+--- a/app/src/main/res/layout/activity_workout.xml	(revision bc8b5dec561062b13c413c391a6da5c71aa37a4d)
++++ b/app/src/main/res/layout/activity_workout.xml	(date 1698197496015)
+@@ -35,4 +35,74 @@
+             android:text="TextView" />
+     </LinearLayout>
+ 
++    <FrameLayout
++        android:id="@+id/frameLayout"
++        android:layout_width="150dp"
++        android:layout_height="150dp"
++        android:layout_marginTop="50dp"
++        android:layout_marginLeft="130dp">
++
++        <android.widget.ProgressBar
++            android:id="@+id/progressBar"
++            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
++            android:layout_width="match_parent"
++            android:layout_height="match_parent"
++            android:background="@drawable/background_progressbar"
++            android:max="10"
++            android:progress="10"
++            android:progressDrawable="@drawable/blue_progressbar"
++            android:rotation="90" />
++
++        <TextView
++            android:id="@+id/displayTime"
++            android:layout_width="match_parent"
++            android:layout_height="match_parent"
++            android:gravity="center"
++            android:text="@string/zero"
++            android:textColor="@color/primary"
++            android:textSize="32sp"
++            android:textStyle="bold">
++        </TextView>
++    </FrameLayout>
++
++    <Button
++        android:id="@+id/setTime"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="30dp"
++        android:layout_marginLeft="161dp"
++        android:text="@string/setBtn"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent" />
++
++    <LinearLayout
++        android:id="@+id/linear"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="50dp"
++        android:gravity="center"
++        android:orientation="horizontal">
++
++
++        <Button
++            android:id="@+id/startBtn"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginRight="50dp"
++            android:text="@string/startBtn"
++            app:layout_constraintBottom_toBottomOf="parent"
++            app:layout_constraintEnd_toStartOf="@+id/resetBtn"
++            app:layout_constraintHorizontal_bias="1.0"
++            app:layout_constraintStart_toStartOf="parent" />
++
++        <Button
++        android:id="@+id/resetBtn"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++            android:layout_marginLeft="50dp"
++        android:text="@string/resetBtn"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent" />
++    </LinearLayout>
++
+ </LinearLayout>
+\ No newline at end of file
+Index: .idea/deploymentTargetDropDown.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"deploymentTargetDropDown\">\n    <targetSelectedWithDropDown>\n      <Target>\n        <type value=\"QUICK_BOOT_TARGET\" />\n        <deviceKey>\n          <Key>\n            <type value=\"VIRTUAL_DEVICE_PATH\" />\n            <value value=\"$USER_HOME$/.android/avd/Pixel_3a_API_33_arm64-v8a.avd\" />\n          </Key>\n        </deviceKey>\n      </Target>\n    </targetSelectedWithDropDown>\n    <timeTargetWasSelectedWithDropDown value=\"2023-10-24T18:34:34.473454Z\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/deploymentTargetDropDown.xml b/.idea/deploymentTargetDropDown.xml
+--- a/.idea/deploymentTargetDropDown.xml	(revision bc8b5dec561062b13c413c391a6da5c71aa37a4d)
++++ b/.idea/deploymentTargetDropDown.xml	(date 1698197526873)
+@@ -7,11 +7,11 @@
+         <deviceKey>
+           <Key>
+             <type value="VIRTUAL_DEVICE_PATH" />
+-            <value value="$USER_HOME$/.android/avd/Pixel_3a_API_33_arm64-v8a.avd" />
++            <value value="$USER_HOME$/.android/avd/Pixel_4_API_33.avd" />
+           </Key>
+         </deviceKey>
+       </Target>
+     </targetSelectedWithDropDown>
+-    <timeTargetWasSelectedWithDropDown value="2023-10-24T18:34:34.473454Z" />
++    <timeTargetWasSelectedWithDropDown value="2023-10-24T18:05:49.806784Z" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: app/src/main/res/drawable/blue_progressbar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<layer-list xmlns:android=\"http://schemas.android.com/apk/res/android\">\n    <item>\n        <shape\n            android:shape=\"ring\"\n            android:innerRadiusRatio=\"2.5\"\n            android:thicknessRatio=\"30.0\"\n            android:useLevel=\"true\">\n            <gradient\n                android:startColor=\"@color/max_blue\"\n                android:endColor=\"@color/min_blue\"/>\n        </shape>\n    </item>\n</layer-list>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/blue_progressbar.xml b/app/src/main/res/drawable/blue_progressbar.xml
+--- a/app/src/main/res/drawable/blue_progressbar.xml	(revision bc8b5dec561062b13c413c391a6da5c71aa37a4d)
++++ b/app/src/main/res/drawable/blue_progressbar.xml	(date 1698197501490)
+@@ -7,8 +7,8 @@
+             android:thicknessRatio="30.0"
+             android:useLevel="true">
+             <gradient
+-                android:startColor="@color/max_blue"
+-                android:endColor="@color/min_blue"/>
++                android:startColor="@color/primary"
++                android:endColor="@color/primary"/>
+         </shape>
+     </item>
+ </layer-list>
+\ No newline at end of file
