@@ -40,11 +40,6 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-
-        binding.button2.setOnClickListener{
-            val intent = Intent(this, WorkoutActivity :: class.java)
-            startActivity(intent)
-        }
     }
 
 
@@ -156,6 +151,20 @@ class MainActivity : AppCompatActivity() {
             tricepThumbnail,
             "triceps"
         )
+
+        //Setting Workout page as home page
+        replaceFragment(WorkoutFragment())
+        //Changing fragment as per selection
+        binding.bottomNavigationView.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.workouts -> replaceFragment(WorkoutFragment())
+                R.id.fitnessHub -> replaceFragment(FitnessHubFragment())
+                else -> {
+
+                }
+            }
+            true
+        }
     }
 
     private fun replaceFragment(fragment: Fragment){

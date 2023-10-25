@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import com.example.bodyworks.database.DatabaseHelper
 import com.example.bodyworks.databinding.ActivityWorkoutBinding
 
 class WorkoutActivity : AppCompatActivity() {
@@ -19,6 +20,8 @@ class WorkoutActivity : AppCompatActivity() {
     private var timeProgress = 0
     private var timeOffSet : Long = 0
     private var isStart = true
+    private var categoryForDB: String="";
+    private lateinit var dbHelper: DatabaseHelper
 
     lateinit var binding: ActivityWorkoutBinding
     val text = "Transversus abdominis, Rectus abdominis, Internal oblique, External oblique muscles"
@@ -60,6 +63,12 @@ class WorkoutActivity : AppCompatActivity() {
         resetBtn.setOnClickListener {
             resetTimer()
         }
+
+        //Database Code
+        // Getting data from the intent
+        val categoryTitle = intent.getStringExtra("categoryTitle")
+        val imgSrc = intent.getStringExtra("imgSrc")
+        val workoutName = intent.getStringExtra("workoutName")
     }
 
     private fun splitText(txt: String){
