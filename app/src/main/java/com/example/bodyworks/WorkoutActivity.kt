@@ -96,6 +96,7 @@ class WorkoutActivity : AppCompatActivity() {
         binding.textView2.text = newStr
     }
 
+    // code to set timer
     private fun setUp(){
         val startBtn : Button = findViewById(R.id.startBtn)
         if(timeSelected > timeProgress){
@@ -110,7 +111,7 @@ class WorkoutActivity : AppCompatActivity() {
             }
         }
     }
-
+    // code to start the timer on button click
     private fun startTimer(pauseTimeL : Long){
         val progressBar = findViewById<ProgressBar>(R.id.progressBar)
         timeCountdown = object : CountDownTimer(
@@ -131,14 +132,14 @@ class WorkoutActivity : AppCompatActivity() {
 
         }.start()
     }
-
+    // code to pause time
     private fun pauseTimer(){
         if(timeCountdown != null){
             timeCountdown!!.cancel()
         }
     }
 
-
+    // code will reset the timer to 0
     private fun resetTimer(){
         if(timeCountdown != null){
             timeCountdown!!.cancel()
@@ -158,7 +159,7 @@ class WorkoutActivity : AppCompatActivity() {
             displayTime.text = "0"
         }
     }
-
+    // to open set timer dialog
     private fun  setTime(){
         val timeDialogue = Dialog(this)
         timeDialogue.setContentView(R.layout.add_dialogue)
