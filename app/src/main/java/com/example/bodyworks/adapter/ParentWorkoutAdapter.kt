@@ -9,7 +9,7 @@ import com.example.bodyworks.R
 import com.example.bodyworks.model.ParentWorkoutModel
 
 /**
- * Author: Ketul Chauhan
+ * Author: Dhruv Patel
  * Date: October 25, 2023
  */
 class ParentWorkoutAdapter(private val parentItemList: MutableList<ParentWorkoutModel>):

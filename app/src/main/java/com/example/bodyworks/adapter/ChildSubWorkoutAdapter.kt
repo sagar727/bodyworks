@@ -18,7 +18,7 @@ import com.example.bodyworks.model.ParentWorkoutModel
 
 
 /**
- * Author: Ketul Chauhan
+ * Author: Dhruv Patel
  * Date: October 25, 2023
  */
 class ChildSubWorkoutAdapter(private val parentWorkoutList: ParentWorkoutModel,val childSubWorkoutList: MutableList<ChildSubWorkoutModel>):

@@ -13,6 +13,9 @@ import com.example.bodyworks.model.ChildSubWorkoutModel
 import com.example.bodyworks.model.ParentWorkoutModel
 import java.util.Calendar
 
+/**Author: Dhruv Patel
+ * Description: user can choose workouts from cards
+ **/
 class WorkoutFragment : Fragment() {
     private lateinit var layoutBind: ActivityMainBinding;
 
