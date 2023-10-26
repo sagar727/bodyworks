@@ -8,6 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.bodyworks.R
 import com.example.bodyworks.model.ParentWorkoutModel
 
+/**
+ * Author: Ketul Chauhan
+ * Date: October 25, 2023
+ */
 class ParentWorkoutAdapter(private val parentItemList: MutableList<ParentWorkoutModel>):
     RecyclerView.Adapter<ParentWorkoutAdapter.ParentViewHolder>() {
     override fun onCreateViewHolder(

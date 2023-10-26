@@ -1,5 +1,9 @@
 package com.example.bodyworks.dailyWorkoutPlanner.planWorkouts
 
+/**
+ * Author: Ketul Chauhan
+ * Date: October 25, 2023
+ */
 data class EachDayModel(
     val day: String,
     var isExpandable: Boolean,

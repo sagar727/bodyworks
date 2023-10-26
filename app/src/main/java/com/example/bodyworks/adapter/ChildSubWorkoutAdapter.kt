@@ -16,6 +16,11 @@ import com.example.bodyworks.WorkoutActivity
 import com.example.bodyworks.model.ChildSubWorkoutModel
 import com.example.bodyworks.model.ParentWorkoutModel
 
+
+/**
+ * Author: Ketul Chauhan
+ * Date: October 25, 2023
+ */
 class ChildSubWorkoutAdapter(private val parentWorkoutList: ParentWorkoutModel,val childSubWorkoutList: MutableList<ChildSubWorkoutModel>):
     RecyclerView.Adapter<ChildSubWorkoutAdapter.ChildViewHolder>() {
    // private var parentActivity: AppCompatActivity? = null

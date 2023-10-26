@@ -10,6 +10,11 @@ import com.example.bodyworks.viewModel.BodyWorksViewModel
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 
+/**
+ * Author: Ketul Chauhan
+ * Date: October 25, 2023
+ */
+
 class DailyWorkoutPlanner : AppCompatActivity() {
     private lateinit var binding: ActivityDailyWorkoutPlannerBinding
     private lateinit var bodyWorksViewModel: BodyWorksViewModel

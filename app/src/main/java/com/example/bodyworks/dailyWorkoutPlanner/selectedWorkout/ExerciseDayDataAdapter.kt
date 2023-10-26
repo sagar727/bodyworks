@@ -7,6 +7,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bodyworks.R
 
+/**
+ * Author: Ketul Chauhan
+ * Date: October 25, 2023
+ */
 class ExerciseDayDataAdapter(private val dayExerciseList : List<DayExerciseModel>):
     RecyclerView.Adapter<ExerciseDayDataAdapter.ExerciseDayDataViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExerciseDayDataViewHolder {

@@ -23,10 +23,10 @@ import java.util.Calendar
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
+
 /**
- * A simple [Fragment] subclass.
- * Use the [SelectedWorkoutsFragment.newInstance] factory method to
- * create an instance of this fragment.
+ * Author: Ketul Chauhan
+ * Date: October 25, 2023
  */
 class SelectedWorkoutsFragment : Fragment() {
     // TODO: Rename and change types of parameters

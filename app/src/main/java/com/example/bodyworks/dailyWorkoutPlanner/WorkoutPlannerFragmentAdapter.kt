@@ -7,6 +7,10 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.bodyworks.dailyWorkoutPlanner.planWorkouts.PlanDailyWorkoutsFragment
 import com.example.bodyworks.dailyWorkoutPlanner.selectedWorkout.SelectedWorkoutsFragment
 
+/**
+ * Author: Ketul Chauhan
+ * Date: October 25, 2023
+ */
 class WorkoutPlannerFragmentAdapter(
     fragmentManager: FragmentManager,
     lifecycle: Lifecycle) :

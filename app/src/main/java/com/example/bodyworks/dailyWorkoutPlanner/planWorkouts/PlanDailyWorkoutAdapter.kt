@@ -11,6 +11,10 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bodyworks.R
 
+/**
+ * Author: Ketul Chauhan
+ * Date: October 25, 2023
+ */
 class PlanDailyWorkoutAdapter(val context: Context, private val days: List<EachDayModel>):
     RecyclerView.Adapter<PlanDailyWorkoutAdapter.PlanDailyWorkoutViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlanDailyWorkoutViewHolder {

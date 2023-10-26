@@ -13,6 +13,10 @@ import com.example.bodyworks.dailyWorkoutPlanner.selectedWorkout.DayExerciseMode
 import com.example.bodyworks.database.DatabaseHelper
 import com.google.android.material.card.MaterialCardView
 
+/**
+ * Author: Ketul Chauhan
+ * Date: October 25, 2023
+ */
 class EachDayViewAdapter(
     val context: Context,
     private var day: String,
