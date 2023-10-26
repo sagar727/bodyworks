@@ -17,6 +17,7 @@ class BodyWorksViewModel: ViewModel() {
         bmi.value = "0"
     }
 
+    //code to calculate bmi
     fun calculateBmiInMetric(context: Context,wt: Double, ht: Double) {
         val cmToMeter = ht / 100
         val result = ((wt / (cmToMeter * cmToMeter)) * 100.0).roundToInt() / 100.0
@@ -31,6 +32,7 @@ class BodyWorksViewModel: ViewModel() {
         }
     }
 
+    //code to retrieve bmi
     fun getBMI(context: Context){
         val db = DatabaseHelper(context)
         bmi.value = db.getBMI()
