@@ -23,6 +23,10 @@
     <string name="inch">Inch</string>
     <string name="calculate">Calculate</string>
 
+    <string name="bmiInfo">
+        A BMI below 18.5 (blue) is considered underweight.\n\nA BMI of 18.5 to 24.9 (green) is considered healthy.\n\nA BMI of 25 to 29.9 (yellow) is considered overweight.\n\nA BMI of 30 to 39.9 (red) is considered obese.\n\nA BMI of 40 or higher (purple) is considered extreme obesity.
+    </string>
+
     <!--    Abdomen-->
 
     <!--    Muscle Array-->

@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 import android.widget.Toast
 import com.example.bodyworks.model.User
+import com.example.bodyworks.model.WeightTracker
 import com.example.bodyworks.model.WorkoutDataModel
 
 val DATABASE_NAME = "Bodyworks.db"
@@ -84,6 +85,11 @@ val PLANNER_TABLE = "planner"
 val DAY_ID = "dayid"
 val DAY_NAME = "dayname"
 val ACTIVITY = "activity"
+
+val WEIGHT_TRACKER = "weightTracker"
+val KG = "kg"
+val POUND = "pound"
+val DT = "dt"
 
 
 class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,null,
@@ -191,6 +197,14 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
                     "$ACTIVITY TEXT" +
                     ")"
         db?.execSQL(createPlannerTable)
+
+        val createWeightTrackerTable =
+            "CREATE TABLE $WEIGHT_TRACKER(" +
+                    "$KG TEXT NOT NULL," +
+                    "$POUND TEXT NOT NULL," +
+                    "$DT TEXT NOT NULL" +
+                    ")"
+        db?.execSQL(createWeightTrackerTable)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
@@ -226,6 +240,9 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
 
         val deletePlannerTable = "DROP TABLE IF EXISTS $PLANNER_TABLE"
         db?.execSQL(deletePlannerTable)
+
+        val deleteWeightTrackerTable = "DROP TABLE IF EXISTS $WEIGHT_TRACKER"
+        db?.execSQL(deleteWeightTrackerTable)
     }
 
     fun addActivityData(activityData: Array<String>){
@@ -367,6 +384,46 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
             }
         }
         return workData
+    }
+
+    //weight tracker query
+    fun addWeightData(wt: WeightTracker){
+        val db = this.writableDatabase
+        val content = ContentValues()
+        content.put(KG,wt.kg)
+        content.put(POUND,wt.lb)
+        content.put(DT,wt.dt)
+        val result = db.insert(WEIGHT_TRACKER,null,content)
+        if(result == (-1).toLong()){
+            Log.d("Database:", "Could not add data!!")
+        }else{
+            Log.d("Database:", "Data added successfully!!")
+        }
+        db.close()
+    }
+
+    @SuppressLint("Range")
+    fun getWeightTrackerData(): ArrayList<WeightTracker> {
+        val weightTrackerData = ArrayList<WeightTracker>()
+        val selectQuery = "SELECT * FROM $WEIGHT_TRACKER"
+        val db = this.readableDatabase
+        var cursor: Cursor? = null
+        cursor = db.rawQuery(selectQuery,null)
+        var kilo:Double
+        var pound:Double
+        var date:String
+        if (cursor != null) {
+            if(cursor.moveToFirst()){
+                do{
+                    kilo = cursor.getDouble(cursor.getColumnIndex(KG))
+                    pound = cursor.getDouble(cursor.getColumnIndex(POUND))
+                    date = cursor.getString(cursor.getColumnIndex(DT))
+                    val weightData = WeightTracker(kilo,pound,date)
+                    weightTrackerData.add(weightData)
+                }while (cursor.moveToNext())
+            }
+        }
+        return weightTrackerData
     }
 
     /** Author: Ketul Chauhan

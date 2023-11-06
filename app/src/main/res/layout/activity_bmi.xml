@@ -67,9 +67,18 @@
                 android:id="@+id/bmiTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/_0"
                 android:layout_marginStart="8dp"
-                android:textSize="20sp" />
+                android:text="@string/_0"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/helpBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/baseline_help_red_24" />
 
         </LinearLayout>
 
@@ -84,22 +93,25 @@
                 android:id="@+id/wtET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="number|numberDecimal"
+                android:maxLength="4"
                 android:textColorHint="#546E7A" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textField2"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:hint="@string/centimeters">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/htET"
+            <AutoCompleteTextView
+                android:id="@+id/cmDropDown"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="#546E7A" />
+                android:inputType="none" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -112,35 +124,36 @@
             android:baselineAligned="false">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textField3"
-                android:layout_width="wrap_content"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginEnd="8dp"
-                android:hint="@string/feet">
+                android:hint="Feet">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/ftET"
+                <AutoCompleteTextView
+                    android:id="@+id/feetDropDown"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColorHint="#546E7A" />
-
+                    android:layout_weight="1"
+                    android:inputType="none" />
             </com.google.android.material.textfield.TextInputLayout>
 
+
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textField4"
-                android:layout_width="wrap_content"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginStart="8dp"
-                android:hint="@string/inch">
+                android:hint="Inch">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inchET"
+                <AutoCompleteTextView
+                    android:id="@+id/inchDropDown"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColorHint="#546E7A" />
-
+                    android:layout_weight="1"
+                    android:inputType="none" />
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
@@ -154,5 +167,7 @@
             android:layout_margin="8dp"
             android:text="@string/calculate"
             android:textColor="@color/white" />
-    </LinearLayout>
+
+        </LinearLayout>
+
 </LinearLayout>

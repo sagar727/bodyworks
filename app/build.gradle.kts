@@ -48,5 +48,5 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("cat.ereza:customactivityoncrash:2.4.0")
     implementation ("com.github.bumptech.glide:glide:4.16.0")
-
+    implementation ("com.github.ErenAlpaslan:ChartCore:1.0.0")
 }

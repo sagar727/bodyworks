@@ -6,6 +6,10 @@
     <color name="primary_shade">#77171E</color>
     <color name="primary_light">#D66971</color>
     <color name="light_blue">#C5CAE9</color>
+    <color name="green">#4CAF50</color>
+    <color name="yellow">#C0AF00</color>
+    <color name="red">#E11B0C</color>
+    <color name="purple">#673AB7</color>
     <color name="orange">#FF5722</color>
     <color name="gray">#757575</color>
     <color name="max_blue">#30d9ef</color>

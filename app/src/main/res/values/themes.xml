@@ -5,6 +5,11 @@
          <item name="colorPrimary">@color/primary</item>
         <item name="android:statusBarColor">@color/primary</item>
         <item name="colorPrimaryVariant">@color/primary</item>
+
+    </style>
+
+    <style name="CustomAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/popup_background</item>
     </style>
 
     <style name="Theme.Bodyworks" parent="Base.Theme.Bodyworks" />
