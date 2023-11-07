@@ -31,9 +31,9 @@ class WeightTracker : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     lateinit var bodyworksVM: BodyWorksViewModel
     val calendar: Calendar = Calendar.getInstance()
     val dateFormatter = SimpleDateFormat("dd/MM/yyyy", Locale.CANADA)
-    val kgArray = doubleArrayOf().toMutableList()
-    val lbArray = doubleArrayOf().toMutableList()
-    val dateArray = arrayListOf<String>().toMutableList()
+    var kiloArray = arrayListOf<Double>()
+    var poundArray = arrayListOf<Double>()
+    var dateArray = arrayListOf<String>()
 
     @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,16 +54,50 @@ class WeightTracker : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         val date = dateFormatter.format(calendar.timeInMillis)
         binding.dateET.setText(date)
 
-        bodyworksVM.getWeightTrackerData(this)
+        loadChart()
 
-        observeKgArray()
-        observeDtArray()
-        observeLbArray()
+        binding.saveBtn.setOnClickListener {
+            val dt = binding.dateET.text.toString()
+            val wt = binding.wtET.text.toString().trim()
+            if((wt.length == 4 && !wt.contains(".",false)) || wt == ""){
+                Toast.makeText(this,"Please enter valid weight!!",Toast.LENGTH_SHORT).show()
+            }else{
+                bodyworksVM.addWeightTrackerData(this, wt.toDouble(), dt)
+                binding.wtET.text?.clear()
+                binding.chartCore.reload()
+                kiloArray.clear()
+                poundArray.clear()
+                dateArray.clear()
+                loadChart()
+            }
+        }
+
+        binding.datePickerBtn.setOnClickListener {
+            val day = calendar.get(Calendar.DAY_OF_MONTH)
+            val month = calendar.get(Calendar.MONTH)
+            val year = calendar.get(Calendar.YEAR)
+            val datePicker = DatePickerDialog(this, this, year, month, day)
+            datePicker.datePicker.maxDate = calendar.timeInMillis
+            datePicker.show()
+        }
+    }
+
+    private fun loadChart() {
+        val data = bodyworksVM.getWeightTrackerData(this)
+
+        var i = 0
+        val size = data.size
+        while (i < size) {
+            kiloArray.add(data[i].kg)
+            poundArray.add(data[i].lb)
+            dateArray.add(data[i].dt)
+            i++
+        }
 
         val coreData = ChartData()
             .addDataset(
                 ChartNumberDataset()
-                    .data(kgArray)
+                    .data(kiloArray)
                     .label("weight")
                     .offset(10)
                     .borderColor("#E11B0C")
@@ -105,49 +139,11 @@ class WeightTracker : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
             .options(chartOptions)
 
         binding.chartCore.draw(chartModel)
-
-        binding.saveBtn.setOnClickListener {
-            val dt = binding.dateET.text.toString()
-            val wt = binding.wtET.text.toString().trim()
-            if((wt.length == 4 && !wt.contains(".",false)) || wt == ""){
-                Toast.makeText(this,"Please enter valid weight!!",Toast.LENGTH_SHORT).show()
-            }else{
-                bodyworksVM.addWeightTrackerData(this, wt.toDouble(), dt)
-                binding.wtET.text?.clear()
-            }
-        }
-
-        binding.datePickerBtn.setOnClickListener {
-            val day = calendar.get(Calendar.DAY_OF_MONTH)
-            val month = calendar.get(Calendar.MONTH)
-            val year = calendar.get(Calendar.YEAR)
-            val datePicker = DatePickerDialog(this, this, year, month, day)
-            datePicker.datePicker.maxDate = calendar.timeInMillis
-            datePicker.show()
-        }
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
         calendar.set(year, month, dayOfMonth)
         val date = dateFormatter.format(calendar.timeInMillis)
         binding.dateET.setText(date)
-    }
-
-    private fun observeKgArray(){
-        bodyworksVM.kgArray.observe(this){kiloArray ->
-            kgArray.addAll(kiloArray)
-        }
-    }
-
-    private fun observeDtArray(){
-        bodyworksVM.dtArray.observe(this){dtArray ->
-            dateArray.addAll(dtArray)
-        }
-    }
-
-    private fun observeLbArray(){
-        bodyworksVM.lbArray.observe(this){poundArray ->
-            lbArray.addAll(poundArray)
-        }
     }
 }

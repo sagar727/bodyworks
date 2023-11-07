@@ -1,25 +1,16 @@
 package com.example.bodyworks.viewModel
 
 import android.content.Context
-import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.bodyworks.database.DatabaseHelper
 import com.example.bodyworks.model.User
 import com.example.bodyworks.model.WeightTracker
 import com.example.bodyworks.model.WorkoutDataModel
-import java.nio.DoubleBuffer
 import kotlin.math.roundToInt
 
 class BodyWorksViewModel : ViewModel() {
     var bmi = MutableLiveData<String>()
-    var kgArray = MutableLiveData<List<Double>>()
-    var kiloArray = arrayListOf<Double>()
-    var lbArray = MutableLiveData<List<Double>>()
-    var poundArray = arrayListOf<Double>()
-    var dtArray = MutableLiveData<List<String>>()
-    var dateArray = arrayListOf<String>()
 
     init {
         bmi.value = "0"
@@ -113,23 +104,14 @@ class BodyWorksViewModel : ViewModel() {
         return data
     }
 
-    fun getWeightTrackerData(context: Context) {
+    fun getWeightTrackerData(context: Context): ArrayList<WeightTracker> {
         val db = DatabaseHelper(context)
+        var data = ArrayList<WeightTracker>()
         val count = db.countTableRow("weightTracker")
         if (count != 0) {
-            val data = db.getWeightTrackerData()
-            var i = 0
-            val size = data.size
-            while (i < size) {
-                kiloArray.add(data[i].kg)
-                poundArray.add(data[i].lb)
-                dateArray.add(data[i].dt)
-                i++
-            }
-            kgArray.value = kiloArray
-            lbArray.value = poundArray
-            dtArray.value = dateArray
+            data = db.getWeightTrackerData()
         }
+        return data
     }
 }
 
