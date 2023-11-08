@@ -18,6 +18,9 @@
         android:theme="@style/Theme.Bodyworks"
         tools:targetApi="31" >
         <activity
+            android:name=".CalorieTrackerActivity"
+            android:exported="false" />
+        <activity
             android:name=".waterReminder.WaterReminderActivity"
             android:exported="false" />
         <activity

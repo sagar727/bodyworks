@@ -43,6 +43,11 @@ class FitnessHubFragment : Fragment() {
             startActivity(intent)
         }
 
+        binding.calorieTracker.setOnClickListener{
+            val intent = Intent(context, CalorieTrackerActivity::class.java)
+            startActivity(intent)
+        }
+
         return binding.root
     }
 }

@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 import android.widget.Toast
+import com.example.bodyworks.model.CalorieTracker
 import com.example.bodyworks.model.User
 import com.example.bodyworks.model.WeightTracker
 import com.example.bodyworks.model.WorkoutDataModel
@@ -90,6 +91,10 @@ val WEIGHT_TRACKER = "weightTracker"
 val KG = "kg"
 val POUND = "pound"
 val DT = "dt"
+
+val CALORIE_TRACKER = "calorieTracker"
+val DATE = "dt"
+val CALORIE = "calorie"
 
 
 class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,null,
@@ -205,6 +210,13 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
                     "$DT TEXT NOT NULL" +
                     ")"
         db?.execSQL(createWeightTrackerTable)
+
+        val createCalorieTrackerTable =
+            "CREATE TABLE $CALORIE_TRACKER(" +
+                    "$DATE TEXT NOT NULL," +
+                    "$CALORIE DOUBLE NOT NULL" +
+                    ")"
+        db?.execSQL(createCalorieTrackerTable)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
@@ -243,6 +255,9 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
 
         val deleteWeightTrackerTable = "DROP TABLE IF EXISTS $WEIGHT_TRACKER"
         db?.execSQL(deleteWeightTrackerTable)
+
+        val deleteCalorieTracker = "DROP TABLE IF EXISTS $CALORIE_TRACKER"
+        db?.execSQL(deleteCalorieTracker)
     }
 
     fun addActivityData(activityData: Array<String>){
@@ -539,4 +554,79 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
         return exercise
     }
     /** Code Ends Here For Daily Workout Planner */
+
+    @SuppressLint("Range")
+    fun getCalorieTrackerData(): ArrayList<CalorieTracker> {
+        val calorieTrackerData = ArrayList<CalorieTracker>()
+        val selectQuery = "SELECT * FROM $CALORIE_TRACKER"
+        val db = this.readableDatabase
+        var cursor: Cursor? = null
+        cursor = db.rawQuery(selectQuery, null)
+        var calorie: Double
+        var date: String
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    calorie = cursor.getDouble(cursor.getColumnIndex(CALORIE))
+                    date = cursor.getString(cursor.getColumnIndex(DT))
+                    val calorieData = CalorieTracker(date, calorie)
+                    calorieTrackerData.add(calorieData)
+                } while (cursor.moveToNext())
+            }
+        }
+        return calorieTrackerData
+    }
+
+    //
+    @SuppressLint("Range")
+    fun getCurrentCalorie(dt: String): ArrayList<CalorieTracker> {
+        val calorieTrackerData = ArrayList<CalorieTracker>()
+        val selectQuery = "SELECT * FROM $CALORIE_TRACKER WHERE $DATE = ?"
+        val db = this.readableDatabase
+        var cursor: Cursor? = null
+        cursor = db.rawQuery(selectQuery, arrayOf(dt))
+        var calorie: Double
+        var date: String
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    calorie = cursor.getDouble(cursor.getColumnIndex(CALORIE))
+                    date = cursor.getString(cursor.getColumnIndex(DT))
+                    val calorieData = CalorieTracker(date, calorie)
+                    calorieTrackerData.add(calorieData)
+                } while (cursor.moveToNext())
+            }
+        }
+        Log.d("caldata", calorieTrackerData.toString())
+        return calorieTrackerData
+    }
+
+    fun updateCalorie(calorie: CalorieTracker) {
+        val db = this.writableDatabase
+        val content = ContentValues()
+        content.put(CALORIE, calorie.calories)
+        content.put(DATE, calorie.date)
+        Log.d("date", calorie.toString())
+        val result = db.update(CALORIE_TRACKER, content, "$DATE = ?", arrayOf(calorie.date))
+        if (result == 0) {
+            Log.d("calorieUpdate:", "Could not update calorie!!")
+        } else {
+            Log.d("calorieUpdate:", "Calorie updated")
+        }
+        db.close()
+    }
+
+    fun insertCalorie(calorie: CalorieTracker) {
+        val db = this.writableDatabase
+        val content = ContentValues()
+        content.put(CALORIE, calorie.calories)
+        content.put(DATE, calorie.date)
+        val result = db.insert(CALORIE_TRACKER, null, content)
+        if (result == (-1).toLong()) {
+            Log.d("insertCalorie:", "calorie not inserted")
+        } else {
+            Log.d("insertCalorie:", "calorie inserted")
+        }
+        db.close()
+    }
 }
