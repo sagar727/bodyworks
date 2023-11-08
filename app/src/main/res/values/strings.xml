@@ -389,4 +389,14 @@
     <string name="reset_button_text">Reset</string>
     <string name="image_of_exercise">Image Of Exercise</string>
 
+    <!-- Water Reminder Activity -->
+    <string name="water_reminder">Water Reminder</string>
+    <string name="get_reminder_title">Select Your Time To Get Reminder</string>
+    <string name="start_time">Start Time:</string>
+    <string name="end_time">End Time:</string>
+    <string name="select_start_time">Select Start Time</string>
+    <string name="select_end_time">Select End Time</string>
+    <string name="start_reminder">Start Reminder</string>
+    <string name="enter_time_interval">Enter Time Interval In Minutes</string>
+
 </resources>
