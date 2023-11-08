@@ -82,6 +82,7 @@ class WeightTracker : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         }
     }
 
+    //chart for weight tracker
     private fun loadChart() {
         val data = bodyworksVM.getWeightTrackerData(this)
 
