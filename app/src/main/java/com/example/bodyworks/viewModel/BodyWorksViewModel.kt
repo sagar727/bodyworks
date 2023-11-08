@@ -104,6 +104,7 @@ class BodyWorksViewModel : ViewModel() {
         return data
     }
 
+    //to get weight tracker data
     fun getWeightTrackerData(context: Context): ArrayList<WeightTracker> {
         val db = DatabaseHelper(context)
         var data = ArrayList<WeightTracker>()
