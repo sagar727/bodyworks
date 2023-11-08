@@ -428,5 +428,8 @@
     <string name="select_end_time">Seleccionar hora de finalización</string>
     <string name="start_reminder">Recordatorio de inicio</string>
     <string name="enter_time_interval">Introduzca el intervalo de tiempo en minutos</string>
+    <string name="add_item">Añadir artículo</string>
+    <string name="total_calories_0">Calorías totales: 0</string>
+    <string name="calorie_tracker">Rastreador de calorías</string>
 
 </resources>

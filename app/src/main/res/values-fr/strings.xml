@@ -428,5 +428,8 @@
     <string name="select_end_time">Sélectionnez l\'heure de fin</string>
     <string name="start_reminder">Démarrer le rappel</string>
     <string name="enter_time_interval">Entrez l\'intervalle de temps en minutes</string>
+    <string name="add_item">Ajouter un item</string>
+    <string name="total_calories_0"><![CDATA[Calories totales : 0]]></string>
+    <string name="calorie_tracker">Suivi des calories</string>
 
 </resources>

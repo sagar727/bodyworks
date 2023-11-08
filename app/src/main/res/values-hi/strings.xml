@@ -428,5 +428,8 @@
     <string name="select_end_time">समाप्ति समय का चयन करें</string>
     <string name="start_reminder">अनुस्मारक प्रारंभ करें</string>
     <string name="enter_time_interval">समय अंतराल मिनटों में दर्ज करें</string>
+    <string name="add_item">मद जोड़ें</string>
+    <string name="total_calories_0">कुल कैलोरी: 0</string>
+    <string name="calorie_tracker">कैलोरी ट्रैकर</string>
 
 </resources>

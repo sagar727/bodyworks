@@ -430,5 +430,8 @@
     <string name="select_end_time">Select End Time</string>
     <string name="start_reminder">Start Reminder</string>
     <string name="enter_time_interval">Enter Time Interval In Minutes</string>
+    <string name="add_item">Add Item</string>
+    <string name="total_calories_0">Total Calories: 0</string>
+    <string name="calorie_tracker">Calorie Tracker</string>
 
 </resources>
