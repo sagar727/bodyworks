@@ -26,6 +26,10 @@ import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import java.util.Calendar
 
+/**
+ * Author: Ketul Chauhan
+ * Date: Nov 7, 2023
+ * */
 class WaterReminderActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWaterReminderBinding
     private lateinit var txtViewStartTime: TextView
