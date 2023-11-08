@@ -52,13 +52,8 @@ class CalorieTrackerActivity : AppCompatActivity() {
 
         val date = dateFormatter.format(calendar.timeInMillis)
 
-//        viewModel.insertCalorie(this, CalorieTracker("03/11/2023",1000.0))
-//        viewModel.insertCalorie(this,CalorieTracker("04/11/2023",900.0))
-//        viewModel.insertCalorie(this,CalorieTracker("05/11/2023",1200.0))
-//        viewModel.insertCalorie(this,CalorieTracker("06/11/2023",1400.0))
-
         updateChart()
-
+        
         buttonAddItem.setOnClickListener {
             val selectedItem = foodItems[spinnerFoodItems.selectedItemPosition]
             val data = viewModel.getCurrentCalorie(this, date)
