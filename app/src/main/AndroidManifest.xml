@@ -27,7 +27,7 @@
             android:name=".WeightTracker"
             android:exported="false" />
         <activity
-            android:name=".WorkoutActivity"
+            android:name=".workoutCategory.WorkoutActivity"
             android:exported="false" />
         <activity
             android:name=".dailyWorkoutPlanner.DailyWorkoutPlanner"

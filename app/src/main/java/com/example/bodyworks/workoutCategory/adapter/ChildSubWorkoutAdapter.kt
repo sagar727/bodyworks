@@ -12,7 +12,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.bodyworks.R
-import com.example.bodyworks.WorkoutActivity
+import com.example.bodyworks.workoutCategory.WorkoutActivity
 import com.example.bodyworks.model.ChildSubWorkoutModel
 import com.example.bodyworks.model.ParentWorkoutModel
 

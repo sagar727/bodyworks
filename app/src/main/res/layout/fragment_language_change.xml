@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".languageChange.LanguageChangeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:id="@+id/bottomSheetTitleTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/choose_language_title"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnEnglish"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/english"
+        app:layout_constraintEnd_toEndOf="@+id/bottomSheetTitleTxt"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toStartOf="@+id/bottomSheetTitleTxt"
+        app:layout_constraintTop_toBottomOf="@+id/bottomSheetTitleTxt" />
+
+    <Button
+        android:id="@+id/btnFrench"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/french"
+        app:layout_constraintEnd_toEndOf="@+id/btnEnglish"
+        app:layout_constraintStart_toStartOf="@+id/btnEnglish"
+        app:layout_constraintTop_toBottomOf="@+id/btnEnglish" />
+
+    <Button
+        android:id="@+id/btnHindi"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/hindi"
+        app:layout_constraintEnd_toEndOf="@+id/btnFrench"
+        app:layout_constraintStart_toStartOf="@+id/btnFrench"
+        app:layout_constraintTop_toBottomOf="@+id/btnFrench" />
+
+    <Button
+        android:id="@+id/btnSpanish"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/spanish"
+        app:layout_constraintEnd_toEndOf="@+id/btnHindi"
+        app:layout_constraintStart_toStartOf="@+id/btnHindi"
+        app:layout_constraintTop_toBottomOf="@+id/btnHindi" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

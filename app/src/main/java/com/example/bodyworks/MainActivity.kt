@@ -1,19 +1,23 @@
 package com.example.bodyworks
 
-import android.content.Intent
+import android.content.Context
+import android.content.res.Configuration
+import android.content.res.Resources
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.bodyworks.databinding.ActivityMainBinding
-import com.example.bodyworks.model.WorkoutDataModel
+import com.example.bodyworks.languageChange.LanguageChangeFragment
 import com.example.bodyworks.viewModel.BodyWorksViewModel
+import com.example.bodyworks.workoutCategory.WorkoutFragment
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var bodyworksVM: BodyWorksViewModel
+    private var languageChangeFragment: LanguageChangeFragment? = null;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,8 +44,52 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+        // Language change button code
+        languageChangeFragment = LanguageChangeFragment();
+        loadLocale();
+        updateBottomNav();
+        binding.fabLanguageChange.setOnClickListener {
+            changeLanguage();
+        }
     }
 
+    /* Author: Dhruv Patel
+    *  Description: Changes the language of the app
+    * */
+    private fun changeLanguage() {
+        languageChangeFragment?.show(supportFragmentManager, languageChangeFragment!!.tag);
+    }
+    private fun updateBottomNav(){
+        val menu = binding.bottomNavigationView.menu;
+        menu.findItem(R.id.workouts).title = getString(R.string.workouts);
+        menu.findItem(R.id.fitnessHub).title = getString(R.string.fitness_hub);
+    }
+    private fun setLocale(languageCode: String) {
+        val locale: Locale = Locale(languageCode);
+        Locale.setDefault(locale);
+
+        val configuration = Configuration(resources.configuration);
+        configuration.setLocale(locale)
+
+        val newResources = Resources(assets, resources.displayMetrics, configuration)
+        resources.updateConfiguration(configuration, resources.displayMetrics)
+
+        val langPref = getSharedPreferences("ChangeLang", Context.MODE_PRIVATE);
+        val editor = langPref.edit();
+        editor.putString("app_lang", languageCode);
+        editor.apply();
+    }
+    fun loadLocale()
+    {
+        val loadLangPref = getSharedPreferences("ChangeLang", Context.MODE_PRIVATE);
+        var Language = loadLangPref.getString("app_lang","");
+        if (Language != null) {
+            Log.e("Language:",Language)
+        }
+        if (Language != null) {
+            setLocale(Language);
+        }
+    }
 
     private fun insertWorkoutData() {
         val abdomenWorkOutName: Array<String> =

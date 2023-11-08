@@ -65,7 +65,7 @@ class SelectedWorkoutsFragment : Fragment() {
             Calendar.FRIDAY -> "Friday"
             Calendar.SATURDAY -> "Saturday"
             Calendar.SUNDAY -> "Sunday"
-            else -> "ERROR"
+            else -> getString(R.string.error);
         }
         val todaysExercise = db.getExerciseSelectedList(dayOfWeekText)
         txtViewDay.text = dayOfWeekText
@@ -96,13 +96,22 @@ class SelectedWorkoutsFragment : Fragment() {
             Calendar.FRIDAY -> "Friday"
             Calendar.SATURDAY -> "Saturday"
             Calendar.SUNDAY -> "Sunday"
-            else -> "ERROR"
+            else -> getString(R.string.error);
+//            Calendar.MONDAY -> getString(R.string.monday);
+//            Calendar.TUESDAY -> getString(R.string.tuesday);
+//            Calendar.WEDNESDAY -> getString(R.string.wednesday);
+//            Calendar.THURSDAY -> getString(R.string.thursday);
+//            Calendar.FRIDAY -> getString(R.string.friday);
+//            Calendar.SATURDAY -> getString(R.string.saturday);
+//            Calendar.SUNDAY -> getString(R.string.sunday);
+//            else -> getString(R.string.error);
         }
         val todaysExercise = db.getExerciseSelectedList(dayOfWeekText)
         txtViewDay.text = dayOfWeekText
         txtViewExercise.text = todaysExercise
 
         val weekDays = arrayOf("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+//        val weekDays = arrayOf(getString(R.string.monday), getString(R.string.tuesday), getString(R.string.wednesday), getString(R.string.thursday), getString(R.string.friday), getString(R.string.saturday), getString(R.string.sunday))
         val exerciseListFetched = mutableListOf<DayExerciseModel>()
         weekDays.forEach {
             val allExercisesThatWasSelected = db.getExerciseSelectedList(it)

@@ -1,4 +1,4 @@
-package com.example.bodyworks
+package com.example.bodyworks.workoutCategory
 
 import android.app.Dialog
 import android.net.Uri
@@ -10,10 +10,10 @@ import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import com.example.bodyworks.R
 import com.example.bodyworks.database.DatabaseHelper
 import com.example.bodyworks.databinding.ActivityWorkoutBinding
 import com.example.bodyworks.model.WorkoutDataModel
-import java.util.Locale
 
 class WorkoutActivity : AppCompatActivity() {
 

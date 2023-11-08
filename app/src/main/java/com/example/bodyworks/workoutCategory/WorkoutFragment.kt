@@ -1,4 +1,4 @@
-package com.example.bodyworks
+package com.example.bodyworks.workoutCategory
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.bodyworks.R
 import com.example.bodyworks.adapter.ParentWorkoutAdapter
 import com.example.bodyworks.databinding.ActivityMainBinding
 import com.example.bodyworks.model.ChildSubWorkoutModel
@@ -48,10 +49,10 @@ class WorkoutFragment : Fragment() {
         val timeofDay = cal.get(Calendar.HOUR_OF_DAY);
 
         return when (timeofDay) {
-            in 0..11 -> "Good Morning!"
-            in 12..15 -> "Good Afternoon!"
-            in 16..24 -> "Good Evening!"
-            else -> "Hello, How are you today?"
+            in 0..11 -> getString(R.string.morning_greeting);
+            in 12..15 -> getString(R.string.afternoon_greeting);
+            in 16..24 -> getString(R.string.evening_greeting);
+            else -> getString(R.string.other_greeting);
         }
     }
     private fun parentItemList(): MutableList<ParentWorkoutModel> {

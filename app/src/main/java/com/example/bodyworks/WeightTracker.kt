@@ -98,7 +98,7 @@ class WeightTracker : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
             .addDataset(
                 ChartNumberDataset()
                     .data(kiloArray)
-                    .label("weight")
+                    .label(getString(R.string.weight))
                     .offset(10)
                     .borderColor("#E11B0C")
             )
@@ -115,7 +115,7 @@ class WeightTracker : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
                     ).title(
                         Title()
                             .display(true)
-                            .text("Weight Tracker Chart")
+                            .text(getString(R.string.weight_tracker_chart))
                             .position(Position.TOP)
                             .align(TextAlign.CENTER)
                             .color("red")

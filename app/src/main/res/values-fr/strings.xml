@@ -351,84 +351,82 @@
     </string-array>
 
     <!-- Main application strings   -->
-    <string name="app_name">Bodyworks</string>
-    <string name="workouts">Workouts</string>
-    <string name="fitness_hub">Fitness Hub</string>
+    <string name="app_name">Carrosseries</string>
+    <string name="workouts">Entraînements</string>
+    <string name="fitness_hub">Centre de remise en forme</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="set_timer">Set timer</string>
-    <string name="set">Set</string>
+    <string name="hello_blank_fragment">Bonjour fragment vierge</string>
+    <string name="set_timer">Régler la minuterie</string>
+    <string name="set">Ensemble</string>
     <string name="zero">0</string>
-    <string name="setBtn">Set</string>
-    <string name="startBtn">Start</string>
-    <string name="resetBtn">Reset</string>
+    <string name="setBtn">Ensemble</string>
+    <string name="startBtn">Commencer</string>
+    <string name="resetBtn">Réinitialiser</string>
     <string name="pause">Pause</string>
-    <string name="resume">Resume</string>
-    <string name="start">Start</string>
-    <string name="metric">Metric</string>
-    <string name="imperial">Imperial</string>
-    <string name="your_current_bmi">Your Current BMI:</string>
+    <string name="resume">CV</string>
+    <string name="start">Commencer</string>
+    <string name="metric">Métrique</string>
+    <string name="imperial">Impérial</string>
+    <string name="your_current_bmi"><![CDATA[Votre IMC actuel :]]></string>
     <string name="_0">0</string>
-    <string name="kilogram">Kilogram</string>
-    <string name="centimeters">Centimeters</string>
-    <string name="feet">Feet</string>
-    <string name="inch">Inch</string>
-    <string name="calculate">Calculate</string>
-    <string name="error">ERROR</string>
-    <string name="change_the_language_description">Change the Language</string>
-    <string name="choose_language_title">Choose Language</string>
-    <string name="weight">weight</string>
-    <string name="weight_tracker_chart">Weight Tracker Chart</string>
+    <string name="kilogram">Kilogramme</string>
+    <string name="centimeters">Centimètres</string>
+    <string name="feet">Pieds</string>
+    <string name="inch">Pouce</string>
+    <string name="calculate">Calculer</string>
+    <string name="error">ERREUR</string>
+    <string name="change_the_language_description">Changer la langue</string>
+    <string name="choose_language_title">Choisissez la langue</string>
+    <string name="weight">poids</string>
+    <string name="weight_tracker_chart">Tableau de suivi du poids</string>
 
-    <string name="bmiInfo">
-        A BMI below 18.5 (blue) is considered underweight.\n\nA BMI of 18.5 to 24.9 (green) is considered healthy.\n\nA BMI of 25 to 29.9 (yellow) is considered overweight.\n\nA BMI of 30 to 39.9 (red) is considered obese.\n\nA BMI of 40 or higher (purple) is considered extreme obesity.
-    </string>
+    <string name="bmiInfo">Un IMC inférieur à 18,5 (bleu) est considéré comme un poids insuffisant.\n\nUn IMC compris entre 18,5 et 24,9 (vert) est considéré comme sain.\n\nUn IMC compris entre 25 et 29,9 (jaune) est considéré comme un excès de poids.\n\nUn IMC égal à 30. à 39,9 (rouge) est considéré comme obèse.\n\nUn IMC de 40 ou plus (violet) est considéré comme une obésité extrême.</string>
     <!-- Days -->
-    <string name="monday">Monday</string>
-    <string name="tuesday">Tuesday</string>
-    <string name="wednesday">Wednesday</string>
-    <string name="thursday">Thursday</string>
-    <string name="friday">Friday</string>
-    <string name="saturday">Saturday</string>
-    <string name="sunday">Sunday</string>
+    <string name="monday">Lundi</string>
+    <string name="tuesday">Mardi</string>
+    <string name="wednesday">Mercredi</string>
+    <string name="thursday">Jeudi</string>
+    <string name="friday">Vendredi</string>
+    <string name="saturday">Samedi</string>
+    <string name="sunday">Dimanche</string>
 
     <!-- Greetings -->
-    <string name="morning_greeting">Good Morning!</string>
-    <string name="afternoon_greeting">Good Afternoon!</string>
-    <string name="evening_greeting">Good Evening!</string>
-    <string name="other_greeting">Hello, How are you today\?</string>
+    <string name="morning_greeting">Bonjour!</string>
+    <string name="afternoon_greeting">Bon après-midi!</string>
+    <string name="evening_greeting">Bonne soirée!</string>
+    <string name="other_greeting">Bonjour comment vas tu aujourd\'hui\\?</string>
 
-    <string name="english">English</string>
-    <string name="french">French</string>
-    <string name="hindi">Hindi</string>
-    <string name="spanish">Spanish</string>
+    <string name="english">Anglais</string>
+    <string name="french">Français</string>
+    <string name="hindi">hindi</string>
+    <string name="spanish">Espagnol</string>
 
 
     <!--  DailyWorkout Activity Strings  -->
-    <string name="daily_workout_planner">Daily Workout Planner</string>
-    <string name="daily_workout_planner_help">Floating Button To Get Help About How To Use Daily Workout Planner Feature of App</string>
-    <string name="workout_selected_tab_text">Workout Planned</string>
-    <string name="plan_workouts_tab_text">Plan Workouts</string>
-    <string name="today_s_exercise_label">Today\'s Exercise</string>
-    <string name="reset_button_text">Reset</string>
-    <string name="image_of_exercise">Image Of Exercise</string>
-    <string name="feet_hint">Feet</string>
-    <string name="inch_hint">Inch</string>
-    <string name="ok">OK</string>
-    <string name="bmi">BMI</string>
-    <string name="weight_tracker">Weight Tracker</string>
-    <string name="save">SAVE</string>
+    <string name="daily_workout_planner">Planificateur d\'entraînement quotidien</string>
+    <string name="daily_workout_planner_help">Bouton flottant pour obtenir de l\'aide sur l\'utilisation de la fonctionnalité de planification d\'entraînement quotidien de l\'application</string>
+    <string name="workout_selected_tab_text">Entraînement prévu</string>
+    <string name="plan_workouts_tab_text">Planifier des séances d\'entraînement</string>
+    <string name="today_s_exercise_label">L\'exercice d\'aujourd\'hui</string>
+    <string name="reset_button_text">Réinitialiser</string>
+    <string name="image_of_exercise">Image de l\'exercice</string>
+    <string name="feet_hint">Pieds</string>
+    <string name="inch_hint">Pouce</string>
+    <string name="ok">D\'ACCORD</string>
+    <string name="bmi">IMC</string>
+    <string name="weight_tracker">Suivi du poids</string>
+    <string name="save">SAUVEGARDER</string>
     <string name="date_hint">Date</string>
 
 
     <!-- Water Reminder Activity -->
-    <string name="water_reminder">Water Reminder</string>
-    <string name="get_reminder_title">Select Your Time To Get Reminder</string>
-    <string name="start_time">Start Time:</string>
-    <string name="end_time">End Time:</string>
-    <string name="select_start_time">Select Start Time</string>
-    <string name="select_end_time">Select End Time</string>
-    <string name="start_reminder">Start Reminder</string>
-    <string name="enter_time_interval">Enter Time Interval In Minutes</string>
+    <string name="water_reminder">Rappel d\'eau</string>
+    <string name="get_reminder_title">Sélectionnez votre heure pour recevoir un rappel</string>
+    <string name="start_time">Heure de début:</string>
+    <string name="end_time">Heure de fin:</string>
+    <string name="select_start_time">Sélectionnez l\'heure de début</string>
+    <string name="select_end_time">Sélectionnez l\'heure de fin</string>
+    <string name="start_reminder">Démarrer le rappel</string>
+    <string name="enter_time_interval">Entrez l\'intervalle de temps en minutes</string>
 
 </resources>

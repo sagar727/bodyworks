@@ -351,84 +351,82 @@
     </string-array>
 
     <!-- Main application strings   -->
-    <string name="app_name">Bodyworks</string>
-    <string name="workouts">Workouts</string>
-    <string name="fitness_hub">Fitness Hub</string>
+    <string name="app_name">शरीर काम करता है</string>
+    <string name="workouts">व्यायाम</string>
+    <string name="fitness_hub">फिटनेस हब</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="set_timer">Set timer</string>
-    <string name="set">Set</string>
+    <string name="hello_blank_fragment">नमस्ते खाली टुकड़ा</string>
+    <string name="set_timer">टाइमर लगाएं</string>
+    <string name="set">तय करना</string>
     <string name="zero">0</string>
-    <string name="setBtn">Set</string>
-    <string name="startBtn">Start</string>
-    <string name="resetBtn">Reset</string>
-    <string name="pause">Pause</string>
-    <string name="resume">Resume</string>
-    <string name="start">Start</string>
-    <string name="metric">Metric</string>
-    <string name="imperial">Imperial</string>
-    <string name="your_current_bmi">Your Current BMI:</string>
+    <string name="setBtn">तय करना</string>
+    <string name="startBtn">शुरू</string>
+    <string name="resetBtn">रीसेट</string>
+    <string name="pause">विराम</string>
+    <string name="resume">फिर शुरू करना</string>
+    <string name="start">शुरू</string>
+    <string name="metric">मीट्रिक</string>
+    <string name="imperial">शाही</string>
+    <string name="your_current_bmi">आपका वर्तमान बीएमआई:</string>
     <string name="_0">0</string>
-    <string name="kilogram">Kilogram</string>
-    <string name="centimeters">Centimeters</string>
-    <string name="feet">Feet</string>
-    <string name="inch">Inch</string>
-    <string name="calculate">Calculate</string>
-    <string name="error">ERROR</string>
-    <string name="change_the_language_description">Change the Language</string>
-    <string name="choose_language_title">Choose Language</string>
-    <string name="weight">weight</string>
-    <string name="weight_tracker_chart">Weight Tracker Chart</string>
+    <string name="kilogram">किलोग्राम</string>
+    <string name="centimeters">सेंटीमीटर</string>
+    <string name="feet">पैर</string>
+    <string name="inch">इंच</string>
+    <string name="calculate">गणना</string>
+    <string name="error">गलती</string>
+    <string name="change_the_language_description">भाषा बदलें</string>
+    <string name="choose_language_title">भाषा चुनें</string>
+    <string name="weight">वज़न</string>
+    <string name="weight_tracker_chart">वज़न ट्रैकर चार्ट</string>
 
-    <string name="bmiInfo">
-        A BMI below 18.5 (blue) is considered underweight.\n\nA BMI of 18.5 to 24.9 (green) is considered healthy.\n\nA BMI of 25 to 29.9 (yellow) is considered overweight.\n\nA BMI of 30 to 39.9 (red) is considered obese.\n\nA BMI of 40 or higher (purple) is considered extreme obesity.
-    </string>
+    <string name="bmiInfo">18.5 (नीला) से कम बीएमआई को कम वजन माना जाता है।\n\n18.5 से 24.9 (हरा) का बीएमआई स्वस्थ माना जाता है।\n\n25 से 29.9 (पीला) का बीएमआई अधिक वजन माना जाता है।\n\n30 का बीएमआई 39.9 (लाल) तक को मोटापा माना जाता है।\n\n40 या उससे अधिक (बैंगनी) के बीएमआई को अत्यधिक मोटापा माना जाता है।</string>
     <!-- Days -->
-    <string name="monday">Monday</string>
-    <string name="tuesday">Tuesday</string>
-    <string name="wednesday">Wednesday</string>
-    <string name="thursday">Thursday</string>
-    <string name="friday">Friday</string>
-    <string name="saturday">Saturday</string>
-    <string name="sunday">Sunday</string>
+    <string name="monday">सोमवार</string>
+    <string name="tuesday">मंगलवार</string>
+    <string name="wednesday">बुधवार</string>
+    <string name="thursday">गुरुवार</string>
+    <string name="friday">शुक्रवार</string>
+    <string name="saturday">शनिवार</string>
+    <string name="sunday">रविवार</string>
 
     <!-- Greetings -->
-    <string name="morning_greeting">Good Morning!</string>
-    <string name="afternoon_greeting">Good Afternoon!</string>
-    <string name="evening_greeting">Good Evening!</string>
-    <string name="other_greeting">Hello, How are you today\?</string>
+    <string name="morning_greeting">शुभ प्रभात!</string>
+    <string name="afternoon_greeting">शुभ दोपहर!</string>
+    <string name="evening_greeting">शुभ संध्या!</string>
+    <string name="other_greeting">हैलो आज आप कैसे हैं\\?</string>
 
-    <string name="english">English</string>
-    <string name="french">French</string>
-    <string name="hindi">Hindi</string>
-    <string name="spanish">Spanish</string>
+    <string name="english">अंग्रेज़ी</string>
+    <string name="french">फ़्रेंच</string>
+    <string name="hindi">हिंदी</string>
+    <string name="spanish">स्पैनिश</string>
 
 
     <!--  DailyWorkout Activity Strings  -->
-    <string name="daily_workout_planner">Daily Workout Planner</string>
-    <string name="daily_workout_planner_help">Floating Button To Get Help About How To Use Daily Workout Planner Feature of App</string>
-    <string name="workout_selected_tab_text">Workout Planned</string>
-    <string name="plan_workouts_tab_text">Plan Workouts</string>
-    <string name="today_s_exercise_label">Today\'s Exercise</string>
-    <string name="reset_button_text">Reset</string>
-    <string name="image_of_exercise">Image Of Exercise</string>
-    <string name="feet_hint">Feet</string>
-    <string name="inch_hint">Inch</string>
-    <string name="ok">OK</string>
-    <string name="bmi">BMI</string>
-    <string name="weight_tracker">Weight Tracker</string>
-    <string name="save">SAVE</string>
-    <string name="date_hint">Date</string>
+    <string name="daily_workout_planner">दैनिक कसरत योजनाकार</string>
+    <string name="daily_workout_planner_help">ऐप के दैनिक वर्कआउट प्लानर फ़ीचर का उपयोग करने के तरीके के बारे में सहायता प्राप्त करने के लिए फ़्लोटिंग बटन</string>
+    <string name="workout_selected_tab_text">कसरत की योजना बनाई</string>
+    <string name="plan_workouts_tab_text">वर्कआउट की योजना बनाएं</string>
+    <string name="today_s_exercise_label">आज का व्यायाम</string>
+    <string name="reset_button_text">रीसेट</string>
+    <string name="image_of_exercise">व्यायाम की छवि</string>
+    <string name="feet_hint">फीट</string>
+    <string name="inch_hint">इंच</string>
+    <string name="ok">ऒके</string>
+    <string name="bmi">बीएमआई</string>
+    <string name="weight_tracker">वज़न ट्रैकर</string>
+    <string name="save">सेव</string>
+    <string name="date_hint">तारीख</string>
 
 
     <!-- Water Reminder Activity -->
-    <string name="water_reminder">Water Reminder</string>
-    <string name="get_reminder_title">Select Your Time To Get Reminder</string>
-    <string name="start_time">Start Time:</string>
-    <string name="end_time">End Time:</string>
-    <string name="select_start_time">Select Start Time</string>
-    <string name="select_end_time">Select End Time</string>
-    <string name="start_reminder">Start Reminder</string>
-    <string name="enter_time_interval">Enter Time Interval In Minutes</string>
+    <string name="water_reminder">जल अनुस्मारक</string>
+    <string name="get_reminder_title">अनुस्मारक प्राप्त करने के लिए अपना समय चुनें</string>
+    <string name="start_time">समय शुरू:</string>
+    <string name="end_time">अंत समय:</string>
+    <string name="select_start_time">प्रारंभ समय चुनें</string>
+    <string name="select_end_time">समाप्ति समय का चयन करें</string>
+    <string name="start_reminder">अनुस्मारक प्रारंभ करें</string>
+    <string name="enter_time_interval">समय अंतराल मिनटों में दर्ज करें</string>
 
 </resources>

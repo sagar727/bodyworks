@@ -31,7 +31,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_margin="30dp"
-                    android:text="BMI"
+                    android:text="@string/bmi"
                     android:textColor="@color/white"
                     android:textSize="24sp"
                     android:textStyle="bold" />
@@ -87,7 +87,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_margin="30dp"
-                    android:text="Weight Tracker"
+                    android:text="@string/weight_tracker"
                     android:textColor="@color/white"
                     android:textSize="24sp"
                     android:textStyle="bold" />
