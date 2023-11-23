@@ -1,4 +1,4 @@
-package com.example.bodyworks.waterReminder
+package com.example.bodyworks.views.waterReminder
 
 import android.app.NotificationChannel
 import android.app.NotificationManager

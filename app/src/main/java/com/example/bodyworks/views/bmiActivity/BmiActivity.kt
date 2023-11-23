@@ -1,4 +1,4 @@
-package com.example.bodyworks
+package com.example.bodyworks.views.bmiActivity
 
 import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
@@ -7,14 +7,16 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.example.bodyworks.R
 import com.example.bodyworks.databinding.ActivityBmiBinding
 import com.example.bodyworks.databinding.BmiInfoDialogBinding
 import com.example.bodyworks.viewModel.BodyWorksViewModel
 
 class BmiActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityBmiBinding
-    lateinit var bmiVM: BodyWorksViewModel
+    private lateinit var binding: ActivityBmiBinding
+    private lateinit var bmiVM: BodyWorksViewModel
+    private var isMetric: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +27,8 @@ class BmiActivity : AppCompatActivity() {
 
         bmiVM = ViewModelProvider(this).get(BodyWorksViewModel::class.java)
 
+        isMetric = getPreferences(MODE_PRIVATE).getBoolean("isMetric",true)
+
         val toolbar = binding.materialToolbar
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -32,13 +36,25 @@ class BmiActivity : AppCompatActivity() {
             onBackPressed()
         }
 
+        if (isMetric) {
+            binding.imperialLL.visibility = View.GONE
+            binding.textField2.visibility = View.VISIBLE
+            binding.cmDropDown.visibility = View.VISIBLE
+            binding.textField1.hint = "Kilograms"
+        } else {
+            binding.cmDropDown.visibility = View.GONE
+            binding.textField2.visibility = View.GONE
+            binding.imperialLL.visibility = View.VISIBLE
+            binding.textField1.hint = "Lbs"
+        }
+
         bmiVM.getBMI(this)
 
-        radioChecked()
+//        radioChecked()
 
-        binding.unitRadioGroup.setOnCheckedChangeListener { _, _ ->
-            radioChecked()
-        }
+//        binding.unitRadioGroup.setOnCheckedChangeListener { _, _ ->
+//            radioChecked()
+//        }
 
         val inches = bmiVM.generateDropDownNumbrs(0,13)
         val feets = bmiVM.generateDropDownNumbrs(1,8)
@@ -58,14 +74,14 @@ class BmiActivity : AppCompatActivity() {
             val ft = binding.feetDropDown.text.toString().trim()
             val inch = binding.inchDropDown.text.toString().trim()
 
-            if (binding.metricRadioBtn.isChecked) {
+            if (isMetric) {
                 if((wt == "" || ht == "" || ht == "Centimeters") || (wt.length == 4 && !wt.contains(".",false))){
                     Toast.makeText(this,"Please add all details!!",Toast.LENGTH_LONG).show()
                 }else{
                     bmiVM.calculateBmiInMetric(this,wt.toDouble(),ht.toDouble())
                     cleanUp()
                 }
-            } else if (binding.imperialRadioBtn.isChecked) {
+            } else {
                 if((wt == "" || ft == "" || ft == "Feet" || inch == "" || inch == "Inch") || (wt.length == 4 && !wt.contains(".",false))){
                     Toast.makeText(this,"Please add all details!!",Toast.LENGTH_LONG).show()
                 }else{
@@ -77,14 +93,13 @@ class BmiActivity : AppCompatActivity() {
 
         binding.helpBtn.setOnClickListener {
             val dialogMainBinding = BmiInfoDialogBinding.inflate(layoutInflater)
-            val dialog = Dialog(this,R.style.CustomAlertDialog)
+            val dialog = Dialog(this, R.style.CustomAlertDialog)
             dialog.setContentView(dialogMainBinding.root)
             dialogMainBinding.dialogOkBtn.setOnClickListener {
                 dialog.dismiss()
             }
             dialog.show()
         }
-
         observeBmiData()
     }
 
@@ -92,19 +107,19 @@ class BmiActivity : AppCompatActivity() {
         binding.wtET.text?.clear()
     }
 
-    private fun radioChecked() {
-        if (binding.metricRadioBtn.isChecked) {
-            binding.imperialLL.visibility = View.GONE
-            binding.textField2.visibility = View.VISIBLE
-            binding.cmDropDown.visibility = View.VISIBLE
-            binding.textField1.hint = "Kilograms"
-        } else if (binding.imperialRadioBtn.isChecked) {
-            binding.cmDropDown.visibility = View.GONE
-            binding.textField2.visibility = View.GONE
-            binding.imperialLL.visibility = View.VISIBLE
-            binding.textField1.hint = "Lbs"
-        }
-    }
+//    private fun radioChecked() {
+//        if (binding.metricRadioBtn.isChecked) {
+//            binding.imperialLL.visibility = View.GONE
+//            binding.textField2.visibility = View.VISIBLE
+//            binding.cmDropDown.visibility = View.VISIBLE
+//            binding.textField1.hint = "Kilograms"
+//        } else if (binding.imperialRadioBtn.isChecked) {
+//            binding.cmDropDown.visibility = View.GONE
+//            binding.textField2.visibility = View.GONE
+//            binding.imperialLL.visibility = View.VISIBLE
+//            binding.textField1.hint = "Lbs"
+//        }
+//    }
 
     private fun observeBmiData(){
         bmiVM.bmi.observe(this){bmiData ->

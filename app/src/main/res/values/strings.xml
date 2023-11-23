@@ -433,5 +433,6 @@
     <string name="add_item">Add Item</string>
     <string name="total_calories_0">Total Calories: 0</string>
     <string name="calorie_tracker">Calorie Tracker</string>
+    <string name="diet_meal_plans">Diet Meal Plans</string>
 
 </resources>

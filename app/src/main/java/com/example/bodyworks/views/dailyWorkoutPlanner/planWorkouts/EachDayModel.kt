@@ -1,4 +1,4 @@
-package com.example.bodyworks.dailyWorkoutPlanner.planWorkouts
+package com.example.bodyworks.views.dailyWorkoutPlanner.planWorkouts
 
 /**
  * Author: Ketul Chauhan

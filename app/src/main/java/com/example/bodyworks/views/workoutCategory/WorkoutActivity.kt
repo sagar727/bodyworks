@@ -1,4 +1,4 @@
-package com.example.bodyworks.workoutCategory
+package com.example.bodyworks.views.workoutCategory
 
 import android.app.Dialog
 import android.net.Uri

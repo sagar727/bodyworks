@@ -9,9 +9,9 @@ import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.bodyworks.databinding.ActivityMainBinding
-import com.example.bodyworks.languageChange.LanguageChangeFragment
+import com.example.bodyworks.views.languageChange.LanguageChangeFragment
 import com.example.bodyworks.viewModel.BodyWorksViewModel
-import com.example.bodyworks.workoutCategory.WorkoutFragment
+import com.example.bodyworks.views.workoutCategory.WorkoutFragment
 import java.util.Locale
 
 class MainActivity : AppCompatActivity() {

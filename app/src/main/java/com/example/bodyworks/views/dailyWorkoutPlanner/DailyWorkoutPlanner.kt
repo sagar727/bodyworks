@@ -1,4 +1,4 @@
-package com.example.bodyworks.dailyWorkoutPlanner
+package com.example.bodyworks.views.dailyWorkoutPlanner
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

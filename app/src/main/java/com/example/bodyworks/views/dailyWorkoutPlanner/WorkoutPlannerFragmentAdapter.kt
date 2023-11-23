@@ -1,11 +1,11 @@
-package com.example.bodyworks.dailyWorkoutPlanner
+package com.example.bodyworks.views.dailyWorkoutPlanner
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.bodyworks.dailyWorkoutPlanner.planWorkouts.PlanDailyWorkoutsFragment
-import com.example.bodyworks.dailyWorkoutPlanner.selectedWorkout.SelectedWorkoutsFragment
+import com.example.bodyworks.views.dailyWorkoutPlanner.planWorkouts.PlanDailyWorkoutsFragment
+import com.example.bodyworks.views.dailyWorkoutPlanner.selectedWorkout.SelectedWorkoutsFragment
 
 /**
  * Author: Ketul Chauhan

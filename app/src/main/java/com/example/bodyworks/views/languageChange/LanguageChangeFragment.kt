@@ -1,4 +1,4 @@
-package com.example.bodyworks.languageChange
+package com.example.bodyworks.views.languageChange
 
 import android.app.Activity
 import android.content.Context

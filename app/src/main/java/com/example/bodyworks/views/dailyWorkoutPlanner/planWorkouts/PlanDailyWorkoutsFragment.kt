@@ -1,4 +1,4 @@
-package com.example.bodyworks.dailyWorkoutPlanner.planWorkouts
+package com.example.bodyworks.views.dailyWorkoutPlanner.planWorkouts
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bodyworks.R
-import com.example.bodyworks.dailyWorkoutPlanner.selectedWorkout.DayExerciseModel
+import com.example.bodyworks.views.dailyWorkoutPlanner.selectedWorkout.DayExerciseModel
 import com.example.bodyworks.database.DatabaseHelper
 import com.example.bodyworks.databinding.FragmentFitnessHubBinding
 import com.example.bodyworks.databinding.FragmentPlanDailyWorkoutsBinding
@@ -45,13 +45,15 @@ class PlanDailyWorkoutsFragment : Fragment() {
         rcViewPlanNew = binding.rcViewPlanNew
         
         val exerciseList = resources.getStringArray(R.array.activity_array)
-        val days = listOf(EachDayModel("Monday", false, exerciseList),
+        val days = listOf(
+            EachDayModel("Monday", false, exerciseList),
             EachDayModel("Tuesday", false, exerciseList),
             EachDayModel("Wednesday", false, exerciseList),
             EachDayModel("Thursday", false, exerciseList),
             EachDayModel("Friday", false, exerciseList),
             EachDayModel("Saturday", false, exerciseList),
-            EachDayModel("Sunday", false, exerciseList))
+            EachDayModel("Sunday", false, exerciseList)
+        )
         rcViewPlanNew.adapter = PlanDailyWorkoutAdapter(requireContext(), days)
         rcViewPlanNew.layoutManager = LinearLayoutManager(context)
         return binding.root

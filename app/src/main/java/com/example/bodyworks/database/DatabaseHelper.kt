@@ -8,7 +8,6 @@ import android.database.DatabaseUtils
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
-import android.widget.Toast
 import com.example.bodyworks.model.CalorieTracker
 import com.example.bodyworks.model.User
 import com.example.bodyworks.model.WeightTracker
@@ -207,7 +206,7 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
             "CREATE TABLE $WEIGHT_TRACKER(" +
                     "$KG TEXT NOT NULL," +
                     "$POUND TEXT NOT NULL," +
-                    "$DT TEXT NOT NULL" +
+                    "$DT INTEGER NOT NULL" +
                     ")"
         db?.execSQL(createWeightTrackerTable)
 
@@ -420,19 +419,18 @@ class DatabaseHelper(var context: Context) : SQLiteOpenHelper(context, DATABASE_
     @SuppressLint("Range")
     fun getWeightTrackerData(): ArrayList<WeightTracker> {
         val weightTrackerData = ArrayList<WeightTracker>()
-        val selectQuery = "SELECT * FROM $WEIGHT_TRACKER"
+        val selectQuery = "SELECT * FROM $WEIGHT_TRACKER ORDER BY $DT DESC LIMIT 5"
         val db = this.readableDatabase
-        var cursor: Cursor? = null
-        cursor = db.rawQuery(selectQuery,null)
+        var cursor: Cursor? = db.rawQuery(selectQuery,null)
         var kilo:Double
         var pound:Double
-        var date:String
+        var date:Long
         if (cursor != null) {
             if(cursor.moveToFirst()){
                 do{
                     kilo = cursor.getDouble(cursor.getColumnIndex(KG))
                     pound = cursor.getDouble(cursor.getColumnIndex(POUND))
-                    date = cursor.getString(cursor.getColumnIndex(DT))
+                    date = cursor.getLong(cursor.getColumnIndex(DT))
                     val weightData = WeightTracker(kilo,pound,date)
                     weightTrackerData.add(weightData)
                 }while (cursor.moveToNext())

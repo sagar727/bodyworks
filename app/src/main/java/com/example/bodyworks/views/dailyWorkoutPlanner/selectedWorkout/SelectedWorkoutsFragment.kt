@@ -1,4 +1,4 @@
-package com.example.bodyworks.dailyWorkoutPlanner.selectedWorkout
+package com.example.bodyworks.views.dailyWorkoutPlanner.selectedWorkout
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bodyworks.R
-import com.example.bodyworks.dailyWorkoutPlanner.planWorkouts.EachDayViewAdapter
+import com.example.bodyworks.views.dailyWorkoutPlanner.planWorkouts.EachDayViewAdapter
 import com.example.bodyworks.database.DatabaseHelper
 import com.example.bodyworks.databinding.FragmentPlanDailyWorkoutsBinding
 import com.example.bodyworks.databinding.FragmentSelectedWorkoutsBinding

@@ -1,4 +1,4 @@
-package com.example.bodyworks.dailyWorkoutPlanner.selectedWorkout
+package com.example.bodyworks.views.dailyWorkoutPlanner.selectedWorkout
 
 import android.view.LayoutInflater
 import android.view.View

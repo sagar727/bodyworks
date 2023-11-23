@@ -1,4 +1,4 @@
-package com.example.bodyworks
+package com.example.bodyworks.views.weightTracker
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.DatePicker
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.example.bodyworks.R
 import com.example.bodyworks.databinding.ActivityWeightTrackerBinding
 import com.example.bodyworks.viewModel.BodyWorksViewModel
 import com.github.chartcore.common.ChartTypes
@@ -23,17 +24,21 @@ import com.github.chartcore.data.option.plugin.Title
 import com.github.chartcore.data.option.plugin.Tooltip
 import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Date
 import java.util.Locale
 
 class WeightTracker : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
 
-    lateinit var binding: ActivityWeightTrackerBinding
-    lateinit var bodyworksVM: BodyWorksViewModel
-    val calendar: Calendar = Calendar.getInstance()
-    val dateFormatter = SimpleDateFormat("dd/MM/yyyy", Locale.CANADA)
-    var kiloArray = arrayListOf<Double>()
-    var poundArray = arrayListOf<Double>()
-    var dateArray = arrayListOf<String>()
+    private lateinit var binding: ActivityWeightTrackerBinding
+    private lateinit var bodyworksVM: BodyWorksViewModel
+    private val calendar: Calendar = Calendar.getInstance()
+    private val dateFormatter = SimpleDateFormat("dd/MM/yyyy", Locale.CANADA)
+    private var kiloArray = arrayListOf<Double>()
+    private var poundArray = arrayListOf<Double>()
+    private var dateArray = arrayListOf<String>()
+    private var isMetric: Boolean = true
+    private lateinit var coreData: ChartData
+    private var currDate: Long = 0
 
     @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,6 +49,14 @@ class WeightTracker : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         setContentView(binding.root)
 
         bodyworksVM = ViewModelProvider(this).get(BodyWorksViewModel::class.java)
+
+        isMetric = getPreferences(MODE_PRIVATE).getBoolean("isMetric", true)
+
+        if(isMetric){
+            binding.textField2.hint = "Kilogram"
+        }else{
+            binding.textField2.hint = "Lb"
+        }
 
         val toolbar = binding.materialToolbar2
         setSupportActionBar(toolbar)
@@ -57,12 +70,11 @@ class WeightTracker : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         loadChart()
 
         binding.saveBtn.setOnClickListener {
-            val dt = binding.dateET.text.toString()
             val wt = binding.wtET.text.toString().trim()
-            if((wt.length == 4 && !wt.contains(".",false)) || wt == ""){
-                Toast.makeText(this,"Please enter valid weight!!",Toast.LENGTH_SHORT).show()
-            }else{
-                bodyworksVM.addWeightTrackerData(this, wt.toDouble(), dt)
+            if ((wt.length == 4 && !wt.contains(".", false)) || wt == "") {
+                Toast.makeText(this, "Please enter valid weight!!", Toast.LENGTH_SHORT).show()
+            } else {
+                bodyworksVM.addWeightTrackerData(this, wt.toDouble(), currDate)
                 binding.wtET.text?.clear()
                 binding.chartCore.reload()
                 kiloArray.clear()
@@ -86,25 +98,38 @@ class WeightTracker : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     //chart for weight tracker
     private fun loadChart() {
         val data = bodyworksVM.getWeightTrackerData(this)
+        val i = 0
+        var j = data.size
 
-        var i = 0
-        val size = data.size
-        while (i < size) {
-            kiloArray.add(data[i].kg)
-            poundArray.add(data[i].lb)
-            dateArray.add(data[i].dt)
-            i++
+        while (i < j) {
+            kiloArray.add(data[j-1].kg)
+            poundArray.add(data[j-1].lb)
+            val dateStr = dateFormatter.format(Date(data[j-1].dt))
+            dateArray.add(dateStr)
+            j--
         }
 
-        val coreData = ChartData()
-            .addDataset(
-                ChartNumberDataset()
-                    .data(kiloArray)
-                    .label(getString(R.string.weight))
-                    .offset(10)
-                    .borderColor("#E11B0C")
-            )
-            .labels(dateArray)
+        if (isMetric) {
+            coreData = ChartData()
+                .addDataset(
+                    ChartNumberDataset()
+                        .data(kiloArray)
+                        .label(getString(R.string.weight))
+                        .offset(10)
+                        .borderColor("#E11B0C")
+                )
+                .labels(dateArray)
+        } else {
+            coreData = ChartData()
+                .addDataset(
+                    ChartNumberDataset()
+                        .data(poundArray)
+                        .label(getString(R.string.weight))
+                        .offset(10)
+                        .borderColor("#E11B0C")
+                )
+                .labels(dateArray)
+        }
 
         val chartOptions = ChartOptions()
             .plugin(
@@ -134,7 +159,6 @@ class WeightTracker : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
                     )
             )
 
-
         val chartModel = ChartCoreModel()
             .type(ChartTypes.LINE)
             .data(coreData)
@@ -146,6 +170,7 @@ class WeightTracker : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
         val calendar: Calendar = Calendar.getInstance()
         calendar.set(year, month, dayOfMonth)
+        currDate = calendar.timeInMillis
         val date = dateFormatter.format(calendar.timeInMillis)
         binding.dateET.setText(date)
     }

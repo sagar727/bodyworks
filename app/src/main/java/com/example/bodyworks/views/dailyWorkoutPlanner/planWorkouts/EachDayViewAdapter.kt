@@ -1,4 +1,4 @@
-package com.example.bodyworks.dailyWorkoutPlanner.planWorkouts
+package com.example.bodyworks.views.dailyWorkoutPlanner.planWorkouts
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bodyworks.R
-import com.example.bodyworks.dailyWorkoutPlanner.selectedWorkout.DayExerciseModel
+import com.example.bodyworks.views.dailyWorkoutPlanner.selectedWorkout.DayExerciseModel
 import com.example.bodyworks.database.DatabaseHelper
 import com.google.android.material.card.MaterialCardView
 

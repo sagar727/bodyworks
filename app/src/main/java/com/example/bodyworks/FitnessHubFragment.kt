@@ -6,9 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.bodyworks.dailyWorkoutPlanner.DailyWorkoutPlanner
+import com.example.bodyworks.views.bmiActivity.BmiActivity
+import com.example.bodyworks.views.calorieTracker.CalorieTrackerActivity
+import com.example.bodyworks.views.dailyWorkoutPlanner.DailyWorkoutPlanner
 import com.example.bodyworks.databinding.FragmentFitnessHubBinding
-import com.example.bodyworks.waterReminder.WaterReminderActivity
+import com.example.bodyworks.views.waterReminder.WaterReminderActivity
+import com.example.bodyworks.views.weightTracker.WeightTracker
 
 
 class FitnessHubFragment : Fragment() {
@@ -24,7 +27,7 @@ class FitnessHubFragment : Fragment() {
         binding = FragmentFitnessHubBinding.inflate(inflater,container,false)
 
         binding.bmiLL.setOnClickListener {
-            val intent = Intent(context,BmiActivity::class.java)
+            val intent = Intent(context, BmiActivity::class.java)
             startActivity(intent)
         }
 
@@ -34,7 +37,7 @@ class FitnessHubFragment : Fragment() {
         }
 
         binding.weightTracker.setOnClickListener {
-            val intent = Intent(context,WeightTracker::class.java)
+            val intent = Intent(context, WeightTracker::class.java)
             startActivity(intent)
         }
 
