@@ -73,6 +73,7 @@ class WeightTracker : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         }
 
         binding.datePickerBtn.setOnClickListener {
+            val calendar: Calendar = Calendar.getInstance()
             val day = calendar.get(Calendar.DAY_OF_MONTH)
             val month = calendar.get(Calendar.MONTH)
             val year = calendar.get(Calendar.YEAR)
@@ -143,6 +144,7 @@ class WeightTracker : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
+        val calendar: Calendar = Calendar.getInstance()
         calendar.set(year, month, dayOfMonth)
         val date = dateFormatter.format(calendar.timeInMillis)
         binding.dateET.setText(date)

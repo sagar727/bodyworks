@@ -25,6 +25,9 @@ class CalorieViewModel : ViewModel() {
         val count = db.countTableRow("calorieTracker")
         if (count != 0) {
             data = db.getCurrentCalorie(dt)
+            if(data.size != 0){
+                totalCalories.value = data[0].calories
+            }
         }
         return data
     }
