@@ -24,6 +24,8 @@ class DietMealPlans : AppCompatActivity() {
         toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
+
+        //string array for plans
         val dietSelectionArray = resources.getStringArray(R.array.diet_plans_name)
         val dietPlanAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item, dietSelectionArray)
         binding.dietPlanDropDown.setAdapter(dietPlanAdapter)
