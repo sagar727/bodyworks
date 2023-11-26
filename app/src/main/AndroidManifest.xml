@@ -18,6 +18,9 @@
         android:theme="@style/Theme.Bodyworks"
         tools:targetApi="31">
         <activity
+            android:name=".views.sleepReminder.SleepReminder"
+            android:exported="false" />
+        <activity
             android:name=".views.dietPlans.DietMealPlans"
             android:exported="false" />
         <activity

@@ -10,6 +10,7 @@ import com.example.bodyworks.views.bmiActivity.BmiActivity
 import com.example.bodyworks.views.calorieTracker.CalorieTrackerActivity
 import com.example.bodyworks.views.dailyWorkoutPlanner.DailyWorkoutPlanner
 import com.example.bodyworks.databinding.FragmentFitnessHubBinding
+import com.example.bodyworks.views.sleepReminder.SleepReminder
 import com.example.bodyworks.views.waterReminder.WaterReminderActivity
 import com.example.bodyworks.views.weightTracker.WeightTracker
 
@@ -48,6 +49,11 @@ class FitnessHubFragment : Fragment() {
 
         binding.calorieTracker.setOnClickListener{
             val intent = Intent(context, CalorieTrackerActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.sleepReminder.setOnClickListener{
+            val intent = Intent(context, SleepReminder::class.java)
             startActivity(intent)
         }
 
