@@ -30,6 +30,7 @@ class DietMealPlans : AppCompatActivity() {
         val dietPlanAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item, dietSelectionArray)
         binding.dietPlanDropDown.setAdapter(dietPlanAdapter)
 
+        //dropdown selection
         binding.dietPlanDropDown.setOnItemClickListener { _, _, position, _ ->
             when(position){
                 0 -> {
