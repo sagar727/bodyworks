@@ -433,7 +433,62 @@
     <string name="add_item">Add Item</string>
     <string name="total_calories_0">Total Calories: 0</string>
     <string name="calorie_tracker">Calorie Tracker</string>
-    <string name="diet_meal_plans">Diet Meal Plans</string>
     <string name="water_drop_with_glass_image">Water Drop With Glass Image</string>
+
+    <!--    Diet Meal Plans-->
+    <string name="diet_meal_plans">Diet Meal Plans</string>
+
+    <string name="gain_breakfast">Whole eggs or egg whites-Whole grain toast or oatmeal-Greek yogurt-Fruit (banana, berries, mango, avocado, pineapple, apples, grapes, kiwi, oranges, pears)-Handful of nuts (almonds, walnuts, cashews, pecans, brazil nuts, hazelnuts, pistachios, peanuts, macadamia nuts)-Cheese-Whole grain crackers
+    </string>
+    <string name="gain_lunch">Lean protein source (chicken breast, turkey, fish, lean beef, tofu, beans, legumes, seafood)-Brown rice or quinoa-Mixed vegetables (potatoes, corn, peas, broccoli, cauliflower, spinach, carrots, onions, bell peppers)-Healthy fats (olive oil, avocado, coconut oil, nut butter, chia seeds, flaxseeds)
+    </string>
+    <string name="gain_snacks">Protein smoothie with whey protein, milk, banana and peanut butter-Whole grain crackers with cheese or hummus
+    </string>
+    <string name="gain_dinner">Lean protein source (beef, poultry, fish, tofu)-Sweet potatoes or brown rice-Mixed vegetables-Olive oil or avocado for healthy fats
+    </string>
+    <string name="gain_pre_workout">Chicken and Rice Bowl-Peanut Butter Banana Toast-Turkey and Avocado Wrap-Oatmeal with Protein Powder
+    </string>
+    <string name="gain_post_workout">Salmon and Quinoa Salad-Beef Stir Fry with Brown Rice-Chicken and Sweet Potato Mash-Protein Packed Burrito Bowl-Whole Grain Wrap with Turkey and Hummus
+    </string>
+
+    <string name="loose_breakfast">Scrambled eggs or egg whites-Whole grain toast or oatmeal-Fresh fruit (berries, apple, grapefruit, pears, oranges, watermelon, peaches, plums, kiwi, cherries, cantaloupe, papaya)-Greek yogurt with a handful of nuts or seeds
+    </string>
+    <string name="loose_lunch">Grilled chicken or tofu-Quinoa or brown rice-Steamed or roasted vegetables (spinach, broccoli, cauliflower, carrots, bell peppers, zucchini, cucumbers, tomatoes, cabbage, green beans, eggplant)-Olive oil or vinaigrette for dressing
+    </string>
+    <string name="loose_snacks">Hummus with vegetable sticks (carrots, cucumber, bell peppers)-Handful of cherry tomatoes or a small piece of cheese
+    </string>
+    <string name="loose_dinner">Baked or grilled fish (salmon, tilapia, or cod)-Sweet potatoes or cauliflower rice-Mixed green salad with a light dressing
+    </string>
+    <string name="loose_pre_workout">Whole Grain Toast with Nut Butter-Greek Yogurt with Fruit-Oatmeal with Protein-Banana with Almond Butter-Chicken or Turkey Wrap
+    </string>
+    <string name="loose_post_workout">Protein Packed Salad-Whole Grain Wrap with Turkey and Veggies-Vegetarian Stir Fry with Tofu-Sweet Potato and Black Bean Bowl-Chicken or Salmon with Quinoa
+    </string>
+
+    <string name="muscle_breakfast">4 to 6 whole eggs (scrambled or boiled)-Whole grain toast or oatmeal with a tablespoon of almond butter-Greek yogurt with berries-Protein smoothie with whey protein, milk, banana, and a tablespoon of peanut butter-Handful of almonds or walnuts
+    </string>
+    <string name="muscle_lunch">Grilled chicken or tofu-Quinoa or brown rice-Steamed or roasted vegetables (broccoli, spinach, carrots, bell peppers, sweet potatoes, brussels sprouts, cauliflower, tomatoes, cabbage, zucchini, onions, eggplant, garlic)-Olive oil or avocado for healthy fats
+    </string>
+    <string name="muscle_snacks">Cottage cheese or Greek yogurt-Whole grain crackers or rice cakes-Sliced cucumber and cherry tomatoes
+    </string>
+    <string name="muscle_dinner">Baked or grilled salmon or lean beef-Quinoa or sweet potatoes-Mixed green salad with olive oil based dressing-Casein protein shake (slow digesting protein) with water or milk-A small serving of low fat cottage cheese or a handful of nuts
+    </string>
+    <string name="muscle_pre_workout">Chicken and Sweet Potato-Whole Grain Toast with Nut Butter-Greek Yogurt-Turkey and Avocado Wrap-Oatmeal with Protein Powder
+    </string>
+    <string name="muscle_post_workout">Salmon and Quinoa Salad-Chicken and Brown Rice-Vegetarian Stir Fry with Tofu-Protein Packed Burrito Bowl-Whole Grain Wrap with Turkey and Hummus
+    </string>
+    <string name="diet_plan_warning">*These diet plans are indicative only. For optimal effect, please consult your dietitian.</string>
+    <string name="select_diet_plans">Select Diet Plans</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="lunch">Lunch</string>
+    <string name="snack">Snack</string>
+    <string name="dinner">Dinner</string>
+    <string name="pre_workout">Pre-Workout</string>
+    <string name="post_workout">Post-Workout</string>
+
+    <string-array name="diet_plans_name">
+        <item>Weight Loss Plan</item>
+        <item>Weight Gain Plan</item>
+        <item>Muscle Gain Plan</item>
+    </string-array>
 
 </resources>

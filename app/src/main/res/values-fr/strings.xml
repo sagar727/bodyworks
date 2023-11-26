@@ -431,5 +431,44 @@
     <string name="add_item">Ajouter un item</string>
     <string name="total_calories_0"><![CDATA[Calories totales : 0]]></string>
     <string name="calorie_tracker">Suivi des calories</string>
+    <string name="water_drop_with_glass_image">Goutte d\'eau avec image en verre</string>
+
+    <!--    Diet Meal Plans-->
+    <string name="diet_meal_plans">Plans de repas diététiques</string>
+
+    <string name="gain_breakfast">Œufs entiers ou blancs d\'œufs-Toasts ou flocons d\'avoine à grains entiers-Yaourt grec-Fruits (banane, baies, mangue, avocat, ananas, pommes, raisins, kiwi, oranges, poires)-Poignée de noix (amandes, noix, noix de cajou, pacanes, noix du Brésil, noisettes, pistaches, cacahuètes, noix de macadamia)-Fromage-Craquelins à grains entiers</string>
+    <string name="gain_lunch">Source de protéines maigres (poitrine de poulet, dinde, poisson, bœuf maigre, tofu, haricots, légumineuses, fruits de mer)-Riz brun ou quinoa-Légumes mélangés (pommes de terre, maïs, pois, brocoli, chou-fleur, épinards, carottes, oignons, poivrons) -Graisses saines (huile d\'olive, avocat, huile de coco, beurre de noix, graines de chia, graines de lin)</string>
+    <string name="gain_snacks">Smoothie protéiné avec protéines de lactosérum, lait, banane et beurre de cacahuète-Craquelins à grains entiers avec fromage ou houmous</string>
+    <string name="gain_dinner">Source de protéines maigres (bœuf, volaille, poisson, tofu) - Patates douces ou riz brun - Mélange de légumes - Huile d\'olive ou avocat pour des graisses saines</string>
+    <string name="gain_pre_workout">Bol de poulet et de riz - Toasts à la banane et au beurre de cacahuète - Wrap à la dinde et à l\'avocat - Gruau avec poudre de protéines</string>
+    <string name="gain_post_workout">Salade de saumon et de quinoa - Sauté de bœuf avec riz brun - Purée de poulet et patates douces - Bol de burrito riche en protéines - Wrap de grains entiers avec dinde et houmous</string>
+
+    <string name="loose_breakfast">Œufs brouillés ou blancs d\'œufs-Toasts ou flocons d\'avoine à grains entiers-Fruits frais (baies, pommes, pamplemousses, poires, oranges, pastèque, pêches, prunes, kiwi, cerises, cantaloup, papaye)-Yaourt grec avec une poignée de noix ou de graines</string>
+    <string name="loose_lunch">Poulet ou tofu grillé-Quinoa ou riz brun-Légumes cuits à la vapeur ou rôtis (épinards, brocolis, chou-fleur, carottes, poivrons, courgettes, concombres, tomates, choux, haricots verts, aubergines)-Huile d\'olive ou vinaigrette pour vinaigrette</string>
+    <string name="loose_snacks">Houmous aux bâtonnets de légumes (carottes, concombre, poivrons) - Une poignée de tomates cerises ou un petit morceau de fromage</string>
+    <string name="loose_dinner">Poisson au four ou grillé (saumon, tilapia ou morue)-Patates douces ou riz au chou-fleur-Salade verte mélangée avec une vinaigrette légère</string>
+    <string name="loose_pre_workout">Pain grillé à grains entiers avec beurre de noix-yaourt grec avec fruits-gruau avec protéines-banane avec beurre d\'amande-roulé au poulet ou à la dinde</string>
+    <string name="loose_post_workout">Salade riche en protéines - Wrap de grains entiers avec dinde et légumes - Sauté végétarien avec tofu - Patate douce et bol de haricots noirs - Poulet ou saumon avec quinoa</string>
+
+    <string name="muscle_breakfast">4 à 6 œufs entiers (brouillés ou bouillis) - Du pain grillé ou des flocons d\'avoine à grains entiers avec une cuillère à soupe de beurre d\'amande - Du yaourt grec aux baies - Un smoothie protéiné avec des protéines de lactosérum, du lait, de la banane et une cuillère à soupe de beurre de cacahuète - Une poignée d\'amandes ou de noix</string>
+    <string name="muscle_lunch">Poulet grillé ou tofu-Quinoa ou riz brun-Légumes vapeur ou rôtis (brocoli, épinards, carottes, poivrons, patates douces, choux de Bruxelles, chou-fleur, tomates, choux, courgettes, oignons, aubergines, ail)-Huile d\'olive ou avocat pour graisses saines</string>
+    <string name="muscle_snacks">Fromage cottage ou yaourt grec-Craquelins à grains entiers ou galettes de riz-Tranches de concombre et tomates cerises</string>
+    <string name="muscle_dinner">Saumon ou bœuf maigre au four ou grillé-Quinoa ou patates douces-Salade verte mélangée avec vinaigrette à base d\'huile d\'olive-Shake protéiné à la caséine (protéine à digestion lente) avec de l\'eau ou du lait-Une petite portion de fromage cottage faible en gras ou une poignée de noix</string>
+    <string name="muscle_pre_workout">Poulet et patates douces-Toasts à grains entiers avec beurre de noix-Yaourt grec-Enroulé à la dinde et à l\'avocat-Gruau avec poudre de protéines</string>
+    <string name="muscle_post_workout">Salade de saumon et de quinoa-Poulet et riz brun-Sauté végétarien avec tofu-Bol de burrito riche en protéines-Wrap de grains entiers avec dinde et houmous</string>
+    <string name="diet_plan_warning">*Ces plans de régime sont uniquement indicatifs. Pour un effet optimal, veuillez consulter votre diététicien.</string>
+    <string name="select_diet_plans">Sélectionnez des plans de régime</string>
+    <string name="breakfast">Petit-déjeuner</string>
+    <string name="lunch">Déjeuner</string>
+    <string name="snack">Collation</string>
+    <string name="dinner">Dîner</string>
+    <string name="pre_workout">Pré-entraînement</string>
+    <string name="post_workout">Après l\'entrainement</string>
+
+    <string-array name="diet_plans_name">
+        <item>Plan de perte de poids</item>
+        <item>Plan de prise de poids</item>
+        <item>Plan de prise de muscle</item>
+    </string-array>
 
 </resources>

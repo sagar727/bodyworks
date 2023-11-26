@@ -431,5 +431,44 @@
     <string name="add_item">Añadir artículo</string>
     <string name="total_calories_0">Calorías totales: 0</string>
     <string name="calorie_tracker">Rastreador de calorías</string>
+    <string name="water_drop_with_glass_image">Gota De Agua Con Imagen De Vidrio</string>
+
+    <!--    Diet Meal Plans-->
+    <string name="diet_meal_plans">Planes de alimentación dietéticos</string>
+
+    <string name="gain_breakfast">Huevos enteros o claras de huevo-Tostadas integrales o avena-Yogur griego-Fruta (plátano, bayas, mango, aguacate, piña, manzanas, uvas, kiwi, naranjas, peras)-Un puñado de nueces (almendras, nueces, anacardos, nueces, nueces de Brasil, avellanas, pistachos, maní, nueces de macadamia)-Queso-Galletas saladas integrales</string>
+    <string name="gain_lunch">Fuente de proteína magra (pechuga de pollo, pavo, pescado, carne magra, tofu, frijoles, legumbres, mariscos)-Arroz integral o quinua-Verduras mixtas (papas, maíz, guisantes, brócoli, coliflor, espinacas, zanahorias, cebollas, pimientos morrones) -Grasas saludables (aceite de oliva, aguacate, aceite de coco, mantequilla de nueces, semillas de chía, semillas de lino)</string>
+    <string name="gain_snacks">Batido de proteínas con proteína de suero, leche, plátano y mantequilla de maní-Galletas integrales con queso o hummus</string>
+    <string name="gain_dinner">Fuente de proteína magra (carne de res, aves, pescado, tofu) -Boniatos o arroz integral-Verduras mixtas-Aceite de oliva o aguacate para obtener grasas saludables</string>
+    <string name="gain_pre_workout">Tazón de pollo y arroz, tostada de plátano con mantequilla de maní, wrap de pavo y aguacate, avena con proteína en polvo</string>
+    <string name="gain_post_workout">Ensalada de salmón y quinua, salteado de carne con arroz integral, puré de pollo y camote, tazón de burrito lleno de proteínas, wrap integral con pavo y hummus</string>
+
+    <string name="loose_breakfast">Huevos revueltos o claras de huevo-Tostadas integrales o avena-Fruta fresca (bayas, manzana, pomelo, peras, naranjas, sandía, duraznos, ciruelas, kiwi, cerezas, melón, papaya)-Yogur griego con un puñado de nueces o semillas</string>
+    <string name="loose_lunch">Pollo o tofu a la parrilla-Quinua o arroz integral-Verduras al vapor o asadas (espinacas, brócoli, coliflor, zanahorias, pimientos morrones, calabacines, pepinos, tomates, repollo, judías verdes, berenjenas)-Aceite de oliva o vinagreta para aderezar</string>
+    <string name="loose_snacks">Hummus con palitos de verduras (zanahoria, pepino, pimiento morrón)-Un puñado de tomates cherry o un pedacito de queso</string>
+    <string name="loose_dinner">Pescado al horno o a la parrilla (salmón, tilapia o bacalao)-Arroz con batatas o coliflor-Ensalada verde mixta con un aderezo ligero</string>
+    <string name="loose_pre_workout">Tostada Integral con Mantequilla de Nueces-Yogur Griego con Frutas-Avena con Proteínas-Plátano con Mantequilla de Almendras-Wrap de Pollo o Pavo</string>
+    <string name="loose_post_workout">Ensalada llena de proteínas: Wrap integral con pavo y verduras, salteado vegetariano con tofu, tazón de camote y frijoles negros, pollo o salmón con quinua</string>
+
+    <string name="muscle_breakfast">4 a 6 huevos enteros (revueltos o hervidos)-Tostadas integrales o avena con una cucharada de mantequilla de almendras-Yogur griego con frutos rojos-Batido de proteínas con proteína de suero, leche, plátano y una cucharada de mantequilla de maní-Un puñado de almendras o nueces</string>
+    <string name="muscle_lunch">Pollo o tofu a la parrilla-Quinoa o arroz integral-Verduras al vapor o asadas (brócoli, espinacas, zanahorias, pimientos morrones, batatas, coles de Bruselas, coliflor, tomates, repollo, calabacines, cebollas, berenjenas, ajo)-Aceite de oliva o aguacate para grasas saludables</string>
+    <string name="muscle_snacks">Requesón o yogur griego-Galletas saladas integrales o pasteles de arroz-Pepino y tomates cherry en rodajas</string>
+    <string name="muscle_dinner">Salmón al horno o a la parrilla o carne de res magra-Quinua o batatas-Ensalada verde mixta con aderezo a base de aceite de oliva-Batido de proteína de caseína (proteína de digestión lenta) con agua o leche-Una pequeña porción de requesón bajo en grasa o un puñado de nueces</string>
+    <string name="muscle_pre_workout">Pollo y camote-tostada integral con mantequilla de nueces-yogur griego-wrap de pavo y aguacate-avena con proteína en polvo</string>
+    <string name="muscle_post_workout">Ensalada de salmón y quinua, pollo y arroz integral, salteado vegetariano con tofu, tazón de burrito lleno de proteínas, wrap integral con pavo y hummus</string>
+    <string name="diet_plan_warning">*Estos planes de dieta son sólo indicativos. Para un efecto óptimo, consulte a su dietista.</string>
+    <string name="select_diet_plans">Seleccionar planes de dieta</string>
+    <string name="breakfast">Desayuno</string>
+    <string name="lunch">Almuerzo</string>
+    <string name="snack">Bocadillo</string>
+    <string name="dinner">Cena</string>
+    <string name="pre_workout">Entrenamiento previo</string>
+    <string name="post_workout">Post-entrenamiento</string>
+
+    <string-array name="diet_plans_name">
+        <item>Plan de pérdida de peso</item>
+        <item>Plan de aumento de peso</item>
+        <item>Plan de ganancia muscular</item>
+    </string-array>
 
 </resources>

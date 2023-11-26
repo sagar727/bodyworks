@@ -91,7 +91,7 @@ class WorkoutActivity : AppCompatActivity() {
         val str = txt.split(",").toTypedArray()
         var newStr = "Muscles worked: "
         for(teststr in str){
-            newStr = "$newStr\n*$teststr"
+            newStr = " $newStr\n* $teststr"
         }
         binding.textView2.text = newStr
     }
