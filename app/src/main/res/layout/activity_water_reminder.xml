@@ -22,20 +22,24 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/waterReminderToolbar"
+        android:contentDescription="@string/water_drop_with_glass_image"
         app:srcCompat="@drawable/water_reminder" />
 
     <TextView
         android:id="@+id/txtViewWaterReminderTime"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/get_reminder_title"
+        android:textAlignment="center"
         android:textColor="@color/primary"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -47,14 +51,12 @@
         android:id="@+id/txtViewStartTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:text="@string/start_time"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/btnStartTime"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtViewWaterReminderTime" />
 
@@ -62,33 +64,34 @@
         android:id="@+id/txtViewEndTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="@string/end_time"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/txtViewStartTime"
-        app:layout_constraintTop_toBottomOf="@+id/txtViewStartTime" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnStartTime" />
 
     <Button
         android:id="@+id/btnStartTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="@string/select_start_time"
-        app:layout_constraintBottom_toBottomOf="@+id/txtViewStartTime"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/txtViewStartTime"
-        app:layout_constraintTop_toTopOf="@+id/txtViewStartTime" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewStartTime" />
 
     <Button
         android:id="@+id/btnEndTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="@string/select_end_time"
-        app:layout_constraintBottom_toBottomOf="@+id/txtViewEndTime"
-        app:layout_constraintStart_toStartOf="@+id/btnStartTime"
-        app:layout_constraintTop_toTopOf="@+id/txtViewEndTime" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewEndTime" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/qtyTextLayout"
@@ -106,16 +109,16 @@
             android:id="@+id/timeIntervalInputTxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/primary"
+            android:digits="0123456789"
             android:inputType="number"
-            android:digits="0123456789"/>
+            android:textColorHint="@color/primary" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnStartReminder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/start_reminder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

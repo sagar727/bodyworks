@@ -15,6 +15,7 @@ import android.os.Bundle
 import android.provider.Settings
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
@@ -51,6 +52,9 @@ class WaterReminderActivity : AppCompatActivity() {
     private val reminderEndHourKey = "reminderEndHour"
     private val reminderEndMinuteKey = "reminderEndMinute"
     private val intervalKey = "interval"
+
+    private var isStartTimeSelected = false
+    private var isEndTimeSelected = false
 
     companion object {
         const val MY_PERMISSIONS_REQUEST_SEND_NOTIFICATION = 1001
@@ -101,89 +105,109 @@ class WaterReminderActivity : AppCompatActivity() {
         }
 
         btnStartReminder.setOnClickListener {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                if (ContextCompat.checkSelfPermission(
-                        this,
-                        android.Manifest.permission.VIBRATE
-                    ) != PackageManager.PERMISSION_GRANTED
-                ) {
-                    // Permission is not granted
-                    // Request the permission
-                    ActivityCompat.requestPermissions(
-                        this,
-                        arrayOf(android.Manifest.permission.VIBRATE),
-                        MY_PERMISSIONS_REQUEST_SEND_NOTIFICATION
-                    )
-                } else {
-                    // Permission has already been granted
-                    // Proceed with sending the notification
-                    if (!isReminderSet()) {
-                        savePreferences()
-                        scheduleNotification()
-                        updateButton()
-                    } else {
-                        cancelNotification()
-                        clearPreferences()
-                        updateButton()
-                    }
-                }
-            } else {
-                // For devices running on lower API levels, no explicit permission is required
-                if (!isReminderSet()) {
-                    savePreferences()
-                    scheduleNotification()
-                    updateButton()
-                } else {
-                    cancelNotification()
-                    clearPreferences()
-                    updateButton()
-                }
-            }
-
             // Opening notification settings if notifications are off
             if (!isNotificationEnabled()) {
+                Toast.makeText(
+                    applicationContext,
+                    "Please Allow App To Send Notifications",
+                    Toast.LENGTH_SHORT
+                ).show()
                 openNotificationSettings()
+            } else {
+                if (isStartTimeSelected && isEndTimeSelected) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        if (ContextCompat.checkSelfPermission(
+                                this,
+                                android.Manifest.permission.VIBRATE
+                            ) != PackageManager.PERMISSION_GRANTED
+                        ) {
+                            // Permission is not granted
+                            // Request the permission
+                            ActivityCompat.requestPermissions(
+                                this,
+                                arrayOf(android.Manifest.permission.VIBRATE),
+                                MY_PERMISSIONS_REQUEST_SEND_NOTIFICATION
+                            )
+                        } else {
+                            // Permission has already been granted
+                            // Proceed with sending the notification
+                            if (!isReminderSet()) {
+                                scheduleNotification()
+                            } else {
+                                cancelNotification()
+                            }
+                        }
+                    } else {
+                        // For devices running on lower API levels, no explicit permission is required
+                        if (!isReminderSet()) {
+                            scheduleNotification()
+                        } else {
+                            cancelNotification()
+                        }
+                    }
+                } else {
+                    Toast.makeText(
+                        applicationContext,
+                        "Please Select Start Time And End Time To Set Reminder",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
         }
     }
 
     private fun scheduleNotification() {
-        val manager: AlarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        val calendar = Calendar.getInstance()
-        val currentTime = Calendar.getInstance()
+        if(timeIntervalInputTxt.text.toString() != "" &&  timeIntervalInputTxt.text.toString() != "0" && timeIntervalInputTxt.text.toString().toInt() > 0) {
+            //Saving Preferences
+            savePreferences()
 
-        calendar.set(Calendar.HOUR_OF_DAY, reminderStartHour)
-        calendar.set(Calendar.MINUTE, reminderStartMinute)
-        calendar.set(Calendar.SECOND, 0)
+            //Updating Button To Stop Reminder
+            updateButton()
 
-        if (calendar.before(currentTime)) {
-            calendar.add(Calendar.DATE, 1) // Set to next day if time has already passed today
+            val manager: AlarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            val calendar = Calendar.getInstance()
+            val currentTime = Calendar.getInstance()
+
+            calendar.set(Calendar.HOUR_OF_DAY, reminderStartHour)
+            calendar.set(Calendar.MINUTE, reminderStartMinute)
+            calendar.set(Calendar.SECOND, 0)
+
+            if (calendar.before(currentTime)) {
+                calendar.add(Calendar.DATE, 1) // Set to next day if time has already passed today
+            }
+
+            val interval = timeIntervalInputTxt.text.toString().toLong() * 60 * 1000
+
+            manager.setRepeating(
+                AlarmManager.RTC_WAKEUP,
+                calendar.timeInMillis,
+                interval,
+                startAlarmPendingIntent
+            )
+
+            val endTimeCalendar = Calendar.getInstance()
+            endTimeCalendar.set(Calendar.HOUR_OF_DAY, reminderEndHour)
+            endTimeCalendar.set(Calendar.MINUTE, reminderEndMinute)
+            endTimeCalendar.set(Calendar.SECOND, 0)
+
+            if (endTimeCalendar.before(currentTime)) {
+                endTimeCalendar.add(
+                    Calendar.DATE,
+                    1
+                ) // Set to next day if time has already passed today
+            }
+
+            manager.set(AlarmManager.RTC_WAKEUP, endTimeCalendar.timeInMillis, endAlarmPendingIntent)
+        }else {
+            Toast.makeText(applicationContext, "Please Select Valid Time Interval In Minutes", Toast.LENGTH_SHORT).show()
+            updateButton()
         }
-
-        val interval = timeIntervalInputTxt.text.toString().toLong() * 60 * 1000
-
-        manager.setRepeating(
-            AlarmManager.RTC_WAKEUP,
-            calendar.timeInMillis,
-            interval,
-            startAlarmPendingIntent
-        )
-
-        val endTimeCalendar = Calendar.getInstance()
-        endTimeCalendar.set(Calendar.HOUR_OF_DAY, reminderEndHour)
-        endTimeCalendar.set(Calendar.MINUTE, reminderEndMinute)
-        endTimeCalendar.set(Calendar.SECOND, 0)
-
-        if (endTimeCalendar.before(currentTime)) {
-            endTimeCalendar.add(Calendar.DATE, 1) // Set to next day if time has already passed today
-        }
-
-        manager.set(AlarmManager.RTC_WAKEUP, endTimeCalendar.timeInMillis, endAlarmPendingIntent)
     }
 
 
     private fun isNotificationEnabled(): Boolean {
-        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val notificationManager =
+            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             notificationManager.areNotificationsEnabled()
@@ -195,9 +219,15 @@ class WaterReminderActivity : AppCompatActivity() {
             )
             val opPostNotificationValue = appOpsClass.getDeclaredField("OP_POST_NOTIFICATION")
             val value = opPostNotificationValue.get(Int::class.java) as Int
-            checkOpNoThrowMethod.invoke(appOps, value, this.applicationInfo.uid, this.packageName) as Int == AppOpsManager.MODE_ALLOWED
+            checkOpNoThrowMethod.invoke(
+                appOps,
+                value,
+                this.applicationInfo.uid,
+                this.packageName
+            ) as Int == AppOpsManager.MODE_ALLOWED
         }
     }
+
     private fun openNotificationSettings() {
         val intent = Intent()
         when {
@@ -205,11 +235,13 @@ class WaterReminderActivity : AppCompatActivity() {
                 intent.action = Settings.ACTION_APP_NOTIFICATION_SETTINGS
                 intent.putExtra(Settings.EXTRA_APP_PACKAGE, packageName)
             }
+
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP -> {
                 intent.action = "android.settings.APP_NOTIFICATION_SETTINGS"
                 intent.putExtra("app_package", packageName)
                 intent.putExtra("app_uid", applicationInfo.uid)
             }
+
             else -> {
                 intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
                 intent.addCategory(Intent.CATEGORY_DEFAULT)
@@ -238,10 +270,12 @@ class WaterReminderActivity : AppCompatActivity() {
                 txtViewStartTime.text = "$hour:$minute"
                 reminderStartHour = picker.hour
                 reminderStartMinute = picker.minute
+                isStartTimeSelected = true
             } else {
                 txtViewEndTime.text = "$hour:$minute"
                 reminderEndHour = picker.hour
                 reminderEndMinute = picker.minute
+                isEndTimeSelected = true
             }
         }
     }
@@ -275,17 +309,25 @@ class WaterReminderActivity : AppCompatActivity() {
             reminderEndMinute = sharedPreferences.getInt(reminderEndMinuteKey, 0)
             timeIntervalInputTxt.setText(sharedPreferences.getString(intervalKey, ""))
 
-            if(reminderStartHour != 0){
-                var startHour: String = if (reminderStartHour <= 9) "0$reminderEndHour" else "$reminderEndHour"
-                var endHour: String = if (reminderEndHour <= 9) "0$reminderEndHour" else "$reminderEndHour"
-                var startMinute: String = if (reminderStartMinute <= 9) "0$reminderStartMinute" else "$reminderStartMinute"
-                var endMinute: String = if (reminderEndMinute <= 9) "0$reminderEndMinute" else "$reminderEndMinute"
+            if (reminderStartHour != 0) {
+                var startHour: String =
+                    if (reminderStartHour <= 9) "0$reminderEndHour" else "$reminderEndHour"
+                var endHour: String =
+                    if (reminderEndHour <= 9) "0$reminderEndHour" else "$reminderEndHour"
+                var startMinute: String =
+                    if (reminderStartMinute <= 9) "0$reminderStartMinute" else "$reminderStartMinute"
+                var endMinute: String =
+                    if (reminderEndMinute <= 9) "0$reminderEndMinute" else "$reminderEndMinute"
 
                 txtViewStartTime.text = "$startHour:$startMinute"
                 txtViewEndTime.text = "$endHour:$endMinute"
-            }else {
+                isStartTimeSelected = true
+                isEndTimeSelected = true
+            } else {
                 txtViewStartTime.text = "Start Time: "
                 txtViewEndTime.text = "End Time: "
+                isStartTimeSelected = false
+                isEndTimeSelected = false
             }
         }
     }
@@ -299,6 +341,16 @@ class WaterReminderActivity : AppCompatActivity() {
     }
 
     private fun cancelNotification() {
+        //Clearing Preferences
+        clearPreferences()
+        //Updating Button To Start Reminder
+        updateButton()
+
+        //Resetting TextViews as Default
+        txtViewStartTime.text = "Start Time: "
+        txtViewEndTime.text = "End Time: "
+        timeIntervalInputTxt.setText("")
+
         val manager: AlarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
         manager.cancel(startAlarmPendingIntent)
         manager.cancel(endAlarmPendingIntent)

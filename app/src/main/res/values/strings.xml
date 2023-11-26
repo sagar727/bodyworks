@@ -434,5 +434,6 @@
     <string name="total_calories_0">Total Calories: 0</string>
     <string name="calorie_tracker">Calorie Tracker</string>
     <string name="diet_meal_plans">Diet Meal Plans</string>
+    <string name="water_drop_with_glass_image">Water Drop With Glass Image</string>
 
 </resources>
