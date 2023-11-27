@@ -39,6 +39,13 @@ class CalorieTrackerActivity : AppCompatActivity() {
         binding = ActivityCalorieBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val toolbar = binding.materialToolbar4
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
+
         viewModel = ViewModelProvider(this, AndroidViewModelFactory(application))[CalorieViewModel::class.java]
 
         val spinnerFoodItems: Spinner = binding.spinnerFoodItems
