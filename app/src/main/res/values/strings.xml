@@ -488,6 +488,11 @@
     <string name="dinner">Dinner</string>
     <string name="pre_workout">Pre-Workout</string>
     <string name="post_workout">Post-Workout</string>
+    <string name="workout_image">Workout Image</string>
+    <string name="select_workout_time_reminder">Select workout time reminder</string>
+    <string name="select_workout_time">Select Workout Time</string>
+    <string name="select_workout_time_label">Select Workout Time</string>
+    <string name="workout_time_selected">Workout Time Selected:</string>
 
     <string-array name="diet_plans_name">
         <item>Weight Loss Plan</item>
