@@ -434,6 +434,10 @@
     <string name="total_calories_0">Total Calories: 0</string>
     <string name="calorie_tracker">Calorie Tracker</string>
     <string name="water_drop_with_glass_image">Water Drop With Glass Image</string>
+    <string name="sleep_reminder_clock_with_sleep_image">Sleep Reminder Clock With Sleep Image</string>
+    <string name="select_your_sleep_time_to_get_reminder">Select Your Sleep Time To Get Reminder</string>
+    <string name="select_sleep_time">Select Sleep Time</string>
+    <string name="select_sleep_time_label">Select Sleep Time:</string>
 
     <!--    Diet Meal Plans-->
     <string name="diet_meal_plans">Diet Meal Plans</string>
