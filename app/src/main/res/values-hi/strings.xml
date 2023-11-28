@@ -432,6 +432,10 @@
     <string name="total_calories_0">कुल कैलोरी: 0</string>
     <string name="calorie_tracker">कैलोरी ट्रैकर</string>
     <string name="water_drop_with_glass_image">कांच की छवि के साथ पानी की बूंद</string>
+    <string name="sleep_reminder_clock_with_sleep_image">नींद की छवि के साथ नींद अनुस्मारक घड़ी</string>
+    <string name="select_your_sleep_time_to_get_reminder">अनुस्मारक प्राप्त करने के लिए अपने सोने का समय चुनें</string>
+    <string name="select_sleep_time">सोने का समय चुनें</string>
+    <string name="select_sleep_time_label">सोने का समय चुनें:</string>
 
     <!--    Diet Meal Plans-->
     <string name="diet_meal_plans">आहार भोजन योजनाएँ</string>
@@ -464,11 +468,27 @@
     <string name="dinner">रात का खाना</string>
     <string name="pre_workout">पूर्व कसरत</string>
     <string name="post_workout">कसरत के बाद</string>
+    <string name="workout_image">कसरत छवि</string>
+    <string name="select_workout_time_reminder">वर्कआउट टाइम रिमाइंडर चुनें</string>
+    <string name="select_workout_time">कसरत का समय चुनें</string>
+    <string name="select_workout_time_label">कसरत का समय चुनें</string>
+    <string name="workout_time_selected">कसरत का समय चयनित:</string>
 
     <string-array name="diet_plans_name">
         <item>वजन घटाने की योजना</item>
         <item>वजन बढ़ाने की योजना</item>
         <item>मांसपेशी लाभ योजना</item>
     </string-array>
+
+
+    <!-- Settings -->
+    <string name="settings">सेटिंग</string>
+    <string name="currently_using_metric">वर्तमान में उपयोग कर रहे हैं: मीट्रिक</string>
+    <string name="current_using_imperial">वर्तमान उपयोग: इंपीरियल</string>
+    <string name="measurement_unit">मापन इकाई</string>
+    <string name="sleep_time_selected">सोने का समय चयनित:</string>
+    <string name="sleep_reminder_btn">नींद अनुस्मारक</string>
+    <string name="workout_reminder_btn">कसरत अनुस्मारक</string>
+    <string name="stop_reminder">अनुस्मारक बंद करो</string>
 
 </resources>

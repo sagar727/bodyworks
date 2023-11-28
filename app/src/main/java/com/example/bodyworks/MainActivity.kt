@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId){
                 R.id.workouts -> replaceFragment(WorkoutFragment())
                 R.id.fitnessHub -> replaceFragment(FitnessHubFragment())
+                R.id.settings -> replaceFragment(SettingsFragment())
                 else -> {
 
                 }
@@ -207,6 +208,7 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId){
                 R.id.workouts -> replaceFragment(WorkoutFragment())
                 R.id.fitnessHub -> replaceFragment(FitnessHubFragment())
+                R.id.settings -> replaceFragment(SettingsFragment())
                 else -> {
 
                 }

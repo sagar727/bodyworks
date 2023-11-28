@@ -432,6 +432,10 @@
     <string name="total_calories_0"><![CDATA[Calories totales : 0]]></string>
     <string name="calorie_tracker">Suivi des calories</string>
     <string name="water_drop_with_glass_image">Goutte d\'eau avec image en verre</string>
+    <string name="sleep_reminder_clock_with_sleep_image">Horloge de rappel de sommeil avec image de sommeil</string>
+    <string name="select_your_sleep_time_to_get_reminder">Sélectionnez votre temps de sommeil pour recevoir un rappel</string>
+    <string name="select_sleep_time">Sélectionnez l\'heure de sommeil</string>
+    <string name="select_sleep_time_label"><![CDATA[Sélectionnez l\'heure de sommeil :]]></string>
 
     <!--    Diet Meal Plans-->
     <string name="diet_meal_plans">Plans de repas diététiques</string>
@@ -464,11 +468,27 @@
     <string name="dinner">Dîner</string>
     <string name="pre_workout">Pré-entraînement</string>
     <string name="post_workout">Après l\'entrainement</string>
+    <string name="workout_image">Image d\'entraînement</string>
+    <string name="select_workout_time_reminder">Sélectionnez le rappel de la durée de l\'entraînement</string>
+    <string name="select_workout_time">Sélectionnez la durée de l\'entraînement</string>
+    <string name="select_workout_time_label">Sélectionnez la durée de l\'entraînement</string>
+    <string name="workout_time_selected"><![CDATA[Durée d\'entraînement sélectionnée :]]></string>
 
     <string-array name="diet_plans_name">
         <item>Plan de perte de poids</item>
         <item>Plan de prise de poids</item>
         <item>Plan de prise de muscle</item>
     </string-array>
+
+
+    <!-- Settings -->
+    <string name="settings">Paramètres</string>
+    <string name="currently_using_metric"><![CDATA[Utilisation actuelle : métrique]]></string>
+    <string name="current_using_imperial"><![CDATA[Utilisation actuelle : Impérial]]></string>
+    <string name="measurement_unit">Unité de mesure</string>
+    <string name="sleep_time_selected"><![CDATA[Temps de sommeil sélectionné :]]></string>
+    <string name="sleep_reminder_btn">Rappel de sommeil</string>
+    <string name="workout_reminder_btn">Rappel d\'entraînement</string>
+    <string name="stop_reminder">Arrêter le rappel</string>
 
 </resources>

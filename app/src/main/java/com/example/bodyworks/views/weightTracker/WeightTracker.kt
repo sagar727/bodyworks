@@ -2,11 +2,13 @@ package com.example.bodyworks.views.weightTracker
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.DatePicker
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.preference.PreferenceManager
 import com.example.bodyworks.R
 import com.example.bodyworks.databinding.ActivityWeightTrackerBinding
 import com.example.bodyworks.viewModel.BodyWorksViewModel
@@ -39,6 +41,7 @@ class WeightTracker : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     private var isMetric: Boolean = true
     private lateinit var coreData: ChartData
     private var currDate: Long = 0
+    private lateinit var sharedPreferences: SharedPreferences
 
     @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,9 +53,10 @@ class WeightTracker : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
 
         bodyworksVM = ViewModelProvider(this).get(BodyWorksViewModel::class.java)
 
-        isMetric = getPreferences(MODE_PRIVATE).getBoolean("isMetric", true)
+        sharedPreferences = this.let { PreferenceManager.getDefaultSharedPreferences(it) }!!
+        isMetric= sharedPreferences.getBoolean("isMetric",  false)
 
-        if(isMetric){
+        if(!isMetric){
             binding.textField2.hint = "Kilogram"
         }else{
             binding.textField2.hint = "Lb"

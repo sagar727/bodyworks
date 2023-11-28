@@ -1,12 +1,14 @@
 package com.example.bodyworks.views.bmiActivity
 
 import android.app.Dialog
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.preference.PreferenceManager
 import com.example.bodyworks.R
 import com.example.bodyworks.databinding.ActivityBmiBinding
 import com.example.bodyworks.databinding.BmiInfoDialogBinding
@@ -17,6 +19,7 @@ class BmiActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBmiBinding
     private lateinit var bmiVM: BodyWorksViewModel
     private var isMetric: Boolean = true
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +30,8 @@ class BmiActivity : AppCompatActivity() {
 
         bmiVM = ViewModelProvider(this).get(BodyWorksViewModel::class.java)
 
-        isMetric = getPreferences(MODE_PRIVATE).getBoolean("isMetric",true)
+        sharedPreferences = this.let { PreferenceManager.getDefaultSharedPreferences(it) }!!
+        isMetric= sharedPreferences.getBoolean("isMetric",  false)
 
         val toolbar = binding.materialToolbar
         setSupportActionBar(toolbar)
@@ -36,7 +40,7 @@ class BmiActivity : AppCompatActivity() {
             onBackPressed()
         }
 
-        if (isMetric) {
+        if (!isMetric) {
             binding.imperialLL.visibility = View.GONE
             binding.textField2.visibility = View.VISIBLE
             binding.cmDropDown.visibility = View.VISIBLE
@@ -50,11 +54,7 @@ class BmiActivity : AppCompatActivity() {
 
         bmiVM.getBMI(this)
 
-//        radioChecked()
 
-//        binding.unitRadioGroup.setOnCheckedChangeListener { _, _ ->
-//            radioChecked()
-//        }
 
         val inches = bmiVM.generateDropDownNumbrs(0,13)
         val feets = bmiVM.generateDropDownNumbrs(1,8)
@@ -107,19 +107,7 @@ class BmiActivity : AppCompatActivity() {
         binding.wtET.text?.clear()
     }
 
-//    private fun radioChecked() {
-//        if (binding.metricRadioBtn.isChecked) {
-//            binding.imperialLL.visibility = View.GONE
-//            binding.textField2.visibility = View.VISIBLE
-//            binding.cmDropDown.visibility = View.VISIBLE
-//            binding.textField1.hint = "Kilograms"
-//        } else if (binding.imperialRadioBtn.isChecked) {
-//            binding.cmDropDown.visibility = View.GONE
-//            binding.textField2.visibility = View.GONE
-//            binding.imperialLL.visibility = View.VISIBLE
-//            binding.textField1.hint = "Lbs"
-//        }
-//    }
+
 
     private fun observeBmiData(){
         bmiVM.bmi.observe(this){bmiData ->

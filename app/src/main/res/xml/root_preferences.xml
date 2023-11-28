@@ -1,0 +1,8 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+    <SwitchPreferenceCompat
+        app:icon="@drawable/unit_change_icon"
+        app:key="isMetric"
+        app:summaryOff="@string/currently_using_metric"
+        app:summaryOn="@string/current_using_imperial"
+        app:title="@string/measurement_unit" />
+</PreferenceScreen>

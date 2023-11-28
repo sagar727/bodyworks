@@ -23,32 +23,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <RadioGroup
-            android:id="@+id/unitRadioGroup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:checkedButton="@id/metricRadioBtn"
-            android:orientation="horizontal"
-            android:gravity="center">
-
-            <RadioButton
-                android:id="@+id/metricRadioBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:text="@string/metric"
-                android:textSize="20sp" />
-
-            <RadioButton
-                android:id="@+id/imperialRadioBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="@string/imperial"
-                android:textSize="20sp" />
-
-        </RadioGroup>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

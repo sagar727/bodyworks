@@ -500,4 +500,14 @@
         <item>Muscle Gain Plan</item>
     </string-array>
 
+
+    <!-- Settings -->
+    <string name="settings">Settings</string>
+    <string name="currently_using_metric">Currently Using: Metric</string>
+    <string name="current_using_imperial">Current Using: Imperial</string>
+    <string name="measurement_unit">Measurement Unit</string>
+    <string name="sleep_time_selected">Sleep Time Selected:</string>
+    <string name="sleep_reminder_btn">Sleep Reminder</string>
+    <string name="workout_reminder_btn">Workout Reminder</string>
+
 </resources>

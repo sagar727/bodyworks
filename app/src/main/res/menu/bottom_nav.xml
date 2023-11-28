@@ -14,4 +14,10 @@
         android:title="@string/fitness_hub"
         android:icon="@drawable/baseline_bar_chart_24"
         />
+    <item
+        android:id="@+id/settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="@string/settings"
+        android:icon="@drawable/baseline_settings_24"/>
 </menu>

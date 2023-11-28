@@ -432,6 +432,10 @@
     <string name="total_calories_0">Calorías totales: 0</string>
     <string name="calorie_tracker">Rastreador de calorías</string>
     <string name="water_drop_with_glass_image">Gota De Agua Con Imagen De Vidrio</string>
+    <string name="sleep_reminder_clock_with_sleep_image">Reloj recordatorio de sueño con imagen de sueño</string>
+    <string name="select_your_sleep_time_to_get_reminder">Seleccione su hora de dormir para recibir un recordatorio</string>
+    <string name="select_sleep_time">Seleccionar hora de dormir</string>
+    <string name="select_sleep_time_label">Seleccione Hora de dormir:</string>
 
     <!--    Diet Meal Plans-->
     <string name="diet_meal_plans">Planes de alimentación dietéticos</string>
@@ -464,11 +468,27 @@
     <string name="dinner">Cena</string>
     <string name="pre_workout">Entrenamiento previo</string>
     <string name="post_workout">Post-entrenamiento</string>
+    <string name="workout_image">Imagen de entrenamiento</string>
+    <string name="select_workout_time_reminder">Seleccionar recordatorio de tiempo de entrenamiento</string>
+    <string name="select_workout_time">Seleccionar tiempo de entrenamiento</string>
+    <string name="select_workout_time_label">Seleccionar tiempo de entrenamiento</string>
+    <string name="workout_time_selected">Tiempo de entrenamiento seleccionado:</string>
 
     <string-array name="diet_plans_name">
         <item>Plan de pérdida de peso</item>
         <item>Plan de aumento de peso</item>
         <item>Plan de ganancia muscular</item>
     </string-array>
+
+
+    <!-- Settings -->
+    <string name="settings">configuración</string>
+    <string name="currently_using_metric">Actualmente en uso: métrico</string>
+    <string name="current_using_imperial">Uso actual: Imperial</string>
+    <string name="measurement_unit">Unidad de medida</string>
+    <string name="sleep_time_selected">Hora de dormir seleccionada:</string>
+    <string name="sleep_reminder_btn">Recordatorio de sueño</string>
+    <string name="workout_reminder_btn">Recordatorio de entrenamiento</string>
+    <string name="stop_reminder">Detener recordatorio</string>
 
 </resources>
