@@ -58,6 +58,7 @@
         <receiver android:name=".views.waterReminder.StartAlarmReceiver" />
         <receiver android:name=".views.waterReminder.EndAlarmReceiver" />
         <receiver android:name=".views.workoutReminder.WorkoutReminderReceiver" android:enabled="true"/>
+        <receiver android:name=".views.sleepReminder.SleepReminderReceiver" android:enabled="true"/>
     </application>
 
 </manifest>

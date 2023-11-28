@@ -53,6 +53,8 @@ class WorkoutReminder : AppCompatActivity() {
             onBackPressed()
         }
 
+        createNotificationChannel()
+
         txtViewWorkoutTimeSetOrNot = binding.txtViewWorkoutTimeSetOrNot
         btnWorkoutTime = binding.btnWorkoutTime
 
@@ -175,7 +177,11 @@ class WorkoutReminder : AppCompatActivity() {
         val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
         val time = getTime()
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, time, 86400000, pendingIntent)
+        alarmManager.setExactAndAllowWhileIdle(
+            AlarmManager.RTC_WAKEUP,
+            time,
+            pendingIntent
+        )
 
         savePreferences()
     }
@@ -229,6 +235,16 @@ class WorkoutReminder : AppCompatActivity() {
             btnWorkoutTime.text = "Select Workout Time"
 
             txtViewWorkoutTimeSetOrNot.visibility = View.GONE
+        }
+    }
+
+    private fun createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel("workout_reminder_channel", "Workout Reminder", NotificationManager.IMPORTANCE_HIGH)
+            channel.description = "Channel for workout reminders"
+
+            val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
         }
     }
 }

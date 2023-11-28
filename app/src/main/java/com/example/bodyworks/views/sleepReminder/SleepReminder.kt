@@ -1,11 +1,15 @@
 package com.example.bodyworks.views.sleepReminder
 
+import android.annotation.SuppressLint
+import android.app.AlarmManager
 import android.app.AppOpsManager
+import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
-import android.opengl.Visibility
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,10 +18,10 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import com.example.bodyworks.R
 import com.example.bodyworks.databinding.ActivitySleepReminderBinding
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
+import java.util.Calendar
 
 class SleepReminder : AppCompatActivity() {
     private lateinit var binding: ActivitySleepReminderBinding
@@ -26,6 +30,12 @@ class SleepReminder : AppCompatActivity() {
 
     private var sleepReminderHour: Int = 0
     private var sleepReminderMinute: Int = 0
+
+    private var isReminderSet: Boolean = false
+    private lateinit var sharedPreferences : SharedPreferences
+
+    private var hour = ""
+    private var minute = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,21 +50,28 @@ class SleepReminder : AppCompatActivity() {
             onBackPressed()
         }
 
+        createNotificationChannel()
+
         txtViewSleepTimeSetOrNot = binding.txtViewSleepTimeSetOrNot
         btnSleepTime = binding.btnSleepTime
 
         txtViewSleepTimeSetOrNot.text = "Sleep Time Selected: -"
+
+        sharedPreferences = getSharedPreferences("SleepReminderPrefs", MODE_PRIVATE)
+        isReminderSet = sharedPreferences.getBoolean("isReminderSet", false)
+
+        reminderView()
 
         btnSleepTime.setOnClickListener {
             if (btnSleepTime.text == "Select Sleep Time") {
                 openTimePicker()
             } else if(btnSleepTime.text == "Start Reminder") {
                 btnSleepTime.text = "Stop Reminder"
-                // TODO: Start Reminder Code Here
+                startNotification()
             } else{
                 txtViewSleepTimeSetOrNot.visibility = View.GONE
                 btnSleepTime.text = "Select Sleep Time"
-                // TODO: Stop Reminder Code Here
+                cancelNotification()
             }
         }
     }
@@ -79,8 +96,8 @@ class SleepReminder : AppCompatActivity() {
             picker.show(supportFragmentManager, "Sleep Time Picker")
 
             picker.addOnPositiveButtonClickListener {
-                var hour: String = if (picker.hour <= 9) "0${picker.hour}" else "${picker.hour}"
-                var minute: String = if (picker.minute <= 9) "0${picker.minute}" else "${picker.minute}"
+                hour = if (picker.hour <= 9) "0${picker.hour}" else "${picker.hour}"
+                minute = if (picker.minute <= 9) "0${picker.minute}" else "${picker.minute}"
 
                 sleepReminderHour = picker.hour
                 sleepReminderMinute = picker.minute
@@ -146,5 +163,89 @@ class SleepReminder : AppCompatActivity() {
             }
         }
         startActivity(intent)
+    }
+
+    @SuppressLint("ScheduleExactAlarm")
+    private fun startNotification(){
+        val intent = Intent(applicationContext, SleepReminderReceiver::class.java)
+        val pendingIntent = PendingIntent.getBroadcast(
+            applicationContext, 100, intent, PendingIntent.FLAG_IMMUTABLE
+        )
+
+        val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+
+        val time = getTime()
+        alarmManager.setExactAndAllowWhileIdle(
+            AlarmManager.RTC_WAKEUP,
+            time,
+            pendingIntent
+        )
+        savePreferences()
+    }
+    private fun getTime(): Long {
+        val hour = sleepReminderHour
+        val minute = sleepReminderMinute
+
+        val calendar = Calendar.getInstance()
+        calendar.set(Calendar.HOUR_OF_DAY, hour)
+        calendar.set(Calendar.MINUTE, minute)
+
+        return calendar.timeInMillis
+    }
+
+    private fun cancelNotification() {
+        val intent = Intent(applicationContext, SleepReminderReceiver::class.java)
+        val pendingIntent = PendingIntent.getBroadcast(
+            applicationContext, 100, intent,
+            PendingIntent.FLAG_IMMUTABLE
+        )
+
+        val manager = this.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        manager.cancel(pendingIntent)
+
+        clearPreferences()
+    }
+
+    private fun savePreferences() {
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("isReminderSet", true)
+        editor.putString("reminderStartHour", hour)
+        editor.putString("reminderStartMinute", minute)
+        editor.apply()
+    }
+
+    private fun clearPreferences() {
+        val editor = sharedPreferences.edit()
+        editor.clear()
+        editor.apply()
+    }
+
+    private fun reminderView(){
+        if (isReminderSet){
+            hour = sharedPreferences.getString("reminderStartHour", "")!!
+            minute = sharedPreferences.getString("reminderStartMinute", "")!!
+
+            btnSleepTime.text = "Stop Reminder"
+            txtViewSleepTimeSetOrNot.visibility = View.VISIBLE
+            txtViewSleepTimeSetOrNot.text = "Sleep Time Selected: $hour:$minute"
+        } else{
+            btnSleepTime.text = "Select Sleep Time"
+            txtViewSleepTimeSetOrNot.visibility = View.GONE
+        }
+    }
+
+    private fun createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                "sleep_reminder_channel",
+                "Sleep Reminder",
+                NotificationManager.IMPORTANCE_HIGH
+            )
+            channel.description = "Notification Settings For Sleep Reminder"
+
+            val notificationManager =
+                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
     }
 }

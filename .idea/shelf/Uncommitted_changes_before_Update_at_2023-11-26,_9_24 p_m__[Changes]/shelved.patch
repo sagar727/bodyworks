@@ -1,0 +1,262 @@
+Index: app/src/main/res/layout/activity_sleep_reminder.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    tools:context=\".views.sleepReminder.SleepReminder\">\n\n    <androidx.appcompat.widget.Toolbar\n        android:id=\"@+id/sleepReminderToolBar\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"?android:actionBarSize\"\n        android:background=\"?attr/colorPrimary\"\n        android:minHeight=\"?attr/actionBarSize\"\n        android:theme=\"?attr/actionBarTheme\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toTopOf=\"parent\"\n        app:navigationIcon=\"@drawable/baseline_arrow_back_24\"\n        app:title=\"Sleep Reminder\"\n        app:titleTextColor=\"@color/white\" />\n\n    <TextView\n        android:id=\"@+id/textView4\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Sleep Reminder\"\n        app:layout_constraintBottom_toBottomOf=\"parent\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toTopOf=\"parent\" />\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_sleep_reminder.xml b/app/src/main/res/layout/activity_sleep_reminder.xml
+--- a/app/src/main/res/layout/activity_sleep_reminder.xml	(revision 05cfa11a4e004bd582564793bb64a8fed46eb52f)
++++ b/app/src/main/res/layout/activity_sleep_reminder.xml	(date 1701022532449)
+@@ -20,13 +20,67 @@
+         app:title="Sleep Reminder"
+         app:titleTextColor="@color/white" />
+ 
++    <ImageView
++        android:id="@+id/imageView"
++        android:layout_width="150dp"
++        android:layout_height="150dp"
++        android:layout_marginTop="64dp"
++        android:contentDescription="@string/sleep_reminder_clock_with_sleep_image"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/sleepReminderToolBar"
++        app:srcCompat="@drawable/sleep_reminder" />
++
++    <TextView
++        android:id="@+id/txtViewSleepReminderTime"
++        android:layout_width="0dp"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="32dp"
++        android:layout_marginTop="16dp"
++        android:layout_marginEnd="32dp"
++        android:text="@string/select_your_sleep_time_to_get_reminder"
++        android:textAlignment="center"
++        android:textColor="@color/primary"
++        android:textSize="20sp"
++        android:textStyle="bold"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/imageView" />
++
+     <TextView
+-        android:id="@+id/textView4"
++        android:id="@+id/txtViewSleepTime"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+-        android:text="Sleep Reminder"
+-        app:layout_constraintBottom_toBottomOf="parent"
++        android:layout_marginTop="64dp"
++        android:text="@string/select_sleep_time_label"
++        android:textColor="@color/black"
++        android:textSize="20sp"
++        android:textStyle="bold"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintTop_toTopOf="parent" />
++        app:layout_constraintTop_toBottomOf="@+id/txtViewSleepReminderTime" />
++
++    <TextView
++        android:id="@+id/txtViewSleepTimeSetOrNot"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="8dp"
++        android:text="Sleep Time Selected:"
++        android:textColor="@color/primary"
++        android:textSize="20sp"
++        android:textStyle="bold|italic"
++        android:visibility="gone"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/txtViewSleepTime" />
++
++    <Button
++        android:id="@+id/btnSleepTime"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="8dp"
++        android:text="@string/select_sleep_time"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/txtViewSleepTimeSetOrNot" />
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/bodyworks/views/sleepReminder/SleepReminder.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.bodyworks.views.sleepReminder\n\nimport androidx.appcompat.app.AppCompatActivity\nimport android.os.Bundle\nimport com.example.bodyworks.R\nimport com.example.bodyworks.databinding.ActivitySleepReminderBinding\nimport com.example.bodyworks.databinding.ActivityWaterReminderBinding\n\nclass SleepReminder : AppCompatActivity() {\n    private lateinit var binding: ActivitySleepReminderBinding\n    override fun onCreate(savedInstanceState: Bundle?) {\n        super.onCreate(savedInstanceState)\n        binding = ActivitySleepReminderBinding.inflate(layoutInflater)\n        setContentView(binding.root)\n\n        // Toolbar Code For Back button and title\n        val toolbar = binding.sleepReminderToolBar\n        setSupportActionBar(toolbar)\n        supportActionBar?.setDisplayHomeAsUpEnabled(true)\n        toolbar.setNavigationOnClickListener {\n            onBackPressed()\n        }\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/bodyworks/views/sleepReminder/SleepReminder.kt b/app/src/main/java/com/example/bodyworks/views/sleepReminder/SleepReminder.kt
+--- a/app/src/main/java/com/example/bodyworks/views/sleepReminder/SleepReminder.kt	(revision 05cfa11a4e004bd582564793bb64a8fed46eb52f)
++++ b/app/src/main/java/com/example/bodyworks/views/sleepReminder/SleepReminder.kt	(date 1701051766082)
+@@ -1,13 +1,33 @@
+ package com.example.bodyworks.views.sleepReminder
+ 
++import android.app.AppOpsManager
++import android.app.NotificationManager
++import android.content.Context
++import android.content.Intent
++import android.net.Uri
++import android.opengl.Visibility
++import android.os.Build
+ import androidx.appcompat.app.AppCompatActivity
+ import android.os.Bundle
++import android.provider.Settings
++import android.view.View
++import android.widget.Button
++import android.widget.TextView
++import android.widget.Toast
+ import com.example.bodyworks.R
+ import com.example.bodyworks.databinding.ActivitySleepReminderBinding
+ import com.example.bodyworks.databinding.ActivityWaterReminderBinding
++import com.google.android.material.timepicker.MaterialTimePicker
++import com.google.android.material.timepicker.TimeFormat
+ 
+ class SleepReminder : AppCompatActivity() {
+     private lateinit var binding: ActivitySleepReminderBinding
++    private lateinit var txtViewSleepTimeSetOrNot: TextView
++    private lateinit var btnSleepTime: Button
++
++    private var sleepReminderHour: Int = 0
++    private var sleepReminderMinute: Int = 0
++
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+         binding = ActivitySleepReminderBinding.inflate(layoutInflater)
+@@ -20,5 +40,112 @@
+         toolbar.setNavigationOnClickListener {
+             onBackPressed()
+         }
++
++        txtViewSleepTimeSetOrNot = binding.txtViewSleepTimeSetOrNot
++        btnSleepTime = binding.btnSleepTime
++
++        txtViewSleepTimeSetOrNot.text = "Sleep Time Selected: -"
++
++        btnSleepTime.setOnClickListener {
++            if (btnSleepTime.text == "Select Sleep Time") {
++                openTimePicker()
++            } else if(btnSleepTime.text == "Start Reminder") {
++                btnSleepTime.text = "Stop Reminder"
++                // TODO: Start Reminder Code Here
++            } else{
++                txtViewSleepTimeSetOrNot.visibility = View.GONE
++                btnSleepTime.text = "Select Sleep Time"
++                // TODO: Stop Reminder Code Here
++            }
++        }
++    }
++
++    private fun openTimePicker() {
++        //Checking Whether User Has Enabled Notifications Or Not
++        if (!isNotificationEnabled()) {
++            Toast.makeText(
++                applicationContext,
++                "Please Allow App To Send Notifications",
++                Toast.LENGTH_SHORT
++            ).show()
++            openNotificationSettings()
++        }else {
++            val picker =
++                MaterialTimePicker.Builder()
++                    .setTimeFormat(TimeFormat.CLOCK_24H)
++                    .setHour(23)
++                    .setMinute(0)
++                    .setTitleText("Select Sleep Time")
++                    .build()
++            picker.show(supportFragmentManager, "Sleep Time Picker")
++
++            picker.addOnPositiveButtonClickListener {
++                var hour: String = if (picker.hour <= 9) "0${picker.hour}" else "${picker.hour}"
++                var minute: String = if (picker.minute <= 9) "0${picker.minute}" else "${picker.minute}"
++
++                sleepReminderHour = picker.hour
++                sleepReminderMinute = picker.minute
++
++                txtViewSleepTimeSetOrNot.visibility = View.VISIBLE
++                txtViewSleepTimeSetOrNot.text = "Sleep Time Selected: $hour:$minute"
++                updateButton()
++            }
++        }
++    }
++
++    private fun updateButton() {
++        if (btnSleepTime.text == "Select Sleep Time") {
++            btnSleepTime.text = "Start Reminder"
++        } else if(btnSleepTime.text == "Start Reminder") {
++            btnSleepTime.text = "Stop Reminder"
++        } else{
++            btnSleepTime.text = "Select Sleep Time"
++        }
++    }
++
++    private fun isNotificationEnabled(): Boolean {
++        val notificationManager =
++            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
++
++        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
++            notificationManager.areNotificationsEnabled()
++        } else {
++            val appOps = this.getSystemService(Context.APP_OPS_SERVICE) as AppOpsManager
++            val appOpsClass: Class<*> = appOps.javaClass
++            val checkOpNoThrowMethod = appOpsClass.getMethod(
++                "checkOpNoThrow", Integer.TYPE, Integer.TYPE, String::class.java
++            )
++            val opPostNotificationValue = appOpsClass.getDeclaredField("OP_POST_NOTIFICATION")
++            val value = opPostNotificationValue.get(Int::class.java) as Int
++            checkOpNoThrowMethod.invoke(
++                appOps,
++                value,
++                this.applicationInfo.uid,
++                this.packageName
++            ) as Int == AppOpsManager.MODE_ALLOWED
++        }
++    }
++
++    private fun openNotificationSettings() {
++        val intent = Intent()
++        when {
++            Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
++                intent.action = Settings.ACTION_APP_NOTIFICATION_SETTINGS
++                intent.putExtra(Settings.EXTRA_APP_PACKAGE, packageName)
++            }
++
++            Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP -> {
++                intent.action = "android.settings.APP_NOTIFICATION_SETTINGS"
++                intent.putExtra("app_package", packageName)
++                intent.putExtra("app_uid", applicationInfo.uid)
++            }
++
++            else -> {
++                intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
++                intent.addCategory(Intent.CATEGORY_DEFAULT)
++                intent.data = Uri.parse("package:$packageName")
++            }
++        }
++        startActivity(intent)
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\n    <!--    Abdomen-->\n\n    <!--    Muscle Array-->\n\n    <string-array name=\"abdomen_Muscle\" translatable=\"false\">\n        <item>Transversus Abdominis, Rectus Abdominis, Internal Oblique, External Oblique Muscles</item>\n        <item>Rectus Abdominis, The Internal and External Oblique Muscles</item>\n        <item>Rectus Abdominis (your six-pack), External Obliques (your sides), The Hips</item>\n        <item>Shoulders, Hamstrings, Core, Triceps, Quads</item>\n        <item>Obliques, Rectus Abdominis, Transverse Abdominis, Hip Flexors, Erector Spinae, Scapular Muscles, Latissimus Dorsi</item>\n        <item>rectus abdominus,</item>\n        <item>Iliopsoas, Rectus Abdominis, Obliques</item>\n    </string-array>\n\n    <!--    Workout Name Array-->\n\n    <string-array name=\"abdomen_workout_name\" translatable=\"false\">\n        <item>Plank</item>\n        <item>Leg Raise</item>\n        <item>Bicycle Crunch</item>\n        <item>Mountain Climber</item>\n        <item>Russian Twists</item>\n        <item>Crunches</item>\n        <item>Hanging Leg Raise</item>\n    </string-array>\n\n    <!--    Video String Array-->\n    <string-array name=\"abdomen_video\" translatable=\"false\">\n        <item>R.raw.plank</item>\n        <item>R.raw.lying_leg_raise_workout</item>\n        <item>R.raw.bicycle_twisting_workout</item>\n        <item>R.raw.mountain_climbers_workout</item>\n        <item>R.raw.dumbbell_russian_twist_workout</item>\n        <item>R.raw.crunches</item>\n        <item>R.raw.hanging_leg_raise</item>\n    </string-array>\n\n    <!--    Thumbnail String Array-->\n    <string-array name=\"abdomen_thumbnail\" translatable=\"false\">\n        <item>R.drawable.plank</item>\n        <item>R.drawable.legraise</item>\n        <item>R.drawable.bicyclecrunch</item>\n        <item>R.drawable.mountainclimber</item>\n        <item>R.drawable.russiantwist</item>\n        <item>R.drawable.crunches</item>\n        <item>R.drawable.hanginglegraise</item>\n    </string-array>\n\n    <!--    Biceps & Forearm-->\n\n    <!--    Muscle Array-->\n    <string-array name=\"bicep_muscle\" translatable=\"false\">\n        <item>Biceps, The Brachialis, Brachioradialis</item>\n        <item>Biceps, The Brachialis, Brachioradialis</item>\n        <item>Biceps, The Brachialis, Brachioradialis</item>\n        <item>Biceps, Brachii</item>\n        <item>Biceps, Brachii, Brachialis</item>\n        <item>Triceps, Brachialis, Brachioradialis</item>\n        <item>The Forearms,</item>\n        <item>The Forearms,</item>\n    </string-array>\n\n    <!--    Workout Name Array-->\n    <string-array name=\"bicep_workout_name\" translatable=\"false\">\n        <item>Dumbbell Curl</item>\n        <item>Incline Dumbbell Curl</item>\n        <item>Hammer Curl</item>\n        <item>Cabel Curl</item>\n        <item>Barbell Curl</item>\n        <item>Concentration Curl</item>\n        <item>Palms-up Wrist Curl</item>\n        <item>Palms-down Wrist Curl</item>\n    </string-array>\n\n    <!--    Video String Array    -->\n    <string-array name=\"bicep_video\" translatable=\"false\">\n        <item>R.raw.biceps_curls_with_dumbbells</item>\n        <item>R.raw.alternate_incline_dumbbell_curl_workout</item>\n        <item>R.raw.dumbbell_crossbody_hammer_curl_workout</item>\n        <item>R.raw.cable_biceps_curl_workout</item>\n        <item>R.raw.standing_barbell_curl_workout</item>\n        <item>R.raw.dumbbell_concentration_curl_workout</item>\n        <item>R.raw.dumbbell_reverse_wrist_curl_workout</item>\n        <item>R.raw.dumbbell_overbench_wrist_curl_workout</item>\n    </string-array>\n\n    <!--    Thumbnail String Array-->\n    <string-array name=\"bicep_thumbnail\" translatable=\"false\">\n        <item>R.drawable.dumbellcurls</item>\n        <item>R.drawable.inclinedumbbellcurls</item>\n        <item>R.drawable.hammercurls</item>\n        <item>R.drawable.cabelcurls</item>\n        <item>R.drawable.barbellcurls</item>\n        <item>R.drawable.concentrationcurls</item>\n        <item>R.drawable.palmsupwristcurls</item>\n        <item>R.drawable.palmsdownwristcurls</item>\n    </string-array>\n\n\n    <!--    Cardio-->\n    <!--    Muscle Array-->\n    <string-array name=\"cardio_muscle\" translatable=\"false\">\n        <item>Quadriceps, Hamstrings, The calves, The glutes</item>\n        <item>Glutes, Hamstrings, Quads, Chest, Back, Biceps, Triceps, Core</item>\n        <item>Glutes, Hamstrings, Quadriceps, Abs, Calves</item>\n        <item>Legs, Hips, Buttocks, Abdomen, Arms, Chest, Shoulders</item>\n        <item>Calves, Quadriceps, Shoulders</item>\n    </string-array>\n\n    <!--    Workout Name Array-->\n    <string-array name=\"cardio_workout_name\" translatable=\"false\">\n        <item>Run on the treadmill</item>\n        <item>Pedal away on an elliptical</item>\n        <item>Climb steps on a stair machine</item>\n        <item>Burpee</item>\n        <item>Jumping Jacks</item>\n    </string-array>\n\n    <!--    Video String Array-->\n    <string-array name=\"cardio_video\" translatable=\"false\">\n        <item>R.raw.treadmill</item>\n        <item>R.raw.elliptical</item>\n        <item>R.raw.stepper</item>\n        <item>R.raw.burpee_workout</item>\n        <item>R.raw.jumping_jack_workout</item>\n    </string-array>\n\n    <!--    Thumbnail String Array-->\n    <string-array name=\"cardio_thumbnail\" translatable=\"false\">\n        <item>R.drawable.runontreadmill</item>\n        <item>R.drawable.pedalawayonanelliptical</item>\n        <item>R.drawable.climbstepsonastairmachine</item>\n        <item>R.drawable.burpee</item>\n        <item>R.drawable.jumpingjacks</item>\n    </string-array>\n\n    <!--    Leg-->\n    <!--    Muscle Array-->\n    <string-array name=\"leg_muscle\" translatable=\"false\">\n        <item>Gluteus Maximus-Minimus-Medius (buttocks), Quadriceps (front of the thigh), Hamstrings (back of the thigh), Adductor (groin), Hip flexors, Calves</item>\n        <item>Quadriceps, Quads</item>\n        <item>Glutes, Hamstrings, Quads, Calves</item>\n        <item>The Quadriceps, The Rectus Femoris, The Vastus</item>\n        <item>Hamstrings, Gluteals</item>\n        <item>Gluteals, Quadriceps, Hamstrings</item>\n    </string-array>\n\n    <!--    Workout Name Array-->\n    <string-array name=\"leg_workout_name\" translatable=\"false\">\n        <item>Squats</item>\n        <item>Leg Press</item>\n        <item>Hack Squats</item>\n        <item>Leg Extension</item>\n        <item>Leg Curl</item>\n        <item>Lunges</item>\n    </string-array>\n\n    <!--    Video String Array-->\n    <string-array name=\"leg_video\" translatable=\"false\">\n        <item>R.raw.barbell_full_squat_workout</item>\n        <item>R.raw.leg_press_machine_workout</item>\n        <item>R.raw.squats</item>\n        <item>R.raw.lever_leg_extension</item>\n        <item>R.raw.lying_leg_curl_machine_workout</item>\n        <item>R.raw.alternate_front_lunges_dumbbell</item>\n    </string-array>\n\n    <!--    Thumbnail String Array-->\n    <string-array name=\"leg_thumbnail\" translatable=\"false\">\n        <item>R.drawable.squats</item>\n        <item>R.drawable.legpress</item>\n        <item>R.drawable.hacksquat</item>\n        <item>R.drawable.legextension</item>\n        <item>R.drawable.legcurls</item>\n        <item>R.drawable.lunges</item>\n    </string-array>\n\n    <!--    Shoulder-->\n    <!--    Muscle Array-->\n    <string-array name=\"shoulder_muscle\" translatable=\"false\">\n        <item>Anterior Deltoid,</item>\n        <item>Trapezius, Lateral Deltoid, Front Deltoids</item>\n        <item>Deltoid, Triceps</item>\n        <item>Side Deltoid, Anterior Deltoid</item>\n        <item>Pectorals (chest), Deltoids (shoulders), Triceps (arms), Trapezius (upper back)</item>\n        <item>Rear Deltoids, Rhomboids, Middle Trapezius</item>\n    </string-array>\n\n    <!--    Workout Name Array-->\n    <string-array name=\"shoulder_workout_name\" translatable=\"false\">\n        <item>Dumbell Front Raise</item>\n        <item>Dumbbell lateral Raise</item>\n        <item>Seated Military Press</item>\n        <item>Cabel Lateral raise</item>\n        <item>Overhead Press</item>\n        <item>Face Pull</item>\n    </string-array>\n\n    <!--    Video String Array-->\n    <string-array name=\"shoulder_video\" translatable=\"false\">\n        <item>R.raw.standing_front_raise_dumbbell_workout</item>\n        <item>R.raw.lateral_raises_dumbbell_workout</item>\n        <item>R.raw.seated_dumbbell_shoulder_press_workout</item>\n        <item>R.raw.lateral_raises_on_cable_workout</item>\n        <item>R.raw.barbell_seated_overhead_press_workout</item>\n        <item>R.raw.resistance_band_face_pull_workout</item>\n    </string-array>\n\n    <!--    Thumbnail String Array-->\n    <string-array name=\"shoulder_thumbnail\" translatable=\"false\">\n        <item>R.drawable.dumbbellfrontraise</item>\n        <item>R.drawable.dumbbelllateralraise</item>\n        <item>R.drawable.seatedmilitaryPress</item>\n        <item>R.drawable.cabellateralraise</item>\n        <item>R.drawable.overheadpress</item>\n        <item>R.drawable.facepull</item>\n    </string-array>\n\n    <!--    Triceps-->\n    <!--    Muscle Array-->\n    <string-array name=\"triceps_muscle\" translatable=\"false\">\n        <item>Triceps,</item>\n        <item>Triceps, Chest, Shoulders</item>\n        <item>Core, Gluteals, Lower Back Muscles</item>\n        <item>Triceps,</item>\n    </string-array>\n\n    <!--    Workout Name Array-->\n    <string-array name=\"triceps_workout_name\" translatable=\"false\">\n        <item>Skull Crusher</item>\n        <item>Dip</item>\n        <item>Standing Overhead Cabel Triceps Extension</item>\n        <item>Cabel Rope Tricep Pushdown</item>\n    </string-array>\n\n    <!--    Video String Array-->\n    <string-array name=\"triceps_video\" translatable=\"false\">\n        <item>R.raw.dumbbell_incline_triceps_extension_workout</item>\n        <item>R.raw.bench_triceps_dip_straight_legs_workout</item>\n        <item>R.raw.cable_overhead_extension_rope_workout</item>\n        <item>R.raw.cable_reverse_grip_pushdown_workout</item>\n    </string-array>\n\n    <!--    Thumbnail String Array-->\n    <string-array name=\"triceps_thumbnail\" translatable=\"false\">\n        <item>R.drawable.skullcrusher</item>\n        <item>R.drawable.dip</item>\n        <item>R.drawable.standingoverheadcabeltricepsextension</item>\n        <item>R.drawable.cabelropetriceppushdown</item>\n    </string-array>\n\n    <!--    Back-->\n    <!--    Muscle Array-->\n    <string-array name=\"back_muscle\" translatable=\"false\">\n        <item>Trapezius, Deltoids, Rhomboids, Erectors, Latissimus Dorsi, Gluteals, Hamitems, Calves, Biceps, Core</item>\n        <item>Latissimus Dorsi, Biceps, Trapezius, Deltoids, Core</item>\n        <item>Latissimus Dorsi, Erectors, Serratus, Rhomboids</item>\n        <item>Latissimus Dorsi, Biceps, Rhomboids, Deltoids, Trapezius, Pectoralis Major, Serratus, Teres Major</item>\n        <item>Latissimus Dorsi, Rhomboids, Trapezius, Biceps</item>\n        <item>Latissimus Dorsi, Biceps, Rear Deltoids, Rhomboids, Trapezius</item>\n    </string-array>\n\n    <!--    Workout Name Array-->\n    <string-array name=\"back_workout_name\" translatable=\"false\">\n        <item>Deadlift</item>\n        <item>Single-Arm Dumbbell Row</item>\n        <item>Incline Rows</item>\n        <item>Pull-ups</item>\n        <item>Seated Cabel Row</item>\n        <item>Lat Pull-Downs</item>\n    </string-array>\n\n    <!--    Video String Array-->\n    <string-array name=\"back_video\" translatable=\"false\">\n        <item>R.raw.barbell_snatch_deadlift_close_grip_powerlifting__workout</item>\n        <item>R.raw.dumbbells_single_arm_workout</item>\n        <item>R.raw.dumbbell_hammer_grip_incline_bench_workout</item>\n        <item>R.raw.pull_up_normal_grip_workout</item>\n        <item>R.raw.seated_cable_row_v_bar_machine_workout</item>\n        <item>R.raw.lat_pull_down_close_grip_workout</item>\n    </string-array>\n\n    <!--    Thumbnail String Array-->\n    <string-array name=\"back_thumbnail\" translatable=\"false\">\n        <item>R.drawable.deadlift</item>\n        <item>R.drawable.singlearmdumbbellrow</item>\n        <item>R.drawable.inclinedmbbellrow</item>\n        <item>R.drawable.pullups</item>\n        <item>R.drawable.seatedcabelrow</item>\n        <item>R.drawable.latpulldown</item>\n    </string-array>\n\n    <!--    Chest-->\n    <!--    Muscle Array-->\n    <string-array name=\"chest_muscle\" translatable=\"false\">\n        <item>Pectorals, Triceps, Deltoids</item>\n        <item>Pectorals, Triceps, Deltoids</item>\n        <item>Pectorals, Triceps, Deltoids</item>\n        <item>Triceps, Pectoral Muscles, Shoulders</item>\n        <item>Chest, Shoulders, Triceps</item>\n        <item>Pectorals, Deltoids, Triceps, Biceps</item>\n        <item>Lower Chest, Upper Chest, Front Shoulder</item>\n    </string-array>\n\n    <!--    Workout Name Array-->\n    <string-array name=\"chest_workout_name\" translatable=\"false\">\n        <item>Dumbbell Bench Press</item>\n        <item>Incline Bench Press</item>\n        <item>Machine Chest Press</item>\n        <item>Push-up</item>\n        <item>Dip</item>\n        <item>Chest Fly</item>\n        <item>Machine Fy</item>\n    </string-array>\n\n    <!--    Video String Array-->\n    <string-array name=\"chest_video\" translatable=\"false\">\n        <item>R.raw.incline_dumbbell</item>\n        <item>R.raw.barbell_bench_press_incline_workout</item>\n        <item>R.raw.machine_chest_press_incline_workout</item>\n        <item>R.raw.side_to_side_push_up_workout</item>\n        <item>R.raw.chest_dip_weighted_workout</item>\n        <item>R.raw.dumbbell_fly_flat_bench_workout</item>\n        <item>R.raw.machine_fly_workout</item>\n    </string-array>\n\n    <!--    Thumbnail String Array-->\n    <string-array name=\"chest_thumbnail\" translatable=\"false\">\n        <item>R.drawable.dumbbellbenchpress</item>\n        <item>R.drawable.inclinebenchpress</item>\n        <item>R.drawable.machinechestpress</item>\n        <item>R.drawable.pushups</item>\n        <item>R.drawable.dip</item>\n        <item>R.drawable.chestfly</item>\n        <item>R.drawable.machinefly</item>\n    </string-array>\n\n    <!--    Muscle String End-->\n\n    <!--    Activity Array-->\n    <string-array name=\"activity_array\" translatable=\"false\">\n        <item>Abdomen</item>\n        <item>Back</item>\n        <item>Biceps and Forearm</item>\n        <item>Cardio</item>\n        <item>Chest</item>\n        <item>Leg</item>\n        <item>Shoulder</item>\n        <item>Triceps</item>\n    </string-array>\n\n    <!-- Main application strings   -->\n    <string name=\"app_name\">Bodyworks</string>\n    <string name=\"workouts\">Workouts</string>\n    <string name=\"fitness_hub\">Fitness Hub</string>\n    <!-- TODO: Remove or change this placeholder text -->\n    <string name=\"hello_blank_fragment\">Hello blank fragment</string>\n    <string name=\"set_timer\">Set timer</string>\n    <string name=\"set\">Set</string>\n    <string name=\"zero\">0</string>\n    <string name=\"setBtn\">Set</string>\n    <string name=\"startBtn\">Start</string>\n    <string name=\"resetBtn\">Reset</string>\n    <string name=\"pause\">Pause</string>\n    <string name=\"resume\">Resume</string>\n    <string name=\"start\">Start</string>\n    <string name=\"metric\">Metric</string>\n    <string name=\"imperial\">Imperial</string>\n    <string name=\"your_current_bmi\">Your Current BMI:</string>\n    <string name=\"_0\">0</string>\n    <string name=\"kilogram\">Kilogram</string>\n    <string name=\"centimeters\">Centimeters</string>\n    <string name=\"feet\">Feet</string>\n    <string name=\"inch\">Inch</string>\n    <string name=\"calculate\">Calculate</string>\n    <string name=\"error\">ERROR</string>\n    <string name=\"change_the_language_description\">Change the Language</string>\n    <string name=\"choose_language_title\">Choose Language</string>\n    <string name=\"weight\">weight</string>\n    <string name=\"weight_tracker_chart\">Weight Tracker Chart</string>\n\n    <string name=\"bmiInfo\">\n        A BMI below 18.5 (blue) is considered underweight.\\n\\nA BMI of 18.5 to 24.9 (green) is considered healthy.\\n\\nA BMI of 25 to 29.9 (yellow) is considered overweight.\\n\\nA BMI of 30 to 39.9 (red) is considered obese.\\n\\nA BMI of 40 or higher (purple) is considered extreme obesity.\n    </string>\n    <!-- Days -->\n    <string name=\"monday\">Monday</string>\n    <string name=\"tuesday\">Tuesday</string>\n    <string name=\"wednesday\">Wednesday</string>\n    <string name=\"thursday\">Thursday</string>\n    <string name=\"friday\">Friday</string>\n    <string name=\"saturday\">Saturday</string>\n    <string name=\"sunday\">Sunday</string>\n\n    <!-- Greetings -->\n    <string name=\"morning_greeting\">Good Morning!</string>\n    <string name=\"afternoon_greeting\">Good Afternoon!</string>\n    <string name=\"evening_greeting\">Good Evening!</string>\n    <string name=\"other_greeting\">Hello, How are you today\\?</string>\n\n    <string name=\"english\">English</string>\n    <string name=\"french\">French</string>\n    <string name=\"hindi\">Hindi</string>\n    <string name=\"spanish\">Spanish</string>\n\n\n    <!--  DailyWorkout Activity Strings  -->\n    <string name=\"daily_workout_planner\">Daily Workout Planner</string>\n    <string name=\"daily_workout_planner_help\">Floating Button To Get Help About How To Use Daily Workout Planner Feature of App</string>\n    <string name=\"workout_selected_tab_text\">Workout Planned</string>\n    <string name=\"plan_workouts_tab_text\">Plan Workouts</string>\n    <string name=\"today_s_exercise_label\">Today\\'s Exercise</string>\n    <string name=\"reset_button_text\">Reset</string>\n    <string name=\"image_of_exercise\">Image Of Exercise</string>\n    <string name=\"feet_hint\">Feet</string>\n    <string name=\"inch_hint\">Inch</string>\n    <string name=\"ok\">OK</string>\n    <string name=\"bmi\">BMI</string>\n    <string name=\"weight_tracker\">Weight Tracker</string>\n    <string name=\"save\">SAVE</string>\n    <string name=\"date_hint\">Date</string>\n\n\n    <!-- Water Reminder Activity -->\n    <string name=\"water_reminder\">Water Reminder</string>\n    <string name=\"get_reminder_title\">Select Your Time To Get Reminder</string>\n    <string name=\"start_time\">Start Time:</string>\n    <string name=\"end_time\">End Time:</string>\n    <string name=\"select_start_time\">Select Start Time</string>\n    <string name=\"select_end_time\">Select End Time</string>\n    <string name=\"start_reminder\">Start Reminder</string>\n    <string name=\"enter_time_interval\">Enter Time Interval In Minutes</string>\n    <string name=\"add_item\">Add Item</string>\n    <string name=\"total_calories_0\">Total Calories: 0</string>\n    <string name=\"calorie_tracker\">Calorie Tracker</string>\n    <string name=\"diet_meal_plans\">Diet Meal Plans</string>\n    <string name=\"water_drop_with_glass_image\">Water Drop With Glass Image</string>\n\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/strings.xml b/app/src/main/res/values/strings.xml
+--- a/app/src/main/res/values/strings.xml	(revision 05cfa11a4e004bd582564793bb64a8fed46eb52f)
++++ b/app/src/main/res/values/strings.xml	(date 1701020821363)
+@@ -435,5 +435,9 @@
+     <string name="calorie_tracker">Calorie Tracker</string>
+     <string name="diet_meal_plans">Diet Meal Plans</string>
+     <string name="water_drop_with_glass_image">Water Drop With Glass Image</string>
++    <string name="sleep_reminder_clock_with_sleep_image">Sleep Reminder Clock With Sleep Image</string>
++    <string name="select_your_sleep_time_to_get_reminder">Select Your Sleep Time To Get Reminder</string>
++    <string name="select_sleep_time">Select Sleep Time</string>
++    <string name="select_sleep_time_label">Select Sleep Time:</string>
+ 
+ </resources>
+\ No newline at end of file
