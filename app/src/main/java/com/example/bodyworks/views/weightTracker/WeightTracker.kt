@@ -78,7 +78,7 @@ class WeightTracker : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
             if ((wt.length == 4 && !wt.contains(".", false)) || wt == "") {
                 Toast.makeText(this, "Please enter valid weight!!", Toast.LENGTH_SHORT).show()
             } else {
-                bodyworksVM.addWeightTrackerData(this, wt.toDouble(), currDate)
+                bodyworksVM.addWeightTrackerData(this, wt.toDouble(), currDate, isMetric)
                 binding.wtET.text?.clear()
                 binding.chartCore.reload()
                 kiloArray.clear()

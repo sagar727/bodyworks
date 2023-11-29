@@ -64,6 +64,7 @@ class MainActivity : AppCompatActivity() {
         val menu = binding.bottomNavigationView.menu;
         menu.findItem(R.id.workouts).title = getString(R.string.workouts);
         menu.findItem(R.id.fitnessHub).title = getString(R.string.fitness_hub);
+        menu.findItem(R.id.settings).title = getString(R.string.settings)
     }
     private fun setLocale(languageCode: String) {
         val locale: Locale = Locale(languageCode);
@@ -200,21 +201,6 @@ class MainActivity : AppCompatActivity() {
             tricepThumbnail,
             "triceps"
         )
-
-        //Setting Workout page as home page
-        replaceFragment(WorkoutFragment())
-        //Changing fragment as per selection
-        binding.bottomNavigationView.setOnItemSelectedListener {
-            when(it.itemId){
-                R.id.workouts -> replaceFragment(WorkoutFragment())
-                R.id.fitnessHub -> replaceFragment(FitnessHubFragment())
-                R.id.settings -> replaceFragment(SettingsFragment())
-                else -> {
-
-                }
-            }
-            true
-        }
     }
 
     private fun replaceFragment(fragment: Fragment){
@@ -223,5 +209,4 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.replace(R.id.frameLayout, fragment)
         fragmentTransaction.commit()
     }
-
 }

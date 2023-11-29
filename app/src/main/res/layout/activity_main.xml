@@ -32,7 +32,7 @@
         app:tint="@color/white"
         android:elevation="15dp"
         app:rippleColor="@color/primary_light"
-        app:borderWidth="1dp"
+        app:borderWidth="2dp"
         app:hoveredFocusedTranslationZ="5dp"
         app:pressedTranslationZ="0dp"
         android:contentDescription="@string/change_the_language_description"

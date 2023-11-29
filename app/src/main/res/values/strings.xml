@@ -509,5 +509,6 @@
     <string name="sleep_time_selected">Sleep Time Selected:</string>
     <string name="sleep_reminder_btn">Sleep Reminder</string>
     <string name="workout_reminder_btn">Workout Reminder</string>
+    <string name="lbs">Lbs</string>
 
 </resources>

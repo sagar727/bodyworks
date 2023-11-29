@@ -489,6 +489,6 @@
     <string name="sleep_time_selected"><![CDATA[Temps de sommeil sélectionné :]]></string>
     <string name="sleep_reminder_btn">Rappel de sommeil</string>
     <string name="workout_reminder_btn">Rappel d\'entraînement</string>
-    <string name="stop_reminder">Arrêter le rappel</string>
+    <string name="lbs">livre</string>
 
 </resources>

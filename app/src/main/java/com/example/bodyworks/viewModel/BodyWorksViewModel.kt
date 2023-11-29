@@ -63,10 +63,18 @@ class BodyWorksViewModel : ViewModel() {
         }
     }
 
-    fun addWeightTrackerData(context: Context, kg: Double, date: Long) {
+    fun addWeightTrackerData(context: Context, wt: Double, date: Long, isMetric: Boolean) {
         val db = DatabaseHelper(context)
-        val kgToLb = kg * 2.2
-        db.addWeightData(WeightTracker(kg, kgToLb, date))
+        var kg: Double
+        var lb: Double
+        if(isMetric){
+            kg = wt
+            lb = wt / 2.2
+        }else{
+            lb = wt
+            kg = wt * 2.2
+        }
+        db.addWeightData(WeightTracker(kg, lb, date))
     }
 
     fun addActivityData(context: Context, activityData: Array<String>) {

@@ -489,6 +489,6 @@
     <string name="sleep_time_selected">Hora de dormir seleccionada:</string>
     <string name="sleep_reminder_btn">Recordatorio de sueño</string>
     <string name="workout_reminder_btn">Recordatorio de entrenamiento</string>
-    <string name="stop_reminder">Detener recordatorio</string>
+    <string name="lbs">libras</string>
 
 </resources>

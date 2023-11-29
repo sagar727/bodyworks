@@ -75,8 +75,7 @@ class LanguageChangeFragment : BottomSheetDialogFragment() {
         val configuration = Configuration(resources.configuration);
         configuration.setLocale(locale)
 
-        val newResources = Resources(assets, resources.displayMetrics, configuration)
-        resources.updateConfiguration(configuration, resources.displayMetrics)
+        context?.createConfigurationContext(configuration)
 
         val sharedPreferences = requireActivity().getSharedPreferences("ChangeLang", Context.MODE_PRIVATE);
         sharedPreferences.edit().putString("app_lang",languageCode).apply();

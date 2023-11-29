@@ -18,7 +18,7 @@ class BmiActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityBmiBinding
     private lateinit var bmiVM: BodyWorksViewModel
-    private var isMetric: Boolean = true
+    private var isImperial: Boolean = true
     private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +31,7 @@ class BmiActivity : AppCompatActivity() {
         bmiVM = ViewModelProvider(this).get(BodyWorksViewModel::class.java)
 
         sharedPreferences = this.let { PreferenceManager.getDefaultSharedPreferences(it) }!!
-        isMetric= sharedPreferences.getBoolean("isMetric",  false)
+        isImperial= sharedPreferences.getBoolean("isMetric",  false)
 
         val toolbar = binding.materialToolbar
         setSupportActionBar(toolbar)
@@ -40,21 +40,19 @@ class BmiActivity : AppCompatActivity() {
             onBackPressed()
         }
 
-        if (!isMetric) {
+        if (!isImperial) {
             binding.imperialLL.visibility = View.GONE
             binding.textField2.visibility = View.VISIBLE
             binding.cmDropDown.visibility = View.VISIBLE
-            binding.textField1.hint = "Kilograms"
+            binding.textField1.hint = getString(R.string.kilogram)
         } else {
             binding.cmDropDown.visibility = View.GONE
             binding.textField2.visibility = View.GONE
             binding.imperialLL.visibility = View.VISIBLE
-            binding.textField1.hint = "Lbs"
+            binding.textField1.hint = getString(R.string.lbs)
         }
 
         bmiVM.getBMI(this)
-
-
 
         val inches = bmiVM.generateDropDownNumbrs(0,13)
         val feets = bmiVM.generateDropDownNumbrs(1,8)
@@ -74,7 +72,7 @@ class BmiActivity : AppCompatActivity() {
             val ft = binding.feetDropDown.text.toString().trim()
             val inch = binding.inchDropDown.text.toString().trim()
 
-            if (isMetric) {
+            if (!isImperial) {
                 if((wt == "" || ht == "" || ht == "Centimeters") || (wt.length == 4 && !wt.contains(".",false))){
                     Toast.makeText(this,"Please add all details!!",Toast.LENGTH_LONG).show()
                 }else{

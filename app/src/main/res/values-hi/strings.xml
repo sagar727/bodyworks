@@ -489,6 +489,6 @@
     <string name="sleep_time_selected">सोने का समय चयनित:</string>
     <string name="sleep_reminder_btn">नींद अनुस्मारक</string>
     <string name="workout_reminder_btn">कसरत अनुस्मारक</string>
-    <string name="stop_reminder">अनुस्मारक बंद करो</string>
+    <string name="lbs">एलबीएस</string>
 
 </resources>
