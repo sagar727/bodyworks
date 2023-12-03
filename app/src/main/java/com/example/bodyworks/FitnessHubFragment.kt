@@ -1,11 +1,13 @@
 package com.example.bodyworks
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.preference.PreferenceManager
 import com.example.bodyworks.views.bmiActivity.BmiActivity
 import com.example.bodyworks.views.calorieTracker.CalorieTrackerActivity
 import com.example.bodyworks.views.dailyWorkoutPlanner.DailyWorkoutPlanner
@@ -20,14 +22,27 @@ import com.example.bodyworks.views.workoutReminder.WorkoutReminder
 class FitnessHubFragment : Fragment() {
 
     private lateinit var binding: FragmentFitnessHubBinding
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // TODO: ADD Other Features Code Here Like BMI, Daily Workout Planner, ETC
-        // Inflate the layout for this fragment
+
         binding = FragmentFitnessHubBinding.inflate(inflater,container,false)
+
+        sharedPreferences = this.let { PreferenceManager.getDefaultSharedPreferences(requireContext()) }!!
+        val themeColor = sharedPreferences.getString("Current Theme", getString(R.string.red))
+        val color =  changeTheme(themeColor)
+
+        binding.bmiLL.setBackgroundColor(requireActivity().getColor(color))
+        binding.dailyWorkourPlanner.setBackgroundColor(requireActivity().getColor(color))
+        binding.weightTracker.setBackgroundColor(requireActivity().getColor(color))
+        binding.waterReminder.setBackgroundColor(requireActivity().getColor(color))
+        binding.calorieTracker.setBackgroundColor(requireActivity().getColor(color))
+        binding.sleepReminder.setBackgroundColor(requireActivity().getColor(color))
+        binding.dietMealPlanLL.setBackgroundColor(requireActivity().getColor(color))
+        binding.workoutReminder.setBackgroundColor(requireActivity().getColor(color))
 
         binding.bmiLL.setOnClickListener {
             val intent = Intent(context, BmiActivity::class.java)
@@ -70,5 +85,20 @@ class FitnessHubFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    private fun changeTheme(themeColor: String?): Int {
+        when (themeColor) {
+            "Red" -> {
+                return R.color.primary
+            }
+            "Orange" -> {
+                return R.color.orange
+            }
+            "Brown" -> {
+                return R.color.brown
+            }
+        }
+        return 0
     }
 }

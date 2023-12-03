@@ -28,7 +28,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        android:backgroundTint="@color/primary"
         app:tint="@color/white"
         android:elevation="15dp"
         app:rippleColor="@color/primary_light"
@@ -50,6 +49,6 @@
         app:menu="@menu/bottom_nav"
         android:background="@color/primary"
         app:itemIconTint="@color/white"
-        app:itemTextColor="@color/white"
-        app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"/>
+        app:itemTextColor="@color/white" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

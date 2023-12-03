@@ -1,6 +1,7 @@
 package com.example.bodyworks
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.content.res.Resources
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.preference.PreferenceManager
 import com.example.bodyworks.databinding.ActivityMainBinding
 import com.example.bodyworks.views.languageChange.LanguageChangeFragment
 import com.example.bodyworks.viewModel.BodyWorksViewModel
@@ -17,11 +19,15 @@ import java.util.Locale
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var bodyworksVM: BodyWorksViewModel
-    private var languageChangeFragment: LanguageChangeFragment? = null;
+    private var languageChangeFragment: LanguageChangeFragment? = null
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+        sharedPreferences = this.let { PreferenceManager.getDefaultSharedPreferences(it) }!!
+        val themeColor = sharedPreferences.getString("Current Theme", getString(R.string.red))
+        changeTheme(themeColor)
         setContentView(binding.root)
 
         bodyworksVM = ViewModelProvider(this).get(BodyWorksViewModel::class.java)
@@ -51,6 +57,30 @@ class MainActivity : AppCompatActivity() {
         updateBottomNav();
         binding.fabLanguageChange.setOnClickListener {
             changeLanguage();
+        }
+    }
+
+    private fun changeTheme(themeColor: String?) {
+        val theme = super.getTheme()
+        when (themeColor) {
+            "Red" -> {
+                theme.applyStyle(R.style.Base_Theme_Red, true)
+                binding.bottomNavigationView.setBackgroundColor(getColor(R.color.primary))
+                binding.bottomNavigationView.itemActiveIndicatorColor = getColorStateList(R.color.primary_shade)
+                binding.fabLanguageChange.backgroundTintList = getColorStateList(R.color.primary_shade)
+            }
+            "Orange" -> {
+                theme.applyStyle(R.style.Base_Theme_Orange, true)
+                binding.bottomNavigationView.setBackgroundColor(getColor(R.color.orange))
+                binding.bottomNavigationView.itemActiveIndicatorColor = getColorStateList(R.color.orange_shade)
+                binding.fabLanguageChange.backgroundTintList = getColorStateList(R.color.orange_shade)
+            }
+            "Brown" -> {
+                theme.applyStyle(R.style.Base_Theme_Brown, true)
+                binding.bottomNavigationView.setBackgroundColor(getColor(R.color.brown))
+                binding.bottomNavigationView.itemActiveIndicatorColor = getColorStateList(R.color.brown_shade)
+                binding.fabLanguageChange.backgroundTintList = getColorStateList(R.color.brown_shade)
+            }
         }
     }
 

@@ -1,8 +1,28 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
-    <SwitchPreferenceCompat
-        app:icon="@drawable/unit_change_icon"
-        app:key="isMetric"
-        app:summaryOff="@string/currently_using_metric"
-        app:summaryOn="@string/current_using_imperial"
-        app:title="@string/measurement_unit" />
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory app:title="Unit">
+
+        <SwitchPreferenceCompat
+            app:icon="@drawable/unit_change_icon"
+            app:key="isMetric"
+            app:summaryOff="@string/currently_using_metric"
+            app:summaryOn="@string/current_using_imperial"
+            app:title="@string/measurement_unit" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Theme">
+
+        <ListPreference
+            app:defaultValue="@string/red"
+            app:entries="@array/color_labels"
+            app:entryValues="@array/color_values"
+            app:key="Current Theme"
+            app:title="Change Theme"
+            app:summary="Current Selected Theme: ">
+
+        </ListPreference>
+
+    </PreferenceCategory>
 </PreferenceScreen>

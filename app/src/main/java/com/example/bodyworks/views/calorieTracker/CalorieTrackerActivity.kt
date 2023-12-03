@@ -1,5 +1,6 @@
 package com.example.bodyworks.views.calorieTracker
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -8,6 +9,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory
+import androidx.preference.PreferenceManager
+import com.example.bodyworks.R
 import com.example.bodyworks.databinding.ActivityCalorieBinding
 import com.example.bodyworks.model.CalorieTracker
 import com.example.bodyworks.viewModel.CalorieViewModel
@@ -30,12 +33,17 @@ class CalorieTrackerActivity : AppCompatActivity() {
 
     private lateinit var viewModel: CalorieViewModel
     private lateinit var binding: ActivityCalorieBinding
+    private lateinit var sharedPreferences: SharedPreferences
 
     val calendar: Calendar = Calendar.getInstance()
     val dateFormatter = SimpleDateFormat("dd/MM/yyyy", Locale.CANADA)
+    var themeColor = "Red"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        sharedPreferences = this.let { PreferenceManager.getDefaultSharedPreferences(it) }!!
+        themeColor = sharedPreferences.getString("Current Theme", getString(R.string.red))!!
+        changeTheme(themeColor)
         binding = ActivityCalorieBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -59,7 +67,7 @@ class CalorieTrackerActivity : AppCompatActivity() {
         val date = dateFormatter.format(calendar.timeInMillis)
 
         updateChart()
-        
+
         buttonAddItem.setOnClickListener {
             val selectedItem = foodItems[spinnerFoodItems.selectedItemPosition]
             val data = viewModel.getCurrentCalorie(this, date)
@@ -72,11 +80,25 @@ class CalorieTrackerActivity : AppCompatActivity() {
             }
             updateChart()
             binding.chartCore.reload()
-
         }
 
         viewModel.totalCalories.observe(this) { total ->
             textViewTotalCalories.text = "Total Calories: $total"
+        }
+    }
+
+    private fun changeTheme(themeColor: String?) {
+        val theme = super.getTheme()
+        when (themeColor) {
+            "Red" -> {
+                theme.applyStyle(R.style.Base_Theme_Red, true)
+            }
+            "Orange" -> {
+                theme.applyStyle(R.style.Base_Theme_Orange, true)
+            }
+            "Brown" -> {
+                theme.applyStyle(R.style.Base_Theme_Brown, true)
+            }
         }
     }
 
@@ -93,6 +115,7 @@ class CalorieTrackerActivity : AppCompatActivity() {
             ChartNumberDataset()
                 .data(data)
                 .label("Calorie")
+                .borderColor(themeColor)
         )
         chartData.labels(labels)
 
@@ -105,7 +128,7 @@ class CalorieTrackerActivity : AppCompatActivity() {
                             .text("Calorie Tracker")
                             .position(Position.TOP)
                             .align(TextAlign.CENTER)
-                            .color("red")
+                            .color(themeColor)
                     )
             )
             .elements(
@@ -123,7 +146,6 @@ class CalorieTrackerActivity : AppCompatActivity() {
 
         binding.chartCore.draw(chartModel)
     }
-
 
     private fun getFoodItems(): List<CalorieTracker> {
         return listOf(

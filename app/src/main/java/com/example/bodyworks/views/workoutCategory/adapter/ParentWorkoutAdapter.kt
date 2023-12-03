@@ -1,9 +1,12 @@
 package com.example.bodyworks.adapter
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bodyworks.R
 import com.example.bodyworks.model.ParentWorkoutModel
@@ -12,8 +15,10 @@ import com.example.bodyworks.model.ParentWorkoutModel
  * Author: Dhruv Patel
  * Date: October 25, 2023
  */
-class ParentWorkoutAdapter(private val parentItemList: MutableList<ParentWorkoutModel>):
+class ParentWorkoutAdapter(val context: Context, val parentItemList: MutableList<ParentWorkoutModel>):
     RecyclerView.Adapter<ParentWorkoutAdapter.ParentViewHolder>() {
+
+    private lateinit var sharedPreferences: SharedPreferences
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -29,6 +34,10 @@ class ParentWorkoutAdapter(private val parentItemList: MutableList<ParentWorkout
     }
 
     override fun onBindViewHolder(holder: ParentWorkoutAdapter.ParentViewHolder, position: Int) {
+        sharedPreferences = this.let { PreferenceManager.getDefaultSharedPreferences(context) }!!
+        val themeColor = sharedPreferences.getString("Current Theme", context.getString(R.string.red))
+        val color =  changeTheme(themeColor)
+        holder.parentWorkoutTitle.setTextColor(context.getColor(color))
         val parentWorkoutData = parentItemList[position];
         holder.parentWorkoutTitle.text = parentWorkoutData.categoryTitle;
         val childSubWorkoutAdapter = ChildSubWorkoutAdapter(parentWorkoutData,parentWorkoutData.childSubWorkoutItemList);
@@ -37,5 +46,20 @@ class ParentWorkoutAdapter(private val parentItemList: MutableList<ParentWorkout
 
     override fun getItemCount(): Int {
         return parentItemList.size;
+    }
+
+    private fun changeTheme(themeColor: String?): Int {
+        when (themeColor) {
+            "Red" -> {
+                return R.color.primary
+            }
+            "Orange" -> {
+                return R.color.orange
+            }
+            "Brown" -> {
+                return R.color.brown
+            }
+        }
+        return 0
     }
 }

@@ -23,6 +23,10 @@ class BmiActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        sharedPreferences = this.let { PreferenceManager.getDefaultSharedPreferences(it) }!!
+        val themeColor = sharedPreferences.getString("Current Theme", getString(R.string.red))
+        val color = changeTheme(themeColor)
         setContentView(R.layout.activity_bmi)
 
         binding = ActivityBmiBinding.inflate(layoutInflater)
@@ -39,6 +43,8 @@ class BmiActivity : AppCompatActivity() {
         toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
+
+        binding.helpBtn.imageTintList = getColorStateList(color)
 
         if (!isImperial) {
             binding.imperialLL.visibility = View.GONE
@@ -101,11 +107,28 @@ class BmiActivity : AppCompatActivity() {
         observeBmiData()
     }
 
+    private fun changeTheme(themeColor: String?): Int {
+        val theme = super.getTheme()
+        when (themeColor) {
+            "Red" -> {
+                theme.applyStyle(R.style.Base_Theme_Red, true)
+                return R.color.primary
+            }
+            "Orange" -> {
+                theme.applyStyle(R.style.Base_Theme_Orange, true)
+                return R.color.orange
+            }
+            "Brown" -> {
+                theme.applyStyle(R.style.Base_Theme_Brown, true)
+                return R.color.brown
+            }
+        }
+        return 0
+    }
+
     private fun cleanUp(){
         binding.wtET.text?.clear()
     }
-
-
 
     private fun observeBmiData(){
         bmiVM.bmi.observe(this){bmiData ->

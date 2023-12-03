@@ -70,7 +70,7 @@
             android:background="@drawable/background_progressbar"
             android:max="10"
             android:progress="10"
-            android:progressDrawable="@drawable/blue_progressbar"
+            android:progressDrawable="@drawable/red_progressbar"
             android:rotation="90" />
 
         <TextView
@@ -79,9 +79,8 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="@string/zero"
-            android:textColor="@color/primary"
             android:textSize="32sp"
-            android:textStyle="bold"></TextView>
+            android:textStyle="bold" />
     </FrameLayout>
 
     <LinearLayout

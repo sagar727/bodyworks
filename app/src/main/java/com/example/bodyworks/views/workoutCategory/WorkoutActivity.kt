@@ -1,6 +1,7 @@
 package com.example.bodyworks.views.workoutCategory
 
 import android.app.Dialog
+import android.content.SharedPreferences
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +11,8 @@ import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.preference.PreferenceManager
 import com.example.bodyworks.R
 import com.example.bodyworks.database.DatabaseHelper
 import com.example.bodyworks.databinding.ActivityWorkoutBinding
@@ -24,14 +27,17 @@ class WorkoutActivity : AppCompatActivity() {
     private var isStart = true
     private var categoryForDB: String="";
     private lateinit var dbHelper: DatabaseHelper
+    private lateinit var sharedPreferences: SharedPreferences
 
     lateinit var binding: ActivityWorkoutBinding
     val text = "Transversus abdominis, Rectus abdominis, Internal oblique, External oblique muscles"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_workout)
 
+        sharedPreferences = this.let { PreferenceManager.getDefaultSharedPreferences(it) }!!
+        val themeColor = sharedPreferences.getString("Current Theme", getString(R.string.red))
+        val color = changeTheme(themeColor)
         binding = ActivityWorkoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -41,6 +47,10 @@ class WorkoutActivity : AppCompatActivity() {
         toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
+
+        changeProgressBarColor(themeColor)
+
+        binding.displayTime.setTextColor(getColor(color))
 
         // Getting data from the intent
         val categoryTitle = intent.getStringExtra("categoryTitle")?.lowercase()?.trim()
@@ -127,7 +137,7 @@ class WorkoutActivity : AppCompatActivity() {
 
             override fun onFinish() {
                 resetTimer()
-                Toast.makeText(this@WorkoutActivity, "Times Up!!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Times Up!!", Toast.LENGTH_SHORT).show()
             }
 
         }.start()
@@ -189,4 +199,36 @@ class WorkoutActivity : AppCompatActivity() {
         }
     }
 
+    private fun changeTheme(themeColor: String?): Int {
+        val theme = super.getTheme()
+        when (themeColor) {
+            "Red" -> {
+                theme.applyStyle(R.style.Base_Theme_Red, true)
+                return R.color.primary
+            }
+            "Orange" -> {
+                theme.applyStyle(R.style.Base_Theme_Orange, true)
+                return R.color.orange
+            }
+            "Brown" -> {
+                theme.applyStyle(R.style.Base_Theme_Brown, true)
+                return R.color.brown
+            }
+        }
+        return 0
+    }
+
+    private fun changeProgressBarColor(themeColor: String?) {
+        when (themeColor) {
+            "Red" -> {
+                binding.progressBar.progressDrawable = AppCompatResources.getDrawable(this,R.drawable.red_progressbar)
+            }
+            "Orange" -> {
+                binding.progressBar.progressDrawable = AppCompatResources.getDrawable(this,R.drawable.orange_progressbar)
+            }
+            "Brown" -> {
+                binding.progressBar.progressDrawable = AppCompatResources.getDrawable(this,R.drawable.brown_progressbar)
+            }
+        }
+    }
 }

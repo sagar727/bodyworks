@@ -502,6 +502,7 @@
 
 
     <!-- Settings -->
+    <!--    Unit-->
     <string name="settings">Settings</string>
     <string name="currently_using_metric">Currently Using: Metric</string>
     <string name="current_using_imperial">Current Using: Imperial</string>
@@ -510,5 +511,23 @@
     <string name="sleep_reminder_btn">Sleep Reminder</string>
     <string name="workout_reminder_btn">Workout Reminder</string>
     <string name="lbs">Lbs</string>
+
+    <!--    ThemeSelection-->
+    <string name="red">Red</string>
+    <string name="orange">Orange</string>
+    <string name="brown">Brown</string>
+
+
+    <string-array name="color_labels">
+        <item>@string/red</item>
+        <item>@string/orange</item>
+        <item>@string/brown</item>
+    </string-array>
+
+    <string-array name="color_values">
+        <item>@string/red</item>
+        <item>@string/orange</item>
+        <item>@string/brown</item>
+    </string-array>
 
 </resources>

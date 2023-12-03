@@ -1,10 +1,13 @@
 package com.example.bodyworks.views.dailyWorkoutPlanner
 
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
+import androidx.preference.PreferenceManager
 import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
+import com.example.bodyworks.R
 import com.example.bodyworks.databinding.ActivityDailyWorkoutPlannerBinding
 import com.example.bodyworks.viewModel.BodyWorksViewModel
 import com.google.android.material.tabs.TabLayout
@@ -21,8 +24,14 @@ class DailyWorkoutPlanner : AppCompatActivity() {
     private lateinit var tabLayout: TabLayout
     private lateinit var viewPagerWorkoutPlanner: ViewPager2
     private lateinit var fragmentAdapter: WorkoutPlannerFragmentAdapter
+    private lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        sharedPreferences = this.let { PreferenceManager.getDefaultSharedPreferences(it) }!!
+        val themeColor = sharedPreferences.getString("Current Theme", getString(R.string.red))
+        changeTheme(themeColor)
+
         binding = ActivityDailyWorkoutPlannerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -65,5 +74,19 @@ class DailyWorkoutPlanner : AppCompatActivity() {
                 tabLayout.selectTab(tabLayout.getTabAt(position))
             }
         })
+    }
+    private fun changeTheme(themeColor: String?) {
+        val theme = super.getTheme()
+        when (themeColor) {
+            "Red" -> {
+                theme.applyStyle(R.style.Base_Theme_Red, true)
+            }
+            "Orange" -> {
+                theme.applyStyle(R.style.Base_Theme_Orange, true)
+            }
+            "Brown" -> {
+                theme.applyStyle(R.style.Base_Theme_Brown, true)
+            }
+        }
     }
 }

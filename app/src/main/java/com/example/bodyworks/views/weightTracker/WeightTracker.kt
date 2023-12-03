@@ -42,10 +42,14 @@ class WeightTracker : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     private lateinit var coreData: ChartData
     private var currDate: Long = 0
     private lateinit var sharedPreferences: SharedPreferences
+    var themeColor = "Red"
 
     @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        sharedPreferences = this.let { PreferenceManager.getDefaultSharedPreferences(it) }!!
+        themeColor = sharedPreferences.getString("Current Theme", getString(R.string.red))!!
+        val color = changeTheme(themeColor)
         setContentView(R.layout.activity_weight_tracker)
 
         binding = ActivityWeightTrackerBinding.inflate(layoutInflater)
@@ -68,6 +72,8 @@ class WeightTracker : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
+
+        binding.datePickerBtn.imageTintList = getColorStateList(color)
         val date = dateFormatter.format(calendar.timeInMillis)
         binding.dateET.setText(date)
 
@@ -120,7 +126,7 @@ class WeightTracker : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
                         .data(kiloArray)
                         .label(getString(R.string.weight))
                         .offset(10)
-                        .borderColor("#E11B0C")
+                        .borderColor(themeColor)
                 )
                 .labels(dateArray)
         } else {
@@ -130,7 +136,7 @@ class WeightTracker : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
                         .data(poundArray)
                         .label(getString(R.string.weight))
                         .offset(10)
-                        .borderColor("#E11B0C")
+                        .borderColor(themeColor)
                 )
                 .labels(dateArray)
         }
@@ -149,7 +155,7 @@ class WeightTracker : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
                             .text(getString(R.string.weight_tracker_chart))
                             .position(Position.TOP)
                             .align(TextAlign.CENTER)
-                            .color("red")
+                            .color(themeColor)
                     )
                     .tooltip(
                         Tooltip(false)
@@ -177,5 +183,24 @@ class WeightTracker : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         currDate = calendar.timeInMillis
         val date = dateFormatter.format(calendar.timeInMillis)
         binding.dateET.setText(date)
+    }
+
+    private fun changeTheme(themeColor: String?): Int {
+        val theme = super.getTheme()
+        when (themeColor) {
+            "Red" -> {
+                theme.applyStyle(R.style.Base_Theme_Red, true)
+                return R.color.primary
+            }
+            "Orange" -> {
+                theme.applyStyle(R.style.Base_Theme_Orange, true)
+                return R.color.orange
+            }
+            "Brown" -> {
+                theme.applyStyle(R.style.Base_Theme_Brown, true)
+                return R.color.brown
+            }
+        }
+        return 0
     }
 }

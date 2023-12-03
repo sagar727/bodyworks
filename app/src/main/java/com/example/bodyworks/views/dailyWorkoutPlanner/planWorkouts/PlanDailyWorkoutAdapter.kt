@@ -1,12 +1,14 @@
 package com.example.bodyworks.views.dailyWorkoutPlanner.planWorkouts
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bodyworks.R
@@ -17,6 +19,8 @@ import com.example.bodyworks.R
  */
 class PlanDailyWorkoutAdapter(val context: Context, private val days: List<EachDayModel>):
     RecyclerView.Adapter<PlanDailyWorkoutAdapter.PlanDailyWorkoutViewHolder>() {
+
+    private lateinit var sharedPreferences: SharedPreferences
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlanDailyWorkoutViewHolder {
         return PlanDailyWorkoutViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.each_day_list_view,parent, false))
     }
@@ -26,6 +30,11 @@ class PlanDailyWorkoutAdapter(val context: Context, private val days: List<EachD
     }
 
     override fun onBindViewHolder(holder: PlanDailyWorkoutViewHolder, position: Int) {
+        sharedPreferences = this.let { PreferenceManager.getDefaultSharedPreferences(context) }!!
+        val themeColor = sharedPreferences.getString("Current Theme", context.getString(R.string.red))
+        val color =  changeTheme(themeColor)
+        holder.day.setTextColor(context.getColor(color))
+        holder.imgViewEdit.imageTintList = context.getColorStateList(color)
         holder.day.text = days[position].day
         holder.rcViewChildItem.setHasFixedSize(true)
         holder.rcViewChildItem.layoutManager = GridLayoutManager(holder.itemView.context, 2)
@@ -67,5 +76,20 @@ class PlanDailyWorkoutAdapter(val context: Context, private val days: List<EachD
         val rcViewChildItem: RecyclerView = itemView.findViewById(R.id.rcViewChildItem)
         val constraintLayoutDay: ConstraintLayout = itemView.findViewById(R.id.constraintLayoutDay)
         val imgViewEdit: ImageView = itemView.findViewById(R.id.imgViewEdit)
+    }
+
+    private fun changeTheme(themeColor: String?): Int {
+        when (themeColor) {
+            "Red" -> {
+                return (R.color.primary)
+            }
+            "Orange" -> {
+                return (R.color.orange)
+            }
+            "Brown" -> {
+                return (R.color.brown)
+            }
+        }
+        return 0
     }
 }

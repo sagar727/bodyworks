@@ -1,11 +1,13 @@
 package com.example.bodyworks.views.workoutCategory
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bodyworks.R
 import com.example.bodyworks.adapter.ParentWorkoutAdapter
@@ -18,11 +20,7 @@ import java.util.Calendar
  * Description: user can choose workouts from cards
  **/
 class WorkoutFragment : Fragment() {
-    private lateinit var layoutBind: ActivityMainBinding;
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,13 +32,18 @@ class WorkoutFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val parentWorkoutRecyclerView = view.findViewById<RecyclerView>(R.id.parentRecyclerview)
-        val parentItemAdapter = ParentWorkoutAdapter(parentItemList())
+        val parentItemAdapter = ParentWorkoutAdapter(requireContext(),parentItemList())
         parentWorkoutRecyclerView.adapter = parentItemAdapter
 
         //code for greeting text
+        sharedPreferences = this.let { PreferenceManager.getDefaultSharedPreferences(requireContext()) }!!
+        val themeColor = sharedPreferences.getString("Current Theme", getString(R.string.red))
         val greetingsTextView = view.findViewById<TextView>(R.id.greetingsTxt);
-        greetingsTextView.text = myGreetingMessage();
+        greetingsTextView.text = myGreetingMessage()
+        val color =  changeTheme(themeColor)
+        greetingsTextView.setTextColor(requireActivity().getColor(color))
     }
 
     //Change greeting message according to hour
@@ -174,5 +177,20 @@ class WorkoutFragment : Fragment() {
         childItemList.add(ChildSubWorkoutModel(R.drawable.hanginglegraise, "Hanging Leg Raise"))
 
         return childItemList;
+    }
+
+    private fun changeTheme(themeColor: String?): Int {
+        when (themeColor) {
+            "Red" -> {
+                return R.color.primary
+            }
+            "Orange" -> {
+                return R.color.orange
+            }
+            "Brown" -> {
+                return R.color.brown
+            }
+        }
+        return 0
     }
 }

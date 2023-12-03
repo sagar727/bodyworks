@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
+import androidx.preference.PreferenceManager
 import com.example.bodyworks.R
 import com.example.bodyworks.databinding.ActivityWaterReminderBinding
 import com.google.android.material.textfield.TextInputEditText
@@ -64,6 +65,9 @@ class WaterReminderActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        sharedPreferences = this.let { PreferenceManager.getDefaultSharedPreferences(it) }!!
+        val themeColor = sharedPreferences.getString("Current Theme", getString(R.string.red))
+        val color = changeTheme(themeColor)
         binding = ActivityWaterReminderBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -74,6 +78,8 @@ class WaterReminderActivity : AppCompatActivity() {
         toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
+
+        binding.txtViewWaterReminderTime.setTextColor(getColor(color))
 
         val startAlarmIntent = Intent(this, StartAlarmReceiver::class.java)
         startAlarmPendingIntent =
@@ -354,5 +360,24 @@ class WaterReminderActivity : AppCompatActivity() {
         val manager: AlarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
         manager.cancel(startAlarmPendingIntent)
         manager.cancel(endAlarmPendingIntent)
+    }
+
+    private fun changeTheme(themeColor: String?): Int {
+        val theme = super.getTheme()
+        when (themeColor) {
+            "Red" -> {
+                theme.applyStyle(R.style.Base_Theme_Red, true)
+                return R.color.primary
+            }
+            "Orange" -> {
+                theme.applyStyle(R.style.Base_Theme_Orange, true)
+                return R.color.orange
+            }
+            "Brown" -> {
+                theme.applyStyle(R.style.Base_Theme_Brown, true)
+                return R.color.brown
+            }
+        }
+        return 0
     }
 }

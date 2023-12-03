@@ -11,7 +11,10 @@
     <color name="red">#E11B0C</color>
     <color name="purple">#673AB7</color>
     <color name="orange">#FF5722</color>
+    <color name="orange_shade">#842E13</color>
     <color name="gray">#757575</color>
     <color name="max_blue">#30d9ef</color>
     <color name="min_blue">#96e8f3</color>
+    <color name="brown">#964B00</color>
+    <color name="brown_shade">#582C01</color>
 </resources>

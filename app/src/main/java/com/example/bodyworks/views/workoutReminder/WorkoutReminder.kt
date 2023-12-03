@@ -19,6 +19,8 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.preference.PreferenceManager
+import com.example.bodyworks.R
 import com.example.bodyworks.databinding.ActivityWorkoutReminderBinding
 import com.example.bodyworks.views.waterReminder.StartAlarmReceiver
 import com.google.android.material.timepicker.MaterialTimePicker
@@ -41,7 +43,9 @@ class WorkoutReminder : AppCompatActivity() {
     private var minute = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        sharedPreferences = this.let { PreferenceManager.getDefaultSharedPreferences(it) }!!
+        val themeColor = sharedPreferences.getString("Current Theme", getString(R.string.red))
+        val color = changeTheme(themeColor)
         binding = ActivityWorkoutReminderBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -52,6 +56,8 @@ class WorkoutReminder : AppCompatActivity() {
         toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
+
+        binding.textViewWorkoutLabel.setTextColor(getColor(color))
 
         createNotificationChannel()
 
@@ -246,5 +252,24 @@ class WorkoutReminder : AppCompatActivity() {
             val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(channel)
         }
+    }
+
+    private fun changeTheme(themeColor: String?): Int {
+        val theme = super.getTheme()
+        when (themeColor) {
+            "Red" -> {
+                theme.applyStyle(R.style.Base_Theme_Red, true)
+                return R.color.primary
+            }
+            "Orange" -> {
+                theme.applyStyle(R.style.Base_Theme_Orange, true)
+                return R.color.orange
+            }
+            "Brown" -> {
+                theme.applyStyle(R.style.Base_Theme_Brown, true)
+                return R.color.brown
+            }
+        }
+        return 0
     }
 }

@@ -2,9 +2,33 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Bodyworks" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-         <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimary">@color/primary</item>
         <item name="android:statusBarColor">@color/primary</item>
         <item name="colorPrimaryVariant">@color/primary</item>
+
+    </style>
+
+    <style name="Base.Theme.Red" parent="Base.Theme.Bodyworks">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="android:statusBarColor">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary</item>
+
+    </style>
+
+    <style name="Base.Theme.Orange" parent="Base.Theme.Bodyworks">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/orange</item>
+        <item name="android:statusBarColor">@color/orange</item>
+        <item name="colorPrimaryVariant">@color/orange</item>
+
+    </style>
+
+    <style name="Base.Theme.Brown" parent="Base.Theme.Bodyworks">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/brown</item>
+        <item name="android:statusBarColor">@color/brown</item>
+        <item name="colorPrimaryVariant">@color/brown</item>
 
     </style>
 
@@ -13,9 +37,5 @@
     </style>
 
     <style name="Theme.Bodyworks" parent="Base.Theme.Bodyworks" />
-
-    <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
-        <item name="android:color">@color/primary_shade</item>
-    </style>
 
 </resources>
