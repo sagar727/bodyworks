@@ -1,9 +1,0 @@
-<changelist name="Uncommitted_changes_before_Update_at_2023-11-26,_9_24 p_m__[Changes]" date="1701051887501" recycled="true" deleted="true">
-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023-11-26,_9_24 p_m__[Changes]/shelved.patch" />
-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 2023-11-26, 9:24 p.m. [Changes]" />
-  <binary>
-    <option name="BEFORE_PATH" />
-    <option name="AFTER_PATH" value="app/src/main/res/drawable/sleep_reminder.png" />
-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023-11-26,_9_24 p_m__[Changes]/sleep_reminder.png" />
-  </binary>
-</changelist>

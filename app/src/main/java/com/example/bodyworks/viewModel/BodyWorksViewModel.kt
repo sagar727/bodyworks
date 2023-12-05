@@ -77,14 +77,6 @@ class BodyWorksViewModel : ViewModel() {
         db.addWeightData(WeightTracker(kg, lb, date))
     }
 
-    fun addActivityData(context: Context, activityData: Array<String>) {
-        val db = DatabaseHelper(context)
-        val count = db.countTableRow("activity")
-        if (count.equals(0)) {
-            db.addActivityData(activityData)
-        }
-    }
-
     fun addWorkoutData(
         context: Context,
         workoutName: Array<String>,
@@ -92,11 +84,10 @@ class BodyWorksViewModel : ViewModel() {
         video: Array<String>,
         thumbnail: Array<String>,
         tableName: String,
-    ): ArrayList<WorkoutDataModel>? {
+    ):Boolean {
         val iteration = workoutName.size
         val db = DatabaseHelper(context)
         val count = db.countTableRow(tableName)
-        var data: ArrayList<WorkoutDataModel>? = null
         if (count != iteration) {
             var i = 0;
             var workoutData: WorkoutDataModel? = null
@@ -105,11 +96,8 @@ class BodyWorksViewModel : ViewModel() {
                 i++
                 db.addWorkoutData(workoutData, tableName)
             }
-            data = db.displayAll(tableName)
-        } else {
-            data = db.displayAll(tableName)
         }
-        return data
+        return db.countTableRow("triceps") != 0
     }
 
     //to get weight tracker data
