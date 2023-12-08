@@ -30,4 +30,18 @@
             app:title="@string/dark_mode" />
 
     </PreferenceCategory>
+
+    <PreferenceCategory app:title="Timer Tone">
+
+        <ListPreference
+            app:defaultValue="@string/bell"
+            app:entries="@array/tone_labels"
+            app:entryValues="@array/tone_values"
+            app:key="Current Timer Tone"
+            app:title="Change Timer Tone"
+            app:summary="Current Selected Theme: ">
+
+        </ListPreference>
+
+    </PreferenceCategory>
 </PreferenceScreen>

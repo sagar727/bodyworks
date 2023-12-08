@@ -2,10 +2,12 @@ package com.example.bodyworks.views.workoutCategory
 
 import android.app.Dialog
 import android.content.SharedPreferences
+import android.media.MediaPlayer
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
@@ -28,6 +30,8 @@ class WorkoutActivity : AppCompatActivity() {
     private var categoryForDB: String="";
     private lateinit var dbHelper: DatabaseHelper
     private lateinit var sharedPreferences: SharedPreferences
+    private var mMediaPlayer: MediaPlayer? = null
+    private var tone: Int = 0
 
     lateinit var binding: ActivityWorkoutBinding
     val text = "Transversus abdominis, Rectus abdominis, Internal oblique, External oblique muscles"
@@ -49,6 +53,9 @@ class WorkoutActivity : AppCompatActivity() {
         }
 
         changeProgressBarColor(themeColor)
+
+        val timerTone = sharedPreferences.getString("Current Timer Tone", getString(R.string.bell))
+        tone = changeTimerTone(timerTone)
 
         binding.displayTime.setTextColor(getColor(color))
 
@@ -106,6 +113,22 @@ class WorkoutActivity : AppCompatActivity() {
         binding.textView2.text = newStr
     }
 
+    private fun changeTimerTone(timerTone: String?): Int {
+        when (timerTone) {
+            "Bell" -> {
+                return R.raw.bell_notification
+            }
+            "Happy Bells" -> {
+                return R.raw.happy_bells_notification
+            }
+            "Software Interface Back" -> {
+                return R.raw.software_interface_back_notification
+            }
+        }
+        return 0
+    }
+
+
     // code to set timer
     private fun setUp(){
         val startBtn : Button = findViewById(R.id.startBtn)
@@ -141,12 +164,14 @@ class WorkoutActivity : AppCompatActivity() {
             }
 
         }.start()
+        playSound(tone)
     }
     // code to pause time
     private fun pauseTimer(){
         if(timeCountdown != null){
             timeCountdown!!.cancel()
         }
+        pauseSound()
     }
 
     // code will reset the timer to 0
@@ -168,6 +193,7 @@ class WorkoutActivity : AppCompatActivity() {
             val displayTime : TextView = findViewById(R.id.displayTime)
             displayTime.text = "0"
         }
+        stopSound()
     }
     // to open set timer dialog
     private fun  setTime(){
@@ -197,6 +223,7 @@ class WorkoutActivity : AppCompatActivity() {
             timeCountdown?.cancel()
             timeProgress = 0
         }
+        stopSound()
     }
 
     private fun changeTheme(themeColor: String?): Int {
@@ -229,6 +256,30 @@ class WorkoutActivity : AppCompatActivity() {
             "Brown" -> {
                 binding.progressBar.progressDrawable = AppCompatResources.getDrawable(this,R.drawable.brown_progressbar)
             }
+        }
+    }
+
+    private fun playSound(tone: Int) {
+        if (mMediaPlayer == null) {
+            mMediaPlayer = MediaPlayer.create(this, tone)
+            mMediaPlayer!!.isLooping = true
+            mMediaPlayer!!.setVolume(5.0F, 5.0F)
+            mMediaPlayer!!.start()
+            Log.d("Inside Playsound If Loop", "Inside If Loop")
+        } else mMediaPlayer!!.start()
+
+        Log.d("Inside Playsound", "Inside Playsound")
+    }
+
+    private fun pauseSound() {
+        if (mMediaPlayer?.isPlaying == true) mMediaPlayer?.pause()
+    }
+
+    private fun stopSound() {
+        if (mMediaPlayer != null) {
+            mMediaPlayer!!.stop()
+            mMediaPlayer!!.release()
+            mMediaPlayer = null
         }
     }
 }

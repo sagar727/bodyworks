@@ -533,4 +533,21 @@
     <string name="text_light_mode">Current Mode: Light Mode</string>
     <string name="text_dark_mode">Current Mode: Dark Mode</string>
     <string name="dark_mode">Dark Mode</string>
+
+    <!-- Timer Tone Selection-->
+    <string name="bell">Bell</string>
+    <string name="happyBells">Happy Bells</string>
+    <string name="softwareInterface">Software Interface Back</string>
+
+    <string-array name="tone_labels">
+        <item>@string/bell</item>
+        <item>@string/happyBells</item>
+        <item>@string/softwareInterface</item>
+    </string-array>
+
+    <string-array name="tone_values">
+        <item>@string/bell</item>
+        <item>@string/happyBells</item>
+        <item>@string/softwareInterface</item>
+    </string-array>
 </resources>

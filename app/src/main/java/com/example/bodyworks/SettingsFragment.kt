@@ -27,5 +27,14 @@ class SettingsFragment : PreferenceFragmentCompat() {
             startActivity(intent)
             true
         }
+
+        //code to set timer tone
+        val timertone = findPreference<ListPreference>("Current Timer Tone")
+        val currentTimerTune = timertone?.value
+        timertone?.summary = "Current Selected Tune: $currentTimerTune"
+        timertone?.setOnPreferenceChangeListener { _, newValue ->
+            timertone.summary = "Current Selected Tune: $newValue"
+            true
+        }
     }
 }
