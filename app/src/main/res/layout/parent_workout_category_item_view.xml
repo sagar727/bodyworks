@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:padding="12sp"
             android:text="Chest"
-            android:textColor="@color/primary"
+            android:textColor = "?android:textColorPrimary"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"

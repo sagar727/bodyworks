@@ -1,16 +1,54 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+<!--    &lt;!&ndash; Base application theme. &ndash;&gt;-->
+<!--    <style name="Base.Theme.Bodyworks" parent="Theme.Material3.DayNight.NoActionBar">-->
+<!--        &lt;!&ndash; Customize your dark theme here. &ndash;&gt;-->
+<!--        &lt;!&ndash; <item name="colorPrimary">@color/my_dark_primary</item> &ndash;&gt;-->
+<!--        <item name="colorPrimary">@color/primary</item>-->
+<!--        <item name="android:statusBarColor">@color/primary</item>-->
+<!--        <item name="colorPrimaryVariant">@color/primary</item>-->
+<!--    </style>-->
+
+<!--    <style name="Theme.Bodyworks" parent="Base.Theme.Bodyworks" />-->
+
+<!--    <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">-->
+<!--    <item name="android:color">@color/primary_shade</item>-->
+<!--    </style>-->
+
     <style name="Base.Theme.Bodyworks" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
         <item name="colorPrimary">@color/primary</item>
         <item name="android:statusBarColor">@color/primary</item>
         <item name="colorPrimaryVariant">@color/primary</item>
+        <item name="android:textColorPrimary">@color/white</item>
+    </style>
+
+    <style name="Base.Theme.Red" parent="Base.Theme.Bodyworks">
+        <!-- Customize your dark theme here. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="android:statusBarColor">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary</item>
+
+    </style>
+
+    <style name="Base.Theme.Orange" parent="Base.Theme.Bodyworks">
+        <!-- Customize your dark theme here. -->
+        <item name="colorPrimary">@color/orange</item>
+        <item name="android:statusBarColor">@color/orange</item>
+        <item name="colorPrimaryVariant">@color/orange</item>
+
+    </style>
+
+    <style name="Base.Theme.Brown" parent="Base.Theme.Bodyworks">
+        <!-- Customize your dark theme here. -->
+        <item name="colorPrimary">@color/brown</item>
+        <item name="android:statusBarColor">@color/brown</item>
+        <item name="colorPrimaryVariant">@color/brown</item>
+
+    </style>
+
+    <style name="CustomAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/popup_background_dark_mode</item>
     </style>
 
     <style name="Theme.Bodyworks" parent="Base.Theme.Bodyworks" />
-
-    <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
-    <item name="android:color">@color/primary_shade</item>
-</style>
 </resources>

@@ -38,6 +38,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="TextView"
+        android:textColor = "?android:textColorPrimary"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,6 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/setBtn"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
@@ -70,7 +72,8 @@
             android:max="10"
             android:progress="10"
             android:progressDrawable="@drawable/red_progressbar"
-            android:rotation="90" />
+            android:rotation="90"
+            android:background="@drawable/background_progressbar"/>
 
         <TextView
             android:id="@+id/displayTime"
@@ -78,6 +81,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="@string/zero"
+            android:textColor = "?android:textColorPrimary"
             android:textSize="32sp"
             android:textStyle="bold" />
     </FrameLayout>
@@ -100,6 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
             android:text="@string/startBtn"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/resetBtn"
             app:layout_constraintHorizontal_bias="1.0"
@@ -111,6 +116,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:text="@string/resetBtn"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

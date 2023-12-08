@@ -530,4 +530,7 @@
         <item>@string/brown</item>
     </string-array>
 
+    <string name="text_light_mode">Current Mode: Light Mode</string>
+    <string name="text_dark_mode">Current Mode: Dark Mode</string>
+    <string name="dark_mode">Dark Mode</string>
 </resources>

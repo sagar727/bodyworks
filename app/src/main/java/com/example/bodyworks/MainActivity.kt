@@ -7,6 +7,7 @@ import android.content.res.Resources
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.preference.PreferenceManager
@@ -21,10 +22,19 @@ class MainActivity : AppCompatActivity() {
     private lateinit var bodyworksVM: BodyWorksViewModel
     private var languageChangeFragment: LanguageChangeFragment? = null
     private lateinit var sharedPreferences: SharedPreferences
+    private var isDarkModeSelected: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+
+        sharedPreferences = this.let { PreferenceManager.getDefaultSharedPreferences(it) }!!
+        isDarkModeSelected = sharedPreferences.getBoolean("darkMode",  false)
+        if(isDarkModeSelected)
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        else
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+
         sharedPreferences = this.let { PreferenceManager.getDefaultSharedPreferences(it) }!!
         val themeColor = sharedPreferences.getString("Current Theme", getString(R.string.red))
         changeTheme(themeColor)
@@ -101,8 +111,8 @@ class MainActivity : AppCompatActivity() {
 
         val context:Context = createConfigurationContext(configuration)
 
-        //createConfigurationContext(configuration)
-        //resources.updateConfiguration(configuration,resources.displayMetrics)
+        createConfigurationContext(configuration)
+        resources.updateConfiguration(configuration,resources.displayMetrics)
 
         val langPref = getSharedPreferences("ChangeLang", Context.MODE_PRIVATE);
         val editor = langPref.edit();

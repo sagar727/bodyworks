@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:text="@string/diet_plan_warning"
-            android:textColor="@color/primary" />
+            android:textColor = "?android:textColorPrimary" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textField2"

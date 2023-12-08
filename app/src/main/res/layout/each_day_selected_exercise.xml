@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Chest, Triceps, Shoulders."
-        android:textColor="@color/black"
+        android:textColor = "?android:textColorPrimary"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/txtViewDayOfWeek"
         app:layout_constraintTop_toBottomOf="@+id/txtViewDayOfWeek" />

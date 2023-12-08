@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.preference.ListPreference
 import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.SwitchPreferenceCompat
 
 class SettingsFragment : PreferenceFragmentCompat() {
 
@@ -15,6 +16,13 @@ class SettingsFragment : PreferenceFragmentCompat() {
         themeSelection?.summary = "Current Selected Theme: $currentTheme"
         themeSelection?.setOnPreferenceChangeListener { _, newValue ->
             themeSelection.summary = "Current Selected Theme: $newValue"
+            val intent = Intent(activity,MainActivity::class.java)
+            startActivity(intent)
+            true
+        }
+
+        val darkModeSelection = findPreference<SwitchPreferenceCompat>("darkMode")
+        darkModeSelection?.setOnPreferenceChangeListener { _, newValue ->
             val intent = Intent(activity,MainActivity::class.java)
             startActivity(intent)
             true

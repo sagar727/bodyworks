@@ -4,7 +4,6 @@
     <PreferenceCategory app:title="Unit">
 
         <SwitchPreferenceCompat
-            app:icon="@drawable/unit_change_icon"
             app:key="isMetric"
             app:summaryOff="@string/currently_using_metric"
             app:summaryOn="@string/current_using_imperial"
@@ -23,6 +22,12 @@
             app:summary="Current Selected Theme: ">
 
         </ListPreference>
+
+        <SwitchPreferenceCompat
+            app:key="darkMode"
+            app:summaryOff="@string/text_light_mode"
+            app:summaryOn="@string/text_dark_mode"
+            app:title="@string/dark_mode" />
 
     </PreferenceCategory>
 </PreferenceScreen>

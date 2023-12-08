@@ -5,7 +5,7 @@
         <item name="colorPrimary">@color/primary</item>
         <item name="android:statusBarColor">@color/primary</item>
         <item name="colorPrimaryVariant">@color/primary</item>
-
+        <item name="android:textColorPrimary">@color/black</item>
     </style>
 
     <style name="Base.Theme.Red" parent="Base.Theme.Bodyworks">
@@ -33,7 +33,7 @@
     </style>
 
     <style name="CustomAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="android:windowBackground">@drawable/popup_background</item>
+        <item name="android:windowBackground">@drawable/popup_background_light_mode</item>
     </style>
 
     <style name="Theme.Bodyworks" parent="Base.Theme.Bodyworks" />

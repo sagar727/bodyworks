@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="200dp">
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/subWorkoutCard"
         style="?attr/materialCardViewElevatedStyle"
@@ -13,17 +14,21 @@
         android:clickable="true"
         android:elevation="2dp"
         app:cardCornerRadius="8dp"
+        app:strokeColor="@color/gray"
+        app:strokeWidth="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:focusable="true">
+        android:focusable="true"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="8dp">
+            android:padding="8dp"
+            >
 
             <ImageView
                 android:id="@+id/carousel_image_view"
@@ -45,7 +50,7 @@
                 android:layout_gravity="bottom|center_horizontal"
                 android:layout_marginTop="8dp"
                 android:textAppearance="?attr/textAppearanceTitleMedium"
-                android:textColor="@color/black"
+                android:textColor = "?android:textColorPrimary"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"

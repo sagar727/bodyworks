@@ -1,5 +1,6 @@
 package com.example.bodyworks.views.waterReminder
 
+import android.annotation.SuppressLint
 import android.app.AlarmManager
 import android.app.AppOpsManager
 import android.app.NotificationChannel
@@ -23,6 +24,7 @@ import androidx.core.content.ContextCompat
 import androidx.preference.PreferenceManager
 import com.example.bodyworks.R
 import com.example.bodyworks.databinding.ActivityWaterReminderBinding
+import com.example.bodyworks.views.sleepReminder.SleepReminderReceiver
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
@@ -78,6 +80,8 @@ class WaterReminderActivity : AppCompatActivity() {
         toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
+
+        createNotificationChannel()
 
         binding.txtViewWaterReminderTime.setTextColor(getColor(color))
 
@@ -162,6 +166,7 @@ class WaterReminderActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("ScheduleExactAlarm")
     private fun scheduleNotification() {
         if(timeIntervalInputTxt.text.toString() != "" &&  timeIntervalInputTxt.text.toString() != "0" && timeIntervalInputTxt.text.toString().toInt() > 0) {
             //Saving Preferences
@@ -170,44 +175,63 @@ class WaterReminderActivity : AppCompatActivity() {
             //Updating Button To Stop Reminder
             updateButton()
 
-            val manager: AlarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
-            val calendar = Calendar.getInstance()
-            val currentTime = Calendar.getInstance()
-
-            calendar.set(Calendar.HOUR_OF_DAY, reminderStartHour)
-            calendar.set(Calendar.MINUTE, reminderStartMinute)
-            calendar.set(Calendar.SECOND, 0)
-
-            if (calendar.before(currentTime)) {
-                calendar.add(Calendar.DATE, 1) // Set to next day if time has already passed today
-            }
-
             val interval = timeIntervalInputTxt.text.toString().toLong() * 60 * 1000
 
-            manager.setRepeating(
+            // For Start Time
+            val startIntent = Intent(applicationContext, StartAlarmReceiver::class.java)
+            startIntent.putExtra("waterReminderInterval", interval)
+            startAlarmPendingIntent = PendingIntent.getBroadcast(
+                applicationContext, 11, startIntent, PendingIntent.FLAG_IMMUTABLE
+            )
+
+            val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+
+            val startTime = getStartTime()
+            alarmManager.setExactAndAllowWhileIdle(
                 AlarmManager.RTC_WAKEUP,
-                calendar.timeInMillis,
-                interval,
+                startTime,
                 startAlarmPendingIntent
             )
 
-            val endTimeCalendar = Calendar.getInstance()
-            endTimeCalendar.set(Calendar.HOUR_OF_DAY, reminderEndHour)
-            endTimeCalendar.set(Calendar.MINUTE, reminderEndMinute)
-            endTimeCalendar.set(Calendar.SECOND, 0)
-
-            if (endTimeCalendar.before(currentTime)) {
-                endTimeCalendar.add(
-                    Calendar.DATE,
-                    1
-                ) // Set to next day if time has already passed today
-            }
-
-            manager.set(AlarmManager.RTC_WAKEUP, endTimeCalendar.timeInMillis, endAlarmPendingIntent)
+            //For End Time
+            val endIntent = Intent(applicationContext, EndAlarmReceiver::class.java)
+            endAlarmPendingIntent = PendingIntent.getBroadcast(
+                applicationContext, 11, endIntent, PendingIntent.FLAG_IMMUTABLE
+            )
+            val endTime = getEndTime()
+            alarmManager.setExactAndAllowWhileIdle(
+                AlarmManager.RTC_WAKEUP,
+                endTime,
+                endAlarmPendingIntent
+            )
         }else {
             Toast.makeText(applicationContext, "Please Select Valid Time Interval In Minutes", Toast.LENGTH_SHORT).show()
             updateButton()
         }
+    }
+
+    private fun getStartTime(): Long {
+        val hour = reminderStartHour
+        val minute = reminderStartMinute
+
+        val calendar = Calendar.getInstance()
+        calendar.set(Calendar.HOUR_OF_DAY, hour)
+        calendar.set(Calendar.MINUTE, minute)
+        calendar.set(Calendar.SECOND,0)
+
+        return calendar.timeInMillis
+    }
+
+    private fun getEndTime(): Long {
+        val hour = reminderEndHour
+        val minute = reminderEndMinute
+
+        val calendar = Calendar.getInstance()
+        calendar.set(Calendar.HOUR_OF_DAY, hour)
+        calendar.set(Calendar.MINUTE, minute)
+        calendar.set(Calendar.SECOND,0)
+
+        return calendar.timeInMillis
     }
 
 
@@ -317,7 +341,7 @@ class WaterReminderActivity : AppCompatActivity() {
 
             if (reminderStartHour != 0) {
                 var startHour: String =
-                    if (reminderStartHour <= 9) "0$reminderEndHour" else "$reminderEndHour"
+                    if (reminderStartHour <= 9) "0$reminderStartHour" else "$reminderStartHour"
                 var endHour: String =
                     if (reminderEndHour <= 9) "0$reminderEndHour" else "$reminderEndHour"
                 var startMinute: String =
@@ -360,6 +384,20 @@ class WaterReminderActivity : AppCompatActivity() {
         val manager: AlarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
         manager.cancel(startAlarmPendingIntent)
         manager.cancel(endAlarmPendingIntent)
+    }
+
+    private fun createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                "water_reminder_channel",
+                "Water Reminder",
+                NotificationManager.IMPORTANCE_HIGH
+            )
+            channel.description = "Used for water reminder notifications"
+
+            val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
     }
 
     private fun changeTheme(themeColor: String?): Int {

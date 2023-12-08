@@ -14,7 +14,6 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -22,7 +21,6 @@ import android.widget.Toast
 import androidx.preference.PreferenceManager
 import com.example.bodyworks.R
 import com.example.bodyworks.databinding.ActivityWorkoutReminderBinding
-import com.example.bodyworks.views.waterReminder.StartAlarmReceiver
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import java.util.Calendar
