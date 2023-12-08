@@ -54,7 +54,7 @@ class WorkoutActivity : AppCompatActivity() {
 
         changeProgressBarColor(themeColor)
 
-        val timerTone = sharedPreferences.getString("Current Timer Tone", getString(R.string.bell))
+        val timerTone = sharedPreferences.getString("Current Timer Tone", getString(R.string.countdown))
         tone = changeTimerTone(timerTone)
 
         binding.displayTime.setTextColor(getColor(color))
@@ -115,14 +115,17 @@ class WorkoutActivity : AppCompatActivity() {
 
     private fun changeTimerTone(timerTone: String?): Int {
         when (timerTone) {
-            "Bell" -> {
-                return R.raw.bell_notification
+            "Countdown" -> {
+                return R.raw.countdown
             }
-            "Happy Bells" -> {
-                return R.raw.happy_bells_notification
+            "Countdown Timer Digital" -> {
+                return R.raw.countdown_timer_digital
             }
-            "Software Interface Back" -> {
-                return R.raw.software_interface_back_notification
+            "Stopwatch Ticking Mechanical" -> {
+                return R.raw.stopwatch_ticking_mechanical
+            }
+            "Tick Tok Clock Timer" -> {
+                return R.raw.tick_tock_clock_timer
             }
         }
         return 0

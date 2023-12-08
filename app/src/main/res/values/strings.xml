@@ -535,19 +535,22 @@
     <string name="dark_mode">Dark Mode</string>
 
     <!-- Timer Tone Selection-->
-    <string name="bell">Bell</string>
-    <string name="happyBells">Happy Bells</string>
-    <string name="softwareInterface">Software Interface Back</string>
+    <string name="countdown">Countdown</string>
+    <string name="countdown_timer_digital">Countdown Timer Digital</string>
+    <string name="stopwatch_ticking_mechanical">Stopwatch Ticking Mechanical</string>
+    <string name="tick_tock_clock_timer">Tick Tok Clock Timer</string>
 
     <string-array name="tone_labels">
-        <item>@string/bell</item>
-        <item>@string/happyBells</item>
-        <item>@string/softwareInterface</item>
+        <item>@string/countdown</item>
+        <item>@string/countdown_timer_digital</item>
+        <item>@string/stopwatch_ticking_mechanical</item>
+        <item>@string/tick_tock_clock_timer</item>
     </string-array>
 
     <string-array name="tone_values">
-        <item>@string/bell</item>
-        <item>@string/happyBells</item>
-        <item>@string/softwareInterface</item>
+        <item>@string/countdown</item>
+        <item>@string/countdown_timer_digital</item>
+        <item>@string/stopwatch_ticking_mechanical</item>
+        <item>@string/tick_tock_clock_timer</item>
     </string-array>
 </resources>

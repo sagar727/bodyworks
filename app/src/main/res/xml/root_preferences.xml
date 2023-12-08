@@ -34,7 +34,7 @@
     <PreferenceCategory app:title="Timer Tone">
 
         <ListPreference
-            app:defaultValue="@string/bell"
+            app:defaultValue="@string/countdown"
             app:entries="@array/tone_labels"
             app:entryValues="@array/tone_values"
             app:key="Current Timer Tone"
