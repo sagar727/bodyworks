@@ -539,6 +539,9 @@
     <string name="countdown_timer_digital">Countdown Timer Digital</string>
     <string name="stopwatch_ticking_mechanical">Stopwatch Ticking Mechanical</string>
     <string name="tick_tock_clock_timer">Tick Tok Clock Timer</string>
+    <string name="nutritional_values_txt">Nutritional Values</string>
+    <string name="select_food_category">Select Food Category</string>
+    <string name="nutritional_value_warning">* Values are per 100 grams. Keep in mind that these values can very based on different factors like cooking method.</string>
 
     <string-array name="tone_labels">
         <item>@string/countdown</item>
