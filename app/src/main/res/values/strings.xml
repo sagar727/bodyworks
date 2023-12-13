@@ -556,4 +556,144 @@
         <item>@string/stopwatch_ticking_mechanical</item>
         <item>@string/tick_tock_clock_timer</item>
     </string-array>
+
+    <string-array name="food_categories">
+        <item>Fruits</item>
+        <item>Protein Foods</item>
+        <item>Grains</item>
+        <item>Vegetables</item>
+        <item>Dairy</item>
+        <item>Nuts and Seeds</item>
+    </string-array>
+
+    <!-- Fruit  -->
+    <string name="apple_name">Apple</string>
+    <string name="banana_name">Banana</string>
+    <string name="orange_name">Orange</string>
+    <string name="strawberries_name">Strawberries</string>
+    <string name="pineapple_name">Pineapple</string>
+    <string name="grapes_name">Grapes</string>
+    <string name="mango_name">Mango</string>
+    <string name="watermelon_name">Watermelon</string>
+    <string name="peach_name">Peach</string>
+    <string name="kiwi_name">Kiwi</string>
+    <string name="apple_description">• Calories: 52 kcal\n• Carbohydrates: 14 g\n• Fiber: 2.4 g\n• Sugars: 10 g\n• Protein: 0.3 g</string>
+    <string name="banana_description">• Calories: 89 kcal\n• Carbohydrates: 23 g\n• Fiber: 2.6 g\n• Sugars: 12 g\n• Protein: 1.1 g</string>
+    <string name="orange_description">• Calories: 43 kcal\n• Carbohydrates: 9 g\n• Fiber: 2.3 g\n• Sugars: 8.2 g\n• Protein: 1.0 g</string>
+    <string name="strawberries_description">• Calories: 32 kcal\n• Carbohydrates: 7.7 g\n• Fiber: 2.0 g\n• Sugars: 4.9 g\n• Protein: 0.7 g</string>
+    <string name="pineapple_description">• Calories: 50 kcal\n• Carbohydrates: 13 g\n• Fiber: 1.4 g\n• Sugars: 9.9 g\n• Protein: 0.5 g</string>
+    <string name="grapes_description">• Calories: 69 kcal\n• Carbohydrates: 18 g\n• Fiber: 0.9 g\n• Sugars: 15 g\n• Protein: 0.6 g</string>
+    <string name="mango_description">• Calories: 60 kcal\n• Carbohydrates: 15 g\n• Fiber: 1.6 g\n• Sugars: 14 g\n• Protein: 0.8 g</string>
+    <string name="watermelon_description">• Calories: 30 kcal\n• Carbohydrates: 8 g\n• Fiber: 0.4 g\n• Sugars: 6 g\n• Protein: 0.6 g</string>
+    <string name="peach_description">• Calories: 39 kcal\n• Carbohydrates: 10 g\n• Fiber: 1.5 g\n• Sugars: 8.4 g\n• Protein: 0.9 g</string>
+    <string name="kiwi_description">• Calories: 61 kcal\n• Carbohydrates: 15 g\n• Fiber: 3 g\n• Sugars: 9 g\n• Protein: 1.1 g</string>
+
+    <!-- Protein Food   -->
+    <string name="chicken_breast_name">Chicken Breast</string>
+    <string name="salmon_name">Salmon</string>
+    <string name="egg_name">Egg</string>
+    <string name="tofu_name">Tofu</string>
+    <string name="turkey_name">Turkey</string>
+    <string name="beef_name">Beef</string>
+    <string name="pork_name">Pork</string>
+    <string name="lentils_name">Lentils</string>
+    <string name="chickpeas_name">Chickpeas</string>
+    <string name="quinoa_name">Quinoa</string>
+    <string name="chicken_breast_description">• Calories: 165 kcal\n• Protein: 31 g\n• Total Fat: 3.6 g\n• Saturated Fat: 1.0 g\n• Cholesterol: 85 mg</string>
+    <string name="salmon_description">• Calories: 206 kcal\n• Protein: 22 g\n• Total Fat: 13 g\n• Saturated Fat: 2.0 g\n• Omega-3 Fatty Acids: 2.3 g</string>
+    <string name="egg_description">• Calories: 68 kcal\n• Protein: 5.5 g\n• Total Fat: 4.8 g\n• Saturated Fat: 1.6 g\n• Cholesterol: 186 mg</string>
+    <string name="tofu_description">• Calories: 144 kcal\n• Protein: 15 g\n• Total Fat: 8.0 g\n• Saturated Fat: 1.1 g\n• Cholesterol: 0 mg</string>
+    <string name="turkey_description">• Calories: 135 kcal\n• Protein: 29 g\n• Total Fat: 1.7 g\n• Saturated Fat: 0.5 g\n• Cholesterol: 70 mg</string>
+    <string name="beef_description">• Calories: 250 kcal\n• Protein: 26 g\n• Total Fat: 17 g\n• Saturated Fat: 6.8 g\n• Cholesterol: 94 mg</string>
+    <string name="pork_description">• Calories: 143 kcal\n• Protein: 25 g\n• Total Fat: 4.4 g\n• Saturated Fat: 1.5 g\n• Cholesterol: 71 mg</string>
+    <string name="lentils_description">• Calories: 116 kcal\n• Protein: 9.0 g\n• Total Fat: 0.4 g\n• Saturated Fat: 0.1 g\n• Cholesterol: 0 mg</string>
+    <string name="chickpeas_description">• Calories: 164 kcal\n• Protein: 8.9 g\n• Total Fat: 2.6 g\n• Saturated Fat: 0.3 g\n• Cholesterol: 0 mg</string>
+    <string name="quinoa_description">• Calories: 120 kcal\n• Protein: 4.1 g\n• Total Fat: 1.9 g\n• Saturated Fat: 0.2 g\n• Cholesterol: 0 mg</string>
+
+    <!-- Grains   -->
+    <string name="brown_rice_name">Brown Rice</string>
+    <string name="barley_name">Barley</string>
+    <string name="oats_name">Oats</string>
+    <string name="whole_wheat_bread_name">Whole Wheat Bread</string>
+    <string name="couscous_name">Couscous</string>
+    <string name="bulgur_name">Bulgur</string>
+    <string name="farro_name">Farro</string>
+    <string name="millet_name">Millet</string>
+    <string name="buckwheat_name">Buckwheat</string>
+    <string name="brown_rice_description">• Calories: 111 kcal\n• Carbohydrates: 23 g\n• Fiber: 1.8 g\n• Protein: 2.6 g</string>
+    <string name="quinoa_description_v2">• Calories: 120 kcal\n• Carbohydrates: 21 g\n• Fiber: 2.8 g\n• Protein: 4.1 g</string>
+    <string name="barley_description">• Calories: 123 kcal\n• Carbohydrates: 28 g\n• Fiber: 4.0 g\n• Protein: 3.6 g</string>
+    <string name="oats_description">• Calories: 68 kcal\n• Carbohydrates: 12 g\n• Fiber: 2.4 g\n• Protein: 2.4 g</string>
+    <string name="whole_wheat_bread_description">• Calories: 247 kcal\n• Carbohydrates: 49 g\n• Fiber: 7.6 g\n• Protein: 12 g</string>
+    <string name="couscous_description">• Calories: 176 kcal\n• Carbohydrates: 36 g\n• Fiber: 2.2 g\n• Protein: 6 g</string>
+    <string name="bulgur_description">• Calories: 83 kcal\n• Carbohydrates: 18 g\n• Fiber: 5.6 g\n• Protein: 3 g</string>
+    <string name="farro_description">• Calories: 170 kcal\n• Carbohydrates: 34 g\n• Fiber: 5.4 g\n• Protein: 7 g</string>
+    <string name="millet_description">• Calories: 119 kcal\n• Carbohydrates: 23 g\n• Fiber: 1.7 g\n• Protein: 3.5 g</string>
+    <string name="buckwheat_description">• Calories: 343 kcal\n• Carbohydrates: 71 g\n• Fiber: 10 g\n• Protein: 13 g</string>
+
+    <!--  Vegetables  -->
+    <string name="broccoli_name">Broccoli</string>
+    <string name="spinach_name">Spinach</string>
+    <string name="carrots_name">Carrots</string>
+    <string name="bell_peppers_name">Bell Peppers</string>
+    <string name="cauliflower_name">Cauliflower</string>
+    <string name="zucchini_name">Zucchini</string>
+    <string name="sweet_potato_name">Sweet Potato</string>
+    <string name="kale_name">Kale</string>
+    <string name="asparagus_name">Asparagus</string>
+    <string name="tomato_name">Tomato</string>
+    <string name="broccoli_description">• Calories: 55 kcal\n• Carbohydrates: 11 g\n• Fiber: 3.7 g\n• Protein: 3.7 g</string>
+    <string name="spinach_description">• Calories: 23 kcal\n• Carbohydrates: 3.6 g\n• Fiber: 2.2 g\n• Protein: 2.9 g</string>
+    <string name="carrots_description">• Calories: 41 kcal\n• Carbohydrates: 10 g\n• Fiber: 2.8 g\n• Protein: 1 g</string>
+    <string name="bell_peppers_description">• Calories: 31 kcal\n• Carbohydrates: 7.6 g\n• Fiber: 2.8 g\n• Protein: 1.2 g</string>
+    <string name="cauliflower_description">• Calories: 25 kcal\n• Carbohydrates: 5.3 g\n• Fiber: 2.5 g\n• Protein: 2 g</string>
+    <string name="zucchini_description">• Calories: 17 kcal\n• Carbohydrates: 3.1 g\n• Fiber: 1 g\n• Protein: 1.2 g</string>
+    <string name="sweet_potato_description">• Calories: 86 kcal\n• Carbohydrates: 20 g\n• Fiber: 3 g\n• Protein: 2 g</string>
+    <string name="kale_description">• Calories: 50 kcal\n• Carbohydrates: 11 g\n• Fiber: 2.6 g\n• Protein: 3.3 g</string>
+    <string name="asparagus_description">• Calories: 20 kcal\n• Carbohydrates: 3.7 g\n• Fiber: 2 g\n• Protein: 2.2 g</string>
+    <string name="tomato_description">• Calories: 18 kcal\n• Carbohydrates: 4 g\n• Fiber: 1.5 g\n• Protein: 1 g</string>
+
+    <!-- Dairy  -->
+    <string name="greek_yogurt_name">Greek Yogurt</string>
+    <string name="milk_name">Milk</string>
+    <string name="cheese_name">Cheese</string>
+    <string name="cottage_cheese_name">Cottage Cheese</string>
+    <string name="butter_name">Butter</string>
+    <string name="yogurt_name">Yogurt</string>
+    <string name="soy_milk_name">Soy Milk</string>
+    <string name="almond_milk_name">Almond Milk</string>
+    <string name="goat_cheese_name">Goat Cheese</string>
+    <string name="cream_name">Cream</string>
+    <string name="greek_yogurt_description">• Calories: 59 kcal\n• Protein: 10 g\n• Carbohydrates: 3.6 g\n• Sugars: 3.6 g</string>
+    <string name="milk_description">• Calories: 61 kcal\n• Protein: 3.2 g\n• Carbohydrates: 4.8 g\n• Sugars: 4.8 g</string>
+    <string name="cheese_description">• Calories: 402 kcal\n• Protein: 25 g\n• Total Fat: 33 g\n• Saturated Fat: 21 g\n• Cholesterol: 100 mg</string>
+    <string name="cottage_cheese_description">• Calories: 98 kcal\n• Protein: 11 g\n• Carbohydrates: 3.4 g\n• Sugars: 2.3 g</string>
+    <string name="butter_description">• Calories: 717 kcal\n• Total Fat: 81 g\n• Saturated Fat: 51 g\n• Cholesterol: 215 mg</string>
+    <string name="yogurt_description">• Calories: 59 kcal\n• Protein: 10 g\n• Carbohydrates: 3.6 g\n• Sugars: 3.6 g</string>
+    <string name="soy_milk_description">• Calories: 33 kcal\n• Protein: 3.3 g\n• Carbohydrates: 1.7 g\n• Sugars: 1 g</string>
+    <string name="almond_milk_description">• Calories: 13 kcal\n• Protein: 0.5 g\n• Carbohydrates: 0.6 g\n• Sugars: 0.1 g</string>
+    <string name="goat_cheese_description">• Calories: 364 kcal\n• Protein: 22 g\n• Total Fat: 30 g\n• Saturated Fat: 20 g\n• Cholesterol: 59 mg</string>
+    <string name="cream_description">• Calories: 340 kcal\n• Protein: 2 g\n• Total Fat: 36 g\n• Saturated Fat: 22 g\n• Cholesterol: 110 mg</string>
+
+    <!--  Nuts and Seeds  -->
+    <string name="almonds_name">Almonds</string>
+    <string name="chia_seeds_name">Chia Seeds</string>
+    <string name="walnuts_name">Walnuts</string>
+    <string name="flaxseeds_name">Flaxseeds</string>
+    <string name="sunflower_seeds_name">Sunflower Seeds</string>
+    <string name="pumpkin_seeds_name">Pumpkin Seeds</string>
+    <string name="cashews_name">Cashews</string>
+    <string name="peanuts_name">Peanuts</string>
+    <string name="hazelnuts_name">Hazelnuts</string>
+    <string name="pistachios_name">Pistachios</string>
+    <string name="almonds_description">• Calories: 576 kcal\n• Protein: 21 g\n• Total Fat: 49 g\n• Saturated Fat: 3.7 g\n• Fiber: 12 g</string>
+    <string name="chia_seeds_description">• Calories: 486 kcal\n• Protein: 16.5 g\n• Total Fat: 30.7 g\n• Saturated Fat: 3.3 g\n• Fiber: 34.4 g</string>
+    <string name="walnuts_description">• Calories: 654 kcal\n• Protein: 15 g\n• Total Fat: 65 g\n• Saturated Fat: 6.1 g\n• Fiber: 7 g</string>
+    <string name="flaxseeds_description">• Calories: 534 kcal\n• Protein: 18 g\n• Total Fat: 42 g\n• Saturated Fat: 4 g\n• Fiber: 27 g</string>
+    <string name="sunflower_seeds_description">• Calories: 584 kcal\n• Protein: 21 g\n• Total Fat: 51 g\n• Saturated Fat: 4.5 g\n• Fiber: 8.6 g</string>
+    <string name="pumpkin_seeds_description">• Calories: 574 kcal\n• Protein: 30 g\n• Total Fat: 49 g\n• Saturated Fat: 8.7 g\n• Fiber: 5.2 g</string>
+    <string name="cashews_description">• Calories: 553 kcal\n• Protein: 18 g\n• Total Fat: 44 g\n• Saturated Fat: 8.5 g\n• Fiber: 3.3 g</string>
+    <string name="peanuts_description">• Calories: 567 kcal\n• Protein: 25 g\n• Total Fat: 49 g\n• Saturated Fat: 6.9 g\n• Fiber: 8.5 g</string>
+    <string name="hazelnuts_description">• Calories: 628 kcal\n• Protein: 15 g\n• Total Fat: 61 g\n• Saturated Fat: 4.5 g\n• Fiber: 9.7 g</string>
+    <string name="pistachios_description">• Calories: 562 kcal\n• Protein: 21 g\n• Total Fat: 45 g\n• Saturated Fat: 5.4 g\n• Fiber: 10 g</string>
 </resources>

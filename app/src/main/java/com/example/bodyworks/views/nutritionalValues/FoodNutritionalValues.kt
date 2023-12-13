@@ -36,8 +36,7 @@ class FoodNutritionalValues : AppCompatActivity() {
         binding.foodRecyclerView.adapter = adapter;
 
         //string array for plans
-        val foodCategories =
-            arrayOf("Fruits", "Protein Foods", "Grains", "Vegetables", "Dairy", "Nuts and Seeds")
+        val foodCategories = resources.getStringArray(R.array.food_categories)
         val foodCategoriesAdapter =
             ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, foodCategories)
         binding.foodCategoryDropDown.setAdapter(foodCategoriesAdapter)
@@ -49,324 +48,324 @@ class FoodNutritionalValues : AppCompatActivity() {
         // creating lists
         val fruitsList = mutableListOf(
             FoodDataModel(
-                "Apple",
+                getString(R.string.apple_name),
                 R.drawable.apple,
-                "• Calories: 52 kcal\n• Carbohydrates: 14 g\n• Fiber: 2.4 g\n• Sugars: 10 g\n• Protein: 0.3 g"
+                getString(R.string.apple_description)
             ),
             FoodDataModel(
-                "Banana",
+                getString(R.string.banana_name),
                 R.drawable.banana,
-                "• Calories: 89 kcal\n• Carbohydrates: 23 g\n• Fiber: 2.6 g\n• Sugars: 12 g\n• Protein: 1.1 g"
+                getString(R.string.banana_description)
             ),
             FoodDataModel(
-                "Orange",
+                getString(R.string.orange_name),
                 R.drawable.orange,
-                "• Calories: 43 kcal\n• Carbohydrates: 9 g\n• Fiber: 2.3 g\n• Sugars: 8.2 g\n• Protein: 1.0 g"
+                getString(R.string.orange_description)
             ),
             FoodDataModel(
-                "Strawberries",
+                getString(R.string.strawberries_name),
                 R.drawable.strawberries,
-                "• Calories: 32 kcal\n• Carbohydrates: 7.7 g\n• Fiber: 2.0 g\n• Sugars: 4.9 g\n• Protein: 0.7 g"
+                getString(R.string.strawberries_description)
             ),
             FoodDataModel(
-                "Pineapple",
+                getString(R.string.pineapple_name),
                 R.drawable.pineapple,
-                "• Calories: 50 kcal\n• Carbohydrates: 13 g\n• Fiber: 1.4 g\n• Sugars: 9.9 g\n• Protein: 0.5 g"
+                getString(R.string.pineapple_description)
             ),
             FoodDataModel(
-                "Grapes",
+                getString(R.string.grapes_name),
                 R.drawable.grapes,
-                "• Calories: 69 kcal\n• Carbohydrates: 18 g\n• Fiber: 0.9 g\n• Sugars: 15 g\n• Protein: 0.6 g"
+                getString(R.string.grapes_description)
             ),
             FoodDataModel(
-                "Mango",
+                getString(R.string.mango_name),
                 R.drawable.mango,
-                "• Calories: 60 kcal\n• Carbohydrates: 15 g\n• Fiber: 1.6 g\n• Sugars: 14 g\n• Protein: 0.8 g"
+                getString(R.string.mango_description)
             ),
             FoodDataModel(
-                "Watermelon",
+                getString(R.string.watermelon_name),
                 R.drawable.watermelon,
-                "• Calories: 30 kcal\n• Carbohydrates: 8 g\n• Fiber: 0.4 g\n• Sugars: 6 g\n• Protein: 0.6 g"
+                getString(R.string.watermelon_description)
             ),
             FoodDataModel(
-                "Peach",
+                getString(R.string.peach_name),
                 R.drawable.peach,
-                "• Calories: 39 kcal\n• Carbohydrates: 10 g\n• Fiber: 1.5 g\n• Sugars: 8.4 g\n• Protein: 0.9 g"
+                getString(R.string.peach_description)
             ),
             FoodDataModel(
-                "Kiwi",
+                getString(R.string.kiwi_name),
                 R.drawable.kiwi,
-                "• Calories: 61 kcal\n• Carbohydrates: 15 g\n• Fiber: 3 g\n• Sugars: 9 g\n• Protein: 1.1 g"
+                getString(R.string.kiwi_description)
             )
         )
 
         // Proteins
         val proteinsList = mutableListOf(
             FoodDataModel(
-                "Chicken Breast",
+                getString(R.string.chicken_breast_name),
                 R.drawable.chicken_breast,
-                "• Calories: 165 kcal\n• Protein: 31 g\n• Total Fat: 3.6 g\n• Saturated Fat: 1.0 g\n• Cholesterol: 85 mg"
+                getString(R.string.chicken_breast_description)
             ),
             FoodDataModel(
-                "Salmon",
+                getString(R.string.salmon_name),
                 R.drawable.salmon,
-                "• Calories: 206 kcal\n• Protein: 22 g\n• Total Fat: 13 g\n• Saturated Fat: 2.0 g\n• Omega-3 Fatty Acids: 2.3 g"
+                getString(R.string.salmon_description)
             ),
             FoodDataModel(
-                "Egg",
+                getString(R.string.egg_name),
                 R.drawable.egg,
-                "• Calories: 68 kcal\n• Protein: 5.5 g\n• Total Fat: 4.8 g\n• Saturated Fat: 1.6 g\n• Cholesterol: 186 mg"
+                getString(R.string.egg_description)
             ),
             FoodDataModel(
-                "Tofu",
+                getString(R.string.tofu_name),
                 R.drawable.tofu,
-                "• Calories: 144 kcal\n• Protein: 15 g\n• Total Fat: 8.0 g\n• Saturated Fat: 1.1 g\n• Cholesterol: 0 mg"
+                getString(R.string.tofu_description)
             ),
             FoodDataModel(
-                "Turkey",
+                getString(R.string.turkey_name),
                 R.drawable.turkey,
-                "• Calories: 135 kcal\n• Protein: 29 g\n• Total Fat: 1.7 g\n• Saturated Fat: 0.5 g\n• Cholesterol: 70 mg"
+                getString(R.string.turkey_description)
             ),
             FoodDataModel(
-                "Beef",
+                getString(R.string.beef_name),
                 R.drawable.beef,
-                "• Calories: 250 kcal\n• Protein: 26 g\n• Total Fat: 17 g\n• Saturated Fat: 6.8 g\n• Cholesterol: 94 mg"
+                getString(R.string.beef_description)
             ),
             FoodDataModel(
-                "Pork",
+                getString(R.string.pork_name),
                 R.drawable.pork,
-                "• Calories: 143 kcal\n• Protein: 25 g\n• Total Fat: 4.4 g\n• Saturated Fat: 1.5 g\n• Cholesterol: 71 mg"
+                getString(R.string.pork_description)
             ),
             FoodDataModel(
-                "Lentils",
+                getString(R.string.lentils_name),
                 R.drawable.lentils,
-                "• Calories: 116 kcal\n• Protein: 9.0 g\n• Total Fat: 0.4 g\n• Saturated Fat: 0.1 g\n• Cholesterol: 0 mg"
+                getString(R.string.lentils_description)
             ),
             FoodDataModel(
-                "Chickpeas",
+                getString(R.string.chickpeas_name),
                 R.drawable.chickpeas,
-                "• Calories: 164 kcal\n• Protein: 8.9 g\n• Total Fat: 2.6 g\n• Saturated Fat: 0.3 g\n• Cholesterol: 0 mg"
+                getString(R.string.chickpeas_description)
             ),
             FoodDataModel(
-                "Quinoa",
+                getString(R.string.quinoa_name),
                 R.drawable.quinoa,
-                "• Calories: 120 kcal\n• Protein: 4.1 g\n• Total Fat: 1.9 g\n• Saturated Fat: 0.2 g\n• Cholesterol: 0 mg"
+                getString(R.string.quinoa_description)
             )
         )
 
         // Grains
         val grainsList = mutableListOf(
             FoodDataModel(
-                "Brown Rice",
+                getString(R.string.brown_rice_name),
                 R.drawable.brown_rice,
-                "• Calories: 111 kcal\n• Carbohydrates: 23 g\n• Fiber: 1.8 g\n• Protein: 2.6 g"
+                getString(R.string.brown_rice_description)
             ),
             FoodDataModel(
-                "Quinoa",
+                getString(R.string.quinoa_name),
                 R.drawable.quinoa,
-                "• Calories: 120 kcal\n• Carbohydrates: 21 g\n• Fiber: 2.8 g\n• Protein: 4.1 g"
+                getString(R.string.quinoa_description_v2)
             ),
             FoodDataModel(
-                "Barley",
+                getString(R.string.barley_name),
                 R.drawable.barley,
-                "• Calories: 123 kcal\n• Carbohydrates: 28 g\n• Fiber: 4.0 g\n• Protein: 3.6 g"
+                getString(R.string.barley_description)
             ),
             FoodDataModel(
-                "Oats",
+                getString(R.string.oats_name),
                 R.drawable.oats,
-                "• Calories: 68 kcal\n• Carbohydrates: 12 g\n• Fiber: 2.4 g\n• Protein: 2.4 g"
+                getString(R.string.oats_description)
             ),
             FoodDataModel(
-                "Whole Wheat Bread",
+                getString(R.string.whole_wheat_bread_name),
                 R.drawable.whole_wheat_bread,
-                "• Calories: 247 kcal\n• Carbohydrates: 49 g\n• Fiber: 7.6 g\n• Protein: 12 g"
+                getString(R.string.whole_wheat_bread_description)
             ),
             FoodDataModel(
-                "Couscous",
+                getString(R.string.couscous_name),
                 R.drawable.couscous,
-                "• Calories: 176 kcal\n• Carbohydrates: 36 g\n• Fiber: 2.2 g\n• Protein: 6 g"
+                getString(R.string.couscous_description)
             ),
             FoodDataModel(
-                "Bulgur",
+                getString(R.string.bulgur_name),
                 R.drawable.bulgur,
-                "• Calories: 83 kcal\n• Carbohydrates: 18 g\n• Fiber: 5.6 g\n• Protein: 3 g"
+                getString(R.string.bulgur_description)
             ),
             FoodDataModel(
-                "Farro",
+                getString(R.string.farro_name),
                 R.drawable.farro,
-                "• Calories: 170 kcal\n• Carbohydrates: 34 g\n• Fiber: 5.4 g\n• Protein: 7 g"
+                getString(R.string.farro_description)
             ),
             FoodDataModel(
-                "Millet",
+                getString(R.string.millet_name),
                 R.drawable.millet,
-                "• Calories: 119 kcal\n• Carbohydrates: 23 g\n• Fiber: 1.7 g\n• Protein: 3.5 g"
+                getString(R.string.millet_description)
             ),
             FoodDataModel(
-                "Buckwheat",
+                getString(R.string.buckwheat_name),
                 R.drawable.buckwheat,
-                "• Calories: 343 kcal\n• Carbohydrates: 71 g\n• Fiber: 10 g\n• Protein: 13 g"
+                getString(R.string.buckwheat_description)
             )
         )
 
         // vegetables
         val vegetablesList = mutableListOf(
             FoodDataModel(
-                "Broccoli",
+                getString(R.string.broccoli_name),
                 R.drawable.broccoli,
-                "• Calories: 55 kcal\n• Carbohydrates: 11 g\n• Fiber: 3.7 g\n• Protein: 3.7 g"
+                getString(R.string.broccoli_description)
             ),
             FoodDataModel(
-                "Spinach",
+                getString(R.string.spinach_name),
                 R.drawable.spinach,
-                "• Calories: 23 kcal\n• Carbohydrates: 3.6 g\n• Fiber: 2.2 g\n• Protein: 2.9 g"
+                getString(R.string.spinach_description)
             ),
             FoodDataModel(
-                "Carrots",
+                getString(R.string.carrots_name),
                 R.drawable.carrots,
-                "• Calories: 41 kcal\n• Carbohydrates: 10 g\n• Fiber: 2.8 g\n• Protein: 1 g"
+                getString(R.string.carrots_description)
             ),
             FoodDataModel(
-                "Bell Peppers",
+                getString(R.string.bell_peppers_name),
                 R.drawable.bell_peppers,
-                "• Calories: 31 kcal\n• Carbohydrates: 7.6 g\n• Fiber: 2.8 g\n• Protein: 1.2 g"
+                getString(R.string.bell_peppers_description)
             ),
             FoodDataModel(
-                "Cauliflower",
+                getString(R.string.cauliflower_name),
                 R.drawable.cauliflower,
-                "• Calories: 25 kcal\n• Carbohydrates: 5.3 g\n• Fiber: 2.5 g\n• Protein: 2 g"
+                getString(R.string.cauliflower_description)
             ),
             FoodDataModel(
-                "Zucchini",
+                getString(R.string.zucchini_name),
                 R.drawable.zucchini,
-                "• Calories: 17 kcal\n• Carbohydrates: 3.1 g\n• Fiber: 1 g\n• Protein: 1.2 g"
+                getString(R.string.zucchini_description)
             ),
             FoodDataModel(
-                "Sweet Potato",
+                getString(R.string.sweet_potato_name),
                 R.drawable.sweet_potato,
-                "• Calories: 86 kcal\n• Carbohydrates: 20 g\n• Fiber: 3 g\n• Protein: 2 g"
+                getString(R.string.sweet_potato_description)
             ),
             FoodDataModel(
-                "Kale",
+                getString(R.string.kale_name),
                 R.drawable.kale,
-                "• Calories: 50 kcal\n• Carbohydrates: 11 g\n• Fiber: 2.6 g\n• Protein: 3.3 g"
+                getString(R.string.kale_description)
             ),
             FoodDataModel(
-                "Asparagus",
+                getString(R.string.asparagus_name),
                 R.drawable.asparagus,
-                "• Calories: 20 kcal\n• Carbohydrates: 3.7 g\n• Fiber: 2 g\n• Protein: 2.2 g"
+                getString(R.string.asparagus_description)
             ),
             FoodDataModel(
-                "Tomato",
+                getString(R.string.tomato_name),
                 R.drawable.tomato,
-                "• Calories: 18 kcal\n• Carbohydrates: 4 g\n• Fiber: 1.5 g\n• Protein: 1 g"
+                getString(R.string.tomato_description)
             )
         )
 
         // dairy
         val dairyList = mutableListOf(
             FoodDataModel(
-                "Greek Yogurt",
+                getString(R.string.greek_yogurt_name),
                 R.drawable.greek_yogurt,
-                "• Calories: 59 kcal\n• Protein: 10 g\n• Carbohydrates: 3.6 g\n• Sugars: 3.6 g"
+                getString(R.string.greek_yogurt_description)
             ),
             FoodDataModel(
-                "Milk",
+                getString(R.string.milk_name),
                 R.drawable.milk,
-                "• Calories: 61 kcal\n• Protein: 3.2 g\n• Carbohydrates: 4.8 g\n• Sugars: 4.8 g"
+                getString(R.string.milk_description)
             ),
             FoodDataModel(
-                "Cheese",
+                getString(R.string.cheese_name),
                 R.drawable.cheese,
-                "• Calories: 402 kcal\n• Protein: 25 g\n• Total Fat: 33 g\n• Saturated Fat: 21 g\n• Cholesterol: 100 mg"
+                getString(R.string.cheese_description)
             ),
             FoodDataModel(
-                "Cottage Cheese",
+                getString(R.string.cottage_cheese_name),
                 R.drawable.cottage_cheese,
-                "• Calories: 98 kcal\n• Protein: 11 g\n• Carbohydrates: 3.4 g\n• Sugars: 2.3 g"
+                getString(R.string.cottage_cheese_description)
             ),
             FoodDataModel(
-                "Butter",
+                getString(R.string.butter_name),
                 R.drawable.butter,
-                "• Calories: 717 kcal\n• Total Fat: 81 g\n• Saturated Fat: 51 g\n• Cholesterol: 215 mg"
+                getString(R.string.butter_description)
             ),
             FoodDataModel(
-                "Yogurt",
+                getString(R.string.yogurt_name),
                 R.drawable.yogurt,
-                "• Calories: 59 kcal\n• Protein: 10 g\n• Carbohydrates: 3.6 g\n• Sugars: 3.6 g"
+                getString(R.string.yogurt_description)
             ),
             FoodDataModel(
-                "Soy Milk",
+                getString(R.string.soy_milk_name),
                 R.drawable.soy_milk,
-                "• Calories: 33 kcal\n• Protein: 3.3 g\n• Carbohydrates: 1.7 g\n• Sugars: 1 g"
+                getString(R.string.soy_milk_description)
             ),
             FoodDataModel(
-                "Almond Milk",
+                getString(R.string.almond_milk_name),
                 R.drawable.almond_milk,
-                "• Calories: 13 kcal\n• Protein: 0.5 g\n• Carbohydrates: 0.6 g\n• Sugars: 0.1 g"
+                getString(R.string.almond_milk_description)
             ),
             FoodDataModel(
-                "Goat Cheese",
+                getString(R.string.goat_cheese_name),
                 R.drawable.goat_cheese,
-                "• Calories: 364 kcal\n• Protein: 22 g\n• Total Fat: 30 g\n• Saturated Fat: 20 g\n• Cholesterol: 59 mg"
+                getString(R.string.goat_cheese_description)
             ),
             FoodDataModel(
-                "Cream",
+                getString(R.string.cream_name),
                 R.drawable.cream,
-                "• Calories: 340 kcal\n• Protein: 2 g\n• Total Fat: 36 g\n• Saturated Fat: 22 g\n• Cholesterol: 110 mg"
+                getString(R.string.cream_description)
             )
         )
 
         // nuts and seeds
         val nutsAndSeedsList = mutableListOf(
             FoodDataModel(
-                "Almonds",
+                getString(R.string.almonds_name),
                 R.drawable.almonds,
-                "• Calories: 576 kcal\n• Protein: 21 g\n• Total Fat: 49 g\n• Saturated Fat: 3.7 g\n• Fiber: 12 g"
+                getString(R.string.almonds_description)
             ),
             FoodDataModel(
-                "Chia Seeds",
+                getString(R.string.chia_seeds_name),
                 R.drawable.chia_seeds,
-                "• Calories: 486 kcal\n• Protein: 16.5 g\n• Total Fat: 30.7 g\n• Saturated Fat: 3.3 g\n• Fiber: 34.4 g"
+                getString(R.string.chia_seeds_description)
             ),
             FoodDataModel(
-                "Walnuts",
+                getString(R.string.walnuts_name),
                 R.drawable.walnuts,
-                "• Calories: 654 kcal\n• Protein: 15 g\n• Total Fat: 65 g\n• Saturated Fat: 6.1 g\n• Fiber: 7 g"
+                getString(R.string.walnuts_description)
             ),
             FoodDataModel(
-                "Flaxseeds",
+                getString(R.string.flaxseeds_name),
                 R.drawable.flaxseeds,
-                "• Calories: 534 kcal\n• Protein: 18 g\n• Total Fat: 42 g\n• Saturated Fat: 4 g\n• Fiber: 27 g"
+                getString(R.string.flaxseeds_description)
             ),
             FoodDataModel(
-                "Sunflower Seeds",
+                getString(R.string.sunflower_seeds_name),
                 R.drawable.sunflower_seeds,
-                "• Calories: 584 kcal\n• Protein: 21 g\n• Total Fat: 51 g\n• Saturated Fat: 4.5 g\n• Fiber: 8.6 g"
+                getString(R.string.sunflower_seeds_description)
             ),
             FoodDataModel(
-                "Pumpkin Seeds",
+                getString(R.string.pumpkin_seeds_name),
                 R.drawable.pumpkin_seeds,
-                "• Calories: 574 kcal\n• Protein: 30 g\n• Total Fat: 49 g\n• Saturated Fat: 8.7 g\n• Fiber: 5.2 g"
+                getString(R.string.pumpkin_seeds_description)
             ),
             FoodDataModel(
-                "Cashews",
+                getString(R.string.cashews_name),
                 R.drawable.cashews,
-                "• Calories: 553 kcal\n• Protein: 18 g\n• Total Fat: 44 g\n• Saturated Fat: 8.5 g\n• Fiber: 3.3 g"
+                getString(R.string.cashews_description)
             ),
             FoodDataModel(
-                "Peanuts",
+                getString(R.string.peanuts_name),
                 R.drawable.peanuts,
-                "• Calories: 567 kcal\n• Protein: 25 g\n• Total Fat: 49 g\n• Saturated Fat: 6.9 g\n• Fiber: 8.5 g"
+                getString(R.string.peanuts_description)
             ),
             FoodDataModel(
-                "Hazelnuts",
+                getString(R.string.hazelnuts_name),
                 R.drawable.hazelnuts,
-                "• Calories: 628 kcal\n• Protein: 15 g\n• Total Fat: 61 g\n• Saturated Fat: 4.5 g\n• Fiber: 9.7 g"
+                getString(R.string.hazelnuts_description)
             ),
             FoodDataModel(
-                "Pistachios",
+                getString(R.string.pistachios_name),
                 R.drawable.pistachios,
-                "• Calories: 562 kcal\n• Protein: 21 g\n• Total Fat: 45 g\n• Saturated Fat: 5.4 g\n• Fiber: 10 g"
+                getString(R.string.pistachios_description)
             )
         )
 
