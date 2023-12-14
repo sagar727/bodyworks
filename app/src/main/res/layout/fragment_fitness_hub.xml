@@ -36,6 +36,7 @@
                         android:layout_gravity="center"
                         android:layout_margin="30dp"
                         android:text="@string/bmi"
+                        android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="24sp"
                         android:textStyle="bold" />
@@ -64,6 +65,7 @@
                         android:layout_gravity="center"
                         android:layout_margin="30dp"
                         android:text="@string/daily_workout_planner"
+                        android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="24sp"
                         android:textStyle="bold" />
@@ -92,6 +94,7 @@
                         android:layout_gravity="center"
                         android:layout_margin="30dp"
                         android:text="@string/weight_tracker"
+                        android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="24sp"
                         android:textStyle="bold" />
@@ -120,6 +123,7 @@
                         android:layout_gravity="center"
                         android:layout_margin="30dp"
                         android:text="@string/water_reminder"
+                        android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="24sp"
                         android:textStyle="bold" />
@@ -148,6 +152,7 @@
                         android:layout_gravity="center"
                         android:layout_margin="30dp"
                         android:text="@string/calorie_tracker"
+                        android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="24sp"
                         android:textStyle="bold" />
@@ -177,6 +182,7 @@
                         android:layout_gravity="center"
                         android:layout_margin="30dp"
                         android:text="@string/diet_meal_plans"
+                        android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="24sp"
                         android:textStyle="bold" />
@@ -206,6 +212,7 @@
                         android:layout_gravity="center"
                         android:layout_margin="30dp"
                         android:text="@string/sleep_reminder_btn"
+                        android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="24sp"
                         android:textStyle="bold" />
@@ -235,6 +242,7 @@
                         android:layout_gravity="center"
                         android:layout_margin="30dp"
                         android:text="@string/workout_reminder_btn"
+                        android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="24sp"
                         android:textStyle="bold" />
@@ -263,6 +271,7 @@
                         android:layout_gravity="center"
                         android:layout_margin="30dp"
                         android:text="@string/nutritional_values_txt"
+                        android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="24sp"
                         android:textStyle="bold" />

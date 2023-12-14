@@ -480,6 +480,24 @@
         <item>मांसपेशी लाभ योजना</item>
     </string-array>
 
+    <string name="red">लाल</string>
+    <string name="orange">नारंगी</string>
+    <string name="brown">भूरा</string>
+
+    <string name="text_light_mode">वर्तमान मोड: प्रकाश मोड</string>
+    <string name="text_dark_mode">वर्तमान मोड: डार्क मोड</string>
+    <string name="dark_mode">डार्क मोड</string>
+
+    <!-- Timer Tone Selection-->
+    <string name="countdown">उलटी गिनती</string>
+    <string name="countdown_timer_digital">डिजिटल उलटी गिनती टाइमर</string>
+    <string name="stopwatch_ticking_mechanical">स्टॉपवॉच टिकिंग मैकेनिकल</string>
+    <string name="tick_tock_clock_timer">टिक टॉक घड़ी टाइमर</string>
+    <string name="nutritional_values_txt">पोषणीय मूल्य</string>
+    <string name="select_food_category">खाद्य श्रेणी का चयन करें</string>
+    <string name="nutritional_value_warning">* मूल्य 100 ग्राम प्रति हैं। ध्यान रखें कि ये मूल्य विभिन्न कारकों जैसे विविधता के आधार पर बदल सकते हैं, जैसे विभिन्न विधियों से पकाने की।</string>
+
+
 
     <!-- Settings -->
     <string name="settings">सेटिंग</string>
@@ -491,6 +509,14 @@
     <string name="workout_reminder_btn">कसरत अनुस्मारक</string>
     <string name="lbs">एलबीएस</string>
 
+    <string-array name="food_categories">
+        <item>फल</item> <!-- Fruits -->
+        <item>प्रोटीन युक्त आहार</item> <!-- Protein Foods -->
+        <item>अनाज</item> <!-- Grains -->
+        <item>सब्जियां</item> <!-- Vegetables -->
+        <item>डेयरी</item> <!-- Dairy -->
+        <item>खाद्य बीज और बीजगाहर</item> <!-- Nuts and Seeds -->
+    </string-array>
 
     <!-- फल -->
     <string name="apple_name">सेब</string>

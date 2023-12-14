@@ -491,6 +491,33 @@
     <string name="workout_reminder_btn">Recordatorio de entrenamiento</string>
     <string name="lbs">libras</string>
 
+    <string-array name="food_categories">
+        <item>Frutas</item> <!-- Fruits -->
+        <item>Alimentos ricos en proteínas</item> <!-- Protein Foods -->
+        <item>Cereales</item> <!-- Grains -->
+        <item>Verduras</item> <!-- Vegetables -->
+        <item>Lácteos</item> <!-- Dairy -->
+        <item>Frutos secos y semillas</item> <!-- Nuts and Seeds -->
+    </string-array>
+
+    <string name="red">Rojo</string>
+    <string name="orange">Naranja</string>
+    <string name="brown">Marrón</string>
+
+    <string name="text_light_mode">Modo actual: Modo claro</string>
+    <string name="text_dark_mode">Modo actual: Modo oscuro</string>
+    <string name="dark_mode">Modo oscuro</string>
+
+    <!-- Timer Tone Selection-->
+    <string name="countdown">Cuenta atrás</string>
+    <string name="countdown_timer_digital">Temporizador de cuenta regresiva digital</string>
+    <string name="stopwatch_ticking_mechanical">Cronómetro mecánico</string>
+    <string name="tick_tock_clock_timer">Temporizador de reloj tic-tac</string>
+    <string name="nutritional_values_txt">Valores nutricionales</string>
+    <string name="select_food_category">Seleccionar categoría de alimentos</string>
+    <string name="nutritional_value_warning">* Los valores son por 100 gramos. Tenga en cuenta que estos valores pueden variar según diferentes factores, como el método de cocción.</string>
+
+
     <!-- Frutas -->
     <string name="apple_name">Manzana</string>
     <string name="banana_name">Plátano</string>

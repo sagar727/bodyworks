@@ -480,6 +480,23 @@
         <item>Plan de prise de muscle</item>
     </string-array>
 
+    <string name="text_light_mode">Mode actuel : Mode clair</string>
+    <string name="text_dark_mode">Mode actuel : Mode sombre</string>
+    <string name="dark_mode">Mode sombre</string>
+
+    <string name="red">Rouge</string>
+    <string name="orange">Orange</string>
+    <string name="brown">Marron</string>
+
+    <!-- Timer Tone Selection-->
+    <string name="countdown">Compte à rebours</string>
+    <string name="countdown_timer_digital">Compte à rebours numérique</string>
+    <string name="stopwatch_ticking_mechanical">Chronomètre mécanique</string>
+    <string name="tick_tock_clock_timer">Minuteur à tic-tac</string>
+    <string name="nutritional_values_txt">Valeurs nutritionnelles</string>
+    <string name="select_food_category">Sélectionner la catégorie d\'aliments</string>
+    <string name="nutritional_value_warning">* Les valeurs sont pour 100 grammes. Gardez à l\'esprit que ces valeurs peuvent varier en fonction de différents facteurs tels que la méthode de cuisson.</string>
+
 
     <!-- Settings -->
     <string name="settings">Paramètres</string>
@@ -490,6 +507,15 @@
     <string name="sleep_reminder_btn">Rappel de sommeil</string>
     <string name="workout_reminder_btn">Rappel d\'entraînement</string>
     <string name="lbs">livre</string>
+
+    <string-array name="food_categories">
+        <item>Fruits</item>
+        <item>Aliments protéinés</item> <!-- Protein Foods -->
+        <item>Céréales</item> <!-- Grains -->
+        <item>Légumes</item> <!-- Vegetables -->
+        <item>Produits laitiers</item> <!-- Dairy -->
+        <item>Noix et graines</item> <!-- Nuts and Seeds -->
+    </string-array>
 
     <!-- Fruits -->
     <string name="apple_name">Pomme</string>
