@@ -491,4 +491,134 @@
     <string name="workout_reminder_btn">Rappel d\'entraînement</string>
     <string name="lbs">livre</string>
 
+    <!-- Fruits -->
+    <string name="apple_name">Pomme</string>
+    <string name="banana_name">Banane</string>
+    <string name="orange_name">Orange</string>
+    <string name="strawberries_name">Fraises</string>
+    <string name="pineapple_name">Ananas</string>
+    <string name="grapes_name">Raisins</string>
+    <string name="mango_name">Mangue</string>
+    <string name="watermelon_name">Pastèque</string>
+    <string name="peach_name">Pêche</string>
+    <string name="kiwi_name">Kiwi</string>
+    <string name="apple_description">• Calories : 52 kcal\n• Glucides : 14 g\n• Fibres : 2,4 g\n• Sucres : 10 g\n• Protéines : 0,3 g</string>
+    <string name="banana_description">• Calories : 89 kcal\n• Glucides : 23 g\n• Fibres : 2,6 g\n• Sucres : 12 g\n• Protéines : 1,1 g</string>
+    <string name="orange_description">• Calories : 43 kcal\n• Glucides : 9 g\n• Fibres : 2,3 g\n• Sucres : 8,2 g\n• Protéines : 1,0 g</string>
+    <string name="strawberries_description">• Calories : 32 kcal\n• Glucides : 7,7 g\n• Fibres : 2,0 g\n• Sucres : 4,9 g\n• Protéines : 0,7 g</string>
+    <string name="pineapple_description">• Calories : 50 kcal\n• Glucides : 13 g\n• Fibres : 1,4 g\n• Sucres : 9,9 g\n• Protéines : 0,5 g</string>
+    <string name="grapes_description">• Calories : 69 kcal\n• Glucides : 18 g\n• Fibres : 0,9 g\n• Sucres : 15 g\n• Protéines : 0,6 g</string>
+    <string name="mango_description">• Calories : 60 kcal\n• Glucides : 15 g\n• Fibres : 1,6 g\n• Sucres : 14 g\n• Protéines : 0,8 g</string>
+    <string name="watermelon_description">• Calories : 30 kcal\n• Glucides : 8 g\n• Fibres : 0,4 g\n• Sucres : 6 g\n• Protéines : 0,6 g</string>
+    <string name="peach_description">• Calories : 39 kcal\n• Glucides : 10 g\n• Fibres : 1,5 g\n• Sucres : 8,4 g\n• Protéines : 0,9 g</string>
+    <string name="kiwi_description">• Calories : 61 kcal\n• Glucides : 15 g\n• Fibres : 3 g\n• Sucres : 9 g\n• Protéines : 1,1 g</string>
+
+    <!-- Protéines -->
+    <string name="chicken_breast_name">Blanc de poulet</string>
+    <string name="salmon_name">Saumon</string>
+    <string name="egg_name">Œuf</string>
+    <string name="tofu_name">Tofu</string>
+    <string name="turkey_name">Dinde</string>
+    <string name="beef_name">Bœuf</string>
+    <string name="pork_name">Porc</string>
+    <string name="lentils_name">Lentilles</string>
+    <string name="chickpeas_name">Pois chiches</string>
+    <string name="quinoa_name">Quinoa</string>
+    <string name="chicken_breast_description">• Calories : 165 kcal\n• Protéines : 31 g\n• Lipides totaux : 3,6 g\n• Lipides saturés : 1,0 g\n• Cholestérol : 85 mg</string>
+    <string name="salmon_description">• Calories : 206 kcal\n• Protéines : 22 g\n• Lipides totaux : 13 g\n• Lipides saturés : 2,0 g\n• Acides gras oméga-3 : 2,3 g</string>
+    <string name="egg_description">• Calories : 68 kcal\n• Protéines : 5,5 g\n• Lipides totaux : 4,8 g\n• Lipides saturés : 1,6 g\n• Cholestérol : 186 mg</string>
+    <string name="tofu_description">• Calories : 144 kcal\n• Protéines : 15 g\n• Lipides totaux : 8,0 g\n• Lipides saturés : 1,1 g\n• Cholestérol : 0 mg</string>
+    <string name="turkey_description">• Calories : 135 kcal\n• Protéines : 29 g\n• Lipides totaux : 1,7 g\n• Lipides saturés : 0,5 g\n• Cholestérol : 70 mg</string>
+    <string name="beef_description">• Calories : 250 kcal\n• Protéines : 26 g\n• Lipides totaux : 17 g\n• Lipides saturés : 6,8 g\n• Cholestérol : 94 mg</string>
+    <string name="pork_description">• Calories : 143 kcal\n• Protéines : 25 g\n• Lipides totaux : 4,4 g\n• Lipides saturés : 1,5 g\n• Cholestérol : 71 mg</string>
+    <string name="lentils_description">• Calories : 116 kcal\n• Protéines : 9,0 g\n• Lipides totaux : 0,4 g\n• Lipides saturés : 0,1 g\n• Cholestérol : 0 mg</string>
+    <string name="chickpeas_description">• Calories : 164 kcal\n• Protéines : 8,9 g\n• Lipides totaux : 2,6 g\n• Lipides saturés : 0,3 g\n• Cholestérol : 0 mg</string>
+    <string name="quinoa_description">• Calories : 120 kcal\n• Protéines : 4,1 g\n• Lipides totaux : 1,9 g\n• Lipides saturés : 0,2 g\n• Cholestérol : 0 mg</string>
+
+    <!-- Céréales -->
+    <string name="brown_rice_name">Riz complet</string>
+    <string name="barley_name">Orge</string>
+    <string name="oats_name">Avoine</string>
+    <string name="whole_wheat_bread_name">Pain complet</string>
+    <string name="couscous_name">Couscous</string>
+    <string name="bulgur_name">Boulgour</string>
+    <string name="farro_name">Épeautre</string>
+    <string name="millet_name">Millet</string>
+    <string name="buckwheat_name">Sarrasin</string>
+    <string name="brown_rice_description">• Calories : 111 kcal\n• Glucides : 23 g\n• Fibres : 1,8 g\n• Protéines : 2,6 g</string>
+    <string name="quinoa_description_v2">• Calories : 120 kcal\n• Glucides : 21 g\n• Fibres : 2,8 g\n• Protéines : 4,1 g</string>
+    <string name="barley_description">• Calories : 123 kcal\n• Glucides : 28 g\n• Fibres : 4,0 g\n• Protéines : 3,6 g</string>
+    <string name="oats_description">• Calories : 68 kcal\n• Glucides : 12 g\n• Fibres : 2,4 g\n• Protéines : 2,4 g</string>
+    <string name="whole_wheat_bread_description">• Calories : 247 kcal\n• Glucides : 49 g\n• Fibres : 7,6 g\n• Protéines : 12 g</string>
+    <string name="couscous_description">• Calories : 176 kcal\n• Glucides : 36 g\n• Fibres : 2,2 g\n• Protéines : 6 g</string>
+    <string name="bulgur_description">• Calories : 83 kcal\n• Glucides : 18 g\n• Fibres : 5,6 g\n• Protéines : 3 g</string>
+    <string name="farro_description">• Calories : 170 kcal\n• Glucides : 34 g\n• Fibres : 5,4 g\n• Protéines : 7 g</string>
+    <string name="millet_description">• Calories : 119 kcal\n• Glucides : 23 g\n• Fibres : 1,7 g\n• Protéines : 3,5 g</string>
+    <string name="buckwheat_description">• Calories : 343 kcal\n• Glucides : 71 g\n• Fibres : 10 g\n• Protéines : 13 g</string>
+
+    <!-- Légumes -->
+    <string name="broccoli_name">Brocoli</string>
+    <string name="spinach_name">Épinard</string>
+    <string name="carrots_name">Carottes</string>
+    <string name="bell_peppers_name">Poivrons</string>
+    <string name="cauliflower_name">Chou-fleur</string>
+    <string name="zucchini_name">Courgette</string>
+    <string name="sweet_potato_name">Patate douce</string>
+    <string name="kale_name">Chou frisé</string>
+    <string name="asparagus_name">Asperge</string>
+    <string name="tomato_name">Tomate</string>
+    <string name="broccoli_description">• Calories : 55 kcal\n• Glucides : 11 g\n• Fibres : 3,7 g\n• Protéines : 3,7 g</string>
+    <string name="spinach_description">• Calories : 23 kcal\n• Glucides : 3,6 g\n• Fibres : 2,2 g\n• Protéines : 2,9 g</string>
+    <string name="carrots_description">• Calories : 41 kcal\n• Glucides : 10 g\n• Fibres : 2,8 g\n• Protéines : 1 g</string>
+    <string name="bell_peppers_description">• Calories : 31 kcal\n• Glucides : 7,6 g\n• Fibres : 2,8 g\n• Protéines : 1,2 g</string>
+    <string name="cauliflower_description">• Calories : 25 kcal\n• Glucides : 5,3 g\n• Fibres : 2,5 g\n• Protéines : 2 g</string>
+    <string name="zucchini_description">• Calories : 17 kcal\n• Glucides : 3,1 g\n• Fibres : 1 g\n• Protéines : 1,2 g</string>
+    <string name="sweet_potato_description">• Calories : 86 kcal\n• Glucides : 20 g\n• Fibres : 3 g\n• Protéines : 2 g</string>
+    <string name="kale_description">• Calories : 50 kcal\n• Glucides : 11 g\n• Fibres : 2,6 g\n• Protéines : 3,3 g</string>
+    <string name="asparagus_description">• Calories : 20 kcal\n• Glucides : 3,7 g\n• Fibres : 2 g\n• Protéines : 2,2 g</string>
+    <string name="tomato_description">• Calories : 18 kcal\n• Glucides : 4 g\n• Fibres : 1,5 g\n• Protéines : 1 g</string>
+
+    <!-- Produits laitiers -->
+    <string name="greek_yogurt_name">Yaourt grec</string>
+    <string name="milk_name">Lait</string>
+    <string name="cheese_name">Fromage</string>
+    <string name="cottage_cheese_name">Fromage cottage</string>
+    <string name="butter_name">Beurre</string>
+    <string name="yogurt_name">Yaourt</string>
+    <string name="soy_milk_name">Lait de soja</string>
+    <string name="almond_milk_name">Lait d\'amande</string>
+    <string name="goat_cheese_name">Fromage de chèvre</string>
+    <string name="cream_name">Crème</string>
+    <string name="greek_yogurt_description">• Calories : 59 kcal\n• Protéines : 10 g\n• Glucides : 3,6 g\n• Sucres : 3,6 g</string>
+    <string name="milk_description">• Calories : 61 kcal\n• Protéines : 3,2 g\n• Glucides : 4,8 g\n• Sucres : 4,8 g</string>
+    <string name="cheese_description">• Calories : 402 kcal\n• Protéines : 25 g\n• Matières grasses totales : 33 g\n• Graisses saturées : 21 g\n• Cholestérol : 100 mg</string>
+    <string name="cottage_cheese_description">• Calories : 98 kcal\n• Protéines : 11 g\n• Glucides : 3,4 g\n• Sucres : 2,3 g</string>
+    <string name="butter_description">• Calories : 717 kcal\n• Matières grasses totales : 81 g\n• Graisses saturées : 51 g\n• Cholestérol : 215 mg</string>
+    <string name="yogurt_description">• Calories : 59 kcal\n• Protéines : 10 g\n• Glucides : 3,6 g\n• Sucres : 3,6 g</string>
+    <string name="soy_milk_description">• Calories : 33 kcal\n• Protéines : 3,3 g\n• Glucides : 1,7 g\n• Sucres : 1 g</string>
+    <string name="almond_milk_description">• Calories : 13 kcal\n• Protéines : 0,5 g\n• Glucides : 0,6 g\n• Sucres : 0,1 g</string>
+    <string name="goat_cheese_description">• Calories : 364 kcal\n• Protéines : 22 g\n• Matières grasses totales : 30 g\n• Graisses saturées : 20 g\n• Cholestérol : 59 mg</string>
+    <string name="cream_description">• Calories : 340 kcal\n• Protéines : 2 g\n• Matières grasses totales : 36 g\n• Graisses saturées : 22 g\n• Cholestérol : 110 mg</string>
+
+    <!-- Noix et graines -->
+    <string name="almonds_name">Amandes</string>
+    <string name="chia_seeds_name">Graines de chia</string>
+    <string name="walnuts_name">Noix</string>
+    <string name="flaxseeds_name">Graines de lin</string>
+    <string name="sunflower_seeds_name">Graines de tournesol</string>
+    <string name="pumpkin_seeds_name">Graines de citrouille</string>
+    <string name="cashews_name">Noix de cajou</string>
+    <string name="peanuts_name">Cacahuètes</string>
+    <string name="hazelnuts_name">Noisettes</string>
+    <string name="pistachios_name">Pistaches</string>
+    <string name="almonds_description">• Calories : 576 kcal\n• Protéines : 21 g\n• Matières grasses totales : 49 g\n• Graisses saturées : 3,7 g\n• Fibres : 12 g</string>
+    <string name="chia_seeds_description">• Calories : 486 kcal\n• Protéines : 16,5 g\n• Matières grasses totales : 30,7 g\n• Graisses saturées : 3,3 g\n• Fibres : 34,4 g</string>
+    <string name="walnuts_description">• Calories : 654 kcal\n• Protéines : 15 g\n• Matières grasses totales : 65 g\n• Graisses saturées : 6,1 g\n• Fibres : 7 g</string>
+    <string name="flaxseeds_description">• Calories : 534 kcal\n• Protéines : 18 g\n• Matières grasses totales : 42 g\n• Graisses saturées : 4 g\n• Fibres : 27 g</string>
+    <string name="sunflower_seeds_description">• Calories : 584 kcal\n• Protéines : 21 g\n• Matières grasses totales : 51 g\n• Graisses saturées : 4,5 g\n• Fibres : 8,6 g</string>
+    <string name="pumpkin_seeds_description">• Calories : 574 kcal\n• Protéines : 30 g\n• Matières grasses totales : 49 g\n• Graisses saturées : 8,7 g\n• Fibres : 5,2 g</string>
+    <string name="cashews_description">• Calories : 553 kcal\n• Protéines : 18 g\n• Matières grasses totales : 44 g\n• Graisses saturées : 8,5 g\n• Fibres : 3,3 g</string>
+    <string name="peanuts_description">• Calories : 567 kcal\n• Protéines : 25 g\n• Matières grasses totales : 49 g\n• Graisses saturées : 6,9 g\n• Fibres : 8,5 g</string>
+    <string name="hazelnuts_description">• Calories : 628 kcal\n• Protéines : 15 g\n• Matières grasses totales : 61 g\n• Graisses saturées : 4,5 g\n• Fibres : 9,7 g</string>
+    <string name="pistachios_description">• Calories : 562 kcal\n• Protéines : 21 g\n• Matières grasses totales : 45 g\n• Graisses saturées : 5,4 g\n• Fibres : 10 g</string>
 </resources>

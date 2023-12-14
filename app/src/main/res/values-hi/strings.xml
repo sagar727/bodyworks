@@ -491,4 +491,135 @@
     <string name="workout_reminder_btn">कसरत अनुस्मारक</string>
     <string name="lbs">एलबीएस</string>
 
+
+    <!-- फल -->
+    <string name="apple_name">सेब</string>
+    <string name="banana_name">केला</string>
+    <string name="orange_name">संतरा</string>
+    <string name="strawberries_name">स्ट्रॉबेरी</string>
+    <string name="pineapple_name">अनानास</string>
+    <string name="grapes_name">अंगूर</string>
+    <string name="mango_name">आम</string>
+    <string name="watermelon_name">तरबूज</string>
+    <string name="peach_name">आड़ू</string>
+    <string name="kiwi_name">कीवी</string>
+    <string name="apple_description">• कैलोरी: 52 कैलोरी\n• कार्बोहाइड्रेट: 14 ग्राम\n• फाइबर: 2.4 ग्राम\n• शुगर: 10 ग्राम\n• प्रोटीन: 0.3 ग्राम</string>
+    <string name="banana_description">• कैलोरी: 89 कैलोरी\n• कार्बोहाइड्रेट: 23 ग्राम\n• फाइबर: 2.6 ग्राम\n• शुगर: 12 ग्राम\n• प्रोटीन: 1.1 ग्राम</string>
+    <string name="orange_description">• कैलोरी: 43 कैलोरी\n• कार्बोहाइड्रेट: 9 ग्राम\n• फाइबर: 2.3 ग्राम\n• शुगर: 8.2 ग्राम\n• प्रोटीन: 1.0 ग्राम</string>
+    <string name="strawberries_description">• कैलोरी: 32 कैलोरी\n• कार्बोहाइड्रेट: 7.7 ग्राम\n• फाइबर: 2.0 ग्राम\n• शुगर: 4.9 ग्राम\n• प्रोटीन: 0.7 ग्राम</string>
+    <string name="pineapple_description">• कैलोरी: 50 कैलोरी\n• कार्बोहाइड्रेट: 13 ग्राम\n• फाइबर: 1.4 ग्राम\n• शुगर: 9.9 ग्राम\n• प्रोटीन: 0.5 ग्राम</string>
+    <string name="grapes_description">• कैलोरी: 69 कैलोरी\n• कार्बोहाइड्रेट: 18 ग्राम\n• फाइबर: 0.9 ग्राम\n• शुगर: 15 ग्राम\n• प्रोटीन: 0.6 ग्राम</string>
+    <string name="mango_description">• कैलोरी: 60 कैलोरी\n• कार्बोहाइड्रेट: 15 ग्राम\n• फाइबर: 1.6 ग्राम\n• शुगर: 14 ग्राम\n• प्रोटीन: 0.8 ग्राम</string>
+    <string name="watermelon_description">• कैलोरी: 30 कैलोरी\n• कार्बोहाइड्रेट: 8 ग्राम\n• फाइबर: 0.4 ग्राम\n• शुगर: 6 ग्राम\n• प्रोटीन: 0.6 ग्राम</string>
+    <string name="peach_description">• कैलोरी: 39 कैलोरी\n• कार्बोहाइड्रेट: 10 ग्राम\n• फाइबर: 1.5 ग्राम\n• शुगर: 8.4 ग्राम\n• प्रोटीन: 0.9 ग्राम</string>
+    <string name="kiwi_description">• कैलोरी: 61 कैलोरी\n• कार्बोहाइड्रेट: 15 ग्राम\n• फाइबर: 3 ग्राम\n• शुगर: 9 ग्राम\n• प्रोटीन: 1.1 ग्राम</string>
+
+    <!-- प्रोटीन भोजन -->
+    <string name="chicken_breast_name">चिकन ब्रेस्ट</string>
+    <string name="salmon_name">सैलमन</string>
+    <string name="egg_name">अंडा</string>
+    <string name="tofu_name">टोफू</string>
+    <string name="turkey_name">टर्की</string>
+    <string name="beef_name">बीफ</string>
+    <string name="pork_name">पॉर्क</string>
+    <string name="lentils_name">लेंटिल्स</string>
+    <string name="chickpeas_name">छोले</string>
+    <string name="quinoa_name">क्विनोआ</string>
+    <string name="chicken_breast_description">• कैलोरी: 165 कैलोरी\n• प्रोटीन: 31 ग्राम\n• कुल वसा: 3.6 ग्राम\n• सैचुरेटेड फैट: 1.0 ग्राम\n• कोलेस्ट्रॉल: 85 मिलीग्राम</string>
+    <string name="salmon_description">• कैलोरी: 206 कैलोरी\n• प्रोटीन: 22 ग्राम\n• कुल वसा: 13 ग्राम\n• सैचुरेटेड फैट: 2.0 ग्राम\n• ओमेगा-3 फैटी एसिड्स: 2.3 ग्राम</string>
+    <string name="egg_description">• कैलोरी: 68 कैलोरी\n• प्रोटीन: 5.5 ग्राम\n• कुल वसा: 4.8 ग्राम\n• सैचुरेटेड फैट: 1.6 ग्राम\n• कोलेस्ट्रॉल: 186 मिलीग्राम</string>
+    <string name="tofu_description">• कैलोरी: 144 कैलोरी\n• प्रोटीन: 15 ग्राम\n• कुल वसा: 8.0 ग्राम\n• सैचुरेटेड फैट: 1.1 ग्राम\n• कोलेस्ट्रॉल: 0 मिलीग्राम</string>
+    <string name="turkey_description">• कैलोरी: 135 कैलोरी\n• प्रोटीन: 29 ग्राम\n• कुल वसा: 1.7 ग्राम\n• सैचुरेटेड फैट: 0.5 ग्राम\n• कोलेस्ट्रॉल: 70 मिलीग्राम</string>
+    <string name="beef_description">• कैलोरी: 250 कैलोरी\n• प्रोटीन: 26 ग्राम\n• कुल वसा: 17 ग्राम\n• सैचुरेटेड फैट: 6.8 ग्राम\n• कोलेस्ट्रॉल: 94 मिलीग्राम</string>
+    <string name="pork_description">• कैलोरी: 143 कैलोरी\n• प्रोटीन: 25 ग्राम\n• कुल वसा: 4.4 ग्राम\n• सैचुरेटेड फैट: 1.5 ग्राम\n• कोलेस्ट्रॉल: 71 मिलीग्राम</string>
+    <string name="lentils_description">• कैलोरी: 116 कैलोरी\n• प्रोटीन: 9.0 ग्राम\n• कुल वसा: 0.4 ग्राम\n• सैचुरेटेड फैट: 0.1 ग्राम\n• कोलेस्ट्रॉल: 0 मिलीग्राम</string>
+    <string name="chickpeas_description">• कैलोरी: 164 कैलोरी\n• प्रोटीन: 8.9 ग्राम\n• कुल वसा: 2.6 ग्राम\n• सैचुरेटेड फैट: 0.3 ग्राम\n• कोलेस्ट्रॉल: 0 मिलीग्राम</string>
+    <string name="quinoa_description">• कैलोरी: 120 कैलोरी\n• प्रोटीन: 4.1 ग्राम\n• कुल वसा: 1.9 ग्राम\n• सैचुरेटेड फैट: 0.2 ग्राम\n• कोलेस्ट्रॉल: 0 मिलीग्राम</string>
+
+    <!-- अनाज -->
+    <string name="brown_rice_name">ब्राउन राइस</string>
+    <string name="barley_name">बार्ली</string>
+    <string name="oats_name">ओट्स</string>
+    <string name="whole_wheat_bread_name">होल व्हीट ब्रेड</string>
+    <string name="couscous_name">कसकस</string>
+    <string name="bulgur_name">बल्गर</string>
+    <string name="farro_name">फारो</string>
+    <string name="millet_name">बाजरा</string>
+    <string name="buckwheat_name">कुट्टू का आटा</string>
+    <string name="brown_rice_description">• कैलोरी: 111 कैलोरी\n• कार्बोहाइड्रेट: 23 ग्राम\n• फाइबर: 1.8 ग्राम\n• प्रोटीन: 2.6 ग्राम</string>
+    <string name="quinoa_description_v2">• कैलोरी: 120 कैलोरी\n• कार्बोहाइड्रेट: 21 ग्राम\n• फाइबर: 2.8 ग्राम\n• प्रोटीन: 4.1 ग्राम</string>
+    <string name="barley_description">• कैलोरी: 123 कैलोरी\n• कार्बोहाइड्रेट: 28 ग्राम\n• फाइबर: 4.0 ग्राम\n• प्रोटीन: 3.6 ग्राम</string>
+    <string name="oats_description">• कैलोरी: 68 कैलोरी\n• कार्बोहाइड्रेट: 12 ग्राम\n• फाइबर: 2.4 ग्राम\n• प्रोटीन: 2.4 ग्राम</string>
+    <string name="whole_wheat_bread_description">• कैलोरी: 247 कैलोरी\n• कार्बोहाइड्रेट: 49 ग्राम\n• फाइबर: 7.6 ग्राम\n• प्रोटीन: 12 ग्राम</string>
+    <string name="couscous_description">• कैलोरी: 176 कैलोरी\n• कार्बोहाइड्रेट: 36 ग्राम\n• फाइबर: 2.2 ग्राम\n• प्रोटीन: 6 ग्राम</string>
+    <string name="bulgur_description">• कैलोरी: 83 कैलोरी\n• कार्बोहाइड्रेट: 18 ग्राम\n• फाइबर: 5.6 ग्राम\n• प्रोटीन: 3 ग्राम</string>
+    <string name="farro_description">• कैलोरी: 170 कैलोरी\n• कार्बोहाइड्रेट: 34 ग्राम\n• फाइबर: 5.4 ग्राम\n• प्रोटीन: 7 ग्राम</string>
+    <string name="millet_description">• कैलोरी: 119 कैलोरी\n• कार्बोहाइड्रेट: 23 ग्राम\n• फाइबर: 1.7 ग्राम\n• प्रोटीन: 3.5 ग्राम</string>
+    <string name="buckwheat_description">• कैलोरी: 343 कैलोरी\n• कार्बोहाइड्रेट: 71 ग्राम\n• फाइबर: 10 ग्राम\n• प्रोटीन: 13 ग्राम</string>
+
+    <!-- सब्जियां -->
+    <string name="broccoli_name">ब्रोकोली</string>
+    <string name="spinach_name">पालक</string>
+    <string name="carrots_name">गाजर</string>
+    <string name="bell_peppers_name">बेल पेपर्स</string>
+    <string name="cauliflower_name">फूल गोभी</string>
+    <string name="zucchini_name">ज़ुकीनी</string>
+    <string name="sweet_potato_name">शकरकंद</string>
+    <string name="kale_name">केल</string>
+    <string name="asparagus_name">ऐस्पैरेगस</string>
+    <string name="tomato_name">टमाटर</string>
+    <string name="broccoli_description">• कैलोरी: 55 कैलोरी\n• कार्बोहाइड्रेट: 11 ग्राम\n• फाइबर: 3.7 ग्राम\n• प्रोटीन: 3.7 ग्राम</string>
+    <string name="spinach_description">• कैलोरी: 23 कैलोरी\n• कार्बोहाइड्रेट: 3.6 ग्राम\n• फाइबर: 2.2 ग्राम\n• प्रोटीन: 2.9 ग्राम</string>
+    <string name="carrots_description">• कैलोरी: 41 कैलोरी\n• कार्बोहाइड्रेट: 10 ग्राम\n• फाइबर: 2.8 ग्राम\n• प्रोटीन: 1 ग्राम</string>
+    <string name="bell_peppers_description">• कैलोरी: 31 कैलोरी\n• कार्बोहाइड्रेट: 7.6 ग्राम\n• फाइबर: 2.8 ग्राम\n• प्रोटीन: 1.2 ग्राम</string>
+    <string name="cauliflower_description">• कैलोरी: 25 कैलोरी\n• कार्बोहाइड्रेट: 5.3 ग्राम\n• फाइबर: 2.5 ग्राम\n• प्रोटीन: 2 ग्राम</string>
+    <string name="zucchini_description">• कैलोरी: 17 कैलोरी\n• कार्बोहाइड्रेट: 3.1 ग्राम\n• फाइबर: 1 ग्राम\n• प्रोटीन: 1.2 ग्राम</string>
+    <string name="sweet_potato_description">• कैलोरी: 86 कैलोरी\n• कार्बोहाइड्रेट: 20 ग्राम\n• फाइबर: 3 ग्राम\n• प्रोटीन: 2 ग्राम</string>
+    <string name="kale_description">• कैलोरी: 50 कैलोरी\n• कार्बोहाइड्रेट: 11 ग्राम\n• फाइबर: 2.6 ग्राम\n• प्रोटीन: 3.3 ग्राम</string>
+    <string name="asparagus_description">• कैलोरी: 20 कैलोरी\n• कार्बोहाइड्रेट: 3.7 ग्राम\n• फाइबर: 2 ग्राम\n• प्रोटीन: 2.2 ग्राम</string>
+    <string name="tomato_description">• कैलोरी: 18 कैलोरी\n• कार्बोहाइड्रेट: 4 ग्राम\n• फाइबर: 1.5 ग्राम\n• प्रोटीन: 1 ग्राम</string>
+
+    <!-- डेयरी -->
+    <string name="greek_yogurt_name">ग्रीक योगर्ट</string>
+    <string name="milk_name">दूध</string>
+    <string name="cheese_name">चीज़</string>
+    <string name="cottage_cheese_name">कॉटेज चीज़</string>
+    <string name="butter_name">मक्खन</string>
+    <string name="yogurt_name">दही</string>
+    <string name="soy_milk_name">सोया दूध</string>
+    <string name="almond_milk_name">बादाम दूध</string>
+    <string name="goat_cheese_name">बकरी का पनीर</string>
+    <string name="cream_name">क्रीम</string>
+    <string name="greek_yogurt_description">• कैलोरी: 59 कैलोरी\n• प्रोटीन: 10 ग्राम\n• कार्बोहाइड्रेट: 3.6 ग्राम\n• शुगर्स: 3.6 ग्राम</string>
+    <string name="milk_description">• कैलोरी: 61 कैलोरी\n• प्रोटीन: 3.2 ग्राम\n• कार्बोहाइड्रेट: 4.8 ग्राम\n• शुगर्स: 4.8 ग्राम</string>
+    <string name="cheese_description">• कैलोरी: 402 कैलोरी\n• प्रोटीन: 25 ग्राम\n• कुल वसा: 33 ग्राम\n• सैचुरेटेड फैट: 21 ग्राम\n• कोलेस्ट्रॉल: 100 मिलीग्राम</string>
+    <string name="cottage_cheese_description">• कैलोरी: 98 कैलोरी\n• प्रोटीन: 11 ग्राम\n• कार्बोहाइड्रेट: 3.4 ग्राम\n• शुगर्स: 2.3 ग्राम</string>
+    <string name="butter_description">• कैलोरी: 717 कैलोरी\n• कुल वसा: 81 ग्राम\n• सैचुरेटेड फैट: 51 ग्राम\n• कोलेस्ट्रॉल: 215 मिलीग्राम</string>
+    <string name="yogurt_description">• कैलोरी: 59 कैलोरी\n• प्रोटीन: 10 ग्राम\n• कार्बोहाइड्रेट: 3.6 ग्राम\n• शुगर्स: 3.6 ग्राम</string>
+    <string name="soy_milk_description">• कैलोरी: 33 कैलोरी\n• प्रोटीन: 3.3 ग्राम\n• कार्बोहाइड्रेट: 1.7 ग्राम\n• शुगर्स: 1 ग्राम</string>
+    <string name="almond_milk_description">• कैलोरी: 13 कैलोरी\n• प्रोटीन: 0.5 ग्राम\n• कार्बोहाइड्रेट: 0.6 ग्राम\n• शुगर्स: 0.1 ग्राम</string>
+    <string name="goat_cheese_description">• कैलोरी: 364 कैलोरी\n• प्रोटीन: 22 ग्राम\n• कुल वसा: 30 ग्राम\n• सैचुरेटेड फैट: 20 ग्राम\n• कोलेस्ट्रॉल: 59 मिलीग्राम</string>
+    <string name="cream_description">• कैलोरी: 340 कैलोरी\n• प्रोटीन: 2 ग्राम\n• कुल वसा: 36 ग्राम\n• सैचुरेटेड फैट: 22 ग्राम\n• कोलेस्ट्रॉल: 110 मिलीग्राम</string>
+
+    <!--  बीज और सुखा मेवे  -->
+    <string name="almonds_name">बादाम</string>
+    <string name="chia_seeds_name">चिया बीज</string>
+    <string name="walnuts_name">अखरोट</string>
+    <string name="flaxseeds_name">अलसी के बीज</string>
+    <string name="sunflower_seeds_name">सनफ्लावर के बीज</string>
+    <string name="pumpkin_seeds_name">कद्दू के बीज</string>
+    <string name="cashews_name">काजू</string>
+    <string name="peanuts_name">मूँगफली</string>
+    <string name="hazelnuts_name">हेज़लनट्स</string>
+    <string name="pistachios_name">पिस्ता</string>
+    <string name="almonds_description">• कैलोरी: 576 कैलोरी\n• प्रोटीन: 21 ग्राम\n• कुल वसा: 49 ग्राम\n• सैचुरेटेड फैट: 3.7 ग्राम\n• फाइबर: 12 ग्राम</string>
+    <string name="chia_seeds_description">• कैलोरी: 486 कैलोरी\n• प्रोटीन: 16.5 ग्राम\n• कुल वसा: 30.7 ग्राम\n• सैचुरेटेड फैट: 3.3 ग्राम\n• फाइबर: 34.4 ग्राम</string>
+    <string name="walnuts_description">• कैलोरी: 654 कैलोरी\n• प्रोटीन: 15 ग्राम\n• कुल वसा: 65 ग्राम\n• सैचुरेटेड फैट: 6.1 ग्राम\n• फाइबर: 7 ग्राम</string>
+    <string name="flaxseeds_description">• कैलोरी: 534 कैलोरी\n• प्रोटीन: 18 ग्राम\n• कुल वसा: 42 ग्राम\n• सैचुरेटेड फैट: 4 ग्राम\n• फाइबर: 27 ग्राम</string>
+    <string name="sunflower_seeds_description">• कैलोरी: 584 कैलोरी\n• प्रोटीन: 21 ग्राम\n• कुल वसा: 51 ग्राम\n• सैचुरेटेड फैट: 4.5 ग्राम\n• फाइबर: 8.6 ग्राम</string>
+    <string name="pumpkin_seeds_description">• कैलोरी: 574 कैलोरी\n• प्रोटीन: 30 ग्राम\n• कुल वसा: 49 ग्राम\n• सैचुरेटेड फैट: 8.7 ग्राम\n• फाइबर: 5.2 ग्राम</string>
+    <string name="cashews_description">• कैलोरी: 553 कैलोरी\n• प्रोटीन: 18 ग्राम\n• कुल वसा: 44 ग्राम\n• सैचुरेटेड फैट: 8.5 ग्राम\n• फाइबर: 3.3 ग्राम</string>
+    <string name="peanuts_description">• कैलोरी: 567 कैलोरी\n• प्रोटीन: 25 ग्राम\n• कुल वसा: 49 ग्राम\n• सैचुरेटेड फैट: 6.9 ग्राम\n• फाइबर: 8.5 ग्राम</string>
+    <string name="hazelnuts_description">• कैलोरी: 628 कैलोरी\n• प्रोटीन: 15 ग्राम\n• कुल वसा: 61 ग्राम\n• सैचुरेटेड फैट: 4.5 ग्राम\n• फाइबर: 9.7 ग्राम</string>
+    <string name="pistachios_description">• कैलोरी: 562 कैलोरी\n• प्रोटीन: 21 ग्राम\n• कुल वसा: 45 ग्राम\n• सैचुरेटेड फैट: 5.4 ग्राम\n• फाइबर: 10 ग्राम</string>
 </resources>
